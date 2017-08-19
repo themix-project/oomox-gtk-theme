@@ -12,12 +12,11 @@ mix () {
 
 
 print_usage() {
-	echo "usage: $0 [-o OUTPUT_THEME_NAME] [-p PATH_LIST] [-m MAKE_OPTS] PRESET_NAME_OR_PATH"
+	echo "usage: $0 [-o OUTPUT_THEME_NAME] [-p PATH_LIST] [-m MAKE_OPTS] PATH_TO_PRESET"
 	echo "examples:"
-	echo "       $0 monovedek"
-	echo "       $0 -o my-theme-name ./colors/retro/twg"
-	echo "       $0 -o oomox-gnome-noble -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" gnome-noble"
-	echo "       $0 -o oomox-gnome-noble -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" -m gtk320 gnome-noble"
+	echo "       $0 -o my-theme-name ../colors/retro/twg"
+	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" ../colors/gnome-colors/shiki-noble"
+	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" -m gtk320 ../colors/monovedek/monovedek"
 	exit 1
 }
 
@@ -85,7 +84,12 @@ if [[ ${THEME} == */* ]] || [[ ${THEME} == *.* ]] ; then
 	source "$THEME"
 	THEME=$(basename ${THEME})
 else
-	source "$SRC_PATH/colors/$THEME"
+	if [[ -f "$SRC_PATH/../colors/$THEME" ]] ; then
+		source "$SRC_PATH/../colors/$THEME"
+	else
+		echo "Theme '${THEME}' not found"
+		exit 1
+	fi
 fi
 HDR_BTN_BG=${HDR_BTN_BG-$BTN_BG}
 HDR_BTN_FG=${HDR_BTN_FG-$BTN_FG}
