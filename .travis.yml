@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker image build ./ -t oomox-gtk-theme
+
+script:
+  - docker run --entrypoint ./test/all_tests.sh oomox-gtk-theme:latest
