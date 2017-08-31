@@ -6,19 +6,10 @@
 gtk.gresource
 dist
 
-# Jetbrains IDEs
-.idea
-*.iml
-
-# python stuff
-__pycache__
-
 # pkgbuild
-oomox/
 pkg/
 *.tar.xz
 
-# gettext stuff
-locale/
-po/oomox.pot
-po/*.mo
+
+# test-related
+test_results/
