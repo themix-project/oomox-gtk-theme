@@ -18,6 +18,14 @@ function ctrl_c() {
 trap ctrl_c INT
 
 
+_kill_procs() {
+	set +e
+	chmod 777 ${TEST_RESULT_DIR}/*
+	cat ${TEST_RESULT_DIR}/links.txt
+}
+trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
+
+
 run_theme_testsuite() {
 	retries=0
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
@@ -62,8 +70,5 @@ run_theme_testsuite
 export TEST_HIDPI=1
 export THEME_NAME="monovedek_hidpi"
 run_theme_testsuite
-
-chmod 777 ${TEST_RESULT_DIR}/* || true
-cat ${TEST_RESULT_DIR}/links.txt || true
 
 exit 0
