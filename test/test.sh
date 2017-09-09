@@ -126,6 +126,10 @@ make_and_compare_screenshot() {
 			https://transfer.sh/${test_result_base_name}.test.png >> ${TEST_RESULT_DIR}/links.txt \
 			&& echo >> ${TEST_RESULT_DIR}/links.txt \
 			|| true
+		curl --upload-file ${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
+			https://transfer.sh/${test_result_base_name}.orig.png >> ${TEST_RESULT_DIR}/links.txt \
+			&& echo >> ${TEST_RESULT_DIR}/links.txt \
+			|| true
 		curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
 			https://transfer.sh/${test_result_base_name}.diff.png >> ${TEST_RESULT_DIR}/links.txt \
 			&& echo >> ${TEST_RESULT_DIR}/links.txt \
