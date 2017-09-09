@@ -122,20 +122,23 @@ make_and_compare_screenshot() {
 		echo
 		cat ${compare_output}
 		echo
-		curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
-			https://transfer.sh/${test_result_base_name}.test.png >> ${TEST_RESULT_DIR}/links.txt \
-			&& echo >> ${TEST_RESULT_DIR}/links.txt \
-			|| true
-		curl --upload-file ${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
-			https://transfer.sh/${test_result_base_name}.orig.png >> ${TEST_RESULT_DIR}/links.txt \
-			&& echo >> ${TEST_RESULT_DIR}/links.txt \
-			|| true
-		curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
-			https://transfer.sh/${test_result_base_name}.diff.png >> ${TEST_RESULT_DIR}/links.txt \
-			&& echo >> ${TEST_RESULT_DIR}/links.txt \
-			|| true
 		if [[ -z ${GENERATE_ASSETS:-} ]] ; then
+			curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
+				https://transfer.sh/${test_result_base_name}.test.png >> ${TEST_RESULT_DIR}/links.txt \
+				&& echo >> ${TEST_RESULT_DIR}/links.txt \
+				|| true
+			curl --upload-file ${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
+				https://transfer.sh/${test_result_base_name}.orig.png >> ${TEST_RESULT_DIR}/links.txt \
+				&& echo >> ${TEST_RESULT_DIR}/links.txt \
+				|| true
+			curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
+				https://transfer.sh/${test_result_base_name}.diff.png >> ${TEST_RESULT_DIR}/links.txt \
+				&& echo >> ${TEST_RESULT_DIR}/links.txt \
+				|| true
 			exit 1
+		else
+			cp ${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
+				${SCREENSHOTS_DIR}/${screenshot_base_name}.png
 		fi
 		TEST_EXIT_CODE=1
 	fi
