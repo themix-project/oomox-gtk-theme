@@ -46,6 +46,8 @@ run_theme_testsuite() {
 }
 
 
+echo > ${TEST_RESULT_DIR}/links.txt
+
 echo "monovedek
 monovedek_hidpi
 clearlooks
