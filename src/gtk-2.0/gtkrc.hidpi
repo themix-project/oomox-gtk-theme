@@ -562,15 +562,15 @@ style "xfdesktop-icon-view" {
        XfdesktopIconView::shadow-y-offset = 1
        XfdesktopIconView::selected-shadow-x-offset = 0
        XfdesktopIconView::selected-shadow-y-offset = 1
-       XfdesktopIconView::shadow-color = "#000000"
-       XfdesktopIconView::selected-shadow-color = "#000000"
+       XfdesktopIconView::shadow-color = @fg_color
+       XfdesktopIconView::selected-shadow-color = @fg_color
        XfdesktopIconView::shadow-blur-radius = 2
        XfdesktopIconView::cell-spacing = 2
        XfdesktopIconView::cell-padding = 6
        XfdesktopIconView::cell-text-width-proportion = 1.9
 
-       fg[NORMAL] = @selected_fg_color
-       fg[ACTIVE] = @selected_fg_color
+       fg[NORMAL] = @bg_color
+       fg[ACTIVE] = @bg_color
 
 }
 
