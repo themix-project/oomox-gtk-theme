@@ -7,7 +7,7 @@ ENTRYPOINT /bin/bash
 
 # App dependensies:
 USER root
-RUN bash -c "pacman -Sy && pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines"
+RUN bash -c "pacman -Syu --noconfirm && pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines"
 
 # Test dependencies:
 USER admin
