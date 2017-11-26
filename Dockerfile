@@ -1,21 +1,28 @@
 #FROM oblique/archlinux-pacaur
-FROM lihebi/hebi-arch
+#FROM lihebi/hebi-arch
+FROM base/archlinux
 
 WORKDIR /opt/oomox-gtk-theme
 VOLUME /opt/oomox-gtk-theme/test_results
 ENTRYPOINT /bin/bash
 
 # App dependensies:
-USER root
-RUN bash -c "pacman -Syu --noconfirm && pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines"
+RUN pacman -Syu --noconfirm && \
+    pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines gtk3 make
 
 # Test dependencies:
-USER admin
-RUN git clone https://aur.archlinux.org/awf-git /home/admin/awf && cd /home/admin/awf && makepkg --install --syncdeps --noconfirm
-USER root
-RUN pacman -S --needed --noconfirm ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel
+RUN pacman -Syu --noconfirm && \
+    pacman -S --needed --noconfirm git base-devel && \
+    useradd -m user && \
+    echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    sudo -u user bash -c "\
+        git clone https://aur.archlinux.org/awf-git /home/user/awf && \
+        cd /home/user/awf && \
+        makepkg --install --syncdeps --noconfirm"
+RUN pacman -Syu --noconfirm && \
+    pacman -S --needed --noconfirm ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-standard adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick
 
 # Debug dependencies:
-RUN pacman -S --needed --noconfirm fish
+#RUN pacman -S --needed --noconfirm fish
 
 COPY . /opt/oomox-gtk-theme/
