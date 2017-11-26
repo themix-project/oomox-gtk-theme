@@ -1,5 +1,3 @@
-#FROM oblique/archlinux-pacaur
-#FROM lihebi/hebi-arch
 FROM base/archlinux
 
 WORKDIR /opt/oomox-gtk-theme
