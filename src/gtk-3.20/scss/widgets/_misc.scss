@@ -47,6 +47,8 @@
 
         margin: 0;
         padding: 0;
+
+        .dialog-action-box { margin: $spacing * 2; }
     }
 
     printdialog {
