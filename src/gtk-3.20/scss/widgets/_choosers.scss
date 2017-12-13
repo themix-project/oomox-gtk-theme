@@ -143,9 +143,7 @@
         padding: $spacing;
 
         colorswatch:only-child {
-            &, overlay { border-radius: 0; }
-
-            @if $variant == 'light' { box-shadow: 0 1px _text_shadow_color(); }
+            &, overlay { border-radius: $roundness; }
         }
 
         @if $variant == 'light' {
