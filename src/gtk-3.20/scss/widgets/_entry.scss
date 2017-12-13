@@ -90,7 +90,7 @@
     border-width: 1px;
     border-style: solid;
     border-radius: $roundness;
-    border-color: border_normal($bg_color);
+    //border-color: border_normal($bg_color);
     transition: border 100ms ease-out;
     &:focus, &:hover, &:active { transition: border 100ms ease-in; }
 
