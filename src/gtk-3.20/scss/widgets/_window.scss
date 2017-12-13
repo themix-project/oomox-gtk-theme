@@ -4,7 +4,7 @@
 
 @include exports("window") {
     decoration {
-        $_wm_border: if($variant == 'light', transparentize($black, .77), transparentize($borders_color, .1));
+        $_wm_border: transparentize($wm_border_unfocused, .77);
 
         border-radius: $roundness $roundness 0 0;
         // lamefun trick to get rounded borders regardless of CSD use
