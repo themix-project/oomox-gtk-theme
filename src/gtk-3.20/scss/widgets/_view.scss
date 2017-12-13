@@ -314,7 +314,7 @@
 
 @include exports("frame") {
     frame > border, .frame {
-        border: 1px solid $borders_color;
+        border: 1px solid alpha($borders_color, 0.2);
 
         &.flat { border-style: none; }
 
