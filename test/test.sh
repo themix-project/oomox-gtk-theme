@@ -102,9 +102,14 @@ make_and_compare_screenshot() {
 	screenshot_base_name=theme-${THEME_NAME}-${test_variant}
 	test_result_base_name=$(date +%Y-%m-%d_%H-%M-%S)_${screenshot_base_name}
 	scrot ${TEST_RESULT_DIR}/${test_result_base_name}.test.png
+	compare -verbose -metric PAE \
+		${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
+		${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
+		${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
+		|| true
 	compare_result=0
 	compare_output=$(mktemp)
-	compare -verbose -metric PSNR \
+	compare -verbose -metric AE -fuzz 1 \
 		${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
 		${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
 		${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
