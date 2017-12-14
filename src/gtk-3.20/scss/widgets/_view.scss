@@ -314,11 +314,41 @@
 
 @include exports("frame") {
     frame > border, .frame {
-        border: 1px solid alpha($borders_color, 0.2);
+        border: 1px solid $borders_color;
 
         &.flat { border-style: none; }
 
         &:backdrop { border-color: $backdrop_borders_color; }
+    }
+
+    //@TODO: do it some day:
+    //frame > border,
+    //.frame,
+    //.frame > treeview,
+    //.frame > treeview > header,
+    //.frame > .view,
+    //.frame > list,
+    //.frame > stack,
+    //.frame > stack > box {
+        //border-radius: $roundness;
+    //}
+
+    frame.border-inset > border,
+    frame.border-outset > border,
+    frame.border-groove > border,
+    frame.border-ridge > border {
+        @if lightness($bg_color) < 33% {
+            //dark bg
+            border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + 0.2);
+        } @else {
+            @if lightness($bg_color) < 67% {
+                //mid bg
+                border: 1px solid alpha(shade($borders_color, .75), (lightness($bg_color))/100%);
+            } @else {
+                //light bg
+                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + 0.3);
+            }
+        }
     }
 
     /* avoid double borders when a viewport is packed into a GtkScrolledWindow */
