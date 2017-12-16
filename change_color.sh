@@ -199,4 +199,6 @@ if [[ ${MAKE_GTK3} = 1 ]]; then
 	make "${MAKE_OPTS}"
 fi
 
+rm -r ./Makefile gtk-3.*/scss || true
+
 exit 0
