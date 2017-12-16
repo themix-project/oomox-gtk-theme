@@ -1,12 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+#
+# (C) 2017 actionless
+#
+
 set -ueo pipefail
-TEST_DIR=$(readlink -e $(dirname "${0}"))
-TEST_RESULT_DIR=${TEST_DIR}/../test_results/
+export TEST_DIR=$(readlink -e $(dirname "${0}"))
+export TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
 cd ${TEST_DIR}
 
 #export GENERATE_ASSETS=1
 
-MAX_RETRIES=2
+MAX_RETRIES=${MAX_RETRIES:-2}
 if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
 	MAX_RETRIES=0
 fi
@@ -27,13 +32,13 @@ trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
 
 
 run_theme_testsuite() {
-	retries=0
+	export retries=0
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
 		if [[ ${retries} -gt 0 ]] ; then
 			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
 		fi
 		./test.sh && break || true
-		retries=$[$retries+1]
+		export retries=$[$retries+1]
 	done
 	if [[ ${retries} -le ${MAX_RETRIES} ]] ; then
 		echo "==============================================================="
@@ -46,6 +51,9 @@ run_theme_testsuite() {
 }
 
 
+if [[ ! -d ${TEST_RESULT_DIR} ]] ; then
+	mkdir -p ${TEST_RESULT_DIR}
+fi
 echo > ${TEST_RESULT_DIR}/links.txt
 
 echo "monovedek
