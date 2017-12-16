@@ -76,4 +76,24 @@ window decoration {
 	margin: 0;
     border: 0;
 }
+
+```
+
+### Hacking
+
+
+#### Running tests locally:
+
+```sh
+cd ./docker_scripts/
+# prepare container:
+./build_docker_image.sh ; ./start_docker_container.sh
+# run tests:
+./run_docker_tests.sh
+```
+
+#### Generate new screenshots:
+
+```sh
+./run_docker_tests.sh -e GENERATE_ASSETS=1
 ```
