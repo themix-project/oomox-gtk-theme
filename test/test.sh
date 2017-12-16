@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # (C) 2017 actionless
@@ -7,18 +7,10 @@
 set -ueo pipefail
 
 DEFAULT_SLEEP=${DEFAULT_SLEEP:-2}
-TEST_DIR=$(readlink -e $(dirname "${0}"))
-TEST_RESULT_DIR=${TEST_DIR}/../test_results/
 SCREENSHOTS_DIR=${TEST_DIR}/../screenshots/
 mkdir -p ${TEST_RESULT_DIR} || true
 cd ${TEST_DIR}
 
-
-#THEME_NAME=${THEME_NAME:-monovedek}
-#GTK2_RESOLUTION=${GTK2_RESOLUTION:-630x560x16}
-#GTK2_AWF_RESOLUTION=${GTK2_AWF_RESOLUTION:-840x700x16}
-#GTK3_RESOLUTION=${GTK3_RESOLUTION:-1280x720x16}
-#FONT_SIZE=${FONT_SIZE:-10}
 
 if [[ "${TEST_HIDPI:-}" -eq 1 ]] ; then
 	export GDK_SCALE=2
@@ -60,7 +52,7 @@ sed \
 
 killall Xvfb 2>/dev/null || true
 killall openbox 2>/dev/null || true
-killall lxappearance 2>/dev/null || true
+#killall lxappearance 2>/dev/null || true
 
 _kill_procs() {
 	set +e
@@ -100,7 +92,7 @@ make_and_compare_screenshot() {
 	test_variant=${1}
 	sleep ${DEFAULT_SLEEP}
 	screenshot_base_name=theme-${THEME_NAME}-${test_variant}
-	test_result_base_name=$(date +%Y-%m-%d_%H-%M-%S)_${screenshot_base_name}
+	test_result_base_name=$(date +%H-%M-%S)_${screenshot_base_name}
 	scrot ${TEST_RESULT_DIR}/${test_result_base_name}.test.png
 	compare -verbose -metric PAE \
 		${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
@@ -127,7 +119,9 @@ make_and_compare_screenshot() {
 		echo
 		cat ${compare_output}
 		echo
+		cp ${SCREENSHOTS_DIR}/${screenshot_base_name}.png ${TEST_RESULT_DIR}/${test_result_base_name}.png
 		if [[ -z ${GENERATE_ASSETS:-} ]] ; then
+			echo "${THEME_NAME} ${test_variant}:" >> ${TEST_RESULT_DIR}/links.txt
 			curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
 				https://transfer.sh/${test_result_base_name}.test.png >> ${TEST_RESULT_DIR}/links.txt \
 				&& echo >> ${TEST_RESULT_DIR}/links.txt \
@@ -148,28 +142,6 @@ make_and_compare_screenshot() {
 		TEST_EXIT_CODE=1
 	fi
 }
-################################################################################
-
-
-#echo
-#echo "========= Going to generate ${THEME_NAME} theme..."
-#theme_gen_log="./theme-gen-${THEME_NAME}.log"
-#bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/${THEME_NAME} >${theme_gen_log} 2>&1 &
-#oomox_pid=$!
-
-#wait $oomox_pid
-#echo "== Theme generated successfully"
-
-
-#echo
-#echo "========= Going to test GTK+2 theme..."
-#echo
-#start_xserver_and_wm ${GTK2_RESOLUTION}
-#sleep ${DEFAULT_SLEEP}
-#lxappearance 1>/dev/null 2>&1 &
-#echo "== Started lxaappearance"
-#make_and_compare_screenshot "gtk2"
-#_kill_procs
 
 
 ################################################################################
@@ -214,12 +186,11 @@ gwf=$!
 echo "== Started gtk3-widget-factory"
 
 sleep ${DEFAULT_SLEEP}
+X=620
+Y=30
 if [[ "${TEST_HIDPI:-}" -eq 1 ]] ; then
-	X=1240
-	Y=60
-else
-	X=620
-	Y=30
+	X=$((X * 2))
+	Y=$((Y * 2))
 fi
 xdotool mousemove -w $(get_window_id $gwf) --sync $X $Y
 xdotool click 1
@@ -227,17 +198,17 @@ xdotool mousemove --sync 0 0
 make_and_compare_screenshot "gtk3-page2"
 
 echo "== Page 3"
+X=720
+Y=30
 if [[ "${TEST_HIDPI:-}" -eq 1 ]] ; then
-	X=1440
-	Y=60
-else
-	X=720
-	Y=30
+	X=$((X * 2))
+	Y=$((Y * 2))
 fi
 xdotool mousemove -w $(get_window_id $gwf) --sync $X $Y
 xdotool click 1
 xdotool mousemove --sync 0 0
 make_and_compare_screenshot "gtk3-page3"
 
+################################################################################
 
 exit ${TEST_EXIT_CODE}
