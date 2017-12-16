@@ -4,6 +4,10 @@ oomox-gtk-theme
 Oomox-gtk-theme is a fork of Numix-gtk-theme.
 It is used in oomox app: https://github.com/actionless/oomox
 
+### Theme examples
+
+![Screenshot Light](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
+![Screenshot Medium](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-monovedek_hidpi-gtk3-page1.png "Screenshot Medium")
 
 
 #### Prerequisites
