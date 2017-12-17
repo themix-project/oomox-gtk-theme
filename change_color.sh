@@ -12,8 +12,20 @@ mix () {
 
 
 print_usage() {
-	echo "usage: $0 [-o OUTPUT_THEME_NAME] [-p PATH_LIST] [-m MAKE_OPTS] PATH_TO_PRESET"
-	echo "examples:"
+	echo "Usage: $0 PATH_TO_PRESET"
+	echo "	[--output OUTPUT_THEME_NAME] [--hidpi (True|False)]"
+	echo "	[--make-opts (all|gtk3|gtk320)] [--path-list 'PATH PATH...']"
+	echo
+	echo "Options:"
+	echo "	PATH_TO_PRESET				path to Oomox theme file"
+	echo "	-o NAME, --output NAME			output theme name"
+	echo "	-d (true|false), --hidpi (true|false)	generate GTK+2 assets with 2x scaling"
+	echo "	-m (all|gtk3|gtk320), --make-opts (all|gtk3|gtk320)"
+	echo "						which variant of GTK+3 theme to build"
+	echo "	-p 'PATH PATH...', --path-list 'PATH PATH'"
+	echo "						custom paths to theme files"
+	echo
+	echo "Examples:"
 	echo "       $0 -o my-theme-name ../colors/retro/twg"
 	echo "       $0 -o my-theme-name --hidpi True ../colors/retro/clearlooks"
 	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" ../colors/gnome-colors/shiki-noble"
