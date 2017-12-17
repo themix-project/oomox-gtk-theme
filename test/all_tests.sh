@@ -57,9 +57,9 @@ fi
 echo > ${TEST_RESULT_DIR}/links.txt
 
 echo "monovedek
-monovedek_hidpi
-clearlooks
-clearlooks_hidpi" | parallel bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{}  2>&1
+clearlooks" | parallel bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
+echo "monovedek
+clearlooks" | parallel bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
 
 if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
 	set +e
