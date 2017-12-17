@@ -15,6 +15,7 @@ print_usage() {
 	echo "usage: $0 [-o OUTPUT_THEME_NAME] [-p PATH_LIST] [-m MAKE_OPTS] PATH_TO_PRESET"
 	echo "examples:"
 	echo "       $0 -o my-theme-name ../colors/retro/twg"
+	echo "       $0 -o my-theme-name --hidpi True ../colors/retro/clearlooks"
 	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" ../colors/gnome-colors/shiki-noble"
 	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" -m gtk320 ../colors/monovedek/monovedek"
 	exit 1
@@ -34,6 +35,10 @@ do
 		;;
 		-m|--make-opts)
 			MAKE_OPTS="${2}"
+			shift
+		;;
+		-d|--hidpi)
+			OPTION_GTK2_HIDPI="${2}"
 			shift
 		;;
 		*)
@@ -80,6 +85,9 @@ for FILEPATH in "${PATHLIST[@]}"; do
 done
 MAKE_OPTS="${MAKE_OPTS-all}"
 
+OPTION_GTK2_HIDPI=$(echo ${OPTION_GTK2_HIDPI-False} | tr '[:upper:]' '[:lower:]')
+
+
 if [[ ${THEME} == */* ]] || [[ ${THEME} == *.* ]] ; then
 	source "$THEME"
 	THEME=$(basename ${THEME})
@@ -97,7 +105,6 @@ WM_BORDER_FOCUS=${WM_BORDER_FOCUS-$SEL_BG}
 WM_BORDER_UNFOCUS=${WM_BORDER_UNFOCUS-$MENU_BG}
 
 GTK3_GENERATE_DARK=$(echo ${GTK3_GENERATE_DARK-True} | tr '[:upper:]' '[:lower:]')
-GTK2_HIDPI=$(echo ${GTK2_HIDPI-False} | tr '[:upper:]' '[:lower:]')
 UNITY_DEFAULT_LAUNCHER_STYLE=$(echo ${UNITY_DEFAULT_LAUNCHER_STYLE-False} | tr '[:upper:]' '[:lower:]')
 
 SPACING=${SPACING-3}
@@ -179,7 +186,7 @@ if [[ ${GTK3_GENERATE_DARK} != "true" ]] ; then
 		rm ./gtk-3.20/scss/gtk-dark.scss
 	fi
 fi
-if [[ ${GTK2_HIDPI} == "true" ]] ; then
+if [[ ${OPTION_GTK2_HIDPI} == "true" ]] ; then
 	mv ./gtk-2.0/gtkrc.hidpi ./gtk-2.0/gtkrc
 fi
 if [[ ${EXPORT_QT5CT} = 1 ]] ; then
