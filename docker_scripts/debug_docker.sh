@@ -19,9 +19,9 @@ fi
 
 docker run -ti \
 	--rm \
-	-e DISPLAY=$DISPLAY \
-	-e GDK_SCALE=$GDK_SCALE \
-	-e GDK_DPI_SCALE=$GDK_DPI_SCALE \
+	-e DISPLAY \
+	-e GDK_SCALE \
+	-e GDK_DPI_SCALE \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v $HOME/.themes:/root/.themes \
 	-v $HOME/.config/fontconfig:/root/.config/fontconfig \
