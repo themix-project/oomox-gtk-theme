@@ -38,8 +38,10 @@ $secondary_caret_color: #%CARET2_FG%;
 $caret_aspect_ratio: %CARET_SIZE%;
 
 // white and black
-$black: #000;
-$white: #fff;
+//$black: #000;
+//$white: #fff;
+$black: shade($fg_color, .4);
+$white: lighten($bg_color, .55);
 
 /*$button_border_strength: if(lightness($bg) > 50, 0, .1);*/
 /*$button_shadow_strength: if(lightness($bg) > 50, 0, .1);*/
@@ -60,20 +62,19 @@ $switch_bg_color: mix($bg_color, $base_color, .3);
 $switch_fg_color: $text_color;
 $switch_slider_bg_color: mix($text_color, $bg_color, .5);
 
-// @TODO: replace to xrdb values:
-// misc colors used by gtk+
-$info_fg_color: #fff;
-$info_bg_color: #03a9f4;
-$warning_fg_color: #fff;
-$warning_bg_color: #ef6c00;
-$question_fg_color: #fff;
-$question_bg_color: #673ab7;
-$error_fg_color: #fff;
-$error_bg_color: #f44336;
-$link_color: #3f51b5;
-$success_color: #4caf50;
-$warning_color: #ef6c00;
-$error_color: #f44336;
+$link_color: #%SEL_BG%;
+$success_color: #%TERMINAL_COLOR10%;
+$warning_color: #%TERMINAL_COLOR11%;
+$error_color: #%TERMINAL_COLOR9%;
+
+$info_fg_color: #%TERMINAL_BACKGROUND%;
+$info_bg_color: #%TERMINAL_COLOR12%;
+$warning_fg_color: #%TERMINAL_BACKGROUND%;
+$warning_bg_color: $warning_color;
+$question_fg_color: #%TERMINAL_BACKGROUND%;
+$question_bg_color: $info_bg_color;
+$error_fg_color: #%TERMINAL_BACKGROUND%;
+$error_bg_color: $error_color;
 
 $toolbar_bg_color: $bg_color;
 $toolbar_fg_color: $fg_color;
@@ -139,7 +140,7 @@ $backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, .4
 
 $backdrop_menu_color: if($variant == 'light', $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, .2));
 
-$drop_target_color: #4e9a06;
+$drop_target_color: #%SEL_BG%;
 
 // widget styles
 $_roundness: %ROUNDNESS%;
