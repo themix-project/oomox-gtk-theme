@@ -68,7 +68,7 @@
         &:backdrop { transition: 200ms ease-out; }
 
         trough {
-            @include linear-gradient(shade($bg_color, 1.08), to top);
+            background-color: shade($bg_color, 1.08);
 
             border: 1px solid mix($bg_color, $fg_color, .17);
             border-radius: $roundness;
@@ -88,7 +88,7 @@
         }
 
         block {
-            @include linear-gradient($selected_bg_color);
+            background-color: $selected_bg_color;
 
             border-color: transparent;
             border-radius: $roundness;
