@@ -37,7 +37,8 @@ $caret_aspect_ratio: %CARET_SIZE%;
 $black: shade($fg_color, .4);
 $white: lighten($bg_color, .55);
 
-$link_color: #%SEL_BG%;
+//$link_color: mix($selected_bg_color, $fg_color, .3);
+$link_color: #%TERMINAL_COLOR4%;
 $success_color: #%TERMINAL_COLOR10%;
 $warning_color: #%TERMINAL_COLOR11%;
 $error_color: #%TERMINAL_COLOR9%;
