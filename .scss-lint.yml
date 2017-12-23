@@ -122,6 +122,8 @@ linters:
   SelectorDepth:
     enabled: true
     max_depth: 6
+    exclude: # Exclude if forced to break the inception rule to style third party components
+        - '**/scss/apps/_unity.scss'
 
   SelectorFormat:
     enabled: false
