@@ -13,7 +13,7 @@
     button.color {
         .osd colorswatch:only-child { box-shadow: none; }
 
-        @if $variant == 'light' {
+        @if $variant == "light" {
             .osd & {
                 &:disabled,
                 &:backdrop,

@@ -92,14 +92,12 @@
     border-radius: $roundness;
     //border-color: border_normal($bg_color);
     transition: border 100ms ease-out;
+    box-shadow: inset 1px 0 alpha($dark_shadow, .1),
+                inset 0 1px alpha($dark_shadow, .12),
+                inset -1px 0 alpha($dark_shadow, .1),
+                inset 0 -1px alpha($dark_shadow, .05);
+
     &:focus, &:hover, &:active { transition: border 100ms ease-in; }
-
-    box-shadow: inset 1px 0 alpha($dark_shadow, 0.10),
-                inset 0 1px alpha($dark_shadow, 0.12),
-                inset -1px 0 alpha($dark_shadow, 0.10),
-                inset 0 -1px alpha($dark_shadow, 0.05);
-
-
 
     &:selected {
         &, &:selected:focus {
@@ -154,7 +152,7 @@
 @mixin entry($bg, $fg, $border: $borders_color) {
     @extend %entry;
     @include linear-gradient($bg, to top);
-    @include border(mix($bg, $fg, .20));
+    @include border(mix($bg, $fg, .2));
 
     padding: $spacing;
 
@@ -165,11 +163,11 @@
     &:focus, &:active { border-color: border_focus($border); }
 
     &:disabled {
-		@include linear-gradient(shade($bg, .9), to top);
-		@include border(alpha(mix($bg, $fg, .20), .4));
-		/*@include border(mix($bg, $fg, .20));*/
-		/*border-color: alpha(mix($bg, $fg, .15), .8);*/
-		/*opacity: .8;*/
+        @include linear-gradient(shade($bg, .9), to top);
+        @include border(alpha(mix($bg, $fg, .2), .4));
+        /*@include border(mix($bg, $fg, .2));*/
+        /*border-color: alpha(mix($bg, $fg, .15), .8);*/
+        /*opacity: .8;*/
 
         color: mix($bg, $fg, .5);
     }

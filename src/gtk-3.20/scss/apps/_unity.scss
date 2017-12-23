@@ -28,7 +28,7 @@
             border: 1px solid $wm_border_focused;
             border-bottom: 0;
             border-radius: $roundness $roundness 0 0;
-            padding: 1px ($spacing + 3px) 0 ($spacing + 3px);
+            padding: 1px ($spacing + 3px) 0;
             background-color: $titlebar_bg_color;
             color: mix($titlebar_fg_color, $titlebar_bg_color, .1);
             text-shadow: none;

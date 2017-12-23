@@ -146,11 +146,10 @@
             &, overlay { border-radius: $roundness; }
         }
 
-        @if $variant == 'light' {
-            &:disabled,
-            &:backdrop,
-            &:active,
-            &:checked { colorswatch:only-child { box-shadow: none; } }
+        &:disabled, &:backdrop, &:active, &:checked {
+            colorswatch:only-child {
+                box-shadow: none;
+            }
         }
     }
 }

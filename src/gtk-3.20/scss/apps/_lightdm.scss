@@ -40,18 +40,17 @@
     #content_frame { padding-bottom: $spacing * 3; }
 
     #login_window, #shutdown_dialog, #restart_dialog {
+        @extend %panelbutton;
+
         border-style: none;
         border-radius: $roundness;
         background-color: $lightdm_bg_color;
         color: $lightdm_fg_color;
-
         /* draw border using box-shadow */
         box-shadow: inset 1px 0 mix(shade($lightdm_bg_color, .7), $lightdm_fg_color, .21),
                     inset -1px 0 mix(shade($lightdm_bg_color, .7), $lightdm_fg_color, .21),
                     inset 0 1px mix(shade($lightdm_bg_color, .7), $lightdm_fg_color, .21),
                     inset 0 -1px mix(shade($lightdm_bg_color, .7), $lightdm_fg_color, .21);
-
-        @extend %panelbutton;
     }
 
     #login_window {

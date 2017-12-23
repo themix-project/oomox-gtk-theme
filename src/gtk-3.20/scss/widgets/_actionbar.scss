@@ -84,7 +84,7 @@
                     &:active { color: shade($selected_bg_color, ($contrast - .05)); }
 
                     .arrow {
-                        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+                        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
                         color: transparentize($selected_fg_color, .5);
                         -gtk-icon-shadow: none;
                     }
