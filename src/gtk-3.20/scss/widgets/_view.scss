@@ -96,9 +96,9 @@
 
     treeview.view {
         -GtkTreeView-grid-line-width: 1;
-        -GtkTreeView-grid-line-pattern: '';
+        -GtkTreeView-grid-line-pattern: "";
         -GtkTreeView-tree-line-width: 1;
-        -GtkTreeView-tree-line-pattern: '';
+        -GtkTreeView-tree-line-pattern: "";
 
         border-left-color: mix($fg_color, $base_color, .5); // this is actually the tree lines color,
         border-top-color: $bg_color;                        // while this is the grid lines color, better then nothing
@@ -153,10 +153,10 @@
         }
 
         &.expander {
-            -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+            -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
             color: mix($base_color, $fg_color, .7);
 
-            &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+            &:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
 
             &:hover { color: $fg_color; }
 
@@ -168,7 +168,7 @@
                 &:backdrop { color: mix($selected_bg_color, $backdrop_selected_fg_color, .7); }
             }
 
-            &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+            &:checked { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 
             &:backdrop { color: mix($backdrop_base_color, $backdrop_fg_color, .7); }
         }
@@ -181,11 +181,13 @@
             background-color: $selected_bg_color;
             //background-image: linear-gradient(to bottom, $selected_bg_color, darken($selected_bg_color, .1));
             //box-shadow: inset 0 1px $fg_color,
-            //0 1px if($variant == 'light', transparentize($black, .8), transparentize($black, .9));
+            //0 1px if($variant == "light", transparentize($black, .8), transparentize($black, .9));
 
             &:selected {
+                border: 1px solid mix($selected_bg_color, $selected_fg_color, .2);
+
                 &:focus, & {
-                    @if $variant == 'light' {
+                    @if $variant == "light" {
                         color: $selected_fg_color;
                         box-shadow: none;
                     } @else {
@@ -196,7 +198,7 @@
                     border-radius: $roundness;
 
                     &:backdrop {
-                        @if $variant == 'light' {
+                        @if $variant == "light" {
                             color: $backdrop_selected_fg_color;
                             border-color: $selected_borders_color; // otherwise it gets inherited by .view(?!?)
                         } @else {
@@ -206,7 +208,6 @@
                         background-color: mix($backdrop_base_color, $selected_bg_color, .9);
                     }
                 }
-                border: 1px solid mix($selected_bg_color, $selected_fg_color, .2);
             }
 
             &:disabled {
@@ -215,7 +216,7 @@
             }
 
             &:backdrop {
-                @if $variant == 'light' {
+                @if $variant == "light" {
                     color: $backdrop_base_color;
                 } @else {
                     border-color: $backdrop_base_color;
@@ -232,9 +233,9 @@
 
             &:selected {
                 &:focus, & {
-                    background-color: if($variant == 'light', transparentize($selected_fg_color, .7), darken($selected_bg_color, .1));
+                    background-color: if($variant == "light", transparentize($selected_fg_color, .7), darken($selected_bg_color, .1));
 
-                    @if $variant == 'light' {
+                    @if $variant == "light" {
                         border-width: 1px 0;
                         border-style: solid;
                         border-color: $selected_bg_color;
@@ -339,14 +340,14 @@
     frame.border-ridge > border {
         @if lightness($bg_color) < 33% {
             //dark bg
-            border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + 0.2);
+            border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .2);
         } @else {
             @if lightness($bg_color) < 67% {
                 //mid bg
                 border: 1px solid alpha(shade($borders_color, .75), (lightness($bg_color))/100%);
             } @else {
                 //light bg
-                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + 0.3);
+                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .3);
             }
         }
     }
@@ -369,7 +370,7 @@
 
         .server-list-button:checked > image {
             transition: 200ms cubic-bezier(.25, .46, .45, .94);
-            -gtk-icon-transform: rotate(-0.5turn);
+            -gtk-icon-transform: rotate(-.5turn);
         }
 
         row.activatable:hover { background-color: transparent; }

@@ -19,8 +19,11 @@
 
         // scrollbar border on the content side
         &.top { border-bottom: 1px solid $borders_color; }
+
         &.bottom { border-top: 1px solid $borders_color; }
+
         &.left { border-right: 1px solid $borders_color; }
+
         &.right { border-left: 1px solid $borders_color; }
 
         &:backdrop {
@@ -38,12 +41,16 @@
             background-color: $scrollbar_slider_color;
 
             &:hover { background-color: $scrollbar_slider_hover_color; }
+
             &:hover:active { background-color: $scrollbar_slider_active_color; }
+
             &:backdrop { background-color: $backdrop_scrollbar_slider_color; }
+
             &:disabled { background-color: transparent; }
         }
 
         &.horizontal slider { min-width: $_slider_min_length; }
+
         &.vertical slider { min-height: $_slider_min_length; }
 
         &.fine-tune slider:active {
@@ -75,11 +82,13 @@
 
                 &.horizontal {
                     slider { min-width: $_slider_min_length; }
+
                     button { min-width: $_slider_normal_width; }
                 }
 
                 &.vertical {
                     slider { min-height: $_slider_min_length; }
+
                     button { min-height: $_slider_normal_width; }
                 }
             }
@@ -98,7 +107,9 @@
             color: $scrollbar_slider_color;
 
             &:hover { color: $scrollbar_slider_hover_color; }
+
             &:active, &:checked { color: $scrollbar_slider_active_color; }
+
             &:backdrop { color: $backdrop_scrollbar_slider_color; }
         }
 

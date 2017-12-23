@@ -54,7 +54,7 @@
     border-width: 0 1px 1px;
     border-style: solid;
     border-color: $borders_color;
-    background-color: mix($borders_color, $bg_color, .7);;
+    background-color: mix($borders_color, $bg_color, .7);
     background-image: none;
 
     &:backdrop {
@@ -189,9 +189,8 @@
 
 @include exports("toolbar") {
     toolbar {
-        @include toolbar($toolbar_bg_color, $toolbar_fg_color);
-
         @extend %toolbar;
+        @include toolbar($toolbar_bg_color, $toolbar_fg_color);
 
         &.inline-toolbar { @include inline-toolbar($toolbar_bg_color, $toolbar_fg_color); }
     }
@@ -202,6 +201,8 @@
     }
 
     .titlebar:not(headerbar) {
+        @extend %titlebar;
+
         window.csd > & {
             // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
             padding: 0;
@@ -213,8 +214,6 @@
         }
 
         > separator { background-color: shade($titlebar_bg_color, .88); }  // $borders_color
-
-        @extend %titlebar;
     }
 
     .background:not(.tiled):not(.maximized) .titlebar {

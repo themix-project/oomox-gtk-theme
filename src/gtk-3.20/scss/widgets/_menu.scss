@@ -115,12 +115,12 @@
                 min-width: 16px;
 
                 &:dir(ltr) {
-                    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+                    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
                     margin-left: 10px;
                 }
 
                 &:dir(rtl) {
-                    -gtk-icon-source:-gtk-icontheme('pan-end-symbolic-rtl');
+                    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
                     margin-right: 10px;
                 }
             }
@@ -161,13 +161,13 @@
             &.top {
                 margin-top: -6px;
                 border-bottom: 1px solid mix($fg_color, $base_color, .1);
-                -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+                -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
             }
 
             &.bottom {
                 margin-bottom: -6px;
                 border-top: 1px solid mix($fg_color, $base_color, .1);
-                -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+                -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
             }
 
             &:hover { background-color: mix($fg_color, $base_color, .1); }
@@ -200,6 +200,7 @@
             min-width: 16px;
 
             &:dir(ltr) { margin-right: 7px; }
+
             &:dir(rtl) { margin-left: 7px; }
         }
 
@@ -257,7 +258,7 @@
         }
 
         list row {
-            &, & .button {
+            &, .button {
                 background-color: transparent;
                 background-image: none;
                 color: $menu_fg_color;
@@ -278,6 +279,7 @@
         entry { @include entry($base_color, $text_color);  }
 
         button { @include button($header_button_bg_color, $header_button_fg_color);  }
+
         .linked > button { @include linked_button($header_button_bg_color); }
 
         > list, > .view, > toolbar {
@@ -288,11 +290,11 @@
 
     modelbutton.flat,
     menuitem.button.flat {
+        @extend %undecorated_button;
+
         padding: $spacing ($spacing + 2px);
         outline-color: transparent;
         transition: none;
-
-        @extend %undecorated_button;
 
         &:hover {
             background-color: $selected_bg_color;

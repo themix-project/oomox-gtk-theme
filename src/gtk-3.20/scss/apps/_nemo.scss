@@ -81,7 +81,7 @@
                 > box > scale {
                     margin-right: 12px;
                 }
-                
+
                 statusbar {
                     border: 0;
                 }
@@ -99,7 +99,7 @@
             }
 
             .nemo-places-sidebar {
-                &, & .view {
+                &, .view {
                     background-color: mix($bg_color, $base_color, .5);
                 }
 
@@ -121,7 +121,7 @@
                     }
                 }
             }
-            
+
             /* Nemo Query Editor (File Search Bar) */
             + separator + box .primary-toolbar {
                 @include linear-gradient(shade($bg_color, .98)); // Searchbar color (_actionbar.scss)
@@ -131,18 +131,18 @@
                 border-bottom: 1px solid $borders_color;
 
                 button:nth-child(2) {
-                    border-right: none;
+                    border-right: 0;
                     border-top-right-radius: 0;
                     border-bottom-right-radius: 0;
                 }
 
                 button:nth-child(3) {
                     margin-left: -6px;
-                    border-left: none;
+                    border-left: 0;
                     border-top-left-radius: 0;
                     border-bottom-left-radius: 0;
                 }
-                
+
                 button.flat {
                     $bg: $bg_color;
                     $fg: $fg_color;
