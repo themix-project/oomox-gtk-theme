@@ -31,48 +31,20 @@
 }
 
 
-/************************
- ! Unity-Control-Center *
-*************************/
-
-@include exports("unity-control-center") {
-    // Fixed: https://github.com/numixproject/numix-gtk-theme/issues/634
-    .background:not(.csd):not(.solid-csd) > box.vertical > notebook.frame {
-        // hide unwanted frames
-        border: 0 none transparent;
-
-        > stack > scrolledwindow > viewport > box.vertical > frame > box.vertical {
-            // reset $base_color;
-            iconview.view {
-                &, &:backdrop {
-                    background-color: transparent;
-                }
-
-                &:selected {
-                    &:focus, & {
-                        @extend %selected_items;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
 /****************
  ! Geary *
 *****************/
 
 @include exports("geary") {
-   .geary-expanded .geary-message-summary {
-	    background-color: shade($base_color, 0.95);
+    .geary-expanded .geary-message-summary {
+        background-color: shade($base_color, .95);
     }
-    
+
     .geary-folder-popover-list-row {
         border-color: shade($menu_bg_color, 1.2);
         box-shadow: None;
-        
-        & > label { color: $bg_color; }
+
+        > label { color: $bg_color; }
     }
-    
+
 }
