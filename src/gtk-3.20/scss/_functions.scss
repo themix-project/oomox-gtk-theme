@@ -63,6 +63,21 @@ $modules: () !default;
     }
 }
 
+@mixin half-linear-gradient($color, $direction: to bottom) {
+    @if $gradient == 0 {
+        background-color: $color;
+        background-image: none;
+    } @else {
+        $amount: $gradient / 4;
+
+        background-color: $color;
+        background-image: linear-gradient($direction,
+            shade($color, (1 + $amount)),
+            shade($color, (1 - $amount))
+        );
+    }
+}
+
 @mixin border($color) {
     border-color: border_normal($color);
 
