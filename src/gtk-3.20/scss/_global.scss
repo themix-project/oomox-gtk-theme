@@ -102,6 +102,8 @@ $osd_borders_color: shade($osd_bg, .85);
 
 $lightdm_bg_color: $dark_bg_color;
 $lightdm_fg_color: $dark_fg_color;
+$lightdm_button_bg_color: $header_button_bg_color;
+$lightdm_button_fg_color: $header_button_fg_color;
 
 $wm_bg: $titlebar_bg_color;
 $wm_border_focused: #%WM_BORDER_FOCUS%;
