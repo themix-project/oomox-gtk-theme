@@ -55,41 +55,6 @@
                 box-shadow: inset -1px 0   $borders_color;
             }
 
-            @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
-                // sizing and borders
-                &.#{$_pos} {
-                    padding-#{$_bpos}: 0;
-
-                    > tabs > tab {
-                        padding: $spacing $spacing + 8px;
-                        min-width: 20px;
-                        min-height: 20px;
-
-                        outline-offset: -4px;
-
-                        border: 1px solid transparent;
-                        border-#{$_bpos}: none;
-                        border-#{$_pos}-width: 3px;
-
-                        &:checked {
-                            border-#{$_pos}-color: $selected_bg_color;
-                        }
-
-                        // tab overlap
-                        + tab {
-                            @if $_pos==top or $_pos==bottom { margin-left: -1px; }
-                            @else { margin-top: -1px; }
-                        }
-
-
-                        // tab border radius
-                        @if $_pos==top { border-radius: $roundness $roundness 0 0; }
-                        @else if $_pos==bottom { border-radius: 0 0 $roundness $roundness; }
-                        @else if $_pos==left { border-radius: $roundness 0 0 $roundness; }
-                        @else if $_pos==right { border-radius: 0 $roundness $roundness 0; }
-                    }
-                }
-            }
 
             // overflow arrows
             &.top, &.bottom {
@@ -131,36 +96,34 @@
                 &:disabled { color: alpha($insensitive_fg_color, .3); }
             }
 
-            // tab colors
-
-            &.top > tabs > tab:hover:not(:checked) { box-shadow: inset 0 -1px $borders_color; }
-
-            &.bottom > tabs > tab:hover:not(:checked) { box-shadow: inset 0 1px $borders_color; }
-
-            &.left > tabs > tab:hover:not(:checked) { box-shadow: inset -1px 0 $borders_color; }
-
-            &.right > tabs > tab:hover:not(:checked) { box-shadow: inset 1px 0 $borders_color; }
-
             > tabs > tab {
+                @include linear-gradient(alpha(mix($bg_color, $fg_color, .1), .7));
+                border-color: mix($borders_color, $insensitive_fg_color, .15);
                 color: alpha($fg_color, .8);
-                background-color: alpha(mix($bg_color, $fg_color, .1), .7);
+
+                padding: $spacing $spacing + 8px;
+                min-width: 20px;
+                min-height: 20px;
+                outline-offset: -4px;
+                border-width: 1px;
+                border-style: solid;
 
                 &:hover:not(:checked) {
+                    @include linear-gradient(mix($bg_color, $fg_color, .12));
+                    border-color: mix($borders_color, $selected_bg_color, .3);
                     color: mix($fg_color, $insensitive_fg_color, .5);
-                    background-color: transparentize($base_color, .5);
-                    border-color: $borders_color;
                 }
 
-                &:checked {
+                &:checked, &:checked:hover {
+                    @include half-linear-gradient($bg_color);
                     border-color: $borders_color;
                     color: $fg_color;
-                    background-color: $bg_color;
                 }
 
                 // close button
                 button.flat {
-                    min-height: 16px;
-                    min-width: 16px;
+                    min-height: 22px;
+                    min-width: 22px;
                     padding: 0;
                     color: mix($bg_color, $fg_color, .35);
 
@@ -172,6 +135,88 @@
                     &:active, &:active:hover {
                         @extend %undecorated_button;
                         color: $selected_bg_color;
+                    }
+                }
+            }
+
+            // tab colors
+
+            &.top > tabs > tab:hover:not(:checked) { box-shadow: inset 0 -1px $borders_color; }
+
+            &.bottom > tabs > tab:hover:not(:checked) { box-shadow: inset 0 1px $borders_color; }
+
+            &.left > tabs > tab:hover:not(:checked) { box-shadow: inset -1px 0 $borders_color; }
+
+            &.right > tabs > tab:hover:not(:checked) { box-shadow: inset 1px 0 $borders_color; }
+
+            @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
+                // sizing and borders
+                &.#{$_pos} {
+                    padding-#{$_bpos}: 0;
+
+                    > tabs > tab {
+                        border-#{$_bpos}: none;
+                        //border-#{$_pos}-color: $bg_color;
+                        $roundness_spacing: $spacing + if($roundness > 8px, $roundness, 8px);
+                        padding-left: $roundness_spacing;
+                        padding-right: $roundness_spacing;
+
+                        @if $roundness <= 6 {
+                            margin-#{$_pos}: $roundness;
+                        } @else {
+                            //margin-#{$_pos}: 2px;
+                            //margin-#{$_pos}: 2px;
+                        }
+                        // tab overlap
+                        + tab {
+                            @if $_pos==top or $_pos==bottom { margin-left: -1px; }
+                            @else { margin-top: -1px; }
+                        }
+
+                        // tab border radius
+                        &:first-child {
+                            @if $_pos==top {
+                                border-radius: $roundness 0 0;
+                            } @else if $_pos==bottom {
+                                border-radius: 0 0 0 $roundness;
+                            } @else if $_pos==left {
+                                border-radius: $roundness 0 0;
+                            } @else if $_pos==right {
+                                border-radius: 0 $roundness 0 0;
+                            }
+                        }
+
+                        &:last-child {
+                            @if $_pos==top {
+                                border-radius: 0 $roundness 0 0;
+                            } @else if $_pos==bottom {
+                                border-radius: 0 0 $roundness;
+                            } @else if $_pos==left {
+                                border-radius: 0 0 0 $roundness;
+                            } @else if $_pos==right {
+                                border-radius: 0 0 $roundness;
+                            }
+                        }
+
+                        // selected tab border radius
+                        &:checked {
+                            border-#{$_pos}-width: 3px;
+                            border-#{$_pos}-color: $selected_bg_color;
+                            margin-#{$_pos}: 0;
+
+                            @if $roundness <= 6 {
+                                @if $_pos==top {
+                                    border-radius: $roundness $roundness 0 0;
+                                } @else if $_pos==bottom {
+                                    border-radius: 0 0 $roundness $roundness;
+                                } @else if $_pos==left {
+                                    border-radius: $roundness 0 0 $roundness;
+                                } @else if $_pos==right {
+                                    border-radius: 0 $roundness $roundness 0;
+                                }
+                            }
+                        }
+
                     }
                 }
             }
