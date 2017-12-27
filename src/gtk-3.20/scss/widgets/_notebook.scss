@@ -83,10 +83,10 @@
 
 
                         // tab border radius
-                        @if $_pos==top { border-radius: 1px 1px 0 0; }
-                        @else if $_pos==bottom { border-radius: 0 0 1px 1px; }
-                        @else if $_pos==left { border-radius: 1px 0 0 1px; }
-                        @else if $_pos==right { border-radius: 0 1px 1px 0; }
+                        @if $_pos==top { border-radius: $roundness $roundness 0 0; }
+                        @else if $_pos==bottom { border-radius: 0 0 $roundness $roundness; }
+                        @else if $_pos==left { border-radius: $roundness 0 0 $roundness; }
+                        @else if $_pos==right { border-radius: 0 $roundness $roundness 0; }
                     }
                 }
             }
