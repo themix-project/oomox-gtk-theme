@@ -157,7 +157,10 @@
                     > tabs > tab {
                         border-#{$_bpos}: none;
                         //border-#{$_pos}-color: $bg_color;
-                        $roundness_spacing: $spacing + if($roundness > 8px, $roundness, 8px);
+                        $roundness_spacing: $spacing + if($roundness <= 13px,
+                             if($roundness > 8px, $roundness, 8px),
+                             8px
+                        );
                         padding-left: $roundness_spacing;
                         padding-right: $roundness_spacing;
 
@@ -175,26 +178,34 @@
 
                         // tab border radius
                         &:first-child {
-                            @if $_pos==top {
-                                border-radius: $roundness 0 0;
-                            } @else if $_pos==bottom {
-                                border-radius: 0 0 0 $roundness;
-                            } @else if $_pos==left {
-                                border-radius: $roundness 0 0;
-                            } @else if $_pos==right {
-                                border-radius: 0 $roundness 0 0;
+                            @if $roundness <= 13 {
+                                @if $_pos==top {
+                                    border-radius: $roundness 0 0;
+                                } @else if $_pos==bottom {
+                                    border-radius: 0 0 0 $roundness;
+                                } @else if $_pos==left {
+                                    border-radius: $roundness 0 0;
+                                } @else if $_pos==right {
+                                    border-radius: 0 $roundness 0 0;
+                                }
+                            } @else {
+                                border-radius: 0;
                             }
                         }
 
                         &:last-child {
-                            @if $_pos==top {
-                                border-radius: 0 $roundness 0 0;
-                            } @else if $_pos==bottom {
-                                border-radius: 0 0 $roundness;
-                            } @else if $_pos==left {
-                                border-radius: 0 0 0 $roundness;
-                            } @else if $_pos==right {
-                                border-radius: 0 0 $roundness;
+                            @if $roundness <= 13 {
+                                @if $_pos==top {
+                                    border-radius: 0 $roundness 0 0;
+                                } @else if $_pos==bottom {
+                                    border-radius: 0 0 $roundness;
+                                } @else if $_pos==left {
+                                    border-radius: 0 0 0 $roundness;
+                                } @else if $_pos==right {
+                                    border-radius: 0 0 $roundness;
+                                }
+                            } @else {
+                                border-radius: 0;
                             }
                         }
 
