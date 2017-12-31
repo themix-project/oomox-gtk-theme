@@ -115,7 +115,7 @@
                 }
 
                 &:checked, &:checked:hover {
-                    @include half-linear-gradient($bg_color);
+                    background: $bg_color;
                     border-color: $borders_color;
                     color: $fg_color;
                 }
