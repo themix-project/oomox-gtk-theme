@@ -10,11 +10,11 @@
         // lamefun trick to get rounded borders regardless of CSD use
         //border-width: 0;
 
-        //box-shadow: 0 3px 9px 1px transparentize($black, .3), 0 0 0 1px $wm_border_focused; //doing borders with box-shadow
+        box-shadow: 0 3px 9px 1px transparentize($black, .3), 0 0 0 1px $wm_border_focused; //doing borders with box-shadow
         /* this is used for the resize cursor area */
         //margin: $spacing * 3;
 
-        border-width: $spacing % 2;
+        border-width: $spacing % 2 or 1px;
         border-style: solid;
         //border-color: $wm_border_focused;
         //@TODO:
@@ -22,7 +22,7 @@
 
 
         &:backdrop {
-            //box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px transparentize($black, .6), 0 0 0 1px $wm_border_unfocused;
+            box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px transparentize($black, .6), 0 0 0 1px $wm_border_unfocused;
             border-color: $wm_border_unfocused;
             transition: 200ms ease-out;
         }
