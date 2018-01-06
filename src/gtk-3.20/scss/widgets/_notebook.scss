@@ -110,7 +110,6 @@
 
                 &:hover:not(:checked) {
                     @include linear-gradient(mix($bg_color, $fg_color, .12));
-                    border-color: mix($borders_color, $selected_bg_color, .3);
                     color: mix($fg_color, $insensitive_fg_color, .5);
                 }
 
@@ -218,7 +217,7 @@
                             }
                         }
 
-                        // selected tab border radius
+                        &:hover:not(:checked),
                         &:checked {
                             border-#{$_pos}-width: 3px;
                             border-#{$_pos}-color: $selected_bg_color;
@@ -237,7 +236,9 @@
                                 }
                             }
                         }
-
+                        &:hover:not(:checked) {
+                            border-#{$_pos}-color: mix($selected_bg_color, $insensitive_bg_color, .3);
+                        }
                     }
                 }
             }
