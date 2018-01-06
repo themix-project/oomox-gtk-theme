@@ -49,6 +49,7 @@
         border-width: 1px;
         border-style: solid;
         border-radius: $roundness;
+        -gtk-outline-radius: $roundness;
         transition: 150ms ease;
         outline-color: transparent;
     }
@@ -62,11 +63,13 @@
 
     %linked_middle {
         border-radius: 0;
+        -gtk-outline-radius: 0;
         border-left-style: none;
         border-right-style: solid;
 
         &:dir(rtl) {
             border-radius: 0; // needed when including %linked_middle:dir(rtl)
+            -gtk-outline-radius: 0;
             border-right-style: none;
             border-left-style: solid;
         }
@@ -74,11 +77,13 @@
 
     %linked_vertical_middle {
         border-radius: 0;
+        -gtk-outline-radius: 0;
         border-top-style: none;
         border-bottom-style: solid;
 
         &:dir(rtl) {
             border-radius: 0; // needed when including %linked_vertical_middle:dir(rtl)
+            -gtk-outline-radius: 0;
             border-top-style: none;
             border-bottom-style: solid;
         }
@@ -88,16 +93,17 @@
         border-width: 1px;
         border-style: solid;
         border-radius: 0;
+        -gtk-outline-radius: 0;
         border-right-style: none;
         border-left-style: none;
 
         &:first-child {
             border-width: 1px;
-            border-radius: $roundness;
             border-left-style: solid;
             border-right-style: none;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+            //top-left top-right bottom-right bottom-left
+            border-radius: $roundness 0 0 $roundness;
+            -gtk-outline-radius: $roundness 0 0 $roundness;
 
             &:dir(rtl) {
                 border-left-style: none;
@@ -107,11 +113,10 @@
 
         &:last-child {
             border-width: 1px;
-            border-radius: $roundness;
             border-left-style: none;
             border-right-style: solid;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+            border-radius: 0 $roundness $roundness 0;
+            -gtk-outline-radius: 0 $roundness $roundness 0;
 
             &:dir(rtl) {
                 border-left-style: solid;
@@ -126,6 +131,7 @@
 
         &:only-child {
             border-radius: $roundness;
+            -gtk-outline-radius: $roundness;
         }
     }
 
@@ -133,16 +139,17 @@
         border-width: 1px;
         border-style: solid;
         border-radius: 0;
+        -gtk-outline-radius: 0;
         border-top-style: none;
         border-bottom-style: none;
 
         &:first-child {
             border-width: 1px;
-            border-radius: $roundness;
             border-top-style: solid;
             border-bottom-style: none;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            //top-left top-right bottom-right bottom-left
+            border-radius: $roundness $roundness 0 0;
+            -gtk-outline-radius: $roundness $roundness 0 0;
 
             &:dir(rtl) {
                 border-top-style: none;
@@ -152,11 +159,11 @@
 
         &:last-child {
             border-width: 1px;
-            border-radius: $roundness;
             border-top-style: none;
             border-bottom-style: solid;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+            //top-left top-right bottom-right bottom-left
+            border-radius: 0 0 $roundness $roundness;
+            -gtk-outline-radius: 0 0 $roundness $roundness;
 
             &:dir(rtl) {
                 border-top-style: solid;
@@ -171,6 +178,7 @@
 
         &:only-child {
             border-radius: $roundness;
+            -gtk-outline-radius: $roundness;
         }
     }
 }
@@ -304,7 +312,11 @@
 
         &:focus {
             @include linear-gradient(shade($bg, 1.05));
-            @include border(alpha($fg, .2 + $border_strength));
+            border-color: alpha($fg, .12 + $border_strength);
+            outline-color: alpha($selected_bg_color, .5);
+            outline-width: 2px;
+            outline-style: solid;
+            outline-offset: 1px;
 
             color: $fg;
             box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
@@ -433,6 +445,7 @@
 
             padding: 0;
             border-radius: $roundness;
+            -gtk-outline-radius: $roundness;
 
             color: $text_color;
             caret-color: $text_color;
@@ -447,6 +460,7 @@
 
             entry {
                 border-radius: $roundness 0 0 $roundness;
+                -gtk-outline-radius: $roundness 0 0 $roundness;
                 border-right-width: 0;
                 box-shadow: none;
             }
@@ -454,6 +468,7 @@
             button {
                 @extend %linked_middle;
                 border-radius: 0;
+                -gtk-outline-radius: 0;
                 /*border-color: alpha($borders_color, .8);*/
                 /*border-style: none none none solid;*/
                 background-image: none;
@@ -482,9 +497,15 @@
                     &:dir(rtl) { border-style: none solid none none; }
                 }
 
-                &:dir(rtl):first-child { border-radius: $roundness 0 0 $roundness; }
+                &:dir(rtl):first-child {
+                    border-radius: $roundness 0 0 $roundness;
+                    -gtk-outline-radius: $roundness 0 0 $roundness;
+                }
 
-                &:dir(ltr):last-child { border-radius: 0 $roundness $roundness 0; }
+                &:dir(ltr):last-child {
+                    border-radius: 0 $roundness $roundness 0;
+                    -gtk-outline-radius: 0 $roundness $roundness 0;
+                }
             }
         }
 
@@ -498,6 +519,7 @@
             entry {
                 // reset all the other props since the spinbutton node is styled here
                 border-radius: 0;
+                -gtk-outline-radius: 0;
                 border-top-width: 0;
                 border-bottom-width: 0;
             }
@@ -506,11 +528,13 @@
                 &.up {
                     border-style: solid solid none;
                     border-radius: $roundness $roundness 0 0;
+                    -gtk-outline-radius: $roundness $roundness 0 0;
                 }
 
                 &.down {
                     border-style: none solid solid;
                     border-radius: 0 0 $roundness $roundness;
+                    -gtk-outline-radius: 0 0 $roundness $roundness;
                 }
             }
         }
