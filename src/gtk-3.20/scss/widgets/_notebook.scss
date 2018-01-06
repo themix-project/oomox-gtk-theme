@@ -236,6 +236,7 @@
                                 }
                             }
                         }
+
                         &:hover:not(:checked) {
                             border-#{$_pos}-color: mix($selected_bg_color, $insensitive_bg_color, .3);
                         }
