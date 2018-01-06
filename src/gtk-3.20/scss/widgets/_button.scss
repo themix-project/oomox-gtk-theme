@@ -314,7 +314,7 @@
             @include linear-gradient(shade($bg, 1.05));
             border-color: alpha($fg, .12 + $border_strength);
             outline-color: alpha($selected_bg_color, .5);
-            outline-width: 2px;
+            outline-width: $button_outline_width;
             outline-style: solid;
             outline-offset: 1px;
 
