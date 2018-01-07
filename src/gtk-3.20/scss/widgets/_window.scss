@@ -4,6 +4,8 @@
 
 @include exports("window") {
     decoration {
+        @include linear-gradient($header_button_bg_color);
+
         $_wm_border: transparentize($wm_border_unfocused, .77);
 
         border-radius: $roundness $roundness 0 0;
