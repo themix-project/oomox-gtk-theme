@@ -119,7 +119,14 @@ make_and_compare_screenshot() {
 		echo
 		cat ${compare_output}
 		echo
-		cp ${SCREENSHOTS_DIR}/${screenshot_base_name}.png ${TEST_RESULT_DIR}/${test_result_base_name}.png
+
+		(
+			if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
+				set +e
+			fi
+			cp ${SCREENSHOTS_DIR}/${screenshot_base_name}.png ${TEST_RESULT_DIR}/${test_result_base_name}.png
+		)
+
 		if [[ -z ${GENERATE_ASSETS:-} ]] ; then
 			echo "${THEME_NAME} ${test_variant}:" >> ${TEST_RESULT_DIR}/links.txt
 			curl --upload-file ${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
