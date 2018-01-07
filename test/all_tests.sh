@@ -57,8 +57,9 @@ fi
 echo > ${TEST_RESULT_DIR}/links.txt
 
 _TEST_THEMES=(
-	'monovedek'
 	'clearlooks'
+	'monovedek'
+	'monovedek_lcars'
 )
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
 echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
