@@ -56,29 +56,30 @@ if [[ ! -d ${TEST_RESULT_DIR} ]] ; then
 fi
 echo > ${TEST_RESULT_DIR}/links.txt
 
-echo "monovedek
-clearlooks" | parallel bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
-echo "monovedek
-clearlooks" | parallel bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
+_TEST_THEMES=(
+	'monovedek'
+	'clearlooks'
+)
+TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
+echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
+echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
 
 if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
 	set +e
 fi
 
-export TEST_HIDPI=0
-export THEME_NAME="clearlooks"
-run_theme_testsuite
+for theme in ${TEST_THEMES[@]} ; do
 
-export TEST_HIDPI=1
-export THEME_NAME="clearlooks_hidpi"
-run_theme_testsuite
+	export TEST_HIDPI=0
+	export THEME_NAME=${theme}
+	run_theme_testsuite
 
-export TEST_HIDPI=0
-export THEME_NAME="monovedek"
-run_theme_testsuite
+	export TEST_HIDPI=1
+	export THEME_NAME="${theme}_hidpi"
+	run_theme_testsuite
 
-export TEST_HIDPI=1
-export THEME_NAME="monovedek_hidpi"
-run_theme_testsuite
+done
 
 exit 0
