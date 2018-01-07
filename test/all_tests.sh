@@ -62,10 +62,15 @@ _TEST_THEMES=(
 	'monovedek_lcars'
 )
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
-echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
-	bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
-echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
-	bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
+
+if [[ ${TEST_LODPI:-1} = 1 ]] ; then
+	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
+fi
+if [[ ${TEST_HIDPI:-1} = 1 ]] ; then
+	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
+fi
 
 if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
 	set +e
@@ -73,13 +78,18 @@ fi
 
 for theme in ${TEST_THEMES[@]} ; do
 
-	export TEST_HIDPI=0
-	export THEME_NAME=${theme}
-	run_theme_testsuite
 
-	export TEST_HIDPI=1
-	export THEME_NAME="${theme}_hidpi"
-	run_theme_testsuite
+	if [[ ${TEST_LODPI:-1} = 1 ]] ; then
+		export TEST_HIDPI=0
+		export THEME_NAME=${theme}
+		run_theme_testsuite
+	fi
+
+	if [[ ${TEST_HIDPI:-1} = 1 ]] ; then
+		export TEST_HIDPI=1
+		export THEME_NAME="${theme}_hidpi"
+		run_theme_testsuite
+	fi
 
 done
 
