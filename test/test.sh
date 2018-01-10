@@ -163,6 +163,9 @@ echo "== Started awf-gtk2"
 
 make_and_compare_screenshot "gtk2-awf"
 
+if [[ ! -z ${SKIP_GTK3:-} ]] ; then
+	exit ${TEST_EXIT_CODE}
+fi
 ################################################################################
 _kill_procs
 echo
