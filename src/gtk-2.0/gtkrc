@@ -240,28 +240,31 @@ style "murrine-overlay-scrollbar" {
 }
 
 style "murrine-scale" = "murrine-thin" {
-	bg[NORMAL] = @bg_color
-	bg[ACTIVE] = @bg_color
+	bg[NORMAL] = @btn_bg_color
+	bg[ACTIVE] = mix(0.2, @fg_color, @bg_color)
 	bg[SELECTED] = @selected_bg_color
-	bg[INSENSITIVE] = shade (0.95, @bg_color)
+	bg[INSENSITIVE] = mix(0.95, @bg_color, @btn_bg_color)
 
 	engine "murrine" {
-		roundness = 8
+		#roundness = 8
+		roundness = %ROUNDNESS%
 		gradient_shades = { 1.08, 1.08, 1.08, 1.08 }
-		border_shades = { 1.0, 1.0 }
-		trough_shades = { 1.08, 1.08 }
-		trough_border_shades = { 0.8, 0.8 }
+		#border_shades = { 0.5, 0.5 }
+		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
+        #trough_shades = { 1.08, 1.08 }
+        trough_border_shades = { 0.8, 0.8 }
 	}
 }
 
 style "murrine-progressbar" = "murrine-thin" {
 	bg[NORMAL] = @bg_color
-	bg[ACTIVE] = shade (1.08, @bg_color)
+	bg[ACTIVE] = mix(0.08, @bg_color, @base_color)
 
 	fg[PRELIGHT] = @selected_fg_color
 
 	engine "murrine" {
-		roundness = 2
+		#roundness = 2
+		roundness = %ROUNDNESS%
 		border_shades = { 1.2, 1.2 }
 		trough_border_shades = { 0.8, 0.8 }
 	}
