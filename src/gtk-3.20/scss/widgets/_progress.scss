@@ -120,7 +120,6 @@
     scale {
         $_marks_length: 3px;
         $_marks_distance: 1px;
-        $button_bg: $button_bg_color;
         $ease-out-quad: cubic-bezier(.25, .46, .45, .94);
         $button_transition: all 200ms $ease-out-quad;
 
@@ -210,14 +209,15 @@
         slider {
             $_slider_border: $button_border;
 
-            background-color: $button_bg;
+            background-color: $button_bg_color;
             border: 1px solid $_slider_border;
-            border-radius: 100%;
+            //border-radius: 100%;
+            border-radius: $roundness;
 
             transition: $button_transition;
             transition-property: background, border;
 
-            &:hover { background-color: lighten($button_bg, 5%); }
+            &:hover { background-color: lighten($button_bg_color, 5%); }
 
             &:active {
                 background-clip: border-box;
@@ -226,8 +226,8 @@
             }
 
             &:disabled {
-                background-color: mix($button_bg, $bg_color, .55);
-                border-color: transparentize($_slider_border, .2);
+                background-color: mix($button_bg_color, $bg_color, .55);
+                border-color: mix($button_fg_color, $bg_color, .92);
             }
 
             // Selected list-row and infobar sliders
