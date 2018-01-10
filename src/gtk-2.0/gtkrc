@@ -197,8 +197,8 @@ style "murrine-button"  = "murrine-wider" {
 	bg[SELECTED] = mix (0.5, @selected_bg_color, @bg_color)
 	bg[ACTIVE] = shade (0.95, @btn_bg_color)
 	bg[INSENSITIVE] = shade (0.75, @btn_bg_color)
-    xthickness = 4
-    ythickness = 4
+    #xthickness = 4
+    #ythickness = 4
 
 	engine "murrine" {
 		border_colors = { mix(0.2, @btn_fg_color, @btn_bg_color), mix(0.2, @btn_fg_color, @btn_bg_color) }
