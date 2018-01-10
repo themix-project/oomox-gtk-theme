@@ -151,6 +151,7 @@ make_and_compare_screenshot() {
 }
 
 
+if [[ -z ${SKIP_GTK2:-} ]] ; then
 ################################################################################
 echo
 echo "========= Going to test GTK+2 theme (awf)..."
@@ -162,12 +163,12 @@ FAKETIME="2017-08-29 01:02:01" FAKETIME_NO_CACHE=1 LD_PRELOAD=/usr/lib/faketime/
 echo "== Started awf-gtk2"
 
 make_and_compare_screenshot "gtk2-awf"
-
-if [[ ! -z ${SKIP_GTK3:-} ]] ; then
-	exit ${TEST_EXIT_CODE}
-fi
-################################################################################
 _kill_procs
+################################################################################
+fi
+
+if [[ -z ${SKIP_GTK3:-} ]] ; then
+################################################################################
 echo
 echo "========= Going to test GTK+3 theme..."
 echo
@@ -218,7 +219,7 @@ xdotool mousemove -w $(get_window_id $gwf) --sync $X $Y
 xdotool click 1
 xdotool mousemove --sync 0 0
 make_and_compare_screenshot "gtk3-page3"
-
 ################################################################################
+fi
 
 exit ${TEST_EXIT_CODE}
