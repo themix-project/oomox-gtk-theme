@@ -161,8 +161,8 @@ style "murrine-wide" {
 }
 
 style "murrine-wider" {
-	xthickness = 8
-	ythickness = 4
+	xthickness = 10
+	ythickness = 10
 }
 
 style "murrine-thin" {
