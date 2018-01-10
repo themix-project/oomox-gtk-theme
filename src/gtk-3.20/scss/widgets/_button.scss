@@ -316,7 +316,9 @@
             outline-color: alpha($selected_bg_color, .5);
             outline-width: $button_outline_width;
             outline-style: solid;
-            outline-offset: 1px;
+            //outline-offset: 1px;
+            //outline-offset: -3px;
+            outline-offset: $button_outline_offset;
 
             color: $fg;
             box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);

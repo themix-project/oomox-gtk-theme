@@ -11,6 +11,10 @@ style "murrine-default" {
 	GtkButton::child-displacement-y = 0
 
 	GtkButton::default-border = { 0, 0, 0, 0 }
+    #GtkButton::inner-border        = { 8, 8, 2, 2 }
+    GtkButton::inner-border        = { 4, 4, 2, 2 }
+    GtkButton::focus-line-width    = 2
+    GtkButton::focus-padding       = -8
 
 	GtkButtonBox::child-min-height = 52
 
@@ -187,12 +191,14 @@ style "clearlooks-notebook" = "clearlooks-notebook-bg" {
 style "murrine-button"  = "murrine-wider" {
 	bg[NORMAL] = @btn_bg_color
 	bg[PRELIGHT] = shade (1.04, @btn_bg_color)
-	bg[SELECTED] = shade (0.7, @btn_bg_color)
+	bg[SELECTED] = mix (0.5, @selected_bg_color, @bg_color)
 	bg[ACTIVE] = shade (0.95, @btn_bg_color)
 	bg[INSENSITIVE] = shade (0.75, @btn_bg_color)
+    xthickness = 8
+    ythickness = 8
 
 	engine "murrine" {
-		border_colors = { mix(0.4, @btn_fg_color, @btn_bg_color), mix(0.4, @btn_fg_color, @btn_bg_color) }
+		border_colors = { mix(0.2, @btn_fg_color, @btn_bg_color), mix(0.2, @btn_fg_color, @btn_bg_color) }
 		roundness = %ROUNDNESS_GTK2_HIDPI%
 	}
 }
@@ -329,7 +335,7 @@ style "clearlooks-base-radiocheck" = "clearlooks-radiocheck" {
 style "murrine-entry" = "murrine-wider" {
 	engine "murrine" {
 		#border_shades = { 1.15, 1.15 }
-		border_colors = { mix(0.4, @text_color, @base_color), mix(0.4, @text_color, @base_color) }
+		border_colors = { mix(0.22, @text_color, @base_color), mix(0.22, @text_color, @base_color) }
 		roundness = %ROUNDNESS_GTK2_HIDPI%
 	}
 }
