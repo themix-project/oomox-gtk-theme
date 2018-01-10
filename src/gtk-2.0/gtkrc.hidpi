@@ -161,8 +161,8 @@ style "murrine-wide" {
 }
 
 style "murrine-wider" {
-	xthickness = 4
-	ythickness = 8
+	xthickness = 8
+	ythickness = 4
 }
 
 style "murrine-thin" {
@@ -198,7 +198,7 @@ style "murrine-button"  = "murrine-wider" {
     ythickness = 8
 
 	engine "murrine" {
-		border_colors = { mix(0.2, @btn_fg_color, @btn_bg_color), mix(0.2, @btn_fg_color, @btn_bg_color) }
+		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
 		roundness = %ROUNDNESS_GTK2_HIDPI%
 	}
 }
