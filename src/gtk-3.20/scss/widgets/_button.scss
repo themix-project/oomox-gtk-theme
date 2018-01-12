@@ -2,6 +2,8 @@
  ! Buttons
 **********/
 
+$button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10);
+
 @include exports("button_extends") {
     // stuff for .needs-attention
     $_dot_color: if($variant == "light", $selected_bg_color, lighten($selected_bg_color, .15));
@@ -49,7 +51,7 @@
         border-width: 1px;
         border-style: solid;
         border-radius: $roundness;
-        -gtk-outline-radius: $roundness;
+        -gtk-outline-radius: $button_outline_radius;
         transition: 150ms ease;
         outline-color: transparent;
     }
@@ -103,7 +105,7 @@
             border-right-style: none;
             //top-left top-right bottom-right bottom-left
             border-radius: $roundness 0 0 $roundness;
-            -gtk-outline-radius: $roundness 0 0 $roundness;
+            -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
             &:dir(rtl) {
                 border-left-style: none;
@@ -116,7 +118,7 @@
             border-left-style: none;
             border-right-style: solid;
             border-radius: 0 $roundness $roundness 0;
-            -gtk-outline-radius: 0 $roundness $roundness 0;
+            -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
             &:dir(rtl) {
                 border-left-style: solid;
@@ -131,7 +133,7 @@
 
         &:only-child {
             border-radius: $roundness;
-            -gtk-outline-radius: $roundness;
+            -gtk-outline-radius: $button_outline_radius;
         }
     }
 
@@ -149,7 +151,7 @@
             border-bottom-style: none;
             //top-left top-right bottom-right bottom-left
             border-radius: $roundness $roundness 0 0;
-            -gtk-outline-radius: $roundness $roundness 0 0;
+            -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
 
             &:dir(rtl) {
                 border-top-style: none;
@@ -163,7 +165,7 @@
             border-bottom-style: solid;
             //top-left top-right bottom-right bottom-left
             border-radius: 0 0 $roundness $roundness;
-            -gtk-outline-radius: 0 0 $roundness $roundness;
+            -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
 
             &:dir(rtl) {
                 border-top-style: solid;
@@ -178,7 +180,7 @@
 
         &:only-child {
             border-radius: $roundness;
-            -gtk-outline-radius: $roundness;
+            -gtk-outline-radius: $button_outline_radius;
         }
     }
 }
@@ -447,7 +449,7 @@
 
             padding: 0;
             border-radius: $roundness;
-            -gtk-outline-radius: $roundness;
+            -gtk-outline-radius: $button_outline_radius;
 
             color: $text_color;
             caret-color: $text_color;
@@ -462,7 +464,7 @@
 
             entry {
                 border-radius: $roundness 0 0 $roundness;
-                -gtk-outline-radius: $roundness 0 0 $roundness;
+                -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
                 border-right-width: 0;
                 box-shadow: none;
             }
@@ -506,7 +508,7 @@
 
                 &:dir(rtl):first-child {
                     border-radius: $roundness 0 0 $roundness;
-                    -gtk-outline-radius: $roundness 0 0 $roundness;
+                    -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
                     &:focus {
                         border-top-color: border_focus($borders_color);
@@ -517,7 +519,7 @@
 
                 &:dir(ltr):last-child {
                     border-radius: 0 $roundness $roundness 0;
-                    -gtk-outline-radius: 0 $roundness $roundness 0;
+                    -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
                     &:focus {
                         border-top-color: border_focus($borders_color);
@@ -547,7 +549,7 @@
                 &.up {
                     border-style: solid solid none;
                     border-radius: $roundness $roundness 0 0;
-                    -gtk-outline-radius: $roundness $roundness 0 0;
+                    -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
 
                     &:focus {
                         border-top-color: border_focus($borders_color);
@@ -559,7 +561,7 @@
                 &.down {
                     border-style: none solid solid;
                     border-radius: 0 0 $roundness $roundness;
-                    -gtk-outline-radius: 0 0 $roundness $roundness;
+                    -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
 
                     &:focus {
                         border-bottom-color: border_focus($borders_color);
