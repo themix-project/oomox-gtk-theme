@@ -96,5 +96,11 @@ cd ./docker_scripts/
 #### Generate new screenshots:
 
 ```sh
-./run_docker_tests.sh -e GENERATE_ASSETS=1
+./docker_scripts/run_docker_tests.sh -e GENERATE_ASSETS=1
+```
+
+#### Generate screenshots only for specific theme variant:
+
+```sh
+./docker_scripts/run_docker_tests.sh -e GENERATE_ASSETS=1 -e SKIP_GTK2=1 -e TEST_THEMES=clearlooks -e TESTSUITE_HIDPI=1
 ```
