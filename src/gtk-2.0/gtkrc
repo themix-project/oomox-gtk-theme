@@ -246,8 +246,8 @@ style "murrine-scale" = "murrine-thin" {
 	bg[INSENSITIVE] = mix(0.95, @bg_color, @btn_bg_color)
 
 	engine "murrine" {
-		#roundness = 8
-		roundness = %ROUNDNESS%
+        roundness = 8
+		#roundness = %ROUNDNESS%
 		gradient_shades = { 1.08, 1.08, 1.08, 1.08 }
 		#border_shades = { 0.5, 0.5 }
 		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
