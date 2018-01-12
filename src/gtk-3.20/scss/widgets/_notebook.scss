@@ -7,6 +7,15 @@
 
 @include exports("notebook") {
 
+    $tab_border_width: 1px;
+    $tab_marker_width: 3px;
+    $max_single_tab_roundness: 6px;
+    $max_tab_bar_roundness: 13px;
+    $vertical_tab_spacing: $spacing + if($roundness <= $max_tab_bar_roundness,
+         if($roundness > 8px, $roundness, 8px),
+         8px
+    );
+
     notebook {
         padding: 0;
 
@@ -101,15 +110,16 @@
                 border-color: mix($borders_color, $insensitive_fg_color, .15);
                 color: alpha($fg_color, .8);
 
-                padding: $spacing $spacing + 8px;
+                padding: $spacing $vertical_tab_spacing;
                 min-width: 20px;
                 min-height: 20px;
                 outline-offset: -4px;
-                border-width: 1px;
+                border-width: $tab_border_width;
                 border-style: solid;
 
                 &:hover:not(:checked) {
-                    @include linear-gradient(mix($bg_color, $fg_color, .12));
+                    //@include linear-gradient(mix($bg_color, $fg_color, .12));
+                    @include linear-gradient(mix($bg_color, $fg_color, .04));
                     color: mix($fg_color, $insensitive_fg_color, .5);
                 }
 
@@ -156,19 +166,10 @@
                     > tabs > tab {
                         border-#{$_bpos}: none;
                         //border-#{$_pos}-color: $bg_color;
-                        $roundness_spacing: $spacing + if($roundness <= 13px,
-                             if($roundness > 8px, $roundness, 8px),
-                             8px
-                        );
-                        padding-left: $roundness_spacing;
-                        padding-right: $roundness_spacing;
                         -gtk-outline-radius: 0;
 
-                        @if $roundness <= 6 {
+                        @if $roundness <= $max_single_tab_roundness {
                             margin-#{$_pos}: $roundness;
-                        } @else {
-                            //margin-#{$_pos}: 2px;
-                            //margin-#{$_pos}: 2px;
                         }
                         // tab overlap
                         + tab {
@@ -178,7 +179,7 @@
 
                         // tab border radius
                         &:first-child {
-                            @if $roundness <= 13 {
+                            @if $roundness <= $max_tab_bar_roundness {
                                 @if $_pos==top {
                                     border-radius: $roundness 0 0;
                                     -gtk-outline-radius: $roundness 0 0;
@@ -198,7 +199,7 @@
                         }
 
                         &:last-child {
-                            @if $roundness <= 13 {
+                            @if $roundness <= $max_tab_bar_roundness {
                                 @if $_pos==top {
                                     border-radius: 0 $roundness 0 0;
                                     -gtk-outline-radius: 0 $roundness 0 0;
@@ -219,11 +220,14 @@
 
                         &:hover:not(:checked),
                         &:checked {
-                            border-#{$_pos}-width: 3px;
+                            $compensate_tab_marker_padding: $tab_marker_width - $tab_border_width - if(
+                                $roundness <= $max_single_tab_roundness, $roundness, 0
+                            );
+                            border-#{$_pos}-width: $tab_marker_width;
                             border-#{$_pos}-color: $selected_bg_color;
                             margin-#{$_pos}: 0;
 
-                            @if $roundness <= 6 {
+                            @if $roundness <= $max_single_tab_roundness {
                                 -gtk-outline-radius: $roundness;
                                 @if $_pos==top {
                                     border-radius: $roundness $roundness 0 0;
@@ -235,10 +239,15 @@
                                     border-radius: 0 $roundness $roundness 0;
                                 }
                             }
+                            @if $_pos==top or $_pos==bottom {
+                                padding-#{$_pos}: $spacing - $compensate_tab_marker_padding;
+                            } @else if $_pos==left or $_pos==right {
+                                padding-#{$_pos}: $vertical_tab_spacing - $compensate_tab_marker_padding;
+                            }
                         }
 
                         &:hover:not(:checked) {
-                            border-#{$_pos}-color: mix($selected_bg_color, $insensitive_bg_color, .3);
+                            border-#{$_pos}-color: mix($selected_bg_color, mix($bg_color, $fg_color, .2), .66);
                         }
                     }
                 }
