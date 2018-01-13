@@ -4,6 +4,7 @@ WORKDIR /opt/oomox-gtk-theme
 VOLUME /opt/oomox-gtk-theme/test_results
 ENTRYPOINT /bin/bash
 
+RUN echo "Update arch deps - 1"
 # App dependensies:
 RUN pacman -Syu --noconfirm && \
     pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines gtk3 make
