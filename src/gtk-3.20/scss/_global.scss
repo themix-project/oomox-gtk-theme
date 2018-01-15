@@ -108,12 +108,20 @@ $lightdm_button_fg_color: $header_button_fg_color;
 $wm_bg: $titlebar_bg_color;
 $wm_border_focused: #%WM_BORDER_FOCUS%;
 $wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
-$wm_title_focused: mix($titlebar_fg_color, $titlebar_bg_color, .1);
-$wm_title_unfocused: mix($titlebar_fg_color, $titlebar_bg_color, .4);
-$wm_icons_focused: mix($titlebar_fg_color, $titlebar_bg_color, .1);
+$wm_title_focused: choose_contrast_color(
+    $wm_border_focused,
+    $titlebar_bg_color,
+    $titlebar_fg_color
+);
+$wm_title_unfocused: choose_contrast_color(
+    $wm_border_unfocused,
+    $titlebar_bg_color,
+    $titlebar_fg_color
+);
+$wm_icons_focused: $wm_title_focused;
 $wm_icons_focused_prelight: $selected_bg_color;
 $wm_icons_focused_pressed: shade($selected_bg_color, .8);
-$wm_icons_unfocused: mix($titlebar_fg_color, $titlebar_bg_color, .4);
+$wm_icons_unfocused: $wm_title_unfocused;
 $wm_icons_unfocused_prelight: $selected_bg_color;
 $wm_icons_unfocused_pressed: shade($selected_bg_color, .8);
 
