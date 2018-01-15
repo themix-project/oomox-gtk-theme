@@ -108,3 +108,11 @@ $modules: () !default;
         @return transparentize($black, $_lbg * .8);
     }
 }
+
+@function choose_contrast_color($reference, $candidate1, $candidate2) {
+    @if abs(lightness($reference) - lightness($candidate1)) > abs(lightness($reference) - lightness($candidate2)) {
+        @return $candidate1;
+    } @else {
+        @return $candidate2;
+    }
+}
