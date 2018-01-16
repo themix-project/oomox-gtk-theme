@@ -3,6 +3,7 @@
 **********/
 
 $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10);
+$button_border_width: 1px;
 
 @include exports("button_extends") {
     // stuff for .needs-attention
@@ -48,7 +49,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         min-height: 14px + $spacing * 2;
         min-width: 14px + $spacing * 2;
         padding: $spacing ($spacing + 2px);
-        border-width: 1px;
+        border-width: $button_border_width;
         border-style: solid;
         border-radius: $roundness;
         -gtk-outline-radius: $button_outline_radius;
@@ -92,7 +93,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
     }
 
     %linked_button {
-        border-width: 1px;
+        border-width: $button_border_width;
         border-style: solid;
         border-radius: 0;
         -gtk-outline-radius: 0;
@@ -100,7 +101,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         border-left-style: none;
 
         &:first-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-left-style: solid;
             border-right-style: none;
             //top-left top-right bottom-right bottom-left
@@ -114,7 +115,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         }
 
         &:last-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-left-style: none;
             border-right-style: solid;
             border-radius: 0 $roundness $roundness 0;
@@ -127,7 +128,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         }
 
         &:only-child, &:first-child:only-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-style: solid;
         }
 
@@ -138,7 +139,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
     }
 
     %linked_vertical_button {
-        border-width: 1px;
+        border-width: $button_border_width;
         border-style: solid;
         border-radius: 0;
         -gtk-outline-radius: 0;
@@ -146,7 +147,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         border-bottom-style: none;
 
         &:first-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-top-style: solid;
             border-bottom-style: none;
             //top-left top-right bottom-right bottom-left
@@ -160,7 +161,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         }
 
         &:last-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-top-style: none;
             border-bottom-style: solid;
             //top-left top-right bottom-right bottom-left
@@ -174,7 +175,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         }
 
         &:only-child, &:first-child:only-child {
-            border-width: 1px;
+            border-width: $button_border_width;
             border-style: solid;
         }
 
@@ -186,16 +187,16 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 }
 
 @mixin linked_button($bg) {
-    $border_strength: if(lightness($bg) > 50, 0, .1);
+    $button_border_strength: if(lightness($bg) <= 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     @extend %linked_button;
 
-    box-shadow: inset -1px 0 border_normal(rgba(0, 0, 0, .12 + $border_strength)),
+    box-shadow: inset -1px 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
     0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset -1px 0 border_focus(rgba(0, 0, 0, .12 + $border_strength)),
+        box-shadow: inset -1px 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
         0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
     }
 
@@ -203,7 +204,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset -1px 0 border_active(rgba(0, 0, 0, .12 + $border_strength)),
+        box-shadow: inset -1px 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
         inset 0 1px alpha($dark_shadow, .07),
         inset 0 -1px alpha($dark_shadow, .05);
     }
@@ -233,16 +234,16 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 }
 
 @mixin linked_vertical_button($bg) {
-    $border_strength: if(lightness($bg) > 50, 0, .1);
+    $button_border_strength: if(lightness($bg) <= 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     @extend %linked_vertical_button;
 
-    box-shadow: inset 0 -1px border_normal(rgba(0, 0, 0, .12 + $border_strength)),
+    box-shadow: inset 0 -1px border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
     0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset 0 -1px border_focus(rgba(0, 0, 0, .12 + $border_strength)),
+        box-shadow: inset 0 -1px border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
         0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
     }
 
@@ -250,7 +251,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset 0 -1px border_active(rgba(0, 0, 0, .12 + $border_strength)),
+        box-shadow: inset 0 -1px border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
         inset 1px 0 alpha($dark_shadow, .07),
         inset -1px 0 alpha($dark_shadow, .05);
     }
@@ -280,14 +281,14 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 }
 
 @mixin button($bg, $fg) {
-    $border_strength: if(lightness($fg) > 50, .1, .2);
+    $button_border_strength: if(lightness($fg) > 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     $button_bg: $bg;
 
     @extend %button;
     @include linear-gradient($button_bg);
-    @include border(alpha($fg, .12 + $border_strength));
+    @include border(alpha($fg, .12 + $button_border_strength));
 
     color: $fg;
     box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
@@ -306,7 +307,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 
         &:hover {
             @include linear-gradient(shade($bg, 1.05));
-            @include border(alpha($fg, .2 + $border_strength));
+            @include border(alpha($fg, .2 + $button_border_strength));
 
             color: $fg;
             box-shadow: 0 1px 2px -1px alpha($dark_shadow, .22 + $shadow_strength);
@@ -314,7 +315,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 
         &:focus {
             @include linear-gradient(shade($bg, 1.05));
-            border-color: alpha($fg, .12 + $border_strength);
+            border-color: alpha($fg, .12 + $button_border_strength);
             outline-color: alpha($selected_bg_color, .5);
             outline-width: $button_outline_width;
             outline-style: solid;
@@ -327,7 +328,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 
             &:hover {
                 @include linear-gradient(shade($bg, 1.1));
-                @include border(alpha($fg, .2 + $border_strength));
+                @include border(alpha($fg, .2 + $button_border_strength));
 
                 box-shadow: 0 1px 2px -1px alpha($dark_shadow, .38 + $shadow_strength);
             }
@@ -336,7 +337,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
         &:checked, &:active {
             /*@include linear-gradient(shade($bg, .7), to top);*/
             @include linear-gradient($selected_bg_color, to top);
-            @include border(alpha($fg, .12 + $border_strength));
+            @include border(alpha($fg, .12 + $button_border_strength));
 
             color: $selected_fg_color;
             box-shadow: inset 1px 0 alpha($fg, .06),
@@ -380,6 +381,7 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
 }
 
 @include exports("button") {
+    $button_border_strength: if(lightness($button_fg_color) > 50, .1, .2);
     %close_button {
         border: 1px solid transparent;
         background-color: transparent;
@@ -435,6 +437,15 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
                 @include linear-gradient(shade($button_bg_color, 1.2));
             }
 
+            &:hover,
+            &:focus:hover {
+                @include border(alpha($button_fg_color, .2 + $button_border_strength));
+            }
+
+            &:focus:hover {
+                color: mix($fg_color, border_focus($borders_color), 0.3);
+            }
+
             &:disabled { color: mix($button_fg_color, $bg_color, .7); }
 
             &:backdrop { color: mix($backdrop_base_color, $backdrop_fg_color, .9); }
@@ -473,40 +484,30 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
                 @extend %linked_middle;
                 border-radius: 0;
                 -gtk-outline-radius: 0;
-                /*border-color: alpha($borders_color, .8);*/
-                /*border-style: none none none solid;*/
+                border-style: solid;
                 background-image: none;
                 box-shadow: none;
-
-                /*
-                @if (lightness($bg_color) > 50) {
-                    background-color: shade($bg_color, 1.08);
-                }
-
-                &:hover {
-                    @if (lightness($bg_color) > 50) {
-                        background-color: shade($bg_color, 1.11);
-                    }
-                }
-                */
 
                 &:focus {
                     border-top-color: border_focus($borders_color);
                     border-bottom-color: border_focus($borders_color);
                 }
 
-                &:dir(rtl) { border-style: none solid none none; }
-
                 &:active { box-shadow: inset 0 2px 3px -1px transparentize($black, .8); }
 
                 &:backdrop { border-color: alpha($backdrop_borders_color, .8); }
 
-                &:backdrop:disabled {
-                    border-style: none none none solid; // It is needed or it gets overridden
-                    &:dir(rtl) { border-style: none solid none none; }
+                &.up:dir(ltr),
+                &.down:dir(rtl) {
+                    border-style: solid;
+                    &:hover,
+                    &:focus:hover {
+                        @include border(alpha($button_fg_color, .2 + $button_border_strength));
+                    }
                 }
 
-                &:dir(rtl):first-child {
+                &.down:dir(rtl) {
+                    border-right-color: $button_bg_color;
                     border-radius: $roundness 0 0 $roundness;
                     -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
@@ -517,7 +518,8 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
                     }
                 }
 
-                &:dir(ltr):last-child {
+                &.up:dir(ltr) {
+                    border-left-color: $button_bg_color;
                     border-radius: 0 $roundness $roundness 0;
                     -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
@@ -546,8 +548,14 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
             }
 
             button {
+                &.up,
+                &.down {
+                    &:focus:hover {
+                        @include border(alpha($button_fg_color, .2 + $button_border_strength));
+                    }
+                }
+
                 &.up {
-                    border-style: solid solid none;
                     border-radius: $roundness $roundness 0 0;
                     -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
 
@@ -559,7 +567,6 @@ $button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10)
                 }
 
                 &.down {
-                    border-style: none solid solid;
                     border-radius: 0 0 $roundness $roundness;
                     -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
 
