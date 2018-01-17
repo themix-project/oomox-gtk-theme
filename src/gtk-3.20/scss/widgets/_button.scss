@@ -67,63 +67,63 @@ $button_border_width: 1px;
     %linked_middle {
         border-radius: 0;
         -gtk-outline-radius: 0;
-        border-left-style: none;
-        border-right-style: solid;
+        //border-left-style: none;
+        //border-right-style: solid;
 
         &:dir(rtl) {
             border-radius: 0; // needed when including %linked_middle:dir(rtl)
             -gtk-outline-radius: 0;
-            border-right-style: none;
-            border-left-style: solid;
+            //border-right-style: none;
+            //border-left-style: solid;
         }
     }
 
     %linked_vertical_middle {
         border-radius: 0;
         -gtk-outline-radius: 0;
-        border-top-style: none;
-        border-bottom-style: solid;
+        //border-top-style: none;
+        //border-bottom-style: solid;
 
         &:dir(rtl) {
             border-radius: 0; // needed when including %linked_vertical_middle:dir(rtl)
             -gtk-outline-radius: 0;
-            border-top-style: none;
-            border-bottom-style: solid;
+            //border-top-style: none;
+            //border-bottom-style: solid;
         }
     }
 
     %linked_button {
         border-width: $button_border_width;
-        border-style: solid;
+        //border-style: solid;
         border-radius: 0;
         -gtk-outline-radius: 0;
-        border-right-style: none;
-        border-left-style: none;
+        //border-right-style: none;
+        //border-left-style: none;
 
         &:first-child {
             border-width: $button_border_width;
-            border-left-style: solid;
-            border-right-style: none;
+            //border-left-style: solid;
+            //border-right-style: none;
             //top-left top-right bottom-right bottom-left
             border-radius: $roundness 0 0 $roundness;
             -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
             &:dir(rtl) {
-                border-left-style: none;
-                border-right-style: solid;
+                //border-left-style: none;
+                //border-right-style: solid;
             }
         }
 
         &:last-child {
             border-width: $button_border_width;
-            border-left-style: none;
-            border-right-style: solid;
+            //border-left-style: none;
+            //border-right-style: solid;
             border-radius: 0 $roundness $roundness 0;
             -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
             &:dir(rtl) {
-                border-left-style: solid;
-                border-right-style: none;
+                //border-left-style: solid;
+                //border-right-style: none;
             }
         }
 
@@ -143,40 +143,40 @@ $button_border_width: 1px;
         border-style: solid;
         border-radius: 0;
         -gtk-outline-radius: 0;
-        border-top-style: none;
-        border-bottom-style: none;
+        //border-top-style: none;
+        //border-bottom-style: none;
 
         &:first-child {
             border-width: $button_border_width;
-            border-top-style: solid;
-            border-bottom-style: none;
+            //border-top-style: solid;
+            //border-bottom-style: none;
             //top-left top-right bottom-right bottom-left
             border-radius: $roundness $roundness 0 0;
             -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
 
-            &:dir(rtl) {
-                border-top-style: none;
-                border-bottom-style: solid;
-            }
+            //&:dir(rtl) {
+                //border-top-style: none;
+                //border-bottom-style: solid;
+            //}
         }
 
         &:last-child {
             border-width: $button_border_width;
-            border-top-style: none;
-            border-bottom-style: solid;
+            //border-top-style: none;
+            //border-bottom-style: solid;
             //top-left top-right bottom-right bottom-left
             border-radius: 0 0 $roundness $roundness;
             -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
 
-            &:dir(rtl) {
-                border-top-style: solid;
-                border-bottom-style: none;
-            }
+            //&:dir(rtl) {
+                //border-top-style: solid;
+                //border-bottom-style: none;
+            //}
         }
 
         &:only-child, &:first-child:only-child {
             border-width: $button_border_width;
-            border-style: solid;
+            //border-style: solid;
         }
 
         &:only-child {
@@ -186,34 +186,35 @@ $button_border_width: 1px;
     }
 }
 
-@mixin linked_button($bg) {
-    $button_border_strength: if(lightness($bg) <= 50, .1, .2);
+@mixin linked_button($bg, $fg) {
+    $button_border_strength: if(lightness($fg) > 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     @extend %linked_button;
 
-    box-shadow: inset -1px 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
-    0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: inset 0 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
+    0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset -1px 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
-        0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: inset 0 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
+        0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
     }
+
 
     &:active, &:active:hover,
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset -1px 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
+        box-shadow: inset 0 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
         inset 0 1px alpha($dark_shadow, .07),
-        inset 0 -1px alpha($dark_shadow, .05);
+        inset 0 0 alpha($dark_shadow, .05);
     }
 
-    &:disabled { box-shadow: inset -1px 0 shade($bg, .8); }
+    &:disabled { box-shadow: inset 0 0 shade($bg, .8); }
 
-    &:last-child, &:only-child { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength); }
+    &:last-child, &:only-child { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength); }
 
-    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength); }
+    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength); }
 
     &:disabled:last-child, &:disabled:only-child,
     &:active:disabled:last-child, &:active:disabled:only-child,
@@ -222,14 +223,14 @@ $button_border_width: 1px;
     &:active:last-child, &:active:last-child:focus, &:active:last-child:hover, &:active:last-child:hover:focus,
     &:checked:last-child, &:checked:last-child:focus, &:checked:last-child:hover, &:checked:last-child:hover:focus {
         box-shadow: inset 0 1px alpha($dark_shadow, .07),
-        inset -1px 0 alpha($dark_shadow, .06);
+        inset 0 0 alpha($dark_shadow, .06);
     }
 
     &:active:only-child, &:active:only-child:focus, &:active:only-child:hover, &:active:only-child:hover:focus,
     &:checked:only-child, &:checked:only-child:focus, &:checked:only-child:hover, &:checked:only-child:hover:focus {
         box-shadow: inset 1px 0 alpha($dark_shadow, .06),
         inset 0 1px alpha($dark_shadow, .07),
-        inset -1px 0 alpha($dark_shadow, .06);
+        inset 0 0 alpha($dark_shadow, .06);
     }
 }
 
@@ -239,28 +240,28 @@ $button_border_width: 1px;
 
     @extend %linked_vertical_button;
 
-    box-shadow: inset 0 -1px border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
-    0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: inset 0 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
+    0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset 0 -1px border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
-        0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: inset 0 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
+        0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
     }
 
     &:active, &:active:hover,
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset 0 -1px border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
+        box-shadow: inset 0 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
         inset 1px 0 alpha($dark_shadow, .07),
-        inset -1px 0 alpha($dark_shadow, .05);
+        inset 0 0 alpha($dark_shadow, .05);
     }
 
-    &:disabled { box-shadow: inset 0 -1px shade($bg, .8); }
+    &:disabled { box-shadow: inset 0 0 shade($bg, .8); }
 
-    &:last-child, &:only-child { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength); }
+    &:last-child, &:only-child { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength); }
 
-    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength); }
+    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength); }
 
     &:disabled:last-child, &:disabled:only-child,
     &:active:disabled:last-child, &:active:disabled:only-child,
@@ -269,15 +270,69 @@ $button_border_width: 1px;
     &:active:last-child, &:active:last-child:focus, &:active:last-child:hover, &:active:last-child:hover:focus,
     &:checked:last-child, &:checked:last-child:focus, &:checked:last-child:hover, &:checked:last-child:hover:focus {
         box-shadow: inset 0 1px alpha($dark_shadow, .07),
-        inset -1px 0 alpha($dark_shadow, .06);
+        inset 0 0 alpha($dark_shadow, .06);
     }
 
     &:active:only-child, &:active:only-child:focus, &:active:only-child:hover, &:active:only-child:hover:focus,
     &:checked:only-child, &:checked:only-child:focus, &:checked:only-child:hover, &:checked:only-child:hover:focus {
         box-shadow: inset 1px 0 alpha($dark_shadow, .06),
         inset 0 1px alpha($dark_shadow, .07),
-        inset -1px 0 alpha($dark_shadow, .06);
+        inset 0 0 alpha($dark_shadow, .06);
     }
+}
+
+@mixin default_linked_button_mixin($bg, $fg) {
+    $border_focus_color: border_focus(alpha($fg, .2 + $button_border_strength));
+    $selected_border_focus_color: border_focus(alpha($selected_bg_color, .2 + $button_border_strength));
+
+    .linked.horizontal > &:not(:last-child):not(:only-child),
+    .linked.horizontal > :not(:last-child):not(:only-child) &,
+    stackswitcher.horizontal >  &:not(:last-child):not(:only-child) {
+        border-right-style: none;
+
+        &:hover {
+            border-color: $border_focus_color;
+            border-right-style: none;
+            box-shadow: inset -$button_border_width 0 $border_focus_color;
+        }
+    }
+
+    .linked.horizontal > &:not(:last-child):not(:only-child):checked,
+    .linked.horizontal > :not(:last-child):not(:only-child) &:checked,
+    stackswitcher.horizontal >  &:not(:last-child):not(:only-child):checked {
+        border-right-style: none;
+
+        &:hover {
+            border-color: $selected_border_focus_color;
+            border-right-style: none;
+            box-shadow: inset -$button_border_width 0 $selected_border_focus_color;
+        }
+    }
+
+    .linked.vertical > &:not(:last-child):not(:only-child),
+    .linked.vertical > :not(:last-child):not(:only-child) &,
+    stackswitcher.vertical >  &:not(:last-child):not(:only-child) {
+        border-bottom-style: none;
+
+        &:hover {
+            border-color: $border_focus_color;
+            border-bottom-style: none;
+            box-shadow: inset 0 -$button_border_width $border_focus_color;
+        }
+    }
+
+    .linked.vertical > &:not(:last-child):not(:only-child):checked,
+    .linked.vertical > :not(:last-child):not(:only-child) &:checked,
+    stackswitcher.vertical >  &:not(:last-child):not(:only-child):checked {
+        border-bottom-style: none;
+
+        &:hover {
+            border-color: $selected_border_focus_color;
+            border-bottom-style: none;
+            box-shadow: inset 0 -$button_border_width $selected_border_focus_color;
+        }
+    }
+
 }
 
 @mixin button($bg, $fg) {
@@ -289,10 +344,10 @@ $button_border_width: 1px;
     @extend %button;
     @include linear-gradient($button_bg);
     @include border(alpha($fg, .12 + $button_border_strength));
+    @include default_linked_button_mixin($bg, $fg);
 
     color: $fg;
-    box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
-
+    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
 
     &.flat {
         //color: mix($bg, $fg, .2);
@@ -310,7 +365,7 @@ $button_border_width: 1px;
             @include border(alpha($fg, .2 + $button_border_strength));
 
             color: $fg;
-            box-shadow: 0 1px 2px -1px alpha($dark_shadow, .22 + $shadow_strength);
+            box-shadow: 0 1px 2px 0 alpha($dark_shadow, .22 + $shadow_strength);
         }
 
         &:focus {
@@ -342,8 +397,8 @@ $button_border_width: 1px;
             color: $selected_fg_color;
             box-shadow: inset 1px 0 alpha($fg, .06),
             inset  0 1px alpha($fg, .07),
-            inset -1px 0 alpha($fg, .06),
-            inset 0 -1px alpha($fg, .05);
+            inset 0 0 alpha($fg, .06),
+            inset 0 0 alpha($fg, .05);
 
             &:focus, &:hover {
                 /*@include linear-gradient(shade($bg, .65), to top);*/
@@ -382,6 +437,7 @@ $button_border_width: 1px;
 
 @include exports("button") {
     $button_border_strength: if(lightness($button_fg_color) > 50, .1, .2);
+
     %close_button {
         border: 1px solid transparent;
         background-color: transparent;
@@ -408,7 +464,7 @@ $button_border_width: 1px;
 
 
         .inline-toolbar &,
-        .linked > & { @include linked_button($button_bg_color); }
+        .linked > & { @include linked_button($button_bg_color, $button_fg_color); }
 
         .linked.vertical > & { @include linked_vertical_button($button_bg_color); }
 
@@ -425,6 +481,8 @@ $button_border_width: 1px;
     }
 
     spinbutton {
+
+        $border_focus_color: border_focus(alpha($button_fg_color, .2 + $button_border_strength));
 
         &:disabled {
             opacity: .4;
@@ -443,7 +501,7 @@ $button_border_width: 1px;
             }
 
             &:focus:hover {
-                color: mix($fg_color, border_focus($borders_color), 0.3);
+                color: mix($fg_color, border_focus($borders_color), .3);
             }
 
             &:disabled { color: mix($button_fg_color, $bg_color, .7); }
@@ -500,14 +558,16 @@ $button_border_width: 1px;
                 &.up:dir(ltr),
                 &.down:dir(rtl) {
                     border-style: solid;
+
                     &:hover,
                     &:focus:hover {
-                        @include border(alpha($button_fg_color, .2 + $button_border_strength));
+                        border-color: border_focus(alpha($button_fg_color, .2 + $button_border_strength));
                     }
                 }
 
                 &.down:dir(rtl) {
-                    border-right-color: $button_bg_color;
+                    //border-right-color: $button_bg_color;
+                    border-right-style: none;
                     border-radius: $roundness 0 0 $roundness;
                     -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
@@ -516,10 +576,17 @@ $button_border_width: 1px;
                         border-bottom-color: border_focus($borders_color);
                         border-left-color: border_focus($borders_color);
                     }
+
+                    &:hover,
+                    &:focus:hover {
+                        border-color: $border_focus_color;
+                        box-shadow: inset -$button_border_width 0 $border_focus_color;
+                    }
                 }
 
                 &.up:dir(ltr) {
-                    border-left-color: $button_bg_color;
+                    //border-left-color: $button_bg_color;
+                    border-left-style: none;
                     border-radius: 0 $roundness $roundness 0;
                     -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
@@ -527,6 +594,12 @@ $button_border_width: 1px;
                         border-top-color: border_focus($borders_color);
                         border-bottom-color: border_focus($borders_color);
                         border-right-color: border_focus($borders_color);
+                    }
+
+                    &:hover,
+                    &:focus:hover {
+                        border-color: $border_focus_color;
+                        box-shadow: inset $button_border_width 0 $border_focus_color;
                     }
                 }
             }
@@ -551,7 +624,7 @@ $button_border_width: 1px;
                 &.up,
                 &.down {
                     &:focus:hover {
-                        @include border(alpha($button_fg_color, .2 + $button_border_strength));
+                        border-color: border_focus(alpha($button_fg_color, .2 + $button_border_strength));
                     }
                 }
 
