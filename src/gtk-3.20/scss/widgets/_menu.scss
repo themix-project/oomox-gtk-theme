@@ -294,7 +294,7 @@ $menu_borders_color: mix(
 
         button { @include button($header_button_bg_color, $header_button_fg_color);  }
 
-        .linked > button { @include linked_button($header_button_bg_color); }
+        .linked > button { @include linked_button($header_button_bg_color, $header_button_fg_color); }
 
         > list, > .view, > toolbar {
             border-style: none;
