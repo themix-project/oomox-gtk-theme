@@ -192,12 +192,10 @@ $button_border_width: 1px;
 
     @extend %linked_button;
 
-    box-shadow: inset 0 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
-    0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset 0 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
-        0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
     }
 
 
@@ -205,8 +203,7 @@ $button_border_width: 1px;
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset 0 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
-        inset 0 1px alpha($dark_shadow, .07),
+        box-shadow: inset 0 1px alpha($dark_shadow, .07),
         inset 0 0 alpha($dark_shadow, .05);
     }
 
@@ -234,26 +231,23 @@ $button_border_width: 1px;
     }
 }
 
-@mixin linked_vertical_button($bg) {
-    $button_border_strength: if(lightness($bg) <= 50, .1, .2);
+@mixin linked_vertical_button($bg, $fg) {
+    $button_border_strength: if(lightness($fg) > 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     @extend %linked_vertical_button;
 
-    box-shadow: inset 0 0 border_normal(rgba(0, 0, 0, .12 + $button_border_strength)),
-    0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: inset 0 0 border_focus(rgba(0, 0, 0, .12 + $button_border_strength)),
-        0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
     }
 
     &:active, &:active:hover,
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
-        box-shadow: inset 0 0 border_active(rgba(0, 0, 0, .12 + $button_border_strength)),
-        inset 1px 0 alpha($dark_shadow, .07),
+        box-shadow: inset 1px 0 alpha($dark_shadow, .07),
         inset 0 0 alpha($dark_shadow, .05);
     }
 
@@ -293,7 +287,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $border_focus_color;
             border-right-style: none;
-            box-shadow: inset -$button_border_width 0 $border_focus_color;
+            box-shadow: inset -$button_border_width 0 0 $border_focus_color;
         }
     }
 
@@ -305,7 +299,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $selected_border_focus_color;
             border-right-style: none;
-            box-shadow: inset -$button_border_width 0 $selected_border_focus_color;
+            box-shadow: inset -$button_border_width 0 0 $selected_border_focus_color;
         }
     }
 
@@ -317,7 +311,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $border_focus_color;
             border-bottom-style: none;
-            box-shadow: inset 0 -$button_border_width $border_focus_color;
+            box-shadow: inset 0 0 -$button_border_width $border_focus_color;
         }
     }
 
@@ -329,7 +323,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $selected_border_focus_color;
             border-bottom-style: none;
-            box-shadow: inset 0 -$button_border_width $selected_border_focus_color;
+            box-shadow: inset 0 0 -$button_border_width $selected_border_focus_color;
         }
     }
 
@@ -466,7 +460,7 @@ $button_border_width: 1px;
         .inline-toolbar &,
         .linked > & { @include linked_button($button_bg_color, $button_fg_color); }
 
-        .linked.vertical > & { @include linked_vertical_button($button_bg_color); }
+        .linked.vertical > & { @include linked_vertical_button($button_bg_color, $button_fg_color); }
 
         &.circular,
         &.circular-button { // FIXME: aggregate to buttons
@@ -580,7 +574,7 @@ $button_border_width: 1px;
                     &:hover,
                     &:focus:hover {
                         border-color: $border_focus_color;
-                        box-shadow: inset -$button_border_width 0 $border_focus_color;
+                        box-shadow: inset -$button_border_width 0 0 $border_focus_color;
                     }
                 }
 
