@@ -85,6 +85,11 @@ PATHLIST=(
 if [ ! -z "${CUSTOM_PATHLIST:-}" ] ; then
 	IFS=', ' read -r -a PATHLIST <<< "${CUSTOM_PATHLIST:-}"
 fi
+SVG_PREVIEWS=(
+	'./gtk-3.0/thumbnail.svg'
+	'./gtk-3.20/thumbnail.svg'
+	'./metacity-1/thumbnail.svg'
+)
 
 MAKE_GTK3=0
 EXPORT_QT5CT=0
@@ -239,5 +244,10 @@ if [[ ${MAKE_GTK3} = 1 ]]; then
 fi
 
 rm -r ./Makefile gtk-3.*/scss || true
+
+for FILEPATH in "${SVG_PREVIEWS[@]}"; do
+	rsvg-convert --format=png -o $(sed -e 's/svg$/png/' <<< "${FILEPATH}") "${FILEPATH}"
+	rm "${FILEPATH}"
+done
 
 exit 0
