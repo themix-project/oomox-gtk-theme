@@ -154,7 +154,7 @@
     @include linear-gradient($bg, to top);
     @include border(mix($bg, $fg, .2));
 
-    padding: $spacing;
+    padding: $spacing+2px $spacing;
 
     color: $fg;
     caret-color: $primary_caret_color;
