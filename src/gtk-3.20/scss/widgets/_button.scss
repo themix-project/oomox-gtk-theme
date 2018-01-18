@@ -192,26 +192,25 @@ $button_border_width: 1px;
 
     @extend %linked_button;
 
-    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
     }
-
 
     &:active, &:active:hover,
     &:active:focus, &:active:hover:focus,
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
         box-shadow: inset 0 1px alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .05);
+        inset 0 -1px alpha($dark_shadow, .05);
     }
 
-    &:disabled { box-shadow: inset 0 0 shade($bg, .8); }
+    &:disabled { box-shadow: inset -1px 0 shade($bg, .8); }
 
-    &:last-child, &:only-child { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength); }
+    &:last-child, &:only-child { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength); }
 
-    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength); }
+    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength); }
 
     &:disabled:last-child, &:disabled:only-child,
     &:active:disabled:last-child, &:active:disabled:only-child,
@@ -220,14 +219,14 @@ $button_border_width: 1px;
     &:active:last-child, &:active:last-child:focus, &:active:last-child:hover, &:active:last-child:hover:focus,
     &:checked:last-child, &:checked:last-child:focus, &:checked:last-child:hover, &:checked:last-child:hover:focus {
         box-shadow: inset 0 1px alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .06);
+        inset -1px 0 alpha($dark_shadow, .06);
     }
 
     &:active:only-child, &:active:only-child:focus, &:active:only-child:hover, &:active:only-child:hover:focus,
     &:checked:only-child, &:checked:only-child:focus, &:checked:only-child:hover, &:checked:only-child:hover:focus {
         box-shadow: inset 1px 0 alpha($dark_shadow, .06),
         inset 0 1px alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .06);
+        inset -1px 0 alpha($dark_shadow, .06);
     }
 }
 
@@ -237,10 +236,10 @@ $button_border_width: 1px;
 
     @extend %linked_vertical_button;
 
-    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
 
     &:focus, &:hover {
-        box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength);
+        box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
     }
 
     &:active, &:active:hover,
@@ -248,14 +247,14 @@ $button_border_width: 1px;
     &:checked, &:checked:hover,
     &:checked:focus, &:checked:hover:focus {
         box-shadow: inset 1px 0 alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .05);
+        inset -1px 0 alpha($dark_shadow, .05);
     }
 
-    &:disabled { box-shadow: inset 0 0 shade($bg, .8); }
+    &:disabled { box-shadow: inset 0 -1px shade($bg, .8); }
 
-    &:last-child, &:only-child { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength); }
+    &:last-child, &:only-child { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength); }
 
-    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px 0 alpha($dark_shadow, .32 + $shadow_strength); }
+    &:last-child:hover, &:only-child:hover { box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength); }
 
     &:disabled:last-child, &:disabled:only-child,
     &:active:disabled:last-child, &:active:disabled:only-child,
@@ -264,14 +263,14 @@ $button_border_width: 1px;
     &:active:last-child, &:active:last-child:focus, &:active:last-child:hover, &:active:last-child:hover:focus,
     &:checked:last-child, &:checked:last-child:focus, &:checked:last-child:hover, &:checked:last-child:hover:focus {
         box-shadow: inset 0 1px alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .06);
+        inset -1px 0 alpha($dark_shadow, .06);
     }
 
     &:active:only-child, &:active:only-child:focus, &:active:only-child:hover, &:active:only-child:hover:focus,
     &:checked:only-child, &:checked:only-child:focus, &:checked:only-child:hover, &:checked:only-child:hover:focus {
         box-shadow: inset 1px 0 alpha($dark_shadow, .06),
         inset 0 1px alpha($dark_shadow, .07),
-        inset 0 0 alpha($dark_shadow, .06);
+        inset -1px 0 alpha($dark_shadow, .06);
     }
 }
 
@@ -341,7 +340,8 @@ $button_border_width: 1px;
     @include default_linked_button_mixin($bg, $fg);
 
     color: $fg;
-    box-shadow: 0 1px 2px 0 alpha($dark_shadow, .12 + $shadow_strength);
+    box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
+
 
     &.flat {
         //color: mix($bg, $fg, .2);
@@ -359,7 +359,7 @@ $button_border_width: 1px;
             @include border(alpha($fg, .2 + $button_border_strength));
 
             color: $fg;
-            box-shadow: 0 1px 2px 0 alpha($dark_shadow, .22 + $shadow_strength);
+            box-shadow: 0 1px 2px -1px alpha($dark_shadow, .22 + $shadow_strength);
         }
 
         &:focus {
@@ -391,8 +391,8 @@ $button_border_width: 1px;
             color: $selected_fg_color;
             box-shadow: inset 1px 0 alpha($fg, .06),
             inset  0 1px alpha($fg, .07),
-            inset 0 0 alpha($fg, .06),
-            inset 0 0 alpha($fg, .05);
+            inset -1px 0 alpha($fg, .06),
+            inset 0 -1px alpha($fg, .05);
 
             &:focus, &:hover {
                 /*@include linear-gradient(shade($bg, .65), to top);*/
