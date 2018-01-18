@@ -56,9 +56,6 @@ killall openbox 2>/dev/null || true
 
 _kill_procs() {
 	set +e
-	if [[ ! -z ${compare_output:-} ]] ; then
-		rm ${compare_output:-} || true
-	fi
 	kill -TERM $opbx || true
 	wait $opbx
 	kill -TERM $xvfb || true
@@ -94,11 +91,20 @@ make_and_compare_screenshot() {
 	screenshot_base_name=theme-${THEME_NAME}-${test_variant}
 	test_result_base_name=$(date +%H-%M-%S)_${screenshot_base_name}
 	scrot ${TEST_RESULT_DIR}/${test_result_base_name}.test.png
+
+	precompare_result=0
+	precompare_output=$(mktemp)
 	compare -verbose -metric PAE \
 		${SCREENSHOTS_DIR}/${screenshot_base_name}.png \
 		${TEST_RESULT_DIR}/${test_result_base_name}.test.png \
 		${TEST_RESULT_DIR}/${test_result_base_name}.diff.png \
-		|| true
+		1>${precompare_output} 2>&1 \
+		|| precompare_result=$?
+	if [[ ${precompare_result} -ne 0 ]] ; then
+		cat ${precompare_output}
+	fi
+	rm ${precompare_output}
+
 	compare_result=0
 	compare_output=$(mktemp)
 	compare -verbose -metric AE -fuzz 1 \
@@ -147,6 +153,7 @@ make_and_compare_screenshot() {
 				${SCREENSHOTS_DIR}/${screenshot_base_name}.png
 		fi
 		TEST_EXIT_CODE=1
+		rm ${compare_output}
 	fi
 }
 
@@ -186,7 +193,7 @@ sleep ${DEFAULT_SLEEP}
 sleep ${DEFAULT_SLEEP}
 make_and_compare_screenshot "gtk3-page1"
 kill $gwf
-wait $gwf
+wait $gwf || true
 echo "== Killed gtk-widget-factory"
 
 echo "== Page 2"
