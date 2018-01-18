@@ -24,13 +24,13 @@ For GTK2 you need murrine engine which can be not installed by default.
 ##### Arch Linux
 
 ```
-sudo pacman -S --needed bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines
+sudo pacman -S --needed bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines librsvg
 ```
 
 ##### Ubuntu
 
 ```
-sudo apt install libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine
+sudo apt install libgdk-pixbuf2.0-dev libxml2-utils gtk2-engines-murrine librsvg2-bin
 ```
 
 And install `sassc>=3.4`: https://askubuntu.com/questions/849057/how-to-install-libsass-on-ubuntu-16-04
