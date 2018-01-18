@@ -163,13 +163,10 @@
     &:focus, &:active { border-color: border_focus($border); }
 
     &:disabled {
-        @include linear-gradient(shade($bg, .9), to top);
-        @include border(alpha(mix($bg, $fg, .2), .4));
-        /*@include border(mix($bg, $fg, .2));*/
-        /*border-color: alpha(mix($bg, $fg, .15), .8);*/
-        /*opacity: .8;*/
+        @include linear-gradient(mix($bg, $fg, .07), to top);
 
-        color: mix($bg, $fg, .5);
+        opacity: .9;
+        color: mix($bg, $fg, .9);
     }
 }
 

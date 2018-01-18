@@ -407,7 +407,7 @@ $button_border_width: 1px;
         &:disabled:disabled {
             @include linear-gradient(alpha(mix($bg, $fg, .2), .4));
             /*border: 1px solid alpha($bg, .2);*/
-            opacity: .4;
+            opacity: .6;
 
             color: mix($bg, $fg, .5);
             box-shadow: none;
@@ -479,7 +479,7 @@ $button_border_width: 1px;
         $border_focus_color: border_focus(alpha($button_fg_color, .2 + $button_border_strength));
 
         &:disabled {
-            opacity: .4;
+            opacity: .6;
         }
 
         button {
