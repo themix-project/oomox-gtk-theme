@@ -17,6 +17,7 @@
     }
 
     .nemo-window {
+        .nemo-inactive-pane .view { background-color: $dark_bg_color; }
         toolbar {
             border-width: 0 0 1px;
             border-style: solid;
