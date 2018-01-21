@@ -33,4 +33,6 @@
             -NemoPlacesTreeView-disk-full-fg-color: shade($selected_bg_color, 1.2);
         }
     }
+        NemoWindow .nemo-inactive-pane .view, NemoWindow .nemo-inactive-pane iconview {
+		background-color: $dark_bg_color; }
 }
