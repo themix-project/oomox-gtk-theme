@@ -34,5 +34,6 @@
         }
     }
         NemoWindow .nemo-inactive-pane .view, NemoWindow .nemo-inactive-pane iconview {
-		background-color: $dark_bg_color; }
+		    background-color: mix($base_color, $text_color, .12); 
+        }
 }
