@@ -14,7 +14,7 @@ style "murrine-default" {
     #GtkButton::inner-border        = { 8, 8, 2, 2 }
     GtkButton::inner-border        = { 4, 4, 2, 2 }
     GtkButton::focus-line-width    = 2
-    GtkButton::focus-padding       = -8
+    GtkButton::focus-padding       = 1
 
 	GtkButtonBox::child-min-height = 52
 
