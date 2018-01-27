@@ -197,16 +197,16 @@
             }
 
             &, &:active, &:focus, &:active:focus {
-                border-color: shade($base_color, .9);
-                border-bottom-color: shade($base_color, .8);
-                background-color: shade($base_color, .97);
+                border-color: shade($bg_color, .9);
+                border-bottom-color: shade($bg_color, .8);
+                background-color: shade($bg_color, .97);
                 background-image: none;
             }
 
             &:hover, &:active:hover, &:hover:focus, &:active:hover:focus {
-                border-color: shade($base_color, .9);
-                border-bottom-color: shade($base_color, .8);
-                background-color: shade($base_color, .99);
+                border-color: shade($bg_color, .9);
+                border-bottom-color: shade($bg_color, .8);
+                background-color: shade($bg_color, .99);
                 background-image: none;
             }
 
