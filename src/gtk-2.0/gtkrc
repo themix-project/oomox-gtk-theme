@@ -335,7 +335,7 @@ style "clearlooks-radiocheck" = "murrine-default" {
 }
 
 style "clearlooks-base-radiocheck" = "clearlooks-radiocheck" {
-	bg[PRELIGHT] = @base_color
+	bg[PRELIGHT] = @bg_color
 }
 
 style "murrine-entry" = "murrine-wider" {
