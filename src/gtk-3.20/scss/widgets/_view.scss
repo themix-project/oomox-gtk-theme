@@ -68,16 +68,16 @@
     }
 
     %column_header_button {
+        @extend %button;
         padding: ($spacing - 2px) ($spacing + 1px);
         border-radius: 0;
-        background-image: none;
         text-shadow: none;
-        border-style: none solid solid none;
         border-color: $borders_color;
 
         &:disabled {
-            border-color: $bg_color;
+            border-color: $borders_color;
             background-image: none;
+            color: mix($fg_color, $bg_color, .5);
         }
 
         &:backdrop {
@@ -252,7 +252,6 @@
                 @extend %column_header_button;
 
                 color: $_column_header_color;
-                background-color: $bg_color;
                 font-weight: normal;
                 text-shadow: none;
                 box-shadow: none;
@@ -260,7 +259,6 @@
                 &:hover {
                     @extend %column_header_button;
 
-                    color: mix($_column_header_color, $selected_fg_color, .5);
                     box-shadow: none;
                     transition: none; //I shouldn't need this
                 }
@@ -268,7 +266,6 @@
                 &:active {
                     @extend %column_header_button;
 
-                    color: $fg_color;
                     transition: none; //I shouldn't need this
                 }
             }
