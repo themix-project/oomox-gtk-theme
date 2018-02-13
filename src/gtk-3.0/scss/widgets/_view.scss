@@ -190,6 +190,7 @@
 
 @include exports("columnheader") {
     column-header {
+        @extend %button;
         .button {
             &, &:active {
                 border-width: 0 1px 1px 0;
@@ -199,15 +200,11 @@
             &, &:active, &:focus, &:active:focus {
                 border-color: shade($bg_color, .9);
                 border-bottom-color: shade($bg_color, .8);
-                background-color: shade($bg_color, .97);
-                background-image: none;
             }
 
             &:hover, &:active:hover, &:hover:focus, &:active:hover:focus {
                 border-color: shade($bg_color, .9);
                 border-bottom-color: shade($bg_color, .8);
-                background-color: shade($bg_color, .99);
-                background-image: none;
             }
 
             &:last-child .button { border-width: 0 0 1px; }
