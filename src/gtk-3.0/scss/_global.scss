@@ -37,25 +37,25 @@ $caret_aspect_ratio: %CARET_SIZE%;
 $black: shade($fg_color, .4);
 $white: lighten($bg_color, .55);
 
-//$link_color: mix($selected_bg_color, $fg_color, .3);
-$link_color: #%TERMINAL_COLOR4%;
-$success_color: #%TERMINAL_COLOR10%;
-$warning_color: #%TERMINAL_COLOR11%;
-$error_color: #%TERMINAL_COLOR9%;
+$link_color: mix($selected_bg_color, $fg_color, .6);
+$success_color: #%SEL_BG%;
+$warning_color: #%TERMINAL_BACKGROUND%;
+$error_color: #%TERMINAL_BACKGROUND%;
 
-$info_fg_color: #%TERMINAL_BACKGROUND%;
-$info_bg_color: #%TERMINAL_COLOR12%;
-$warning_fg_color: #%TERMINAL_BACKGROUND%;
+$info_fg_color: $selected_fg_color;
+$info_bg_color: $success_color;
+$warning_fg_color: $selected_fg_color;
 $warning_bg_color: $warning_color;
-$question_fg_color: #%TERMINAL_BACKGROUND%;
+$question_fg_color: $selected_fg_color;
 $question_bg_color: $info_bg_color;
-$error_fg_color: #%TERMINAL_BACKGROUND%;
+$error_fg_color: $selected_fg_color;
 $error_bg_color: $error_color;
 
 $toolbar_bg_color: $bg_color;
 $toolbar_fg_color: $fg_color;
 
 $titlebar_bg_color: $dark_bg_color;
+$titlebar_bg_uf_color: mix($bg_color, $dark_bg_color, .6);
 $titlebar_fg_color: $dark_fg_color;
 
 $menu_bg_color: $dark_bg_color;
@@ -74,7 +74,8 @@ $osd_bg: alpha($osd_base, 0.8);
 $lightdm_bg_color: $dark_bg_color;
 $lightdm_fg_color: $dark_fg_color;
 
-$wm_bg: $titlebar_bg_color;
+$wm_bg_focused: $titlebar_bg_color;
+$wm_bg_unfocused: mix($bg_color, $titlebar_bg_color, .1);
 $wm_border_focused: #%WM_BORDER_FOCUS%;
 $wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
 $wm_title_focused: mix($titlebar_fg_color, $titlebar_bg_color, .1);

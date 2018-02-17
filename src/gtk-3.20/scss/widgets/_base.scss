@@ -35,7 +35,7 @@
     &:selected { @extend %selected; }
 
     &:disabled,
-    &:disabled:disabled { color: mix($fg_color, $bg_color, .5); }
+    &:disabled:disabled { color: $link_color; }
 
     &:disabled, &:disabled { -gtk-icon-effect: dim; }
 
