@@ -9,7 +9,8 @@
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar" value="#%MENU_BG%" />
+<constant name="C_titlebar_focused" value="#%MENU_BG%" />
+<constant name="C_titlebar_unfocused" value="blend/#%BG%/#%MENU_BG%/0.1" />
 <constant name="C_border_focused" value="#%WM_BORDER_FOCUS%" />
 <constant name="C_border_unfocused" value="#%WM_BORDER_UNFOCUS%" />
 <constant name="C_title_focused" value="#%MENU_FG%" />
@@ -102,15 +103,15 @@
 
 <!-- ::: WINDOW DECORATIONS ::: -->
 <draw_ops name="entire_background_focused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar_focused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="entire_background_unfocused">
-	<include name="entire_background_focused" />
+	<rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_focused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar_focused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_attached_focused">
@@ -118,7 +119,7 @@
 </draw_ops>
 
 <draw_ops name="titlebar_fill_unfocused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_focused">
