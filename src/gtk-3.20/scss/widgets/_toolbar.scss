@@ -113,18 +113,18 @@
     }
 
     %titlebar { // Default headerbar and titlebar code.
-        @include toolbar($titlebar_bg_color, $titlebar_fg_color);
-        @include linear-gradient($titlebar_bg_color);
+        @include toolbar($titlebar_bg_focused, $titlebar_fg_color);
+        @include linear-gradient($titlebar_bg_focused);
 
         border-radius: $roundness $roundness 0 0;
-        color: mix($titlebar_fg_color, $titlebar_bg_color, .1);
+        color: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
         padding: 0 $spacing * 2;
         min-height: 42px;
 
         &:backdrop {
-            @include linear-gradient($titlebar_bg_color);
+            @include linear-gradient($titlebar_bg_unfocused);
 
-            color: mix($titlebar_fg_color, $titlebar_bg_color, .6);
+            color: mix($titlebar_fg_color, $titlebar_bg_unfocused, .6);
             text-shadow: none;
         }
 
@@ -161,7 +161,7 @@
             border: 0;
             background-image: none;
             background-color: transparent;
-            color: mix($titlebar_fg_color, $titlebar_bg_color, .1);
+            color: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
             box-shadow: none;
 
             &:hover, &:hover:focus {
@@ -180,7 +180,7 @@
 
             &:backdrop {
                 background: none;
-                color: mix($titlebar_fg_color, $titlebar_bg_color, .6);
+                color: mix($titlebar_fg_color, $titlebar_bg_unfocused, .6);
                 -gtk-icon-shadow: none;
             }
         }
@@ -213,7 +213,7 @@
             box-shadow: none;
         }
 
-        > separator { background-color: shade($titlebar_bg_color, .88); }  // $borders_color
+        > separator { background-color: shade($titlebar_bg_focused, .88); }  // $borders_color
     }
 
     .background:not(.tiled):not(.maximized) .titlebar {

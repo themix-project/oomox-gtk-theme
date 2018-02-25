@@ -220,7 +220,7 @@
         }
 
         &.titlebar > separator {
-            background-image: image(shade($titlebar_bg_color, ($contrast + .1)));
+            background-image: image(shade($titlebar_bg_focused, ($contrast + .1)));
         }
     }
 }
