@@ -33,6 +33,7 @@
 @define-color error_color #{"" + $error_color};
 
 /* widget colors */
+
 @define-color titlebar_bg_focused @dark_bg_color;
 @define-color titlebar_bg_unfocused #{"" + $titlebar_bg_unfocused};
 @define-color titlebar_fg_color @dark_fg_color;

@@ -344,7 +344,7 @@
                 border: 1px solid alpha(shade($borders_color, .75), (lightness($bg_color))/100%);
             } @else {
                 //light bg
-                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .3);
+                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .2);
             }
         }
     }

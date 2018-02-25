@@ -77,7 +77,7 @@
     }
 
     .dim-label {
-        &, &.view { color: alpha(currentColor, .5); }
+        &, &.view { color: alpha(currentColor, .75); }
     }
 
     .dnd { border: 1px solid $selected_bg_color; }

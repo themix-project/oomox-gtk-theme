@@ -44,7 +44,7 @@
     &:selected { @extend %selected; }
 
     &:insensitive,
-    &:insensitive:insensitive { color: mix($fg_color, $bg_color, .5); }
+    &:insensitive:insensitive { color: $link_color; }
 
     &:insensitive { -gtk-image-effect: dim; }
 

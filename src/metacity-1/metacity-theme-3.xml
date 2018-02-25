@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <metacity_theme>
 <info>
-	<name>Numix</name>
-	<author>Satyajit Sahoo</author>
+	<name>%OUTPUT_THEME_NAME%</name>
+	<author>smurphos</author>
 	<copyright>GPL-3.0+</copyright>
-	<date>11 December 2013</date>
-	<description>Numix Mutter Theme</description>
+	<date>2018</date>
+	<description>Cinnamox Metacity Theme</description>
 </info>
 
 <!-- ::: CONSTANTS ::: -->
