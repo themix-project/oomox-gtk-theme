@@ -80,11 +80,11 @@ $wm_bg_unfocused: mix($bg_color, $titlebar_bg_focused, .1);
 $wm_border_focused: #%WM_BORDER_FOCUS%;
 $wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
 $wm_title_focused: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
-$wm_title_unfocused: mix($titlebar_fg_color, $titlebar_bg_focused, .4);
+$wm_title_unfocused: mix($titlebar_fg_color, $titlebar_bg_unfocused, .4);
 $wm_icons_focused: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
 $wm_icons_focused_prelight: $selected_bg_color;
 $wm_icons_focused_pressed: shade($selected_bg_color, .8);
-$wm_icons_unfocused: mix($titlebar_fg_color, $titlebar_bg_focused, .4);
+$wm_icons_unfocused: mix($titlebar_fg_color, $titlebar_bg_unfocused, .4);
 $wm_icons_unfocused_prelight: $selected_bg_color;
 $wm_icons_unfocused_pressed: shade($selected_bg_color, .8);
 

@@ -117,7 +117,7 @@ $wm_title_focused: choose_contrast_color(
 );
 $wm_title_unfocused: choose_contrast_color(
     $wm_border_unfocused,
-    $titlebar_bg_focused,
+    $titlebar_bg_unfocused,
     $titlebar_fg_color
 );
 $wm_icons_focused: $wm_title_focused;
