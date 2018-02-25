@@ -55,8 +55,8 @@ $error_bg_color: $error_color;
 $toolbar_bg_color: $bg_color;
 $toolbar_fg_color: $fg_color;
 
-$titlebar_bg_color: $dark_bg_color;
-$titlebar_bg_uf_color: mix($bg_color, $dark_bg_color, .6);
+$titlebar_bg_focused: $dark_bg_color;
+$titlebar_bg_unfocused: mix($bg_color, $dark_bg_color, .6);
 $titlebar_fg_color: $dark_fg_color;
 
 $menu_bg_color: $dark_bg_color;
@@ -75,16 +75,16 @@ $osd_bg: alpha($osd_base, 0.8);
 $lightdm_bg_color: $dark_bg_color;
 $lightdm_fg_color: $dark_fg_color;
 
-$wm_bg_focused: $titlebar_bg_color;
-$wm_bg_unfocused: mix($bg_color, $titlebar_bg_color, .1);
+$wm_bg_focused: $titlebar_bg_focused;
+$wm_bg_unfocused: mix($bg_color, $titlebar_bg_focused, .1);
 $wm_border_focused: #%WM_BORDER_FOCUS%;
 $wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
-$wm_title_focused: mix($titlebar_fg_color, $titlebar_bg_color, .1);
-$wm_title_unfocused: mix($titlebar_fg_color, $titlebar_bg_color, .4);
-$wm_icons_focused: mix($titlebar_fg_color, $titlebar_bg_color, .1);
+$wm_title_focused: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
+$wm_title_unfocused: mix($titlebar_fg_color, $titlebar_bg_focused, .4);
+$wm_icons_focused: mix($titlebar_fg_color, $titlebar_bg_focused, .1);
 $wm_icons_focused_prelight: $selected_bg_color;
 $wm_icons_focused_pressed: shade($selected_bg_color, .8);
-$wm_icons_unfocused: mix($titlebar_fg_color, $titlebar_bg_color, .4);
+$wm_icons_unfocused: mix($titlebar_fg_color, $titlebar_bg_focused, .4);
 $wm_icons_unfocused_prelight: $selected_bg_color;
 $wm_icons_unfocused_pressed: shade($selected_bg_color, .8);
 

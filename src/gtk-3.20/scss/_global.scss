@@ -80,8 +80,8 @@ $error_bg_color: $error_color;
 $toolbar_bg_color: $bg_color;
 $toolbar_fg_color: $fg_color;
 
-$titlebar_bg_color: $dark_bg_color;
-$titlebar_bg_uf_color: mix($bg_color, $dark_bg_color, .6);
+$titlebar_bg_focused: $dark_bg_color;
+$titlebar_bg_unfocused: mix($bg_color, $dark_bg_color, .6);
 $titlebar_fg_color: $dark_fg_color;
 
 $menu_bg_color: $dark_bg_color;
@@ -106,18 +106,18 @@ $lightdm_fg_color: $dark_fg_color;
 $lightdm_button_bg_color: $header_button_bg_color;
 $lightdm_button_fg_color: $header_button_fg_color;
 
-$wm_bg_focused: $titlebar_bg_color;
-$wm_bg_unfocused: mix($bg_color, $titlebar_bg_color, .1);
+$wm_bg_focused: $titlebar_bg_focused;
+$wm_bg_unfocused: mix($bg_color, $titlebar_bg_focused, .1);
 $wm_border_focused: #%WM_BORDER_FOCUS%;
 $wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
 $wm_title_focused: choose_contrast_color(
     $wm_border_focused,
-    $titlebar_bg_color,
+    $titlebar_bg_focused,
     $titlebar_fg_color
 );
 $wm_title_unfocused: choose_contrast_color(
     $wm_border_unfocused,
-    $titlebar_bg_color,
+    $titlebar_bg_focused,
     $titlebar_fg_color
 );
 $wm_icons_focused: $wm_title_focused;

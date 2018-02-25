@@ -33,8 +33,8 @@
 @define-color error_color #{"" + $error_color};
 
 /* widget colors */
-@define-color titlebar_bg_color @dark_bg_color;
-@define-color titlebar_bg_uf_color #{"" + $titlebar_bg_uf_color};
+@define-color titlebar_bg_focused @dark_bg_color;
+@define-color titlebar_bg_unfocused #{"" + $titlebar_bg_unfocused};
 @define-color titlebar_fg_color @dark_fg_color;
 @define-color menubar_bg_color @dark_bg_color;
 @define-color menubar_fg_color @dark_fg_color;
