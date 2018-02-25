@@ -18,7 +18,8 @@
 
     .nemo-window {
         .nemo-inactive-pane .view { 
-            background-color: mix($base_color, $text_color, .12);
+            background-color: darken($base_color, 5%);
+            color: $text_color; 
         }
         
         toolbar {
