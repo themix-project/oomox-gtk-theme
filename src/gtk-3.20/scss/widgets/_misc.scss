@@ -19,7 +19,7 @@
     tooltip {
         &.background {
             &, &.csd {
-		@include linear-gradient($bg_color);
+                @include linear-gradient($bg_color);
                 background-clip: padding-box;
                 border: 1px solid $tooltip_fg_color;
                 border-radius: $roundness;
