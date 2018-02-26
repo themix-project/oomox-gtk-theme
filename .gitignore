@@ -13,3 +13,6 @@ pkg/
 
 # test-related
 test_results/
+
+# cinnamox_builds
+cinnamox_builds/
