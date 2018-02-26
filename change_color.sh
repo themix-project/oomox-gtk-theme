@@ -158,7 +158,7 @@ TERMINAL_COLOR11=${TERMINAL_COLOR11:-ef6c00}
 TERMINAL_COLOR12=${TERMINAL_COLOR12:-03a9f4}
 
 OUTPUT_THEME_NAME="${OUTPUT_THEME_NAME-oomox-$THEME}"
-DEST_PATH="$HOME/.themes/${OUTPUT_THEME_NAME/\//-}"
+DEST_PATH="$HOME/Workspace/Theming/cinnamox_builds/${OUTPUT_THEME_NAME/\//-}"
 
 test "$SRC_PATH" = "$DEST_PATH" && echo "can't do that" && exit 1
 

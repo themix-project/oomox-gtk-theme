@@ -4,7 +4,7 @@
 
 @include exports("dimlabel") {
     .dim-label {
-        opacity: .5;
+        opacity: .75;
         text-shadow: none;
     }
 }
@@ -18,8 +18,7 @@
     .tooltip {
         &.background {
             @include linear-gradient($tooltip_bg_color);
-
-            border: 0;
+            border: 1px solid $tooltip_fg_color;
             border-radius: $roundness;
             color: $tooltip_fg_color;
         }
