@@ -33,8 +33,10 @@
 @define-color error_color #{"" + $error_color};
 
 /* widget colors */
-@define-color titlebar_bg_color @dark_bg_color;
-@define-color titlebar_fg_color @dark_fg_color;
+@define-color titlebar_bg_focused @dark_bg_color;
+@define-color titlebar_bg_unfocused @theme_bg_color;
+@define-color titlebar_fg_focused @dark_fg_color;
+@define-color titlebar_fg_unfocused #{"" + $titlebar_fg_unfocused};
 @define-color menubar_bg_color @dark_bg_color;
 @define-color menubar_fg_color @dark_fg_color;
 @define-color toolbar_bg_color @theme_bg_color;
@@ -54,7 +56,8 @@
 @define-color lightdm_fg_color #{"" + $lightdm_fg_color};
 
 /* window manager colors */
-@define-color wm_bg #{"" + $wm_bg};
+@define-color wm_bg_focused #{"" + $wm_bg_focused};
+@define-color wm_bg_unfocused #{"" + $wm_bg_unfocused};
 @define-color wm_border_focused #{"" + $wm_border_focused};
 @define-color wm_border_unfocused #{"" + $wm_border_unfocused};
 @define-color wm_title_focused #{"" + $wm_title_focused};
