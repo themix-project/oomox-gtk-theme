@@ -18,7 +18,7 @@
 
         border: 0;
         border-radius: $roundness $roundness 0 0;
-        background-color: mix(shade($titlebar_bg_color, 0.7), $titlebar_fg_color, 0.21);
+        background-color: mix(shade($titlebar_bg_focused, 0.7), $titlebar_fg_focused, 0.21);
         /* this is used for the resize cursor area */
         margin: $spacing * 3;
 
@@ -27,7 +27,7 @@
         &.solid-csd {
             border-radius: $roundness $roundness 0 0;
             margin: 1px;
-            background-color: mix(shade($titlebar_bg_color, 0.7), $titlebar_fg_color, 0.21);
+            background-color: mix(shade($titlebar_bg_focused, 0.7), $titlebar_fg_focused, 0.21);
             box-shadow: none;
         }
 
