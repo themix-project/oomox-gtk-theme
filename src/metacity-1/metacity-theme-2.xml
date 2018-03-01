@@ -9,11 +9,12 @@
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar" value="#%MENU_BG%" />
+<constant name="C_titlebar_focused" value="#%MENU_BG%" />
+<constant name="C_titlebar_unfocused" value="#%BG%" />
 <constant name="C_border_focused" value="#%WM_BORDER_FOCUS%" />
 <constant name="C_border_unfocused" value="#%WM_BORDER_UNFOCUS%" />
 <constant name="C_title_focused" value="#%MENU_FG%" />
-<constant name="C_title_unfocused" value="#%INACTIVE_MENU_FG%" />
+<constant name="C_title_unfocused" value="blend/#%FG%/#%BG%/0.4" />
 <constant name="C_icons_focused" value="#%MENU_FG%" />
 <constant name="C_icons_focused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_focused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
@@ -102,35 +103,51 @@
 
 <!-- ::: WINDOW DECORATIONS ::: -->
 <draw_ops name="entire_background_focused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar_focused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="entire_background_unfocused">
-	<include name="entire_background_focused" />
+	<rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_focused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
-</draw_ops>
-
-<draw_ops name="titlebar_fill_attached_focused">
 	<include name="entire_background_focused" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_unfocused">
-	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+	<include name="entire_background_unfocused" />
+</draw_ops>
+
+<draw_ops name="titlebar_fill_attached_focused">
+	<include name="titlebar_fill_focused" />
+</draw_ops>
+
+<draw_ops name="titlebar_fill_attached_unfocused">
+	<include name="titlebar_fill_unfocused" />
 </draw_ops>
 
 <draw_ops name="titlebar_focused">
 	<include name="titlebar_fill_focused" />
 </draw_ops>
 
+<draw_ops name="titlebar_unfocused">
+	<include name="titlebar_fill_unfocused" />
+</draw_ops>
+
 <draw_ops name="titlebar_attached_focused"> <!-- titlebar for attached and modal dialogs -->
 	<include name="titlebar_fill_attached_focused" />
 </draw_ops>
 
+<draw_ops name="titlebar_attached_unfocused"> <!-- titlebar for attached and modal dialogs -->
+	<include name="titlebar_fill_attached_unfocused" />
+</draw_ops>
+
 <draw_ops name="rounded_titlebar_focused">
 	<include name="titlebar_fill_focused" />
+</draw_ops>
+
+<draw_ops name="rounded_titlebar_unfocused">
+	<include name="titlebar_fill_unfocused" />
 </draw_ops>
 
 <draw_ops name="border_focused">
