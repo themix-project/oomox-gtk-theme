@@ -18,7 +18,7 @@
 <constant name="C_icons_focused" value="#%MENU_FG%" />
 <constant name="C_icons_focused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_focused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
-<constant name="C_icons_unfocused" value="#%INACTIVE_MENU_FG%" />
+<constant name="C_icons_unfocused" value="blend/#%FG%/#%BG%/0.4" />
 <constant name="C_icons_unfocused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_unfocused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
 
