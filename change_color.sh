@@ -19,6 +19,7 @@ print_usage() {
 	echo "Options:"
 	echo "	PATH_TO_PRESET				path to Oomox theme file"
 	echo "	-o NAME, --output NAME			output theme name"
+	echo "	-t DESTINATION_PATH, --target-dir DESTINATION_PATH			where the theme will be built"
 	echo "	-d (true|false), --hidpi (true|false)	generate GTK+2 assets with 2x scaling"
 	echo "	-m (all|gtk3|gtk320), --make-opts (all|gtk3|gtk320)"
 	echo "						which variant of GTK+3 theme to build"
@@ -28,6 +29,7 @@ print_usage() {
 	echo "Examples:"
 	echo "       $0 -o my-theme-name ../colors/retro/twg"
 	echo "       $0 -o my-theme-name --hidpi True ../colors/retro/clearlooks"
+	echo "       $0 -o my-theme-name -t ~/my_themes ../colors/retro/clearlooks"
 	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" ../colors/gnome-colors/shiki-noble"
 	echo "       $0 -p \"./gtk-2.0 ./gtk-3.0 ./gtk-3.20 ./Makefile\" -m gtk320 ../colors/monovedek/monovedek"
 	exit 1
@@ -43,6 +45,10 @@ do
 		;;
 		-o|--output)
 			OUTPUT_THEME_NAME="${2}"
+			shift
+		;;
+		-t|--target-dir)
+			DEST_PATH="${2}"
 			shift
 		;;
 		-m|--make-opts)
@@ -158,7 +164,14 @@ TERMINAL_COLOR11=${TERMINAL_COLOR11:-ef6c00}
 TERMINAL_COLOR12=${TERMINAL_COLOR12:-03a9f4}
 
 OUTPUT_THEME_NAME="${OUTPUT_THEME_NAME-oomox-$THEME}"
-DEST_PATH="$HOME/.themes/${OUTPUT_THEME_NAME/\//-}"
+DEST_PATH="${DEST_PATH-$HOME/.themes}"
+if [[ -d "$DEST_PATH" ]] ; then
+    DEST_PATH="$DEST_PATH/${OUTPUT_THEME_NAME/\//-}"
+    echo "building $OUTPUT_THEME_NAME in $DEST_PATH"
+else
+	DEST_PATH="$HOME/.themes/${OUTPUT_THEME_NAME/\//-}"
+    echo "can't find chosen target directory, building $OUTPUT_THEME_NAME in default target directory $DEST_PATH"
+fi
 
 test "$SRC_PATH" = "$DEST_PATH" && echo "can't do that" && exit 1
 
