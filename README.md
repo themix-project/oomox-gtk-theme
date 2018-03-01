@@ -108,7 +108,7 @@ Alternatively, to avoid rebuilding the container after each small theme change, 
 #### Generate new screenshots:
 
 ```sh
-# assuming container is already running:
+# assuming container is already started:
 ./docker_scripts/run_docker_tests.sh -e GENERATE_ASSETS=1
 ```
 
