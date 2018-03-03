@@ -123,6 +123,7 @@ else
 		exit 1
 	fi
 fi
+ACCENT_BG=${ACCENT_BG-$SEL_BG}
 HDR_BTN_BG=${HDR_BTN_BG-$BTN_BG}
 HDR_BTN_FG=${HDR_BTN_FG-$BTN_FG}
 WM_BORDER_FOCUS=${WM_BORDER_FOCUS-$SEL_BG}
@@ -188,6 +189,7 @@ for FILEPATH in "${PATHLIST[@]}"; do
 		-e 's/%FG%/'"$FG"'/g' \
 		-e 's/%SEL_BG%/'"$SEL_BG"'/g' \
 		-e 's/%SEL_FG%/'"$SEL_FG"'/g' \
+		-e 's/%ACCENT_BG%/'"$ACCENT_BG"'/g' \
 		-e 's/%TXT_BG%/'"$TXT_BG"'/g' \
 		-e 's/%TXT_FG%/'"$TXT_FG"'/g' \
 		-e 's/%MENU_BG%/'"$MENU_BG"'/g' \
