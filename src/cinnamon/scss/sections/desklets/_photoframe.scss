@@ -1,0 +1,13 @@
+/* ======================================
+ * ! Photoframe
+ * ====================================== */
+
+.photoframe-box {
+    @include cinn-bg-gradiant($bg_color, horizontal);
+    @include cinn-border;
+    
+      padding: 10px;
+      border-radius: $roundness;
+      
+      &:highlight { background-color: $selected_bg_color; }
+}
