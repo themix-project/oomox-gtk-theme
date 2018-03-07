@@ -88,7 +88,7 @@ PATHLIST=(
 	'Makefile'
 	'./src/index.theme'
 	'./src/qt5ct_palette.conf'
-	'./src/cinnamon'
+	#'./src/cinnamon'
 )
 if [ ! -z "${CUSTOM_PATHLIST:-}" ] ; then
 	IFS=', ' read -r -a PATHLIST <<< "${CUSTOM_PATHLIST:-}"
