@@ -1,0 +1,256 @@
+/* ===================================================================
+ * PopupMenu (popupMenu.js)
+ * ===================================================================*/
+ /* .popup-menu-boxpointer and .popup-menu are kept for compatibility
+    with cinnamon version under 3.2. Use .menu in version 3.2 and above */
+.popup-menu-boxpointer {
+    -arrow-border-radius: 12px;
+    -arrow-background-color: #LIGHTBG;
+    -arrow-border-width: 1px;
+    -arrow-border-color: #TEXT;
+    -arrow-base: 24px;
+    -arrow-rise: 11px;
+}
+.menu, .popup-menu {
+  min-width: 100px;
+  margin: 0.2em;
+}
+/*.popup-combo-menu is for the scale view right click menu*/
+.menu, .popup-menu, .popup-combo-menu {
+  padding: 10px;
+  border: 1px solid #TEXT;
+  border-radius: 12px;
+  background-gradient-direction: horizontal;
+  background-gradient-start: #DARKBG;
+  background-gradient-end: #LIGHTBG;
+  color: #TEXT;
+  font-size: 1em;
+}
+.popup-menu-arrow {
+    icon-size: 1.34em;
+}
+.popup-submenu-menu-item:open {
+}
+.popup-sub-menu {
+  background-gradient-direction: vertical;
+  background-gradient-start: #DARKBG;
+  background-gradient-end: #LIGHTBG;
+  border: 1px solid #TEXT;
+  border-radius: 12px;
+}
+.popup-sub-menu .popup-menu-item:ltr {
+    padding-right: 1.75em;
+}
+.popup-sub-menu .popup-menu-item:rtl {
+    padding-left: 1.75em;
+}
+.popup-sub-menu StScrollBar {
+    padding: 4px;
+}
+.popup-sub-menu StScrollBar StBin#trough {
+    border-width: 0px;
+    border-radius: 4px;
+}
+.popup-sub-menu StScrollBar StBin#vhandle {
+    border-radius: 4px;
+    background-gradient-direction: vertical;
+    background-gradient-start: #HIGHLIGHT;
+    background-gradient-end: #LIGHTBG;
+}
+/* The remaining popup-menu sizing is all done in ems, so that if you
+ * override .popup-menu.font-size, everything else will scale with it.
+ */
+.popup-menu-content {
+    padding: 0em 0em;
+}
+.popup-menu-item {
+    padding: .4em 1em;
+    spacing: 1em;
+    color: #TEXT;
+}
+.popup-menu-item:active {
+    background-gradient-direction: horizontal;
+    background-gradient-start: #HIGHLIGHT;
+    background-gradient-end: #LIGHTBG; 
+    border-radius: 12px;
+    color: #SELTEXT;
+}
+.popup-menu-item:insensitive {
+	color: #TEXT;
+}
+.popup-image-menu-item {
+	color: #TEXT;
+}
+.popup-combobox-item {
+    spacing: 1em;
+}
+.popup-separator-menu-item {
+    -gradient-height: 3px;
+    -gradient-direction: horizontal;
+    -gradient-start: #TEXT;
+    -gradient-end: #DARKBG;
+    -margin-horizontal: 1em;
+    height: 1em;
+}
+.popup-alternating-menu-item:alternate {
+    font-weight: bold;
+}
+.popup-slider-menu-item {
+    height: 1em;
+    min-width: 15em;
+    -slider-height: 0.5em;
+    -slider-background-color: #DARKBG;
+    -slider-border-color: #TEXT;
+    -slider-active-background-color: #HIGHLIGHT;
+    -slider-active-border-color: #TEXT;
+    -slider-border-width: 1px;
+    -slider-handle-radius: 5px;
+}
+/* used in power applet */
+.popup-device-menu-item {
+    spacing: .5em;
+}
+.popup-inactive-menu-item {
+    font-weight: normal;
+    color: #TEXT;
+}
+.popup-subtitle-menu-item {
+}
+.popup-menu-icon {
+    icon-size: 1.34em;
+}
+/* Switches (to be used in menus) */
+.toggle-switch {
+    width: 64px;
+    height: 22px;
+}
+
+/* ===================================================================
+ * PopupMenu (popupMenu.js)
+ * ===================================================================*/
+ /* .popup-menu-boxpointer and .popup-menu are kept for compatibility
+    with cinnamon version under 3.2. Use .menu in version 3.2 and above */
+.popup-menu-boxpointer {
+    -arrow-border-radius: 12px;
+    -arrow-background-color: #LIGHTBG;
+    -arrow-border-width: 1px;
+    -arrow-border-color: #TEXT;
+    -arrow-base: 24px;
+    -arrow-rise: 11px;
+}
+.menu, .popup-menu {
+      min-width: 100px;
+      margin: 0.2em;
+}
+.menu, .popup-menu, .popup-combo-menu {
+    @include cinn-bg-gradient($menu_bg_color, horizontal);
+    
+      padding: 10px;
+      border: 1px solid rgba($menu_fg_color, .5);
+      border-radius: $roundness;
+      color: $menu_fg_color;
+      font-size: $font_size_reg;
+}
+.popup-menu-arrow {
+    icon-size: 1.34em;
+}
+.popup-sub-menu {
+     @include cinn-bg-gradient($menu_bg_color, vertical);
+
+		border: 1px solid rgba($menu_fg_color, .5);
+        border-radius: $roundness;
+}
+.popup-submenu-menu-item:open {
+}
+.popup-sub-menu .popup-menu-item:ltr {
+    padding-right: 1.75em;
+}
+.popup-sub-menu .popup-menu-item:rtl {
+    padding-left: 1.75em;
+}
+.popup-sub-menu StScrollBar {
+    padding: 4px;
+}
+.popup-sub-menu StScrollBar StBin#trough {
+    border-width: 0px;
+    border-radius: 4px;
+}
+.popup-sub-menu StScrollBar StBin#vhandle {
+    border-radius: 4px;
+    background-gradient-direction: vertical;
+    background-gradient-start: #HIGHLIGHT;
+    background-gradient-end: #LIGHTBG;
+}
+/* The remaining popup-menu sizing is all done in ems, so that if you
+ * override .popup-menu.font-size, everything else will scale with it.
+ */
+.popup-menu-content {
+    padding: 0em 0em;
+}
+.popup-menu-icon {
+    icon-size: 1.34em;
+    color: $fg_color;
+}
+.popup-menu-item {
+    padding: .4em 1em;
+    spacing: 1em;
+    color: $fg_color;
+
+    &:active {
+        @include cinn-bg-gradient($selected_bg_color, horizontal);
+        
+        color: $selected_fg_color;
+        border-radius: $roundness;
+
+        .popup-menu-icon, StIcon {
+            color: $fg_color;
+        }
+    }
+
+    &:insensitive {
+        font-weight: normal;
+        color: $insensitive_fg_color;
+
+        .popup-menu-icon, StIcon {
+            color: $insensitive_fg_color;
+        }
+    }
+}
+
+.popup-menu-item-dot {
+}
+
+.popup-separator-menu-item {
+    -gradient-height: 1px;
+    -gradient-start: rgba(0, 0, 0, 0);
+    -gradient-end: rgba(0, 0, 0, 0);
+    -margin-horizontal: 0;
+    background-image: url("img/misc/separator.svg");
+    background-repeat: repeat;
+    height: 13px;
+}
+
+.popup-slider-menu-item {
+    height: 1em;
+    min-width: 15em;
+    -slider-height: 0.3;
+    -slider-background-color: #666666;
+    -slider-border-color: #555555;
+    -slider-active-background-color: #CCCCCC;
+    -slider-active-border-color: #DDDDDD;
+    -slider-border-width: 1px;
+    -slider-handle-radius: 0.5em;
+}
+.popup-inactive-menu-item {
+    color: $insensitive_fg_color;
+}
+.popup-subtitle-menu-item {
+}
+/* used in power applet */
+.popup-device-menu-item {
+    spacing: .5em;
+
+    .popup-inactive-menu-item {
+        color: $info_fg_color;
+    }
+}
