@@ -1,0 +1,142 @@
+stage {
+	font-family: sans, sans-serif;
+	font-size: 1em;
+}
+.cinnamon-link {
+	color: $link_color;
+	text-decoration: underline;
+	&:hover {
+		color: $selected_fg_color;
+	}
+}
+.label-shadow {
+	color: rgba(0,0,0,0.5);
+}
+StScrollBar {
+	padding: 2px;
+	StButton {
+		&#vhandle {
+			background-color: $scrollbar_slider_color;
+			&:hover {
+				background-color: $scrollbar_slider_hover_color;
+			}
+		}
+		&#hhandle {
+			background-color: $scrollbar_slider_color;
+			&:hover {
+				background-color: $scrollbar_slider_hover_color;
+			}
+		}
+	}
+	StBin#trough {
+		background-color: $scrollbar_bg_color;
+	}
+}
+StScrollView {
+	&.vfade {
+		-st-vfade-offset: 68px;
+	}
+	&.hfade {
+		-st-hfade-offset: 68px;
+	}
+	StScrollBar {
+		min-width: 1em;
+		min-height: 1em;
+	}
+	&.menu-context-menu {
+		border-width: 0;
+		padding: 0;
+		StBoxLayout {
+		    @extend %bg-grad-vert-dark-to-light;
+			padding: 5px;
+			    > .popup-menu-item {
+				    margin: .2em 0;
+				    padding: .3em .7em;
+			    }
+		}
+	}
+}
+.separator {
+	-gradient-height: 3px;
+	-gradient-start: $dark_fg_color;
+	-gradient-end: $dark_bg_color;
+	-margin-horizontal: 1em;
+	height: 1em;
+}
+.slider {
+	height: 1em;
+	min-width: 15em;
+	color: $dark_fg_color;
+	-slider-height: 0.7em;
+	-slider-background-color: $dark_bg_color;
+	-slider-border-color: $dark_bg_color;
+	-slider-active-background-color: $selected_bg_color;
+	-slider-active-border-color: $dark_bg_color;
+	-slider-border-width: 1px;
+	-slider-border-radius: 0.3em;
+	-slider-handle-radius: 0.7em;
+}
+.check-box {
+	CinnamonGenericContainer {
+		spacing: .2em;
+	}
+	StBin {
+		@extend %check-box-shared;
+	}
+	&:focus {
+		StBin {
+			@extend %check-box-shared;
+		}
+		&:checked StBin {
+			background-image: url(assets/checkbox.svg);
+		}
+	}
+	StLabel {
+		font-weight: normal;
+	}
+	&:checked StBin {
+		background-image: url(assets/checkbox.svg);
+	}
+}
+.radiobutton {
+	CinnamonGenericContainer {
+		spacing: .2em;
+		height: 18px;
+		padding-top: 2px;
+	}
+	StBin {
+		@extend %radiobutton-shared;
+	}
+	&:focus {
+		StBin {
+			@extend %radiobutton-shared;
+		}
+		&:checked StBin {
+			background-image: url(assets/radiobutton.svg);
+		}
+	}
+	StLabel {
+		padding-top: 4px;
+		font-size: 0.8em;
+		box-shadow: none;
+	}
+	&:checked StBin {
+		background-image: url(assets/radiobutton.svg);
+	}
+}
+#Tooltip {
+	padding: 5px 8px;
+	border: 1px solid $borders_color;
+    @extend %bg-grad-vert-light-to-dark;
+	color: $dark_fg_color;
+	text-align: center;
+	border-radius: $roundness;
+}
+#LookingGlassDialog {
+    @extend %bg-grad-vert-dark-to-light;
+	spacing: 4px;
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+	color: $dark_fg_color;
+}

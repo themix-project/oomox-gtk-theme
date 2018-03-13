@@ -1,0 +1,126 @@
+#overview {
+	spacing: 12px;
+}
+#overview-corner {
+	background-image: url(assets/overview.png);
+	&:hover {
+		background-image: url(assets/overview-hover.png);
+	}
+}
+.workspace-controls {
+	visible-height: 3em;
+}
+.workspace-thumbnails-background {
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %bg-grad-horiz-dark-to-light;
+	&:rtl {
+	}
+}
+.workspace-thumbnails {
+	spacing: 14px;
+}
+.workspace-add-button {
+	background-image: url(assets/add-workspace.png);
+	height: 200px;
+	width: 35px;
+	transition-duration: 300;
+	&:hover {
+		background-image: url(assets/add-workspace-hover.png);
+		
+		transition-duration: 300;
+	}
+}
+.workspace-close-button {
+	background-image: url(assets/close-window.svg);
+	height: 32px;
+	width: 32px;
+	-cinnamon-close-overlap: 20px;
+}
+.workspace-overview-background-shade {
+    background-gradient-direction: radial;
+    background-gradient-start: $bg_color_trans;
+    background-gradient-end: $dark_bg_color_trans;
+}
+.workspace-thumbnail-indicator {
+	border: 2px solid $borders_color;
+}
+.window-caption {
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %bg-grad-vert-dark-to-light;
+	padding: 2px 8px;
+	color: $dark_fg_color;
+	-cinnamon-caption-spacing: 4px;
+	&#selected {
+        @extend %bg-grad-vert-selected-to-light;
+		color: $selected_fg_color;
+	}
+}
+.window-close {
+	background-image: url(assets/close-window.svg);
+	height: 32px;
+	width: 32px;
+	-cinnamon-close-overlap: 20px;
+	&:rtl {
+		-st-background-image-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+	}
+}
+.window-close-area {
+	background-image: url(assets/trash-icon.png);
+	background-size: 100px;
+	background-color: $dark_bg_color_trans;
+	border: 1px solid $borders_color;
+	border-bottom-width: 0;
+	border-radius: $roundness $roundness 0 0;
+	height: 120px;
+	width: 400px;
+}
+.overview-icon {
+	border-radius: $roundness;
+	padding: 3px;
+	border: 1px rgba(0,0,0,0);
+	color: $dark_fg_color;
+	transition-duration: 100;
+	text-align: center;
+	height: 32px;
+	width: 32px;
+}
+.expo-background {
+    background-gradient-direction: radial;
+    background-gradient-start: $bg_color_grad;
+    background-gradient-end: $dark_bg_color_grad;
+}
+.expo-workspace-thumbnail-frame {
+	border: 1px solid $borders_color;
+	&#active {
+		border: 1px solid $selected_borders_color;
+	}
+}
+.expo-workspaces-name-entry {
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %bg-grad-vert-dark-to-light;
+	selected-color: $selected_fg_color;
+	selection-background-color: $selected_bg_color;
+	color: $dark_fg_color;
+	min-width: 10em;
+	height: 1.5em;
+	text-align: center;
+	&#selected {
+		color: $selected_fg_color;
+        @extend %bg-grad-vert-selected-to-light;
+		selected-color: $dark_fg_color;
+		selection-background-color: $selected_bg_color;
+		border: 1px solid $selected_borders_color;
+	}
+	&:focus {
+		border: 1px solid $selected_borders_color;
+	}
+	&:hover {
+		border: 1px solid $selected_borders_color;
+	}
+}

@@ -1,0 +1,252 @@
+//  extend-elements
+
+// vertical gradient dark to light
+%bg-grad-vert-dark-to-light {
+    background-gradient-direction: vertical;
+    background-gradient-start: $dark_bg_color_grad;
+    background-gradient-end: $bg_color_grad;
+}
+
+// button vertical gradient dark to light
+%button-bg-grad-vert-dark-to-light {
+    background-gradient-direction: vertical;
+    background-gradient-start: $button_bg_color_grad;
+    background-gradient-end: $bg_color_grad_alt2;
+}
+
+// vertical gradient light to dark
+%bg-grad-vert-light-to-dark {
+    background-gradient-direction: vertical;
+    background-gradient-start: $bg_color_grad;
+    background-gradient-end: $dark_bg_color_grad;
+}
+
+// vertical gradient selected to light
+%bg-grad-vert-selected-to-light {
+    background-gradient-direction: vertical;
+    background-gradient-start: $selected_bg_color_grad;
+    background-gradient-end: $bg_color_grad_alt1;
+}
+
+// vertical gradient light to selected
+%bg-grad-vert-light-to-selected {
+    background-gradient-direction: vertical;
+    background-gradient-start: $bg_color_grad_alt1;
+    background-gradient-end: $selected_bg_color_grad;
+}
+
+// horizontal gradient dark to light
+%bg-grad-horiz-dark-to-light {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $dark_bg_color_grad;
+    background-gradient-end: $bg_color_grad;
+}
+
+// horizontal gradient light to dark
+%bg-grad-horiz-light-to-dark {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $bg_color_grad;
+    background-gradient-end: $dark_bg_color_grad;
+}
+
+// horizontal gradient selected to light
+%bg-grad-horiz-selected-to-light {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $selected_bg_color_grad;
+    background-gradient-end: $bg_color_grad_alt1;
+}
+
+// horizontal gradient light to selected
+%bg-grad-horiz-light-to-selected {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $bg_color_grad_alt1;
+    background-gradient-end: $selected_bg_color_grad;
+}
+
+
+// used in selectors
+// .osd-window, .info-osd, .info-osd
+%osd-shared {
+    @extend %bg-grad-vert-dark-to-light;
+    border: 1px solid $borders_color;
+	border-radius: $roundness;
+	color: $dark_fg_color;
+}
+
+// used in selectors
+// #menu-search-entry, .run-dialog-entry, #notification StEntry
+%dialog-entry {
+	padding: 2px;
+	border-radius: $roundness;
+	color: $dark_fg_color;
+	font-weight: bold;
+	border: 1px solid $borders_color;
+	background-color: $dark_bg_color;
+	selection-background-color: $selected_bg_color;
+	selected-color: $selected_fg_color;
+	caret-color: $primary_caret_color;
+	caret-size: $caret_aspect_ratio;
+	width: 250px;
+	height: 1.5em;
+	transition-duration: 300;
+}
+
+// used in selectors
+// .desklet, .desklet-with-borders, .desklet-with-borders-and-header, .desklet-header, .photoframe-box
+%desklet-shared {
+	color: $dark_fg_color;
+	padding: 10px;
+	border: 1px solid $borders_color;
+	@extend %bg-grad-horiz-dark-to-light;
+}
+
+// used in selectors
+// .calendar-change-month-back, .calendar-change-month-forward
+%calendar-shared {
+	width: 16px;
+	height: 16px;
+	border-radius: $roundness;
+}
+
+// used in selectors
+// .notification-button, .notification-icon-button, .modal-dialog-button, .sound-player-overlay StButton
+%shared-button {
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+	@extend %button-bg-grad-vert-dark-to-light;
+	text-align: center;
+	color: $button_fg_color;
+}
+
+// used in selectors
+// .notification-button:active, .notification-icon-button:active, .modal-dialog-button:active, .modal-dialog-button:pressed, .sound-player-overlay StButton:active
+%shared-button-active {
+	background-color: $selected_bg_color;
+	color: $selected_fg_color;
+}
+
+// used in selectors
+// .menu, .popup-menu
+%menu-width {
+	min-width: 100px;
+	margin: 0.4em;
+}
+
+// used in selectors
+// .menu, .popup-menu, .popup-combo-menu
+%shared-menu {
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %bg-grad-horiz-dark-to-light;
+	color: $dark_fg_color;
+}
+
+// used in selectors
+// .show-processes-dialog-subject, .mount-question-dialog-subject
+%shared-dialogs-subject {
+	font-weight: bold;
+	color: $dark_fg_color;
+	padding-top: 10px;
+	padding-left: 17px;
+	padding-bottom: 6px;
+}
+
+// used in selectors
+// .show-processes-dialog-subject:rtl, .mount-question-dialog-subject:rtl
+%shared-dialogs-subject-rtl {
+	padding-left: 0;
+	padding-right: 17px;
+}
+
+// used in selectors
+// .show-processes-dialog-description, .mount-question-dialog-description
+%shared-dialogs-description {
+	color: $dark_fg_color;
+	padding-left: 17px;
+	width: 28em;
+}
+
+// used in selectors
+// .menu-applications-inner-box StScrollView, .starkmenu-favorites-box .menu-context-menu
+%menu-context-shared {
+	padding: 5px;
+	margin: 0.5em 0;
+	border-radius: $roundness;
+	border: 1px solid $borders_color;
+	@extend %bg-grad-vert-dark-to-light;
+}
+
+// used in selectors
+// .starkmenu-favorites-box StScrollView .menu-context-menu StBoxLayout >.popup-menu-item, .menu-favorites-box StScrollView .menu-context-menu StBoxLayout >.popup-menu-item
+%menu-context-shared-workaround {
+	margin: 0;
+	padding: .5em .7em;
+}
+
+// used in selectors
+// .panel-top .window-list-item-box:active, .panel-top .window-list-item-box:checked, .panel-top .window-list-item-box:focus
+%panel-top-shared {
+    @extend %bg-grad-vert-light-to-selected;
+	color: $selected_fg_color;
+}
+
+// used in selectors
+// .panel-bottom .windows-list-item-box:active, .panel-bottom .window-list-item-box:checked, .panel-bottom .window-list-item-box:focus
+%panel-bottom-shared {
+    @extend %bg-grad-vert-selected-to-light;
+	color: $selected_fg_color;
+}
+
+// used in selectors
+// .panel-left .window-list-item-box:active, .panel-left .window-list-item-box:checked, .panel-left .window-list-item-box:focus
+%panel-left-shared {
+    @extend %bg-grad-horiz-light-to-selected;
+	color: $selected_fg_color;
+}
+
+// used in selectors
+// .panel-right .windows-list-item-box:active, .panel-right .window-list-item-box:checked, .panel-right .window-list-item-box:focus
+%panel-right-shared {
+    @extend %bg-grad-horiz-selected-to-light;
+	color: $selected_fg_color;
+}
+
+// used in selectors
+// .panel-top .workspace-switcher, .panel-bottom .workspace-switcher
+%workspace-switcher-shared {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+// used in selectors
+// .check-box StBin, .check-box:focus StBin
+%check-box-shared {
+	width: 16px;
+	height: 16px;
+	background-image: url(assets/checkbox-off.svg);
+}
+
+// used in selectors
+// .radiobutton StBin, .radiobutton:focus StBin
+%radiobutton-shared {
+	width: 16px;
+	height: 16px;
+	background-image: url(assets/radiobutton-off.svg);
+	border-radius: $roundness;
+}
+
+// used in selectors
+// .tile-preview, .tile-hud
+%tile-shared {
+	background-color: $dark_bg_color_trans;
+	border: 2px solid $borders_color;
+}
+
+// used in selectors
+// .tile-preview.snap, .tile-hud.snap
+%tile-shared-snap {
+	background-color: $dark_bg_color_trans;
+	border: 2px solid $selected_borders_color;
+}

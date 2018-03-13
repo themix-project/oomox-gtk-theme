@@ -1,21 +1,17 @@
-// Base
-@import "base/utils";
-@import "base/colors";
-@import "base/font";
+$variant: "light";
 
-// Main
-@import "main/tooltips";
-@import "main/controls/0-INDEX";
-@import "main/popup-menus";
-@import "main/panel";
-@import "main/expo-&-scale";
-@import "main/desklets/0-INDEX";
-@import "main/notifications";
-@import "main/alt-tab";
-@import "main/modal-dialogs";
-@import "main/on-screen-keyboard";
-@import "main/applets/0-INDEX";
-@import "main/hot-corners";
-@import "main/OSD";
-@import "main/magnifier";
-@import "main/tile-previews";
+@import "_global";
+@import "_extends";
+
+@import "sections/_stage";
+@import "sections/_menu";
+@import "sections/_panel";
+@import "sections/_osd";
+@import "sections/_calendar";
+@import "sections/_accessibility";
+@import "sections/_notifications";
+@import "sections/_dialogs";
+@import "sections/_desklets";
+@import "sections/_alt-tab";
+@import "sections/_overview";
+@import "sections/_tile-hud";
