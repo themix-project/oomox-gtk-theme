@@ -3,7 +3,7 @@
 	spacing: 16px;
 }
 .switcher-list {
-    @extend %bg-grad-vert-dark-to-light;
+    @extend %bg-grad-to-bottom;
 	border-radius: $roundness;
 	border: 1px solid $borders_color;
 	padding: 20px;
@@ -17,7 +17,7 @@
 			border: 1px solid $borders_color;
 		}
 		&:selected {
-            @extend %bg-grad-vert-selected-to-light;
+            @extend %selected-bg-grad-to-bottom;
 			color: $selected_fg_color;
 		}
 	}

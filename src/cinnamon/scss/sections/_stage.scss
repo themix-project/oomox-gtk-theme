@@ -47,7 +47,7 @@ StScrollView {
 		border-width: 0;
 		padding: 0;
 		StBoxLayout {
-		    @extend %bg-grad-vert-dark-to-light;
+		    @extend %bg-grad-to-bottom;
 			padding: 5px;
 			    > .popup-menu-item {
 				    margin: .2em 0;
@@ -126,14 +126,16 @@ StScrollView {
 }
 #Tooltip {
 	padding: 5px 8px;
-	border: 1px solid $borders_color;
-    @extend %bg-grad-vert-light-to-dark;
-	color: $dark_fg_color;
+//	border: 1px solid $borders_color;
+    background-gradient-direction: vertical;
+    background-gradient-start: $light_tooltip_bg_grad;
+    background-gradient-end: $dark_tooltip_bg_grad;
+	color: $tooltip_fg_color;
 	text-align: center;
 	border-radius: $roundness;
 }
 #LookingGlassDialog {
-    @extend %bg-grad-vert-dark-to-light;
+    @extend %bg-grad-to-bottom;
 	spacing: 4px;
 	padding: 10px;
 	border: 1px solid $borders_color;
