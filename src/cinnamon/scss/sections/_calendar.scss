@@ -1,0 +1,111 @@
+.calendar {
+	padding: 1em 1.75em;
+	spacing-rows: 1px;
+	spacing-columns: 5px;
+}
+.calendar-month-label {
+	color: $dark_fg_color;
+	font-size: 0.8em;
+	padding: 5px 10px;
+	border-radius: $roundness;
+    @extend %bg-grad-horiz-dark-to-light;
+	font-weight: bold;
+	text-align: center;
+}
+.calendar-change-month-back {
+	@extend %calendar-shared;
+	background-image: url(assets/calendar-arrow-left.svg);
+	&:rtl {
+		background-image: url(assets/calendar-arrow-right.svg);
+	}
+	&:hover {
+		background-color: $selected_bg_color;
+	}
+	&:active {
+		background-color: $dark_bg_color;
+	}
+}
+.calendar-change-month-forward {
+	@extend %calendar-shared;
+	background-image: url(assets/calendar-arrow-right.svg);
+	&:rtl {
+		background-image: url(assets/calendar-arrow-left.svg);
+	}
+	&:hover {
+		background-color: $selected_bg_color;
+	}
+	&:active {
+		background-color: $dark_bg_color;
+	}
+}
+.datemenu-date-label {
+	padding: 1em 1.75em;
+	color: $dark_fg_color;
+	font-weight: bold;
+	text-align: center;
+}
+.calendar-day-base {
+	font-size: 0.8em;
+	text-align: center;
+	width: 2.4em;
+	height: 1.8em;
+	border-radius: $roundness;
+	&:active {
+	    background-color: $selected_bg_color;
+	}
+	&:hover {
+	}
+}
+.calendar-day-heading {
+	color: $dark_fg_color;
+	padding-top: 0.9em;
+}
+.calendar-week-number {
+	color: $dark_fg_color;
+	font-weight: bold;
+	padding-top: 0.6em;
+}
+.calendar-day {
+	&:ltr {
+		color: $dark_fg_color;
+		padding: 2px;
+	}
+	&:rtl {
+		color: $dark_fg_color;
+		padding: 3px;
+	}
+}
+.calendar-day-top {
+	&:ltr {
+	}
+	&:rtl {
+	}
+}
+.calendar-day-left {
+	&:ltr {
+	}
+	&:rtl {
+	}
+}
+.calendar-work-day {
+}
+.calendar-nonwork-day {
+	font-weight: bold;
+}
+.calendar-today {
+    @extend %bg-grad-vert-selected-to-light;
+   	font-weight: bold;
+    &:active {
+        color: $selected_fg_color;
+    }
+}
+.calendar-other-month-day {
+	font-style: italic;
+}
+.calendar-day-with-events {
+	background-color: $selected_bg_color;
+    font-weight: bold;
+    &:active {
+        color: $selected_fg_color;
+    }
+}

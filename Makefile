@@ -7,6 +7,9 @@ DIST_DIR=$(RES_DIR)/dist
 RES_DIR320=gtk-3.20
 SCSS_DIR320=$(RES_DIR320)/scss
 DIST_DIR320=$(RES_DIR320)/dist
+RES_DIR_CINNAMON=cinnamon
+SCSS_DIR_CINNAMON=$(RES_DIR_CINNAMON)/scss
+DIST_DIR_CINNAMON=$(RES_DIR_CINNAMON)
 INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix
 ROOT_DIR=${PWD}
 UTILS=scripts/utils.sh
@@ -31,13 +34,16 @@ ifneq ("$(wildcard $(SCSS_DIR320)/gtk-dark.scss)","")
 else
 	cp "$(DIST_DIR320)/gtk.css" "$(DIST_DIR320)/gtk-dark.css"
 endif
-css: css_gtk3 css_gtk320
+css_cinnamon:
+	mkdir -p $(DIST_DIR_CINNAMON)
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR_CINNAMON)" "$(SCSS_DIR_CINNAMON)/cinnamon.scss" "$(DIST_DIR_CINNAMON)/cinnamon.css"
+css: css_gtk3 css_gtk320 css_cinnamon
 
 gresource_gtk3: css_gtk3
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" "$(RES_DIR)/gtk.gresource.xml"
 gresource_gtk320: css_gtk320
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" "$(RES_DIR320)/gtk.gresource.xml"
-gresource: gresource_gtk3 gresource_gtk320
+gresource: gresource_gtk3 gresource_gtk320 css_cinnamon
 
 watch: clean
 	while true; do \
@@ -51,6 +57,7 @@ clean:
 	rm -rf "$(DIST_DIR320)"
 	rm -f "$(RES_DIR320)/gtk.gresource"
 	rm -rf "$(ROOT_DIR)/dist"
+	
 
 install: all
 	$(UTILS) install "$(INSTALL_DIR)"
