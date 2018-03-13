@@ -1,7 +1,7 @@
 #notification {
     border-radius: $roundness;
 	border: 1px solid $borders_color;
-	@extend %bg-grad-horiz-dark-to-light;
+	@extend %bg-grad-to-right;
 	padding: 8px;
 	spacing-rows: 5px;
 	spacing-columns: 10px;

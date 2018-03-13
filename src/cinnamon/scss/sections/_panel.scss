@@ -61,11 +61,11 @@
 	}
 }
 .panel-top {
-    @extend %bg-grad-vert-dark-to-light;
+    @extend %bg-grad-to-bottom;
 	border-bottom: 1px solid;
 	border-color: $borders_color;
 	.window-list-item-box {
-        @extend %bg-grad-vert-light-to-dark;
+        @extend %bg-grad-to-top;
 		&:active {
 			@extend %panel-top-shared;
 		}
@@ -91,11 +91,11 @@
 	}
 }
 .panel-bottom {
-    @extend %bg-grad-vert-light-to-dark;
+    @extend %bg-grad-to-top;
 	border-top: 1px solid;
 	border-color: $borders_color;
 	.window-list-item-box {
-        @extend %bg-grad-vert-dark-to-light;
+        @extend %bg-grad-to-bottom;
 		&:checked {
 			@extend %panel-bottom-shared;
 		}
@@ -121,11 +121,11 @@
 	}
 }
 .panel-left {
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 	border-right: 1px solid;
 	border-color: $borders_color;
 	.window-list-item-box {
-        @extend %bg-grad-horiz-light-to-dark;
+        @extend %bg-grad-to-left;
 		margin-right: 1px;
 		&:active {
 			@extend %panel-left-shared;
@@ -151,11 +151,11 @@
 	}
 }
 .panel-right {
-    @extend %bg-grad-horiz-light-to-dark;
+    @extend %bg-grad-to-left;
 	border-left: 1px solid;
 	border-color: $borders_color;
 	.window-list-item-box {
-        @extend %bg-grad-horiz-dark-to-light;
+        @extend %bg-grad-to-right;
 		margin-left: 2px;
 		&:checked {
 			@extend %panel-right-shared;
@@ -332,16 +332,18 @@
 		border: 1px solid $selected_borders_color;
 	}
 	.progress {
-		background-color: $selected_bg_color;
+		background-color: $success_color;
 		border: 1px solid $borders_color;
 		border-radius: $roundness;
+	    color: info_fg_color;
 	}
 }
 .window-list-item-demands-attention {
-	background-color: $selected_bg_color;
+	background-color: $info_bg_color;
+	color: info_fg_color;
 }
 .window-list-preview {
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 	border-radius: $roundness;
 	border: 1px solid $borders_color;
 	padding: 10px 15px;
@@ -397,7 +399,7 @@
 	width: 300px;
 	padding: 12px 16px;
 	spacing: 0.5em;
-    @extend %bg-grad-vert-dark-to-light;
+    @extend %bg-grad-to-bottom;
 	color: $dark_fg_color;
 	StButton {
 		@extend %shared-button;
@@ -439,10 +441,10 @@
 	spacing: 2px;
 	.workspace {
 		border: 1px solid $borders_color;
-        @extend %bg-grad-vert-dark-to-light;
+        @extend %bg-grad-to-bottom;
 		&:active {
 			border: 1px solid $borders_color;
-            @extend %bg-grad-vert-selected-to-light;
+            @extend %selected-bg-grad-to-bottom;
 			.windows {
 				-active-window-background: rgba(255, 255, 255, 0.8);
 				-active-window-border: rgba(0, 0, 0, 0.9);

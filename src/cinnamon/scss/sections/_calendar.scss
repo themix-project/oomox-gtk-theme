@@ -8,7 +8,7 @@
 	font-size: 0.8em;
 	padding: 5px 10px;
 	border-radius: $roundness;
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 	font-weight: bold;
 	text-align: center;
 }
@@ -93,7 +93,7 @@
 	font-weight: bold;
 }
 .calendar-today {
-    @extend %bg-grad-vert-selected-to-light;
+    @extend %selected-bg-grad-to-bottom;
    	font-weight: bold;
     &:active {
         color: $selected_fg_color;
