@@ -6,6 +6,8 @@ $button_bg_color: #%BTN_BG%;
 $button_fg_color: #%BTN_FG%;
 $selected_bg_color: #%SEL_BG%;
 $selected_fg_color: #%SEL_FG%;
+$tooltip_bg_color: #%BG%;
+$tooltip_fg_color: #%FG%;
 
 $dark_bg_color: fade-out(#%MENU_BG%, 1 - %CINNAMON_OPACITY%);
 $dark_fg_color: #%MENU_FG%;
@@ -13,14 +15,21 @@ $dark_fg_color: #%MENU_FG%;
 $bg_color_trans: fade-out($bg_color, .5);
 $dark_bg_color_trans: fade-out($dark_bg_color, .5);
 
-$bg_color_grad: mix($dark_bg_color, $bg_color, .5 + %GRADIENT%);
-$dark_bg_color_grad: mix($bg_color, $dark_bg_color, .5 + %GRADIENT%);
 
-$bg_color_grad_alt1: mix($selected_bg_color, $bg_color, .5 + %GRADIENT%);
-$selected_bg_color_grad: mix($bg_color, $selected_bg_color, .5 + %GRADIENT%);
+$lighten_amount: 1 + (%GRADIENT% / 2);
+$darken_amount: 1 - (%GRADIENT% / 2);
 
-$bg_color_grad_alt2: mix($button_bg_color, $bg_color, .5 + %GRADIENT%);
-$button_bg_color_grad: mix($bg_color, $button_bg_color, .5 + %GRADIENT%); 
+$light_bg_grad: if($lighten_amount > 1, lighten($dark_bg_color, ($lighten_amount - 1) * lightness($dark_bg_color)), $dark_bg_color);
+$dark_bg_grad: if($darken_amount < 1, darken($dark_bg_color, (1 - $darken_amount) * lightness($dark_bg_color)), $dark_bg_color);
+
+$light_selected_bg_grad: if($lighten_amount > 1, lighten($selected_bg_color, ($lighten_amount - 1) * lightness($selected_bg_color)), $selected_bg_color);
+$dark_selected_bg_grad: if($darken_amount < 1, darken($selected_bg_color, (1 - $darken_amount) * lightness($selected_bg_color)), $selected_bg_color);
+
+$light_button_bg_grad: if($lighten_amount > 1, lighten($button_bg_color, ($lighten_amount - 1) * lightness($button_bg_color)), $button_bg_color);
+$dark_button_bg_grad: if($darken_amount < 1, darken($button_bg_color, (1 - $darken_amount) * lightness($button_bg_color)), $button_bg_color);
+
+$light_tooltip_bg_grad: if($lighten_amount > 1, lighten($tooltip_bg_color, ($lighten_amount - 1) * lightness($tooltip_bg_color)), $tooltip_bg_color);
+$dark_tooltip_bg_grad: if($darken_amount < 1, darken($tooltip_bg_color, (1 - $darken_amount) * lightness($tooltip_bg_color)), $tooltip_bg_color); 
 
 $selected_borders_color: mix($bg_color, $selected_bg_color, .2);
 $borders_color: mix($bg_color, $fg_color, .2);
@@ -33,7 +42,10 @@ $primary_caret_color: #%CARET1_FG%;
 $caret_aspect_ratio: %CARET_SIZE%px;
 
 $link_color: #%TERMINAL_COLOR4%;
+$success_color: #%TERMINAL_COLOR10%;
 $warning_color: #%TERMINAL_COLOR11%;
 $error_color: #%TERMINAL_COLOR9%;
+$info_fg_color: #%TERMINAL_BACKGROUND%;
+$info_bg_color: #%TERMINAL_COLOR12%;
 $roundness: %ROUNDNESS%px;
 

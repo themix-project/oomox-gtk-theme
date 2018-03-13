@@ -1,10 +1,10 @@
 #keyboard {
-	@extend %bg-grad-vert-dark-to-light;
+	@extend %bg-grad-to-bottom;
 }
 .keyboard-key {
 	min-height: 1.5em;
 	min-width: 2.5em;
-	@extend %bg-grad-vert-dark-to-light;
+	@extend %bg-grad-to-bottom;
 	border-radius: $roundness;
 	border: 1px solid $fg_color;
 	color: $fg_color;

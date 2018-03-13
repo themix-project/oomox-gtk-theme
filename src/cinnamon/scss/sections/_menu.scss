@@ -21,7 +21,7 @@
 	icon-size: 1.14em;
 }
 .popup-sub-menu {
-    @extend %bg-grad-vert-dark-to-light;
+    @extend %bg-grad-to-bottom;
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
 	padding: 5px;
@@ -136,7 +136,7 @@
 	padding: 10px;
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 	transition-duration: 300;
 	StScrollView .menu-context-menu StBoxLayout > .popup-menu-item {
 		@extend %menu-context-shared-workaround;
@@ -154,7 +154,7 @@
 	padding: 10px;
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 }
 .menu-places-button {
 	padding: .5em .7em;
@@ -166,7 +166,7 @@
 	padding: 10px;
 	border-radius: $roundness;
 	border: 1px solid $borders_color;
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 	StScrollView {
 		@extend %menu-context-shared;
 	}
@@ -175,7 +175,7 @@
 	padding: 10px;
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
-    @extend %bg-grad-horiz-dark-to-light;
+    @extend %bg-grad-to-right;
 }
 .menu-application-button {
 	padding: .5em .7em;
