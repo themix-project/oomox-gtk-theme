@@ -1,0 +1,125 @@
+.modal-dialog {
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %bg-grad-horiz-dark-to-light;
+	color: $dark_fg_color;
+	padding: 20px 30px;
+}
+.modal-dialog-button-box {
+	spacing: 21px;
+}
+.modal-dialog-button {
+	@extend %shared-button;
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+    @extend %button-bg-grad-vert-dark-to-light;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 4px 32px 5px;
+	&:hover {
+		border: 1px solid $selected_borders_color;
+	}
+	&:focus {
+		color: $selected_fg_color;
+		padding: 3px 31px 4px;
+	}
+	&:active {
+		@extend %shared-button-active;
+	}
+	&:pressed {
+		@extend %shared-button-active;
+	}
+	&:disabled {
+		color: rgb(60, 60, 60);
+	}
+}
+.run-dialog-label {
+	color: $dark_fg_color;
+	padding-bottom: 10px;
+}
+.run-dialog-error-label {
+	color: $selected_bg_color;
+}
+.run-dialog-error-box {
+	padding-top: 15px;
+	spacing: 5px;
+}
+.run-dialog-completion-box {
+	padding-left: 15px;
+}
+.run-dialog-entry {
+		@extend %dialog-entry;
+}
+.run-dialog {
+	border-radius: $roundness;
+	padding: 15px 20px;
+}
+.cinnamon-mount-operation-icon {
+	icon-size: 4.8em;
+}
+.mount-password-reask {
+	color: $warning_color;
+}
+.show-processes-dialog {
+	spacing: 24px;
+}
+.mount-question-dialog {
+	spacing: 24px;
+}
+.show-processes-dialog-subject {
+	@extend %shared-dialogs-subject;
+	&:rtl {
+		@extend %shared-dialogs-subject-rtl;
+	}
+}
+.mount-question-dialog-subject {
+	@extend %shared-dialogs-subject;
+	&:rtl {
+		@extend %shared-dialogs-subject-rtl;
+	}
+}
+.show-processes-dialog-description {
+	@extend %shared-dialogs-description;
+	&:rtl {
+		padding-right: 17px;
+	}
+}
+.mount-question-dialog-description {
+	@extend %shared-dialogs-description;
+	&:rtl {
+		padding-right: 17px;
+	}
+}
+.show-processes-dialog-app-list {
+	max-height: 200px;
+	padding-top: 24px;
+	padding-left: 49px;
+	padding-right: 32px;
+	&:rtl {
+		padding-right: 49px;
+		padding-left: 32px;
+	}
+}
+.show-processes-dialog-app-list-item {
+	color: $dark_fg_color;
+	&:hover {
+		color: $dark_fg_color;
+	}
+	&:ltr {
+		padding-right: 1em;
+	}
+	&:rtl {
+		padding-left: 1em;
+	}
+}
+.show-processes-dialog-app-list-item-icon {
+	&:ltr {
+		padding-right: 17px;
+	}
+	&:rtl {
+		padding-left: 17px;
+	}
+}
+.show-processes-dialog-app-list-item-name {
+}

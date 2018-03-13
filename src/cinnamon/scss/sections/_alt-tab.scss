@@ -1,46 +1,76 @@
-/* ======================================
- * ! Alt Tab
- * ====================================== */
-/*
- * This styles the normal alt-tab popup
- *
- * See also window-list module for a similar selector
- */
-#uiGroup > #altTabPopup {
-    padding: 0;
-    spacing: 4px;
-
-    .switcher-list {
-        border-image: url("img/containers/popup.svg") 7;
-        color: $text-primary;
-        padding: 1px;
-        font-size: $font-size-lg;
-        font-weight: bold;
-
-        .item-box {
-            padding: 10px;
-
-            &:selected {
-                border-image: url("img/containers/hover.svg") 7;
-                color: $text-active;
-            }
-
-            StLabel { padding-top: .4em; }
-        }
-    }
+#altTabPopup {
+	padding: 8px;
+	spacing: 16px;
 }
-
-/*
- * This styles the window name box when alt-tab is
- * in 'coverflow' or 'timeline' modes
- */
-#uiGroup > StWidget > .switcher-list {
-    border-image: url("img/containers/popup.svg") 7;
-    color: $text-primary;
+.switcher-list {
+    @extend %bg-grad-vert-dark-to-light;
+	border-radius: $roundness;
+	border: 1px solid $borders_color;
+	padding: 20px;
+	color: $dark_fg_color;
+	.item-box {
+		padding: 8px;
+	
+		border-radius: $roundness;
+		&:outlined {
+			padding: 6px;
+			border: 1px solid $borders_color;
+		}
+		&:selected {
+            @extend %bg-grad-vert-selected-to-light;
+			color: $selected_fg_color;
+		}
+	}
+	.thumbnail-box {
+		padding: 2px;
+		spacing: 4px;
+		color: $dark_fg_color;
+	}
+	.thumbnail {
+		min-width: 20em;
+	}
+	.separator {
+		width: 1px;
+		background: rgba(255,255,255,0.33);
+	}
 }
-
-.switcher-list-item-container { spacing: 0; }
-
-.thumbnail { width: 256px; }
-
-.alt-tab-app {}
+.switcher-list-item-container {
+	spacing: 8px;
+}
+.thumbnail-scroll-gradient-left {
+	background-gradient-direction: horizontal;
+	background-gradient-start: rgba(51, 51, 51, 1.0);
+	background-gradient-end: rgba(51, 51, 51, 0);
+	border-radius: $roundness;
+	border-radius-topright: 0;
+	border-radius-bottomright: 0;
+	width: 60px;
+}
+.thumbnail-scroll-gradient-right {
+	background-gradient-direction: horizontal;
+	background-gradient-start: rgba(51, 51, 51, 0);
+	background-gradient-end: rgba(51, 51, 51, 1.0);
+	border-radius: $roundness;
+	border-radius-topleft: 0;
+	border-radius-bottomleft: 0;
+	width: 60px;
+}
+.ripple-box {
+	width: 104px;
+	height: 104px;
+	background-image: url(assets/corner-ripple.png);
+	&:rtl {
+		background-image: url(assets/corner-ripple.png);
+	}
+}
+.switcher-arrow {
+	border-color: rgba(0,0,0,0);
+	color: $dark_fg_color;
+	&:highlighted {
+		border-color: rgba(0,0,0,0);
+		color: $selected_fg_color;
+	}
+}
+.switcher-preview-backdrop {
+	background-color: rgba(25,25,25,0.65);
+}

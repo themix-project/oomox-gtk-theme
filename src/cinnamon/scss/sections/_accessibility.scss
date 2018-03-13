@@ -1,0 +1,50 @@
+#keyboard {
+	@extend %bg-grad-vert-dark-to-light;
+}
+.keyboard-key {
+	min-height: 1.5em;
+	min-width: 2.5em;
+	@extend %bg-grad-vert-dark-to-light;
+	border-radius: $roundness;
+	border: 1px solid $fg_color;
+	color: $fg_color;
+	&:grayed {
+		color: $selected_fg_color;
+		border-color: $selected_fg_color;
+	}
+	&:checked {
+		border-color: $selected_bg_color;
+	}
+	&:hover {
+		border-color: $selected_bg_color;
+	}
+	&:active {
+		background-color: $selected_bg_color;
+		border: 1px solid $selected_bg_color;
+		color: $selected_fg_color;
+	}
+}
+.keyboard-layout {
+	spacing: 10px;
+	padding: 10px;
+}
+.keyboard-row {
+	spacing: 15px;
+}
+.keyboard-subkeys {
+	color: $fg_color;
+	padding: 5px;
+	-arrow-border-radius: $roundness;
+	-arrow-background-color: $dark_bg_color;
+	-arrow-border-width: 1px;
+	-arrow-border-color: $fg_color;
+	-arrow-base: 20px;
+	-arrow-rise: 10px;
+	-boxpointer-gap: 5px;
+}
+.magnifier-zoom-region {
+	border: 3px solid $fg_color;
+	&.full-screen {
+		border-width: 0;
+	}
+}

@@ -1,0 +1,53 @@
+.desklet {
+	@extend %desklet-shared;
+	&:highlight {
+		background-color: $selected_bg_color;
+	}
+}
+.desklet-with-borders {
+	@extend %desklet-shared;
+	border-radius: $roundness;
+	&:highlight {
+		background-color: $selected_bg_color;
+	}
+}
+.desklet-with-borders-and-header {
+	@extend %desklet-shared;
+	border-radius-bottomleft: $roundness;
+	border-radius-bottomright: $roundness;
+	&:highlight {
+		background-color: $selected_bg_color;
+	}
+}
+.desklet-header {
+	@extend %desklet-shared;
+	font-size: 1.2em;
+	border-radius-topleft: $roundness;
+	border-radius-topright: $roundness;
+	&:highlight {
+		background-color: $selected_bg_color;
+	}
+}
+.photoframe-box {
+	@extend %desklet-shared;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: $roundness;
+	&:highlight {
+		background-color: $selected_bg_color;
+	}
+}
+.desklet-drag-placeholder {
+	border: 2px solid $selected_bg_color;
+	background-color: $dark_bg_color_trans;
+	border-radius: $roundness;
+}
+.launcher {
+	padding: 1px;
+	
+	transition-duration: 300;
+	.icon-box {
+		padding-top: 2px;
+	}
+}
+.clock-desklet-label {
+}
