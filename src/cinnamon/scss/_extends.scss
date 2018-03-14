@@ -109,10 +109,9 @@
 }
 
 // used in selectors
-// .notification-button, .notification-icon-button, .modal-dialog-button, .sound-player-overlay StButton
+// .notification-button, .notification-icon-button, .modal-dialog-button, .sound-player-overlay StButton, .keyboard-key
 %shared-button {
-	padding: 10px;
-	border: 1px solid $borders_color;
+	border: 1px solid $button_border;
 	border-radius: $roundness;
 	@extend %button-bg-grad-to-bottom;
 	text-align: center;
@@ -120,7 +119,7 @@
 }
 
 // used in selectors
-// .notification-button:active, .notification-icon-button:active, .modal-dialog-button:active, .modal-dialog-button:pressed, .sound-player-overlay StButton:active
+// .notification-button:active, .notification-icon-button:active, .modal-dialog-button:active, .modal-dialog-button:pressed, .sound-player-overlay StButton:active, .keyboard-key:active
 %shared-button-active {
 	background-color: $selected_bg_color;
 	color: $selected_fg_color;
