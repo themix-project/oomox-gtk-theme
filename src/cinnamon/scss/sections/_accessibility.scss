@@ -13,7 +13,7 @@
 		border-color: $selected_borders_color;
 	}
 	&:hover {
-		border-color: $selected_borders_color;
+		@extend %shared-button-hover;
 	}
 	&:active {
 		@extend %shared-button-active;

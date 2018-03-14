@@ -14,7 +14,6 @@ $dark_fg_color: #%MENU_FG%;
 
 $dark_bg_color_trans: fade-out(#%MENU_BG%, .4);
 
-
 $lighten_amount: 1 + (%GRADIENT% / 2);
 $darken_amount: 1 - (%GRADIENT% / 2);
 
@@ -26,6 +25,10 @@ $dark_selected_bg_grad: if($darken_amount < 1, darken($selected_bg_color, (1 - $
 
 $light_button_bg_grad: if($lighten_amount > 1, lighten($button_bg_color, ($lighten_amount - 1) * lightness($button_bg_color)), $button_bg_color);
 $dark_button_bg_grad: if($darken_amount < 1, darken($button_bg_color, (1 - $darken_amount) * lightness($button_bg_color)), $button_bg_color);
+
+$hover_button_bg: lighten($button_bg_color, .5 * lightness($button_bg_color));
+$light_hover_button_bg_grad: if($lighten_amount > 1, lighten($hover_button_bg, ($lighten_amount - 1) * lightness($hover_button_bg)), $hover_button_bg);
+$dark_hover_button_bg_grad: if($darken_amount < 1, darken($hover_button_bg, (1 - $darken_amount) * lightness($hover_button_bg)), $hover_button_bg);
 
 $light_tooltip_bg_grad: if($lighten_amount > 1, lighten($tooltip_bg_color, ($lighten_amount - 1) * lightness($tooltip_bg_color)), $tooltip_bg_color);
 $dark_tooltip_bg_grad: if($darken_amount < 1, darken($tooltip_bg_color, (1 - $darken_amount) * lightness($tooltip_bg_color)), $tooltip_bg_color); 
