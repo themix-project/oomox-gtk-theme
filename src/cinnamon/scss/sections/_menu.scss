@@ -1,3 +1,4 @@
+// popup-menu-boxpointer is only for cinnamon < version 3.2
 .popup-menu-boxpointer {
 	-arrow-border-radius: $roundness;
 	-arrow-background-color: $bg_color;
@@ -10,16 +11,19 @@
 	@extend %menu-width;
 	@extend %shared-menu;
 }
+// popup-menu is only for cinnamon < version 3.2
 .popup-menu {
 	@extend %menu-width;
 	@extend %shared-menu;
 }
+// scale view right click menu
 .popup-combo-menu {
 	@extend %shared-menu;
 }
 .popup-menu-arrow {
 	icon-size: 1.14em;
 }
+// applet submenus
 .popup-sub-menu {
     @extend %bg-grad-to-bottom;
 	border: 1px solid $borders_color;
@@ -54,6 +58,7 @@
 .popup-menu-content {
 	padding: 0;
 }
+// individual menu entries are themed here
 .popup-menu-item {
 	padding: .5em .7em;
 	spacing: 1em;
@@ -73,6 +78,7 @@
 .popup-combobox-item {
 	spacing: 1em;
 }
+// sliders and seperators in menus
 .popup-separator-menu-item {
 	-gradient-height: 3px;
 	-gradient-direction: horizontal;
@@ -114,6 +120,7 @@
 .popup-alternating-menu-item:alternate {
 	font-weight: bold;
 }
+// toggles in menus
 .toggle-switch {
 	width: 64px;
 	height: 22px;
@@ -134,6 +141,8 @@
 	spacing: .5em;
 	icon-size: 1.14em;
 }
+// all the remaining code is for the main menu applet
+// it includes some themeing to ensure constency in right click context menu behavior in third party menu applets.
 .menu-favorites-box {
 	padding: 10px;
 	border: 1px solid $borders_color;
@@ -226,6 +235,7 @@
 		padding-right: 5px;
 	}
 }
+// in the stock menu app descriptions are shown at the base of the menu
 .menu-selected-app-box {
 	padding: .25em .5em;
 	text-align: right;
@@ -239,6 +249,7 @@
 .menu-selected-app-description {
 	max-width: 150px;
 }
+// the menus search box
 .menu-search-box {
 	&:ltr {
 		padding-left: 30px;
@@ -264,6 +275,7 @@
 	icon-size: 1em;
 	color: $dark_fg_color;
 }
+// cinnVIIstark menu right click favourites context menu
 .starkmenu-favorites-box {
 	.menu-context-menu {
 		@extend %menu-context-shared;

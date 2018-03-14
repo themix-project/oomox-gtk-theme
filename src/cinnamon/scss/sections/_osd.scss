@@ -1,3 +1,4 @@
+// displayed when media keys are pressed.
 .osd-window {
     @extend %osd-shared;
 	padding: 20px;
@@ -18,14 +19,17 @@
 	padding: 20px;
 	text-align: center;
 }
+// displays when switching workspace via keyboard shortcuts
 .workspace-osd {
     @extend %osd-shared;
 	padding: 10px;
 	font-size: 1.2em;
 }
+// this is an full screen overlay that is displayed with any cinnamon OSD or modal dialog which needs to always be semi transparent
 .lightbox {
 	background-color: $dark_bg_color_trans;
 }
+// applet 'about' OSDs - inherits from modal dialogs
 .about-content {
 	min-width: 250px;
 	min-height: 150px;
