@@ -406,7 +406,7 @@
 		border-radius: $roundness;
 		padding: 8px;
 		&:hover {
-			border: 1px solid $selected_borders_color;
+			@extend %shared-button-hover;
 		}
 		&:focus {
 			color: $selected_fg_color;

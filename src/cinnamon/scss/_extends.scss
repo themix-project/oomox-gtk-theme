@@ -14,6 +14,13 @@
     background-gradient-end: $light_button_bg_grad;
 }
 
+// hover button to bottom
+%hover-button-bg-grad-to-bottom {
+    background-gradient-direction: vertical;
+    background-gradient-start: $dark_hover_button_bg_grad;
+    background-gradient-end: $light_hover_button_bg_grad;
+}
+
 // to top
 %bg-grad-to-top {
     background-gradient-direction: vertical;
@@ -116,6 +123,13 @@
 	@extend %button-bg-grad-to-bottom;
 	text-align: center;
 	color: $button_fg_color;
+}
+
+// used in selectors
+// .notification-button:hover, .notification-icon-button:hover, .modal-dialog-button:hover, .sound-player-overlay StButton:hover, .keyboard-key:hover
+%shared-button-hover {
+	@extend %hover-button-bg-grad-to-bottom;
+	border: 1px solid $selected_borders_color;
 }
 
 // used in selectors
