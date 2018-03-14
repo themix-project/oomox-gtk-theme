@@ -1,3 +1,4 @@
+// on screen messages and input boxes
 .modal-dialog {
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
@@ -30,6 +31,7 @@
 		color: rgb(60, 60, 60);
 	}
 }
+// run dialog (ALT-F2)
 .run-dialog-label {
 	color: $dark_fg_color;
 	padding-bottom: 10px;
@@ -51,6 +53,7 @@
 	border-radius: $roundness;
 	padding: 15px 20px;
 }
+// removable media dialogs
 .cinnamon-mount-operation-icon {
 	icon-size: 4.8em;
 }

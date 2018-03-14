@@ -1,3 +1,4 @@
+// calendar applet
 .calendar {
 	padding: 1em 1.75em;
 	spacing-rows: 1px;
@@ -92,6 +93,7 @@
 .calendar-nonwork-day {
 	font-weight: bold;
 }
+// this is always is an active state
 .calendar-today {
     @extend %selected-bg-grad-to-bottom;
    	font-weight: bold;
@@ -102,6 +104,7 @@
 .calendar-other-month-day {
 	font-style: italic;
 }
+// this is always is an active state
 .calendar-day-with-events {
 	background-color: $selected_bg_color;
     font-weight: bold;
