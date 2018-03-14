@@ -17,12 +17,14 @@ StScrollBar {
 	StButton {
 		&#vhandle {
 			background-color: $scrollbar_slider_color;
+			border-radius: $roundness;
 			&:hover {
 				background-color: $scrollbar_slider_hover_color;
 			}
 		}
 		&#hhandle {
 			background-color: $scrollbar_slider_color;
+			border-radius: $roundness;
 			&:hover {
 				background-color: $scrollbar_slider_hover_color;
 			}
@@ -30,6 +32,7 @@ StScrollBar {
 	}
 	StBin#trough {
 		background-color: $scrollbar_bg_color;
+		border-radius: $roundness;
 	}
 }
 StScrollView {
@@ -40,8 +43,8 @@ StScrollView {
 		-st-hfade-offset: 68px;
 	}
 	StScrollBar {
-		min-width: 1em;
-		min-height: 1em;
+		min-width: 0.8em;
+		min-height: 0.8em;
 	}
 	&.menu-context-menu {
 		border-width: 0;
@@ -58,7 +61,7 @@ StScrollView {
 }
 .separator {
 	-gradient-height: 3px;
-	-gradient-start: $dark_fg_color;
+	-gradient-start: $selected_fg_color;
 	-gradient-end: $dark_bg_color;
 	-margin-horizontal: 1em;
 	height: 1em;

@@ -31,7 +31,7 @@
 	}
 	.separator {
 		width: 1px;
-		background: rgba(255,255,255,0.33);
+		background-color: $selected_bg_color;
 	}
 }
 .switcher-list-item-container {

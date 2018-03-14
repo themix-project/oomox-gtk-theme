@@ -12,8 +12,7 @@ $tooltip_fg_color: #%FG%;
 $dark_bg_color: fade-out(#%MENU_BG%, 1 - %CINNAMON_OPACITY%);
 $dark_fg_color: #%MENU_FG%;
 
-$bg_color_trans: fade-out($bg_color, .5);
-$dark_bg_color_trans: fade-out($dark_bg_color, .5);
+$dark_bg_color_trans: fade-out(#%MENU_BG%, .4);
 
 
 $lighten_amount: 1 + (%GRADIENT% / 2);
@@ -31,8 +30,11 @@ $dark_button_bg_grad: if($darken_amount < 1, darken($button_bg_color, (1 - $dark
 $light_tooltip_bg_grad: if($lighten_amount > 1, lighten($tooltip_bg_color, ($lighten_amount - 1) * lightness($tooltip_bg_color)), $tooltip_bg_color);
 $dark_tooltip_bg_grad: if($darken_amount < 1, darken($tooltip_bg_color, (1 - $darken_amount) * lightness($tooltip_bg_color)), $tooltip_bg_color); 
 
-$selected_borders_color: mix($bg_color, $selected_bg_color, .2);
-$borders_color: mix($bg_color, $fg_color, .2);
+$selected_borders_color: mix($bg_color, $selected_bg_color, if(lightness($bg_color) < 50%, .18, .1));
+$borders_color: mix($bg_color, $fg_color, if(lightness($bg_color) < 50%, .18, .1));
+
+$button_border_strength: .1;
+$button_border: fade-out($button_fg_color, .06 + $button_border_strength);
 
 $scrollbar_bg_color:  darken($bg_color, 5%);
 $scrollbar_slider_color: mix($bg_color, $fg_color, .2);

@@ -8,7 +8,7 @@
 	font-size: 0.8em;
 	padding: 5px 10px;
 	border-radius: $roundness;
-    @extend %bg-grad-to-right;
+    @extend %bg-grad-to-bottom;
 	font-weight: bold;
 	text-align: center;
 }
