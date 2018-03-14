@@ -34,16 +34,18 @@
 	}
 	StScrollBar {
 		padding: 2px;
-		min-width: 1em;
-		min-height: 1em;
+		min-width: 0.8em;
+		min-height: 0.8em;
 		StBin {
 			&#trough {
-				border-width: 0;
+				background-color: $scrollbar_bg_color;
+                border-radius: $roundness;
 			}
 			&#vhandle {
-				background-color: $dark_bg_color;
+				background-color: $scrollbar_slider_color;
+				border-radius: $roundness;
 				&:hover {
-					background-color: $selected_bg_color;
+					background-color: $scrollbar_slider_hover_color;
 				}
 			}
 		}
@@ -74,7 +76,7 @@
 .popup-separator-menu-item {
 	-gradient-height: 3px;
 	-gradient-direction: horizontal;
-	-gradient-start: $dark_fg_color;
+	-gradient-start: $selected_bg_color;
 	-gradient-end: $dark_bg_color;
 	-margin-horizontal: 1em;
 	height: 1em;

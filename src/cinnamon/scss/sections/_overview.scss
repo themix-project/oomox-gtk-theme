@@ -28,7 +28,6 @@
 	transition-duration: 300;
 	&:hover {
 		background-image: url(assets/add-workspace-hover.png);
-		
 		transition-duration: 300;
 	}
 }
@@ -39,9 +38,7 @@
 	-cinnamon-close-overlap: 20px;
 }
 .workspace-overview-background-shade {
-    background-gradient-direction: radial;
-    background-gradient-start: $bg_color_trans;
-    background-gradient-end: $dark_bg_color_trans;
+    background-color: $dark_bg_color_trans;
 }
 .workspace-thumbnail-indicator {
 	border: 2px solid $borders_color;
