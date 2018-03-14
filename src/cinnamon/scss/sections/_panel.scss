@@ -1,3 +1,8 @@
+// panels can be on any side of the screen
+// some panel item theming is specific to panel orientation and is included in this section
+// each panel is also split into three zones 
+// dnd is for panel edit mode
+// dummy is for adding or moving panels
 #panel {
 	color: $dark_fg_color;
 	height: 2.5em;
@@ -176,6 +181,7 @@
 		border-color: $selected_borders_color;
 	}
 }
+// a non feature - not worth themeing
 .panel-corner {
 	&:active {
 	}
@@ -228,6 +234,7 @@
 }
 .panel-menu {
 }
+// remaining code is for panel items
 .applet-separator {
 	padding: 5px 4px;
 }
@@ -276,6 +283,7 @@
 	padding: 0;
 	spacing: 0;
 }
+// used by power applet to warn of low battery
 .system-status-icon {
 	icon-size: 1.14em;
 	padding: 0;
@@ -297,6 +305,7 @@
 		color: $selected_bg_color;
 	}
 }
+// user applet specific themeing
 .user-box {
 	padding: 0.4em 1.3em;
 	spacing: 10px;
@@ -308,6 +317,7 @@
 	color: $dark_fg_color;
 	font-weight: bold;
 }
+// the window list applet. Some third party applets inherit some of this theming.
 .window-list-box {
 	spacing: 3px;
 	padding: 3px 10px;
@@ -321,6 +331,7 @@
 }
 .window-list-item-label {
 }
+// progress was added with cinnamon 3.6
 .window-list-item-box {
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
@@ -342,6 +353,7 @@
 	background-color: $info_bg_color;
 	color: info_fg_color;
 }
+// this is a new feature for cinnamon 3.8
 .window-list-preview {
     @extend %bg-grad-to-right;
 	border-radius: $roundness;
@@ -350,6 +362,7 @@
 	spacing: 1em;
 	color: $dark_fg_color;
 }
+// the sound player applet
 .sound-player {
 	StButton {
 		width: 18px;
@@ -422,6 +435,7 @@
 		padding-top: 2px;
 	}
 }
+// workspace switcher applet simple button view
 .workspace-button {
 	width: 3em;
 	height: 1em;
@@ -436,6 +450,7 @@
 		border-color: $selected_borders_color;
 	}
 }
+// workspace switcher applet graph view
 .workspace-graph {
 	padding: 2px;
 	spacing: 2px;

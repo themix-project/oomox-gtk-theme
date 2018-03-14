@@ -1,3 +1,4 @@
+// scale and expo views
 #overview {
 	spacing: 12px;
 }
@@ -37,6 +38,7 @@
 	width: 32px;
 	-cinnamon-close-overlap: 20px;
 }
+// this always looks better semi transparent
 .workspace-overview-background-shade {
     background-color: $dark_bg_color_trans;
 }

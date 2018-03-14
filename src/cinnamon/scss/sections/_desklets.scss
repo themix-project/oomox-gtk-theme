@@ -1,3 +1,4 @@
+// desklets
 .desklet {
 	@extend %desklet-shared;
 	&:highlight {
@@ -30,7 +31,6 @@
 }
 .photoframe-box {
 	@extend %desklet-shared;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: $roundness;
 	&:highlight {
 		background-color: $selected_bg_color;

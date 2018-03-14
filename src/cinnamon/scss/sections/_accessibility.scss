@@ -1,3 +1,4 @@
+// on screen keyboard
 #keyboard {
 	@extend %bg-grad-to-bottom;
 }
@@ -37,6 +38,7 @@
 	-arrow-rise: 10px;
 	-boxpointer-gap: 5px;
 }
+// desktop zoom feature
 .magnifier-zoom-region {
 	border: 3px solid $fg_color;
 	&.full-screen {

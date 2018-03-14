@@ -1,3 +1,5 @@
+// defines font family and standard font size across the whole theme
+// em is preferred for better support for text scaling
 stage {
 	font-family: sans, sans-serif;
 	font-size: 1em;
@@ -12,6 +14,7 @@ stage {
 .label-shadow {
 	color: rgba(0,0,0,0.5);
 }
+// themeing for various standard elements
 StScrollBar {
 	padding: 2px;
 	StButton {
@@ -137,6 +140,7 @@ StScrollView {
 	text-align: center;
 	border-radius: $roundness;
 }
+// dialog box for the cinnamon debug utility
 #LookingGlassDialog {
     @extend %bg-grad-to-bottom;
 	spacing: 4px;
