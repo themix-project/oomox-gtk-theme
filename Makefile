@@ -16,7 +16,7 @@ UTILS=scripts/utils.sh
 
 gtk3: clean gresource_gtk3
 gtk320: clean gresource_gtk320
-all: clean gresource
+all: clean gresource css_cinnamon
 
 css_gtk3:
 	mkdir -p $(DIST_DIR)
@@ -37,13 +37,13 @@ endif
 css_cinnamon:
 	mkdir -p $(DIST_DIR_CINNAMON)
 	$(SASS) $(SASSFLAGS) "$(SCSS_DIR_CINNAMON)" "$(SCSS_DIR_CINNAMON)/cinnamon.scss" "$(DIST_DIR_CINNAMON)/cinnamon.css"
-css: css_gtk3 css_gtk320 css_cinnamon
+css: css_gtk3 css_gtk320
 
 gresource_gtk3: css_gtk3
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" "$(RES_DIR)/gtk.gresource.xml"
 gresource_gtk320: css_gtk320
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" "$(RES_DIR320)/gtk.gresource.xml"
-gresource: gresource_gtk3 gresource_gtk320 css_cinnamon
+gresource: gresource_gtk3 gresource_gtk320
 
 watch: clean
 	while true; do \
