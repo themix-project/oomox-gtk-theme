@@ -14,7 +14,7 @@ $dark_bg_color: fade-out(#%MENU_BG%, 1 - %CINNAMON_OPACITY%);
 $dark_fg_color: #%MENU_FG%;
 
 // an always transparent color used for expo & scale views and the lightbox effect when cinnamon is showing an OSD.
-$dark_bg_color_trans: fade-out(#%MENU_BG%, .4);
+$dark_bg_color_trans: fade-out(#%MENU_BG%, .6);
 
 // used to calculate gradients for gradient values > 0
 $lighten_amount: 1 + (%GRADIENT% / 2);
