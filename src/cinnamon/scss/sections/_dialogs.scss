@@ -122,3 +122,74 @@
 }
 .show-processes-dialog-app-list-item-name {
 }
+// displayed when media keys are pressed.
+.osd-window {
+    @extend %osd-shared;
+	padding: 20px;
+	spacing: 1em;
+	.level {
+		height: 0.7em;
+		border-radius: 0.3em;
+		background-color: $dark_bg_color;
+	}
+	.level-bar {
+		border-radius: 0.3em;
+		background-color: $selected_bg_color;
+	}
+}
+.info-osd {
+    @extend %osd-shared;
+	font-size: 1.5em;
+	padding: 20px;
+	text-align: center;
+}
+// displays when switching workspace via keyboard shortcuts
+.workspace-osd {
+    @extend %osd-shared;
+	padding: 10px;
+	font-size: 1.2em;
+}
+// this is an full screen overlay that is displayed with any cinnamon OSD or modal dialog which needs to always be semi transparent
+.lightbox {
+	background-color: $dark_bg_color_trans;
+}
+// applet 'about' OSDs - inherits from modal dialogs
+.about-content {
+	min-width: 250px;
+	min-height: 150px;
+	spacing: 8px;
+	padding-bottom: 16px;
+}
+.about-title {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+.about-uuid {
+	font-size: .8em;
+}
+.about-icon {
+	padding-right: 20px;
+}
+.about-scrollBox {
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+}
+.about-scrollBox-innerBox {
+	padding: 1.2em;
+	spacing: 1.2em;
+}
+.about-description {
+	padding-top: 4px;
+}
+.about-version {
+	padding-left: 7px;
+}
+// dialog box for the cinnamon debug utility
+#LookingGlassDialog {
+    @extend %bg-grad-to-bottom;
+	spacing: 4px;
+	padding: 10px;
+	border: 1px solid $borders_color;
+	border-radius: $roundness;
+	color: $dark_fg_color;
+}

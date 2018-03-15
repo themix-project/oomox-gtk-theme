@@ -56,14 +56,6 @@
 	border-radius-bottomleft: 0;
 	width: 60px;
 }
-.ripple-box {
-	width: 104px;
-	height: 104px;
-	background-image: url(assets/corner-ripple.png);
-	&:rtl {
-		background-image: url(assets/corner-ripple.png);
-	}
-}
 .switcher-arrow {
 	border-color: rgba(0,0,0,0);
 	color: $dark_fg_color;
