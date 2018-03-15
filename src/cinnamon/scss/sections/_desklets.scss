@@ -1,6 +1,9 @@
 // desklets
 .desklet {
-	@extend %desklet-shared;
+    padding: 10px;
+	color: $dark_fg_color;
+	border-radius: $roundness;
+	background-color: $dark_bg_color_trans;
 	&:highlight {
 		background-color: $selected_bg_color;
 	}
