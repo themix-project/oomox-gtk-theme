@@ -95,7 +95,7 @@
 	caret-size: $caret_aspect_ratio;
 	width: 250px;
 	height: 1.5em;
-	transition-duration: 300;
+	transition-duration: 150;
 }
 
 // used in selectors
@@ -113,6 +113,7 @@
 	width: 16px;
 	height: 16px;
 	border-radius: $roundness;
+	transition-duration: 150;
 }
 
 // used in selectors
@@ -123,6 +124,7 @@
 	@extend %button-bg-grad-to-bottom;
 	text-align: center;
 	color: $button_fg_color;
+	transition-duration: 150;
 }
 
 // used in selectors

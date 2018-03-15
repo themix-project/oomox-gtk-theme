@@ -28,19 +28,19 @@
 	spacing: 15px;
 }
 .keyboard-subkeys {
-	color: $fg_color;
+	color: $dark_fg_color;
 	padding: 5px;
 	-arrow-border-radius: $roundness;
 	-arrow-background-color: $dark_bg_color;
 	-arrow-border-width: 1px;
-	-arrow-border-color: $fg_color;
+	-arrow-border-color: $dark_fg_color;
 	-arrow-base: 20px;
 	-arrow-rise: 10px;
 	-boxpointer-gap: 5px;
 }
 // desktop zoom feature
 .magnifier-zoom-region {
-	border: 3px solid $fg_color;
+	border: 3px solid $borders_color;
 	&.full-screen {
 		border-width: 0;
 	}

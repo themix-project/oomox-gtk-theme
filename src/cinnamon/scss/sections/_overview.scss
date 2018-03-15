@@ -2,12 +2,6 @@
 #overview {
 	spacing: 12px;
 }
-#overview-corner {
-	background-image: url(assets/overview.png);
-	&:hover {
-		background-image: url(assets/overview-hover.png);
-	}
-}
 .workspace-controls {
 	visible-height: 3em;
 }
@@ -16,8 +10,6 @@
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
     @extend %bg-grad-to-right;
-	&:rtl {
-	}
 }
 .workspace-thumbnails {
 	spacing: 14px;
@@ -26,10 +18,23 @@
 	background-image: url(assets/add-workspace.png);
 	height: 200px;
 	width: 35px;
-	transition-duration: 300;
+	border-radius-topleft: 10px;
+	border-radius-bottomleft: 10px;
+	transition-duration: 150;
+	background-color: $info_bg_color;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-color: $button_border;
+	transition-duration: 150;
 	&:hover {
 		background-image: url(assets/add-workspace-hover.png);
-		transition-duration: 300;
+		border-color: $selected_borders_color;
+	}
+	&:active {
+	    background-image: url(assets/add-workspace.png);
+	    border-color: $selected_borders_color;
+		background-color: $success_color;
 	}
 }
 .workspace-close-button {
@@ -73,24 +78,12 @@
 	background-color: $dark_bg_color_trans;
 	border: 1px solid $borders_color;
 	border-bottom-width: 0;
-	border-radius: $roundness $roundness 0 0;
+	border-radius: 20px 20px 0 0;
 	height: 120px;
 	width: 400px;
 }
-.overview-icon {
-	border-radius: $roundness;
-	padding: 3px;
-	border: 1px rgba(0,0,0,0);
-	color: $dark_fg_color;
-	transition-duration: 100;
-	text-align: center;
-	height: 32px;
-	width: 32px;
-}
 .expo-background {
-    background-gradient-direction: radial;
-    background-gradient-start: $light_bg_grad;
-    background-gradient-end: $dark_bg_grad;
+    @extend %bg-grad-to-bottom;
 }
 .expo-workspace-thumbnail-frame {
 	border: 1px solid $borders_color;
@@ -128,7 +121,6 @@
 	width: 104px;
 	height: 104px;
 	background-image: url(assets/corner-ripple.png);
-	&:rtl {
-		background-image: url(assets/corner-ripple.png);
-	}
+	background-color: $selected_bg_color;
+	border-radius: 52px;
 }

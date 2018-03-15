@@ -202,7 +202,7 @@
 	-minimum-hpadding: 2px;
 	font-weight: bold;
 	color: $dark_fg_color;
-	transition-duration: 100;
+	transition-duration: 150;
 	#appMenuIcon {
 		app-icon-bottom-clip: 1px;
 	}
@@ -255,7 +255,7 @@
 }
 .applet-box {
 	color: $dark_fg_color;
-	transition-duration: 300;
+	transition-duration: 150;
 	border-radius: $roundness;
 	&:checked {
 		color: $selected_bg_color;
@@ -339,7 +339,7 @@
 .window-list-item-box {
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
-	transition-duration: 300;
+	transition-duration: 150;
 	&:hover {
 		border: 1px solid $selected_borders_color;
 	}
@@ -441,15 +441,14 @@
 }
 // workspace switcher applet simple button view
 .workspace-button {
-	width: 3em;
+	width: 2em;
 	height: 1em;
 	color: $dark_fg_color;
 	border: 1px solid $borders_color;
-	margin: 3px;
-	
-	transition-duration: 300;
+	margin: 2px;
+	transition-duration: 150;
 	&:outlined {
-		background: $selected_bg_color;
+		background-color: $selected_bg_color;
 		color: $selected_fg_color;
 		border-color: $selected_borders_color;
 	}

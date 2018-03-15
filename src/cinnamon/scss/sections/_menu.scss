@@ -1,7 +1,7 @@
 // popup-menu-boxpointer is only for cinnamon < version 3.2
 .popup-menu-boxpointer {
 	-arrow-border-radius: $roundness;
-	-arrow-background-color: $bg_color;
+	-arrow-background-color: $dark_bg_color;
 	-arrow-border-width: 1px;
 	-arrow-border-color: $borders_color;
 	-arrow-base: 24px;
@@ -148,7 +148,7 @@
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
     @extend %bg-grad-to-right;
-	transition-duration: 300;
+	transition-duration: 150;
 	StScrollView .menu-context-menu StBoxLayout > .popup-menu-item {
 		@extend %menu-context-shared-workaround;
 	}
