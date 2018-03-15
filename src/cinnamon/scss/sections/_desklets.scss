@@ -1,4 +1,5 @@
-// desklets
+// desklets - the base .desklet selector is for 'undecorated' desklets however some subtle background themeing is desirable
+// to maintain visibility irrespctive of wallpaper and to allow for the highlighting scheme to work
 .desklet {
     padding: 10px;
 	color: $dark_fg_color;
@@ -8,6 +9,7 @@
 		background-color: $selected_bg_color;
 	}
 }
+// these do not inherit from .desklet
 .desklet-with-borders {
 	@extend %desklet-shared;
 	border-radius: $roundness;
@@ -52,5 +54,6 @@
 		padding-top: 2px;
 	}
 }
+// inherits font characteristics from .desklet-header
 .clock-desklet-label {
 }

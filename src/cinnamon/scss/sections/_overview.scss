@@ -123,3 +123,12 @@
 		border: 1px solid $selected_borders_color;
 	}
 }
+// hot corners animation
+.ripple-box {
+	width: 104px;
+	height: 104px;
+	background-image: url(assets/corner-ripple.png);
+	&:rtl {
+		background-image: url(assets/corner-ripple.png);
+	}
+}

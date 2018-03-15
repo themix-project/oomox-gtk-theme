@@ -65,6 +65,10 @@
 		}
 	}
 }
+// panel borders must be defined with a border-top color or other color definition that encompasses border-top
+// panels do not support different colors of borders on different edges
+// due to a bug in cinnamons placing of panel items on a bordered panel small margins are used to ensure that bordered panel objects
+// do not overlap the panel border 
 .panel-top {
     @extend %bg-grad-to-bottom;
 	border-bottom: 1px solid;
@@ -234,7 +238,7 @@
 }
 .panel-menu {
 }
-// remaining code is for panel items
+// remaining code is for panel items starting with the generic applets
 .applet-separator {
 	padding: 5px 4px;
 }
@@ -331,7 +335,7 @@
 }
 .window-list-item-label {
 }
-// progress was added with cinnamon 3.6
+// progress was added with cinnamon 3.6 and allows compatible applications to use the window list as a progress bar
 .window-list-item-box {
 	border: 1px solid $borders_color;
 	border-radius: $roundness;
@@ -353,7 +357,7 @@
 	background-color: $info_bg_color;
 	color: info_fg_color;
 }
-// this is a new feature for cinnamon 3.8
+// cinnamon 3.8 will support an improved window-list-thumbnail preview which now has it's own selector
 .window-list-preview {
     @extend %bg-grad-to-right;
 	border-radius: $roundness;
@@ -475,6 +479,7 @@
 		}
 	}
 }
+// most panel launcher themeing is orientation specific
 .panel-launchers {
 	padding: 1px 4px;
 	spacing: 4px;
