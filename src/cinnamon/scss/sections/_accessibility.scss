@@ -1,6 +1,6 @@
 // on screen keyboard
 #keyboard {
-	@extend %bg-grad-to-bottom;
+	background-color: $dark_bg_color_trans;
 }
 .keyboard-key {
 	min-height: 1.5em;
