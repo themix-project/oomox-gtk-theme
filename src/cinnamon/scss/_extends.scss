@@ -81,6 +81,32 @@
 }
 
 // used in selectors
+// .slider, .sound-player .slider, .popup-slider-menu-item
+%slider-shared {
+	height: 1em;
+	min-width: 15em;
+	color: $dark_fg_color;
+	-slider-height: 0.7em;
+	-slider-background-color: $scrollbar_bg_color;
+	-slider-border-color: $borders_color;
+	-slider-active-background-color: $scrollbar_slider_hover_color;
+	-slider-active-border-color: $selected_borders_color;
+	-slider-border-width: 1px;
+	-slider-border-radius: 0.3em;
+	-slider-handle-radius: 0.7em;
+}
+
+// used in selectors
+// .separator, .popup-seperator-menu-item
+%separator-shared {
+	-gradient-height: 3px;
+	-gradient-start: $selected_bg_color;
+	-gradient-end: $dark_bg_color;
+	-margin-horizontal: 1em;
+	height: 1em;
+}
+
+// used in selectors
 // #menu-search-entry, .run-dialog-entry, #notification StEntry
 %dialog-entry {
 	padding: 2px;
