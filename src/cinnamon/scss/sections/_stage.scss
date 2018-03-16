@@ -117,11 +117,8 @@ StScrollView {
 	}
 }
 #Tooltip {
+    @extend %tooltip-bg-grad-to-top;
 	padding: 5px 8px;
-//	border: 1px solid $borders_color;
-    background-gradient-direction: vertical;
-    background-gradient-start: $light_tooltip_bg_grad;
-    background-gradient-end: $dark_tooltip_bg_grad;
 	color: $tooltip_fg_color;
 	text-align: center;
 	border-radius: $roundness;
