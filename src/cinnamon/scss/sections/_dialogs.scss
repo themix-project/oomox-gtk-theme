@@ -130,11 +130,11 @@
 	.level {
 		height: 0.7em;
 		border-radius: 0.3em;
-		background-color: $dark_bg_color;
+		background-color: $scrollbar_bg_color;
 	}
 	.level-bar {
 		border-radius: 0.3em;
-		background-color: $selected_bg_color;
+		background-color: $scrollbar_slider_hover_color;
 	}
 }
 .info-osd {
