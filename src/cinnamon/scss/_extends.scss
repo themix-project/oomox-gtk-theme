@@ -7,18 +7,18 @@
     background-gradient-end: $light_bg_grad;
 }
 
-// button to bottom
-%button-bg-grad-to-bottom {
+// button to top
+%button-bg-grad-to-top{
     background-gradient-direction: vertical;
-    background-gradient-start: $dark_button_bg_grad;
-    background-gradient-end: $light_button_bg_grad;
+    background-gradient-start: $light_button_bg_grad;
+    background-gradient-end: $dark_button_bg_grad;
 }
 
-// hover button to bottom
-%hover-button-bg-grad-to-bottom {
+// hover button to top
+%hover-button-bg-grad-to-top {
     background-gradient-direction: vertical;
-    background-gradient-start: $dark_hover_button_bg_grad;
-    background-gradient-end: $light_hover_button_bg_grad;
+    background-gradient-start: $light_hover_button_bg_grad;
+    background-gradient-end: $dark_hover_button_bg_grad;
 }
 
 // to top
@@ -154,7 +154,7 @@
 %shared-button {
 	border: 1px solid $button_border;
 	border-radius: $roundness;
-	@extend %button-bg-grad-to-bottom;
+	@extend %button-bg-grad-to-top;
 	text-align: center;
 	color: $button_fg_color;
 	transition-duration: 150;
@@ -163,14 +163,14 @@
 // used in selectors
 // .notification-button:hover, .notification-icon-button:hover, .modal-dialog-button:hover, .sound-player-overlay StButton:hover, .keyboard-key:hover
 %shared-button-hover {
-	@extend %hover-button-bg-grad-to-bottom;
+	@extend %hover-button-bg-grad-to-top;
 	border: 1px solid $selected_borders_color;
 }
 
 // used in selectors
 // .notification-button:active, .notification-icon-button:active, .modal-dialog-button:active, .modal-dialog-button:pressed, .sound-player-overlay StButton:active, .keyboard-key:active
 %shared-button-active {
-	background-color: $selected_bg_color;
+	@extend %selected-bg-grad-to-bottom;
 	color: $selected_fg_color;
 }
 
