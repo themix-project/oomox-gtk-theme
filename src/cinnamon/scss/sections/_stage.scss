@@ -63,24 +63,10 @@ StScrollView {
 	}
 }
 .separator {
-	-gradient-height: 3px;
-	-gradient-start: $selected_fg_color;
-	-gradient-end: $dark_bg_color;
-	-margin-horizontal: 1em;
-	height: 1em;
+    @extend %separator-shared;
 }
 .slider {
-	height: 1em;
-	min-width: 15em;
-	color: $dark_fg_color;
-	-slider-height: 0.7em;
-	-slider-background-color: $dark_bg_color;
-	-slider-border-color: $dark_bg_color;
-	-slider-active-background-color: $selected_bg_color;
-	-slider-active-border-color: $dark_bg_color;
-	-slider-border-width: 1px;
-	-slider-border-radius: 0.3em;
-	-slider-handle-radius: 0.7em;
+	@extend %slider-shared;
 }
 .check-box {
 	CinnamonGenericContainer {
