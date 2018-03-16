@@ -70,6 +70,13 @@
     background-gradient-end: $dark_selected_bg_grad;
 }
 
+// tooltip to top
+%tooltip-bg-grad-to-top {
+    background-gradient-direction: vertical;
+    background-gradient-start: $light_tooltip_bg_grad;
+    background-gradient-end: $dark_tooltip_bg_grad;
+}
+
 
 // used in selectors
 // .osd-window, .info-osd, .info-osd
@@ -109,16 +116,16 @@
 // used in selectors
 // #menu-search-entry, .run-dialog-entry, #notification StEntry
 %dialog-entry {
+    @extend %tooltip-bg-grad-to-top;
 	padding: 2px;
 	border-radius: $roundness;
-	color: $dark_fg_color;
+	color: $tooltip_fg_color;
 	font-weight: bold;
 	border: 1px solid $borders_color;
-	background-color: $dark_bg_color;
 	selection-background-color: $selected_bg_color;
 	selected-color: $selected_fg_color;
 	caret-color: $primary_caret_color;
-	caret-size: $caret_aspect_ratio;
+	caret-size: 0.1em;
 	width: 250px;
 	height: 1.5em;
 	transition-duration: 150;
