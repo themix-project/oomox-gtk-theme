@@ -27,4 +27,4 @@ RUN pacman -Syu --noconfirm && \
 COPY . /opt/oomox-gtk-theme/
 
 # workaround for bug in GTK 3.22.28:
-RUN pacman -U https://archive.archlinux.org/packages/g/gtk3/gtk3-3.22.26-1-x86_64.pkg.tar.xz
+RUN pacman -U --noconfirm https://archive.archlinux.org/packages/g/gtk3/gtk3-3.22.26-1-x86_64.pkg.tar.xz
