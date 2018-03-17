@@ -130,7 +130,7 @@ make_and_compare_screenshot() {
 			if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
 				set +e
 			fi
-			cp ${SCREENSHOTS_DIR}/${screenshot_base_name}.png ${TEST_RESULT_DIR}/${test_result_base_name}.png
+			cp ${SCREENSHOTS_DIR}/${screenshot_base_name}.png ${TEST_RESULT_DIR}/${test_result_base_name}.png || true
 		)
 
 		if [[ -z ${GENERATE_ASSETS:-} ]] ; then
