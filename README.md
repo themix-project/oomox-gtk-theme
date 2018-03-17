@@ -7,7 +7,7 @@ It is used in oomox app: https://github.com/actionless/oomox
 ### Theme examples
 
 ![Screenshot Light](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
-![Screenshot Medium](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-monovedek_hidpi-gtk3-page1.png "Screenshot Medium")
+![Screenshot Medium](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-lavender_hidpi-gtk3-page1.png "Screenshot Medium")
 ![Screenshot Dark](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-monovedek_lcars_hidpi-gtk3-page1.png "Screenshot Dark")
 
 

@@ -58,7 +58,7 @@ echo > ${TEST_RESULT_DIR}/links.txt
 
 _TEST_THEMES=(
 	'clearlooks'
-	'monovedek'
+	'lavender'
 	'monovedek_lcars'
 )
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
