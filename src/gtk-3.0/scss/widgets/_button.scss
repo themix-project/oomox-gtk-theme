@@ -149,7 +149,7 @@
         }
 
         &:active, &:checked {
-            @include linear-gradient(shade($button_bg, .7), to top);
+            @include linear-gradient(shade($selected_bg_color, .9), to top);
 
             color: $selected_fg_color;
             box-shadow: inset 1px 0 alpha($dark_shadow, .06),
@@ -158,7 +158,7 @@
                         inset 0 -1px alpha($dark_shadow, .05);
 
             &:focus, &:hover {
-                @include linear-gradient(shade($button_bg, .65), to top);
+                @include linear-gradient(shade($selected_bg_color, .8), to top);
 
                 color: $selected_fg_color;
             }
