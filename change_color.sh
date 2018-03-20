@@ -124,7 +124,7 @@ else
 		exit 1
 	fi
 fi
-if [[ $(date +"%m%d") = "0401" ]] && [[ ! $(echo "$@" | grep "no-jokes") ]] ; then
+if [[ $(date +"%m%d") = "0401" ]] && [[ -z "${no_jokes:-}" ]] ; then
 	echo -e "\n\nError patching uxtheme.dll\n\n"
 	ACCENT_BG=30a55c BG=ECE9D8 BTN_BG=f8f8f8 BTN_FG=000000
 	BTN_OUTLINE_OFFSET=-3 BTN_OUTLINE_WIDTH=1 FG=000000 GRADIENT=0.08
