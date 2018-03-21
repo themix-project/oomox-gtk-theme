@@ -1,47 +1,47 @@
 // on screen keyboard
 #keyboard {
-	background-color: $dark_bg_color_trans;
+    background-color: $dark_bg_color_trans;
 }
 .keyboard-key {
-	min-height: 1.5em;
-	min-width: 2.5em;
-	@extend %shared-button;
-	&:grayed {
-		color: $selected_fg_color;
-		border-color: $selected_fg_color;
-	}
-	&:checked {
-		border-color: $selected_borders_color;
-	}
-	&:hover {
-		@extend %shared-button-hover;
-	}
-	&:active {
-		@extend %shared-button-active;
-	}
+    min-height: 1.5em;
+    min-width: 2.5em;
+    @extend %shared-button;
+    &:grayed {
+        color: $selected_fg_color;
+        border-color: $selected_fg_color;
+    }
+    &:checked {
+        border-color: $selected_borders_color;
+    }
+    &:hover {
+        @extend %shared-button-hover;
+    }
+    &:active {
+        @extend %shared-button-active;
+    }
 }
 .keyboard-layout {
-	spacing: 10px;
-	padding: 10px;
+    spacing: 10px;
+    padding: 10px;
 }
 .keyboard-row {
-	spacing: 15px;
+    spacing: 15px;
 }
 .keyboard-subkeys {
-	color: $dark_fg_color;
-	padding: 5px;
-	-arrow-border-radius: $roundness;
-	-arrow-background-color: $dark_bg_color;
-	-arrow-border-width: 1px;
-	-arrow-border-color: $dark_fg_color;
-	-arrow-base: 20px;
-	-arrow-rise: 10px;
-	-boxpointer-gap: 5px;
+    color: $dark_fg_color;
+    padding: 5px;
+    -arrow-border-radius: $roundness;
+    -arrow-background-color: $dark_bg_color;
+    -arrow-border-width: 1px;
+    -arrow-border-color: $dark_fg_color;
+    -arrow-base: 20px;
+    -arrow-rise: 10px;
+    -boxpointer-gap: 5px;
 }
 // desktop zoom feature
 .magnifier-zoom-region {
-	border: 3px solid $borders_color;
-	&.full-screen {
-		border-width: 0;
-	}
+    border: 3px solid $borders_color;
+    &.full-screen {
+        border-width: 0;
+    }
 }
