@@ -233,6 +233,8 @@ for FILEPATH in "${PATHLIST[@]}"; do
 		-e 's/%BTN_OUTLINE_OFFSET%/'"$BTN_OUTLINE_OFFSET"'/g' \
 		-e 's/%SPACING%/'"$SPACING"'/g' \
 		-e 's/%GRADIENT%/'"$GRADIENT"'/g' \
+		-e 's/%GTK2_GRAD_TOP%/'"$GTK2_GRAD_TOP"'/g' \
+		-e 's/%GTK2_GRAD_BOTTOM%/'"$GTK2_GRAD_BOTTOM"'/g' \
 		-e 's/%CINNAMON_OPACITY%/'"$CINNAMON_OPACITY"'/g' \
 		-e 's/%INACTIVE_FG%/'"$INACTIVE_FG"'/g' \
 		-e 's/%INACTIVE_TXT_FG%/'"$INACTIVE_TXT_FG"'/g' \
