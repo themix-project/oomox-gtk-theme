@@ -203,6 +203,7 @@ style "murrine-button"  = "murrine-wider" {
 	engine "murrine" {
 		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
 		roundness = %ROUNDNESS%
+		gradient_shades = { %GTK2_GRAD_TOP%, 1.0, 1.0, %GTK2_GRAD_BOTTOM% }
 	}
 }
 
