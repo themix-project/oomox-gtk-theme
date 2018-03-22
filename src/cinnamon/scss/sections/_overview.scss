@@ -26,7 +26,6 @@
     border-left: 1px solid;
     border-bottom: 1px solid;
     border-color: $button_border;
-    transition-duration: 150;
     &:hover {
         background-image: url(assets/add-workspace-hover.png);
         border-color: $selected_borders_color;
