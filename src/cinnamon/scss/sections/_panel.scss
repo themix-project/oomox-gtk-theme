@@ -350,12 +350,12 @@
         background-color: $success_color;
         border: 1px solid $selected_borders_color;
         border-radius: $roundness;
-        color: info_fg_color;
+        color: $info_fg_color;
     }
 }
 .window-list-item-demands-attention {
     background-color: $info_bg_color;
-    color: info_fg_color;
+    color: $info_fg_color;
 }
 // cinnamon 3.8 will support an improved window-list-thumbnail preview which now has it's own selector
 .window-list-preview {
