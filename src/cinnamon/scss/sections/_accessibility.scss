@@ -11,7 +11,7 @@
         border-color: $selected_fg_color;
     }
     &:checked {
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
     &:hover {
         @extend %shared-button-hover;
@@ -40,7 +40,7 @@
 }
 // desktop zoom feature
 .magnifier-zoom-region {
-    border: 3px solid $borders_color;
+    border: 3px solid $exterior_border;
     &.full-screen {
         border-width: 0;
     }

@@ -77,12 +77,11 @@
     background-gradient-end: $dark_tooltip_bg_grad;
 }
 
-
 // used in selectors
 // .osd-window, .info-osd, .info-osd
 %osd-shared {
     @extend %bg-grad-to-bottom;
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     border-radius: $roundness;
     color: $dark_fg_color;
 }
@@ -95,9 +94,9 @@
     color: $dark_fg_color;
     -slider-height: 0.7em;
     -slider-background-color: $scrollbar_bg_color;
-    -slider-border-color: $borders_color;
+    -slider-border-color: $interior_border;
     -slider-active-background-color: $scrollbar_slider_hover_color;
-    -slider-active-border-color: $selected_borders_color;
+    -slider-active-border-color: $selected_border;
     -slider-border-width: 1px;
     -slider-border-radius: 0.3em;
     -slider-handle-radius: 0.7em;
@@ -120,8 +119,7 @@
     padding: 2px;
     border-radius: $roundness;
     color: $tooltip_fg_color;
-    font-weight: bold;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     selection-background-color: $selected_bg_color;
     selected-color: $selected_fg_color;
     caret-color: $primary_caret_color;
@@ -136,7 +134,7 @@
 %desklet-shared {
     color: $dark_fg_color;
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     @extend %bg-grad-to-right;
 }
 
@@ -164,7 +162,7 @@
 // .notification-button:hover, .notification-icon-button:hover, .modal-dialog-button:hover, .sound-player-overlay StButton:hover, .keyboard-key:hover
 %shared-button-hover {
     @extend %hover-button-bg-grad-to-top;
-    border: 1px solid $selected_borders_color;
+    border: 1px solid $selected_border;
 }
 
 // used in selectors
@@ -185,7 +183,7 @@
 // .menu, .popup-menu, .popup-combo-menu
 %shared-menu {
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     border-radius: $roundness;
     @extend %bg-grad-to-right;
     color: $dark_fg_color;
@@ -222,7 +220,7 @@
     padding: 5px;
     margin: 0.5em 0;
     border-radius: $roundness;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     @extend %bg-grad-to-bottom;
 }
 
@@ -289,12 +287,12 @@
 // .tile-preview, .tile-hud
 %tile-shared {
     background-color: $dark_bg_color_trans;
-    border: 2px solid $borders_color;
+    border: 2px solid $exterior_border;
 }
 
 // used in selectors
 // .tile-preview.snap, .tile-hud.snap
 %tile-shared-snap {
     background-color: $dark_bg_color_trans;
-    border: 2px solid $selected_borders_color;
+    border: 2px solid $selected_border;
 }

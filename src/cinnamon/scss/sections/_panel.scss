@@ -72,7 +72,7 @@
 .panel-top {
     @extend %bg-grad-to-bottom;
     border-bottom: 1px solid;
-    border-color: $borders_color;
+    border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-top;
         &:active {
@@ -96,13 +96,13 @@
     }
     .panel-launchers .launcher:hover {
         border-bottom: 2px solid;
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
 }
 .panel-bottom {
     @extend %bg-grad-to-top;
     border-top: 1px solid;
-    border-color: $borders_color;
+    border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-bottom;
         &:checked {
@@ -126,13 +126,13 @@
     }
     .panel-launchers .launcher:hover {
         border-top: 2px solid;
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
 }
 .panel-left {
     @extend %bg-grad-to-right;
     border-right: 1px solid;
-    border-color: $borders_color;
+    border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-left;
         margin-right: 1px;
@@ -156,13 +156,13 @@
     }
     .panel-launchers .launcher:hover {
         border-right: 3px solid;
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
 }
 .panel-right {
     @extend %bg-grad-to-left;
     border-left: 1px solid;
-    border-color: $borders_color;
+    border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-right;
         margin-left: 2px;
@@ -182,7 +182,7 @@
     }
     .panel-launchers .launcher:hover {
         border-left: 3px solid;
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
 }
 // a non feature - not worth themeing
@@ -251,7 +251,7 @@
     border-bottom: 2px solid;
 }
 .applet-spacer:highlight {
-    border: 1px solid $selected_borders_color;
+    border: 1px solid $selected_border;
 }
 .applet-box {
     color: $dark_fg_color;
@@ -270,7 +270,7 @@
         }
     }
     &:highlight {
-        border: 1px solid $selected_borders_color;
+        border: 1px solid $selected_border;
         color: $selected_bg_color;
         .applet-label {
             color: $selected_bg_color;
@@ -337,18 +337,18 @@
 }
 // progress was added with cinnamon 3.6 and allows compatible applications to use the window list as a progress bar
 .window-list-item-box {
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     border-radius: $roundness;
     transition-duration: 150;
     &:hover {
-        border: 1px solid $selected_borders_color;
+        border: 1px solid $selected_border;
     }
     &:highlight {
-        border: 1px solid $selected_borders_color;
+        border: 1px solid $selected_border;
     }
     .progress {
         background-color: $success_color;
-        border: 1px solid $selected_borders_color;
+        border: 1px solid $selected_border;
         border-radius: $roundness;
         color: $info_fg_color;
     }
@@ -361,7 +361,7 @@
 .window-list-preview {
     @extend %bg-grad-to-right;
     border-radius: $roundness;
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     padding: 10px 15px;
     spacing: 1em;
     color: $dark_fg_color;
@@ -434,13 +434,13 @@
     width: 2em;
     height: 1em;
     color: $dark_fg_color;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     margin: 2px;
     transition-duration: 150;
     &:outlined {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
-        border-color: $selected_borders_color;
+        border-color: $selected_border;
     }
 }
 // workspace switcher applet graph view
@@ -448,10 +448,10 @@
     padding: 2px;
     spacing: 2px;
     .workspace {
-        border: 1px solid $borders_color;
+        border: 1px solid $interior_border;
         @extend %bg-grad-to-bottom;
         &:active {
-            border: 1px solid $borders_color;
+            border: 1px solid $interior_border;
             @extend %selected-bg-grad-to-bottom;
             .windows {
                 -active-window-background: rgba(255, 255, 255, 0.8);
