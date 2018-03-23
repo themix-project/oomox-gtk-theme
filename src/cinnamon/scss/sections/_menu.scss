@@ -3,7 +3,7 @@
     -arrow-border-radius: $roundness;
     -arrow-background-color: $dark_bg_color;
     -arrow-border-width: 1px;
-    -arrow-border-color: $borders_color;
+    -arrow-border-color: $exterior_border;
     -arrow-base: 24px;
     -arrow-rise: 11px;
 }
@@ -26,7 +26,7 @@
 // applet submenus
 .popup-sub-menu {
     @extend %bg-grad-to-bottom;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     border-radius: $roundness;
     padding: 5px;
     margin: 0.5em 0;
@@ -131,7 +131,7 @@
 // it includes some themeing to ensure constency in right click context menu behavior in third party menu applets.
 .menu-favorites-box {
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     border-radius: $roundness;
     @extend %bg-grad-to-right;
     transition-duration: 150;
@@ -149,7 +149,7 @@
 }
 .menu-places-box {
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     border-radius: $roundness;
     @extend %bg-grad-to-right;
 }
@@ -162,7 +162,7 @@
 .menu-applications-inner-box {
     padding: 10px;
     border-radius: $roundness;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     @extend %bg-grad-to-right;
     StScrollView {
         @extend %menu-context-shared;
@@ -170,7 +170,7 @@
 }
 .menu-applications-outer-box {
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $interior_border;
     border-radius: $roundness;
     @extend %bg-grad-to-right;
 }
@@ -252,7 +252,7 @@
     @extend %dialog-entry;
     margin: 0.5em 0;
     &:focus {
-        border: 1px solid $selected_borders_color;
+        border: 1px solid $selected_border;
     }
     &:hover {
     }

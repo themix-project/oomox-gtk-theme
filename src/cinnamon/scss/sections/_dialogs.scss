@@ -1,6 +1,6 @@
 // on screen messages and input boxes
 .modal-dialog {
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     border-radius: $roundness;
     @extend %bg-grad-to-right;
     color: $dark_fg_color;
@@ -48,6 +48,9 @@
 }
 .run-dialog-entry {
         @extend %dialog-entry;
+        &:focus  {
+            border: 1px solid $selected_border;
+        }
 }
 .run-dialog {
     border-radius: $roundness;
@@ -171,7 +174,7 @@
     padding-right: 20px;
 }
 .about-scrollBox {
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     border-radius: $roundness;
 }
 .about-scrollBox-innerBox {
@@ -189,7 +192,7 @@
     @extend %bg-grad-to-bottom;
     spacing: 4px;
     padding: 10px;
-    border: 1px solid $borders_color;
+    border: 1px solid $exterior_border;
     border-radius: $roundness;
     color: $dark_fg_color;
 }
