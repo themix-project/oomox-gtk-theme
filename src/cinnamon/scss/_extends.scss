@@ -7,8 +7,15 @@
     background-gradient-end: $light_bg_grad;
 }
 
+// hover to bottom
+%hover-bg-grad-to-bottom {
+    background-gradient-direction: vertical;
+    background-gradient-start: $dark_hover_bg_grad;
+    background-gradient-end: $light_hover_bg_grad;
+}
+
 // button to top
-%button-bg-grad-to-top{
+%button-bg-grad-to-top {
     background-gradient-direction: vertical;
     background-gradient-start: $light_button_bg_grad;
     background-gradient-end: $dark_button_bg_grad;
@@ -28,6 +35,13 @@
     background-gradient-end: $dark_bg_grad;
 }
 
+// hover to top
+%hover-bg-grad-to-top {
+    background-gradient-direction: vertical;
+    background-gradient-start: $light_hover_bg_grad;
+    background-gradient-end: $dark_hover_bg_grad;
+}
+
 // selected to bottom
 %selected-bg-grad-to-bottom {
     background-gradient-direction: vertical;
@@ -40,6 +54,20 @@
     background-gradient-direction: vertical;
     background-gradient-start: $light_selected_bg_grad;
     background-gradient-end: $dark_selected_bg_grad;
+}
+
+// hover selected to bottom
+%hover-selected-grad-to-bottom {
+    background-gradient-direction: vertical;
+    background-gradient-start: $dark_hover_selected_grad;
+    background-gradient-end: $light_hover_selected_grad;
+}
+
+// hover selected to top
+%hover-selected-grad-to-top {
+    background-gradient-direction: vertical;
+    background-gradient-start: $light_hover_selected_grad;
+    background-gradient-end: $dark_hover_selected_grad;
 }
 
 // to right
@@ -56,6 +84,20 @@
     background-gradient-end: $dark_bg_grad;
 }
 
+// hover to right
+%hover-bg-grad-to-right {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $dark_hover_bg_grad;
+    background-gradient-end: $light_hover_bg_grad;
+}
+
+// hover to left
+%hover-bg-grad-to-left {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $light_hover_bg_grad;
+    background-gradient-end: $dark_hover_bg_grad;
+}
+
 // selected to right
 %selected-bg-grad-to-right {
     background-gradient-direction: horizontal;
@@ -68,6 +110,20 @@
     background-gradient-direction: horizontal;
     background-gradient-start: $light_selected_bg_grad;
     background-gradient-end: $dark_selected_bg_grad;
+}
+
+// hover selected to right
+%hover-selected-grad-to-right {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $dark_hover_selected_grad;
+    background-gradient-end: $light_hover_selected_grad;
+}
+
+// hover selected to left
+%hover-selected-grad-to-left {
+    background-gradient-direction: horizontal;
+    background-gradient-start: $light_hover_selected_grad;
+    background-gradient-end: $dark_hover_selected_grad;
 }
 
 // tooltip to top

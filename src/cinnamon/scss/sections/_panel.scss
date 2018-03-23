@@ -75,14 +75,26 @@
     border-color: $borders_color;
     .window-list-item-box {
         @extend %bg-grad-to-top;
+        &:hover {
+            @extend %hover-bg-grad-to-top;
+        }
         &:active {
             @extend %panel-top-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-top;
+                }
         }
         &:checked {
             @extend %panel-top-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-top;
+                }            
         }
         &:focus {
             @extend %panel-top-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-top;
+                }
         }
     }
     .workspace-switcher {
@@ -105,11 +117,26 @@
     border-color: $borders_color;
     .window-list-item-box {
         @extend %bg-grad-to-bottom;
+        &:hover {
+            @extend %hover-bg-grad-to-bottom;
+        }
+        &:active {
+            @extend %panel-bottom-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-bottom;
+                }            
+        }
         &:checked {
             @extend %panel-bottom-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-bottom;
+                }           
         }
         &:focus {
             @extend %panel-bottom-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-bottom;
+                }
         }
     }
     .workspace-switcher {
@@ -120,9 +147,6 @@
         margin-top: 2px;
     }
     .applet-label {
-    }
-    .windows-list-item-box:active {
-        @extend %panel-bottom-shared;
     }
     .panel-launchers .launcher:hover {
         border-top: 2px solid;
@@ -136,14 +160,26 @@
     .window-list-item-box {
         @extend %bg-grad-to-left;
         margin-right: 1px;
+        &:hover {
+            @extend %hover-bg-grad-to-left;
+        }
         &:active {
             @extend %panel-left-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-left;
+                }
         }
         &:checked {
             @extend %panel-left-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-left;
+                }
         }
         &:focus {
             @extend %panel-left-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-left;
+                }
         }
     }
     .applet-box {
@@ -166,19 +202,31 @@
     .window-list-item-box {
         @extend %bg-grad-to-right;
         margin-left: 2px;
+        &:hover {
+            @extend %hover-bg-grad-to-right;
+        }
+        &:active {
+            @extend %panel-right-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-right;
+                }
+        }
         &:checked {
             @extend %panel-right-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-right;
+                }
         }
         &:focus {
             @extend %panel-right-shared;
+            &:hover {
+                @extend %hover-selected-grad-to-right;
+                }
         }
     }
     .applet-box {
         padding: 3px 1px;
         margin-left: 2px;
-    }
-    .windows-list-item-box:active {
-        @extend %panel-right-shared;
     }
     .panel-launchers .launcher:hover {
         border-left: 3px solid;
@@ -350,12 +398,12 @@
         background-color: $success_color;
         border: 1px solid $selected_borders_color;
         border-radius: $roundness;
-        color: info_fg_color;
+        color: $info_fg_color;
     }
 }
 .window-list-item-demands-attention {
     background-color: $info_bg_color;
-    color: info_fg_color;
+    color: $info_fg_color;
 }
 // cinnamon 3.8 will support an improved window-list-thumbnail preview which now has it's own selector
 .window-list-preview {

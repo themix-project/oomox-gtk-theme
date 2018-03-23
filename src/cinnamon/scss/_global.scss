@@ -22,9 +22,19 @@ $darken_amount: 1 - (%GRADIENT% / 2);
 $light_bg_grad: if($lighten_amount > 1, lighten($dark_bg_color, ($lighten_amount - 1) * lightness($dark_bg_color)), $dark_bg_color);
 $dark_bg_grad: if($darken_amount < 1, darken($dark_bg_color, (1 - $darken_amount) * lightness($dark_bg_color)), $dark_bg_color);
 
-// selected background surface gradient start and end colors - used for buttons and window list
+// hovered background surface gradient start and end colors - used for window list
+$hover_bg_color: lighten($dark_bg_color, .05 * lightness($dark_bg_color));
+$light_hover_bg_grad: if($lighten_amount > 1, lighten($hover_bg_color, ($lighten_amount - 1) * lightness($hover_bg_color)), $hover_bg_color);
+$dark_hover_bg_grad: if($darken_amount < 1, darken($hover_bg_color, (1 - $darken_amount) * lightness($hover_bg_color)), $hover_bg_color);
+
+// selected background surface gradient start and end colors - used for window list & buttons
 $light_selected_bg_grad: if($lighten_amount > 1, lighten($selected_bg_color, ($lighten_amount - 1) * lightness($selected_bg_color)), $selected_bg_color);
 $dark_selected_bg_grad: if($darken_amount < 1, darken($selected_bg_color, (1 - $darken_amount) * lightness($selected_bg_color)), $selected_bg_color);
+
+// hovered selected background surface gradient start and end colors - used for window list
+$hover_selected_color: lighten($selected_bg_color, .05 * lightness($selected_bg_color));
+$light_hover_selected_grad: if($lighten_amount > 1, lighten($hover_selected_color, ($lighten_amount - 1) * lightness($hover_selected_color)), $hover_selected_color);
+$dark_hover_selected_grad: if($darken_amount < 1, darken($hover_selected_color, (1 - $darken_amount) * lightness($hover_selected_color)), $hover_selected_color);
 
 // button background surface gradient start and end colors - used for buttons
 $light_button_bg_grad: if($lighten_amount > 1, lighten($button_bg_color, ($lighten_amount - 1) * lightness($button_bg_color)), $button_bg_color);
