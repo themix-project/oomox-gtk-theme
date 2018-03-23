@@ -39,9 +39,11 @@ $dark_hover_button_bg_grad: if($darken_amount < 1, darken($hover_button_bg, (1 -
 $light_tooltip_bg_grad: if($lighten_amount > 1, lighten($tooltip_bg_color, ($lighten_amount - 1) * lightness($tooltip_bg_color)), $tooltip_bg_color);
 $dark_tooltip_bg_grad: if($darken_amount < 1, darken($tooltip_bg_color, (1 - $darken_amount) * lightness($tooltip_bg_color)), $tooltip_bg_color);
 
-// borders used throughout theme Buttons also use selected_borders_color
-$selected_borders_color: mix($dark_bg_color, $selected_bg_color, if(lightness($dark_bg_color) < 50%, 18%, 10%));
-$borders_color: mix($dark_bg_color, $dark_fg_color, if(lightness($dark_bg_color) < 50%, 18%, 10%));
+// borders used throughout theme buttons also use selected_borders_color
+$selected_border: mix($dark_bg_color, $selected_bg_color, if(lightness($dark_bg_color) < 50%, 18%, 10%));
+$border_strength: if(lightness($dark_fg_color) > 50, .1, .2);
+$interior_border: fade-out($dark_fg_color, 0.88 - $border_strength);
+$exterior_border: mix($dark_bg_color, $dark_fg_color, (30 + ($border_strength * 100)));
 
 // decoration for buttons
 $button_border_strength: if(lightness($button_fg_color) > 50, .1, .2);
