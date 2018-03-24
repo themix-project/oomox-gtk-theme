@@ -214,6 +214,12 @@ style "murrine-buttonlabel" {
 	fg[ACTIVE] = @btn_fg_color
 	fg[INSENSITIVE] = @btn_fg_color
 
+    text[NORMAL] = @btn_fg_color
+    text[PRELIGHT] = @btn_fg_color
+    text[SELECTED] = @btn_fg_color
+    text[ACTIVE] = @btn_fg_color
+    text[INSENSITIVE] = @btn_fg_color
+
 	engine "murrine" {
 	}
 }
@@ -334,11 +340,24 @@ style "clearlooks-base-radiocheck" = "clearlooks-radiocheck" {
 }
 
 style "murrine-entry" = "murrine-wider" {
+    text[NORMAL] = @text_color
+    text[PRELIGHT] = @text_color
+    text[SELECTED] = @text_color
+    text[ACTIVE] = @text_color
+    text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
 	engine "murrine" {
 		#border_shades = { 1.15, 1.15 }
         border_colors = { mix(0.22, @text_color, @base_color), mix(0.22, @text_color, @base_color) }
 		roundness = %ROUNDNESS%
 	}
+}
+
+style "clearlooks-radiocheck-label" = "clearlooks-radiocheck" {
+    fg[NORMAL] = @fg_color
+    fg[PRELIGHT] = @fg_color
+    fg[SELECTED] = @fg_color
+    fg[ACTIVE] = @fg_color
+    fg[INSENSITIVE] = mix (0.5, @bg_color, @fg_color)
 }
 
 style "metacity-frame" = "murrine-default" {
@@ -467,6 +486,17 @@ style "murrine-toolbutton" = "murrine-button" {
 
 	engine "murrine" {
 	}
+}
+
+style "murrine-toolbutton-label" = "murrine-toolbutton" {
+    fg[NORMAL] = @toolbar_fg_color
+    fg[PRELIGHT] = @toolbar_fg_color
+    fg[SELECTED] = @selected_fg_color
+    fg[ACTIVE] = @toolbar_fg_color
+    fg[INSENSITIVE] = mix (0.5, @toolbar_bg_color, @toolbar_fg_color)
+
+    engine "murrine" {
+    }
 }
 
 class "GtkToolbar" style "murrine-toolbar"
@@ -854,6 +884,11 @@ widget "xfwm4-tabwin*GtkButton*" style "xfwm-tabwin-button"
 widget_class "*XfsmLogoutDialog*" style "xfsm-logout"
 widget_class "*XfsmLogoutDialog*GtkButton" style "xfsm-logout-button"
 
-# button fg workaround:
+# button fg workarounds:
 widget_class "*.<GtkButton>.<GtkLabel>" style "murrine-buttonlabel"
 widget_class "*<GtkButton>*<GtkLabel>*" style:highest "murrine-buttonlabel"
+widget_class "*<GtkCheckButton>*<GtkLabel>*" style:highest "clearlooks-radiocheck-label"
+widget_class "*<GtkComboBoxText>*" style "murrine-buttonlabel"
+widget_class "*<GtkComboBoxText>*<GtkToggleButton>*" style "murrine-buttonlabel"
+widget_class "*<GtkComboBoxText>*<GtkEntry>*" style:highest "murrine-entry"
+widget_class "*<GtkToolbar>*<GtkToolButton>*<GtkLabel>*" style:highest "murrine-toolbutton-label"
