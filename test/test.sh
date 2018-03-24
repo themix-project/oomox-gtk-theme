@@ -56,9 +56,9 @@ killall openbox 2>/dev/null || true
 
 _kill_procs() {
 	set +e
-	kill -TERM $opbx || true
+	kill -TERM $opbx 2>/dev/null || true
 	wait $opbx
-	kill -TERM $xvfb || true
+	kill -TERM $xvfb 2>/dev/null || true
 	wait $xvfb
 }
 trap _kill_procs EXIT SIGHUP SIGINT SIGTERM INT
