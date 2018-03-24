@@ -212,14 +212,14 @@ style "murrine-buttonlabel" {
 	fg[PRELIGHT] = @btn_fg_color
 	fg[SELECTED] = @btn_fg_color
 	fg[ACTIVE] = @btn_fg_color
-    fg[INSENSITIVE] = mix (0.5, @btn_bg_color, @btn_fg_color)
+    fg[INSENSITIVE] = mix (0.4, @btn_bg_color, @btn_fg_color)
 
     text[NORMAL] = @btn_fg_color
     text[PRELIGHT] = @btn_fg_color
     text[SELECTED] = @btn_fg_color
     text[ACTIVE] = @btn_fg_color
     text[INSENSITIVE] = @btn_fg_color
-    text[INSENSITIVE] = mix (0.5, @btn_bg_color, @btn_fg_color)
+    text[INSENSITIVE] = mix (0.4, @btn_bg_color, @btn_fg_color)
 
 	engine "murrine" {
 	}
