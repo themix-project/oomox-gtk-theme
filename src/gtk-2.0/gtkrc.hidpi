@@ -194,8 +194,8 @@ style "murrine-button"  = "murrine-wider" {
 	bg[SELECTED] = mix (0.5, @selected_bg_color, @bg_color)
 	bg[ACTIVE] = shade (0.95, @btn_bg_color)
 	bg[INSENSITIVE] = shade (0.75, @btn_bg_color)
-    xthickness = 8
-    ythickness = 8
+    xthickness = 6
+    ythickness = 6
 
 	engine "murrine" {
 		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
@@ -220,6 +220,11 @@ style "murrine-buttonlabel" {
 
 	engine "murrine" {
 	}
+}
+
+style "murrine-comboboxtext" = "murrine-buttonlabel" {
+    xthickness = 10
+    ythickness = 10
 }
 
 style "murrine-scrollbar" {
@@ -350,6 +355,9 @@ style "murrine-entry" = "murrine-wider" {
     text[SELECTED] = @text_color
     text[ACTIVE] = @text_color
     text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
+
+	xthickness = 4
+	ythickness = 4
 	engine "murrine" {
 		#border_shades = { 1.15, 1.15 }
 		border_colors = { mix(0.22, @text_color, @base_color), mix(0.22, @text_color, @base_color) }
@@ -961,7 +969,7 @@ widget_class "*XfsmLogoutDialog*GtkButton" style "xfsm-logout-button"
 widget_class "*.<GtkButton>.<GtkLabel>" style "murrine-buttonlabel"
 widget_class "*<GtkButton>*<GtkLabel>*" style:highest "murrine-buttonlabel"
 widget_class "*<GtkCheckButton>*<GtkLabel>*" style:highest "clearlooks-radiocheck-label"
-widget_class "*<GtkComboBoxText>*" style "murrine-buttonlabel"
+widget_class "*<GtkComboBoxText>*" style "murrine-comboboxtext"
 widget_class "*<GtkComboBoxText>*<GtkToggleButton>*" style "murrine-buttonlabel"
 widget_class "*<GtkComboBoxText>*<GtkEntry>*" style:highest "murrine-entry"
 widget_class "*<GtkToolbar>*<GtkToolButton>*<GtkLabel>*" style:highest "murrine-toolbutton-label"
