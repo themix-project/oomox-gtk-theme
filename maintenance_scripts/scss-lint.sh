@@ -12,4 +12,4 @@ _exit() {
 trap _exit EXIT SIGHUP SIGINT SIGTERM INT
 
 sed -ie 's/%[A-Z0-9_]\+%/123456/g' ./gtk320lint/scss/_global.scss
-~/.gem/ruby/2.4.0/bin/scss-lint ./gtk320lint/
+~/.gem/ruby/*/bin/scss-lint ./gtk320lint/
