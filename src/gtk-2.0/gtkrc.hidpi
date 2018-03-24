@@ -209,13 +209,14 @@ style "murrine-buttonlabel" {
 	fg[PRELIGHT] = @btn_fg_color
 	fg[SELECTED] = @btn_fg_color
 	fg[ACTIVE] = @btn_fg_color
-	fg[INSENSITIVE] = @btn_fg_color
+    fg[INSENSITIVE] = mix (0.5, @btn_bg_color, @btn_fg_color)
 
     text[NORMAL] = @btn_fg_color
     text[PRELIGHT] = @btn_fg_color
     text[SELECTED] = @btn_fg_color
     text[ACTIVE] = @btn_fg_color
     text[INSENSITIVE] = @btn_fg_color
+    text[INSENSITIVE] = mix (0.5, @btn_bg_color, @btn_fg_color)
 
 	engine "murrine" {
 	}
@@ -340,16 +341,15 @@ style "clearlooks-radiocheck-label" = "clearlooks-radiocheck" {
     fg[PRELIGHT] = @fg_color
     fg[SELECTED] = @fg_color
     fg[ACTIVE] = @fg_color
-    fg[INSENSITIVE] = mix (0.7, @bg_color, @fg_color)
+    fg[INSENSITIVE] = mix (0.5, @bg_color, @fg_color)
 }
-
 
 style "murrine-entry" = "murrine-wider" {
     text[NORMAL] = @text_color
     text[PRELIGHT] = @text_color
     text[SELECTED] = @text_color
     text[ACTIVE] = @text_color
-    text[INSENSITIVE] = mix (0.7, @base_color, @text_color)
+    text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
 	engine "murrine" {
 		#border_shades = { 1.15, 1.15 }
 		border_colors = { mix(0.22, @text_color, @base_color), mix(0.22, @text_color, @base_color) }
