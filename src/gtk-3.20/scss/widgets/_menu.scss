@@ -113,6 +113,10 @@ $menu_borders_color: mix(
                 background-color: $selected_bg_color;
                 background-image: none;
                 color: $selected_fg_color;
+
+                accelerator {
+                    color: alpha($selected_fg_color, .6);
+                }
             }
 
             *:active, *:hover { color: $selected_fg_color; }
