@@ -105,7 +105,7 @@ $menu_borders_color: mix(
         menuitem {
             min-height: 10px + $spacing * 2;
             min-width: 40px;
-            padding: ($spacing + 2px) ($spacing + 2px);
+            padding: ($spacing + 2px);
             border-radius: 0;
 
             &:active, &:hover {
@@ -310,7 +310,7 @@ $menu_borders_color: mix(
     menuitem.button.flat {
         @extend %undecorated_button;
 
-        padding: ($spacing + 2px) ($spacing + 2px);
+        padding: ($spacing + 2px);
         outline-color: transparent;
         transition: none;
 
