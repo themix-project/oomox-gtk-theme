@@ -12,9 +12,14 @@ style "murrine-default" {
 
 	GtkButton::default-border = { 0, 0, 0, 0 }
     #GtkButton::inner-border        = { 8, 8, 2, 2 }
-    GtkButton::inner-border        = { 4, 4, 2, 2 }
+    #GtkButton::inner-border        = { 4, 4, 2, 1 }
+    GtkButton::inner-border        = { 4, 4, 1, 0 }
     GtkButton::focus-line-width    = 2
     GtkButton::focus-padding       = 1
+
+    GtkEntry::inner-border        = { 4, 4, 5, 4 }
+    GtkComboBox::inner-border        = { 4, 4, 6, 5 }
+    GtkComboBoxText::inner-border        = { 4, 4, 6, 5 }
 
 	GtkButtonBox::child-min-height = 52
 
@@ -194,8 +199,10 @@ style "murrine-button"  = "murrine-wider" {
 	bg[SELECTED] = mix (0.5, @selected_bg_color, @bg_color)
 	bg[ACTIVE] = shade (0.95, @btn_bg_color)
 	bg[INSENSITIVE] = shade (0.75, @btn_bg_color)
-    xthickness = 6
-    ythickness = 6
+    #xthickness = 10
+    #ythickness = 10
+    xthickness = 5
+    ythickness = 5
 
 	engine "murrine" {
 		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
@@ -223,6 +230,11 @@ style "murrine-buttonlabel" {
 }
 
 style "murrine-comboboxtext" = "murrine-buttonlabel" {
+    xthickness = 10
+    ythickness = 10
+}
+
+style "murrine-togglebutton" = "murrine-buttonlabel" {
     xthickness = 10
     ythickness = 10
 }
@@ -321,6 +333,8 @@ style "murrine-tooltips" {
 }
 
 style "murrine-spinbutton" = "murrine-button" {
+    xthickness = 10
+    ythickness = 10
 	engine "murrine" {
 	}
 }
@@ -356,8 +370,8 @@ style "murrine-entry" = "murrine-wider" {
     text[ACTIVE] = @text_color
     text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
 
-	xthickness = 4
-	ythickness = 4
+	xthickness = 10
+	ythickness = 10
 	engine "murrine" {
 		#border_shades = { 1.15, 1.15 }
 		border_colors = { mix(0.22, @text_color, @base_color), mix(0.22, @text_color, @base_color) }
@@ -970,6 +984,6 @@ widget_class "*.<GtkButton>.<GtkLabel>" style "murrine-buttonlabel"
 widget_class "*<GtkButton>*<GtkLabel>*" style:highest "murrine-buttonlabel"
 widget_class "*<GtkCheckButton>*<GtkLabel>*" style:highest "clearlooks-radiocheck-label"
 widget_class "*<GtkComboBoxText>*" style "murrine-comboboxtext"
-widget_class "*<GtkComboBoxText>*<GtkToggleButton>*" style "murrine-buttonlabel"
+widget_class "*<GtkToggleButton>*" style "murrine-togglebutton"
 widget_class "*<GtkComboBoxText>*<GtkEntry>*" style:highest "murrine-entry"
 widget_class "*<GtkToolbar>*<GtkToolButton>*<GtkLabel>*" style:highest "murrine-toolbutton-label"
