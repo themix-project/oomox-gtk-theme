@@ -18,12 +18,9 @@ RUN pacman -Syu --noconfirm && \
         git clone https://aur.archlinux.org/awf-git /home/user/awf && \
         cd /home/user/awf && \
         makepkg --install --syncdeps --noconfirm" && \
-    pacman -S --needed --noconfirm ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-standard adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick
+    pacman -S --needed --noconfirm ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-extra adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick
 
 # Debug dependencies:
 #RUN pacman -S --needed --noconfirm fish
 
 COPY . /opt/oomox-gtk-theme/
-
-# workaround for bug in GTK 3.22.28:
-RUN pacman -U --noconfirm https://archive.archlinux.org/packages/g/gtk3/gtk3-3.22.26-1-x86_64.pkg.tar.xz
