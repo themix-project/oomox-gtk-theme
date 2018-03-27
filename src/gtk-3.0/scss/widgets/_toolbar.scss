@@ -28,9 +28,9 @@
         padding: 0 ($spacing * 2);
     }
 
-    .button { @include button($header_button_bg_color, $header_button_fg_color); }
+    .button { @include button($toolbar_bg_color, $toolbar_fg_color); }
 
-    .button.linked, .linked .button { @include linked_button($header_button_bg_color); }
+    .button.linked, .linked .button { @include linked_button($toolbar_bg_color); }
 
     GtkComboBox, .button {
         padding: $spacing - 1px;

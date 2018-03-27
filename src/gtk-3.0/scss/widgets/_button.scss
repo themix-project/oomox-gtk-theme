@@ -73,7 +73,7 @@
 }
 
 @mixin linked_button($bg) {
-    $border_strength: if(lightness($bg) > 50, 0, .1);
+    $border_strength: if(lightness($bg) > 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
     @extend %linked_button;
@@ -120,45 +120,64 @@
 }
 
 @mixin button($bg, $fg) {
-    $border_strength: if(lightness($bg) > 50, 0, .1);
+    $border_strength: if(lightness($bg) > 50, .1, .2);
     $shadow_strength: if(lightness($bg) > 50, 0, .1);
 
-    /*$button_bg: if(hue($bg) == 0deg, shade($bg, 1.2), $bg);*/
     $button_bg: $bg;
 
     @extend %button;
     @include linear-gradient($button_bg);
-    @include border(rgba(0, 0, 0, .12 + $border_strength));
+    @include border(alpha($fg, .12 + $border_strength));
 
     color: $fg;
     box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);
 
     &.flat {
         border-color: alpha($button_bg, 0);
+        color: $fg;
         background-color: alpha($button_bg, 0);
         background-image: none;
         box-shadow: none;
     }
 
     &, &.flat {
-        &:focus, &:hover {
-            @include linear-gradient(shade($button_bg, 1.2));
-            @include border(rgba(0, 0, 0, .2 + $border_strength));
 
-            box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
+        &:hover {
+            @include linear-gradient(shade($bg, 1.05));
+            @include border(alpha($fg, .2 + $border_strength));
+
+            color: $fg;
+            box-shadow: 0 1px 2px -1px alpha($dark_shadow, .22 + $shadow_strength);
         }
 
-        &:active, &:checked {
-            @include linear-gradient(shade($selected_bg_color, .9), to top);
+        &:focus {
+            @include linear-gradient(shade($bg, 1.05));
+            border-color: alpha($fg, .12 + $border_strength);
+
+            color: $fg;
+            box-shadow: 0 1px 2px -1px alpha($dark_shadow, .32 + $shadow_strength);
+
+            &:hover {
+                @include linear-gradient(shade($bg, 1.1));
+                @include border(alpha($fg, .2 + $border_strength));
+
+                box-shadow: 0 1px 2px -1px alpha($dark_shadow, .38 + $shadow_strength);
+            }
+            
+        }
+
+        &:checked, &:active {
+            @include linear-gradient($selected_bg_color, to top);
+            @include border(alpha($fg, .12 + $border_strength));
 
             color: $selected_fg_color;
-            box-shadow: inset 1px 0 alpha($dark_shadow, .06),
-                        inset 0 1px alpha($dark_shadow, .07),
-                        inset -1px 0 alpha($dark_shadow, .06),
-                        inset 0 -1px alpha($dark_shadow, .05);
+            box-shadow: inset 1px 0 alpha($fg, .06),
+            inset  0 1px alpha($fg, .07),
+            inset -1px 0 alpha($fg, .06),
+            inset 0 -1px alpha($fg, .05);
 
             &:focus, &:hover {
-                @include linear-gradient(shade($selected_bg_color, .8), to top);
+                @include linear-gradient(shade($selected_bg_color, 1.05), to top);
 
                 color: $selected_fg_color;
             }
@@ -166,44 +185,34 @@
 
         &:focus, &:hover { color: $fg; }
 
-        &:active:insensitive, &:checked:insensitive {
-            @include linear-gradient(shade($button_bg, .9));
-
-            color: $fg;
-            box-shadow: none;
-        }
-
         &:insensitive:insensitive {
-            @if (lightness($button_bg) > 50) {
-                @include linear-gradient(shade($button_bg, .95));
-            } @else {
-                @include linear-gradient(alpha($button_bg, .3));
+            @include linear-gradient(alpha(mix($bg, $fg, .2), .4));
+            opacity: .6;
+            color: mix($bg, $fg, .6);
+            box-shadow: none;
+
+            :insensitive {
+                color: mix($bg, $fg, .6);
             }
-
-            color: mix($button_bg, $fg, .5);
-            box-shadow: none;
         }
     }
 
-    // Fixed: https://github.com/numixproject/numix-gtk-theme/issues/572
-    // Webkitgtk workaround start
-    &:active { color: $fg; }
-    // Webkitgtk workaround end
+        &:active:insensitive, &:checked:insensitive {
+            @include linear-gradient(alpha($selected_bg_color, .6));
 
-    &.flat {
-        &:insensitive:insensitive {
-            background-color: transparent;
-            background-image: none;
-            color: mix($bg, $fg, .5);
+            color: alpha($selected_fg_color, .85);
             box-shadow: none;
+
+            &:insensitive {
+                color: alpha($selected_fg_color, .85);
+            }
         }
-    }
 
     &.separator, .separator {
         border: 1px solid currentColor;
-        color: shade($button_bg, ($contrast + .1));
+        color: alpha($bg, ($contrast + .1));
 
-        &:insensitive { color: shade($button_bg, .85); }
+        &:insensitive { color: alpha($bg, .85); }
     }
 }
 
