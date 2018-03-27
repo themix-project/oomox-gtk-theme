@@ -37,7 +37,7 @@ $modules: () !default;
 }
 
 @function border_focus($color) {
-    @return shade($color, ($contrast - .05));
+    @return if($variant == 'light', mix($selected_bg_color, $color, .3), darken($selected_bg_color, 20%));
 }
 
 @function border_active($color) {
