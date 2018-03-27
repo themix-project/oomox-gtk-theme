@@ -239,6 +239,11 @@ style "murrine-togglebutton" = "murrine-buttonlabel" {
     ythickness = 10
 }
 
+style "murrine-radiocheck" = "murrine-togglebutton" {
+	text[NORMAL] = @accent_bg_color
+	text[PRELIGHT] = @accent_bg_color
+}
+
 style "murrine-scrollbar" {
 	bg[NORMAL] = mix (0.21, @fg_color, @bg_color)
 	bg[PRELIGHT] = mix (0.31, @fg_color, @bg_color)
@@ -985,5 +990,6 @@ widget_class "*<GtkButton>*<GtkLabel>*" style:highest "murrine-buttonlabel"
 widget_class "*<GtkCheckButton>*<GtkLabel>*" style:highest "clearlooks-radiocheck-label"
 widget_class "*<GtkComboBoxText>*" style "murrine-comboboxtext"
 widget_class "*<GtkToggleButton>*" style "murrine-togglebutton"
+widget_class "*.<GtkCheckButton>" style "murrine-radiocheck"
 widget_class "*<GtkComboBoxText>*<GtkEntry>*" style:highest "murrine-entry"
 widget_class "*<GtkToolbar>*<GtkToolButton>*<GtkLabel>*" style:highest "murrine-toolbutton-label"
