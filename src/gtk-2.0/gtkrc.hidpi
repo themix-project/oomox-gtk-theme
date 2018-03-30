@@ -5,23 +5,23 @@ gtk-color-scheme =
 # Default Style
 
 style "murrine-default" {
-	GtkArrow::arrow-scaling= 0.6
+	GtkArrow::arrow-scaling= 1.0
 
 	GtkButton::child-displacement-x = 0
 	GtkButton::child-displacement-y = 0
 
-	GtkButton::default-border = { 0, 0, 0, 0 }
-    #GtkButton::inner-border        = { 8, 8, 2, 2 }
-    #GtkButton::inner-border        = { 4, 4, 2, 1 }
+	#GtkButton::default-border = { 0, 0, 0, 0 }
     GtkButton::inner-border        = { 0, 0, 1, 0 }
     GtkButton::focus-line-width    = 2
-    GtkButton::focus-padding       = 1
+    #GtkButton::focus-padding       = 4
+    GtkButton::focus-padding       = 2
+    #GtkButton::interior-focus = 1
 
     GtkEntry::inner-border        = { 4, 4, 5, 4 }
     GtkComboBox::inner-border        = { 4, 4, 6, 5 }
     GtkComboBoxText::inner-border        = { 4, 4, 6, 5 }
 
-	GtkButtonBox::child-min-height = 52
+	#GtkButtonBox::child-min-height = 52
 
 	GtkCheckButton::indicator-size = 30
 
@@ -201,8 +201,8 @@ style "murrine-button"  = "murrine-wider" {
 	bg[INSENSITIVE] = shade (0.75, @btn_bg_color)
     #xthickness = 10
     #ythickness = 10
-    xthickness = 5
-    ythickness = 5
+    #xthickness = 5
+    #ythickness = 5
 
 	engine "murrine" {
 		border_colors = { mix(0.25, @btn_fg_color, @btn_bg_color), mix(0.25, @btn_fg_color, @btn_bg_color) }
