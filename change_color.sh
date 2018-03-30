@@ -201,7 +201,7 @@ test "$SRC_PATH" = "$DEST_PATH" && echo "can't do that" && exit 1
 
 rm -r "$DEST_PATH" || true
 mkdir -p "$DEST_PATH"
-echo "building theme at $DEST_PATH"
+echo -e "\nBuilding theme at $DEST_PATH\n"
 cp -r "$SRC_PATH/src/index.theme" "$DEST_PATH"
 for FILEPATH in "${PATHLIST[@]}"; do
 	cp -r "$SRC_PATH/$FILEPATH" "$DEST_PATH"
