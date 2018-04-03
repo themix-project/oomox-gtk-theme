@@ -77,3 +77,8 @@ $info_bg_color: #%TERMINAL_COLOR12%;
 
 // used for border-radius throughout theme
 $roundness: %ROUNDNESS%px;
+
+// used for buttons, entrys, panel spacing, and menu item spacing.
+$spacing: %SPACING%px;
+$spacing_plus2: (%SPACING% + 2) + px;
+
