@@ -36,6 +36,10 @@ run_theme_testsuite() {
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
 		if [[ ${retries} -gt 0 ]] ; then
 			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
+		else
+			echo "==============================================================="
+			echo "       Going to test '${THEME_NAME}'                           "
+			echo "==============================================================="
 		fi
 		./test.sh && break || true
 		export retries=$[$retries+1]
