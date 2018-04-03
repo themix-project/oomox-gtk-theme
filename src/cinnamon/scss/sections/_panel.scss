@@ -71,38 +71,43 @@
 // do not overlap the panel border
 .panel-top {
     @extend %bg-grad-to-bottom;
+
     border-bottom: 1px solid;
     border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-top;
+
         &:hover {
             @extend %hover-bg-grad-to-top;
         }
         &:active {
             @extend %panel-top-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-top;
                 }
         }
         &:checked {
             @extend %panel-top-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-top;
-                }            
+                }
         }
         &:focus {
             @extend %panel-top-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-top;
                 }
         }
     }
-    .workspace-switcher {
-        @extend %workspace-switcher-shared;
+    .workspace-switcher, .workspace-graph {
+        padding: 1px $spacing;
     }
     .applet-box {
-        padding: 1px 3px;
-        margin-bottom: 2px;
+        padding: 1px $spacing;
+        margin-bottom: 1px;
     }
     .applet-label {
     }
@@ -110,41 +115,49 @@
         border-bottom: 2px solid;
         border-color: $selected_border;
     }
+    .applet-separator {
+        padding: 3px $spacing;
+    }
 }
 .panel-bottom {
     @extend %bg-grad-to-top;
+
     border-top: 1px solid;
     border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-bottom;
+
         &:hover {
             @extend %hover-bg-grad-to-bottom;
         }
         &:active {
             @extend %panel-bottom-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-bottom;
-                }            
+                }
         }
         &:checked {
             @extend %panel-bottom-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-bottom;
-                }           
+                }
         }
         &:focus {
             @extend %panel-bottom-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-bottom;
                 }
         }
     }
-    .workspace-switcher {
-        @extend %workspace-switcher-shared;
+    .workspace-switcher, .workspace-graph {
+        padding: 1px $spacing;
     }
     .applet-box {
-        padding: 1px 3px;
-        margin-top: 2px;
+        padding: 1px $spacing;
+        margin-top: 1px;
     }
     .applet-label {
     }
@@ -152,67 +165,81 @@
         border-top: 2px solid;
         border-color: $selected_border;
     }
+    .applet-separator {
+        padding: 3px $spacing;
+    }
 }
 .panel-left {
     @extend %bg-grad-to-right;
+
     border-right: 1px solid;
     border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-left;
-        margin-right: 1px;
+
         &:hover {
             @extend %hover-bg-grad-to-left;
         }
         &:active {
             @extend %panel-left-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-left;
                 }
         }
         &:checked {
             @extend %panel-left-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-left;
                 }
         }
         &:focus {
             @extend %panel-left-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-left;
                 }
         }
     }
-    .applet-box {
-        padding: 3px 1px;
-        margin-right: 2px;
+    .workspace-switcher, .workspace-graph {
+        padding: $spacing 1px;
     }
-    .workspace-switcher.panel-right .workspace-switcher {
-        padding-top: 3px;
-        padding-bottom: 3px;
+    .applet-box {
+        padding: $spacing 1px;
+        margin-right: 1px;
+    }
+    .applet-label {
     }
     .panel-launchers .launcher:hover {
         border-right: 3px solid;
         border-color: $selected_border;
     }
+    .applet-separator {
+        padding: $spacing 3px;
+    }
 }
 .panel-right {
     @extend %bg-grad-to-left;
+
     border-left: 1px solid;
     border-color: $exterior_border;
     .window-list-item-box {
         @extend %bg-grad-to-right;
-        margin-left: 2px;
+
         &:hover {
             @extend %hover-bg-grad-to-right;
         }
         &:active {
             @extend %panel-right-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-right;
                 }
         }
         &:checked {
             @extend %panel-right-shared;
+
             &:hover {
                 @extend %hover-selected-grad-to-right;
                 }
@@ -224,13 +251,21 @@
                 }
         }
     }
+    .workspace-switcher, .workspace-graph {
+        padding: $spacing 1px;
+    }
     .applet-box {
-        padding: 3px 1px;
-        margin-left: 2px;
+        padding: $spacing 1px;
+        margin-left: 1px;
+    }
+    .applet-label {
     }
     .panel-launchers .launcher:hover {
         border-left: 3px solid;
         border-color: $selected_border;
+    }
+    .applet-separator {
+        padding: $spacing 3px;
     }
 }
 // a non feature - not worth themeing
@@ -242,54 +277,7 @@
     &:focus {
     }
 }
-#appMenu {
-    spacing: 4px;
-}
-.panel-button {
-    -natural-hpadding: 6px;
-    -minimum-hpadding: 2px;
-    font-weight: bold;
-    color: $dark_fg_color;
-    transition-duration: 150;
-    #appMenuIcon {
-        app-icon-bottom-clip: 1px;
-    }
-    &:active {
-        #appMenuIcon {
-            app-icon-bottom-clip: 2px;
-        }
-        > .system-status-icon {
-            icon-shadow: black 0 2px 2px;
-        }
-    }
-    &:checked {
-        #appMenuIcon {
-            app-icon-bottom-clip: 2px;
-        }
-        > .system-status-icon {
-            icon-shadow: black 0 2px 2px;
-        }
-    }
-    &:focus {
-        #appMenuIcon {
-            app-icon-bottom-clip: 2px;
-        }
-        > .system-status-icon {
-            icon-shadow: black 0 2px 2px;
-        }
-    }
-    &:hover {
-        color: $selected_bg_color;
-    }
-    &:overview {
-    }
-}
-.panel-menu {
-}
 // remaining code is for panel items starting with the generic applets
-.applet-separator {
-    padding: 5px 4px;
-}
 .applet-separator-line {
     width: 2px;
     background: $selected_bg_color;
@@ -329,11 +317,12 @@
     font-weight: bold;
     color: $dark_fg_color;
 }
+// icon-size set to 22 to match hard-coded menu icon size - applet-icon style is used for search provider results in menu
 .applet-icon {
     color: $dark_fg_color;
-    icon-size: 1.14em;
     padding: 0;
     spacing: 0;
+    icon-size: 22px;
 }
 // used by power applet to warn of low battery
 .system-status-icon {
@@ -347,9 +336,10 @@
         color: $error_color;
     }
 }
+// possibily deprecated - referenced in keyboard applet only
 .panel-status-button {
-    -natural-hpadding: 3px;
-    -minimum-hpadding: 3px;
+    -natural-hpadding: $spacing;
+    -minimum-hpadding: $spacing;
     font-weight: bold;
     color: $dark_fg_color;
     height: 2em;
@@ -371,11 +361,11 @@
 }
 // the window list applet. Some third party applets inherit some of this theming.
 .window-list-box {
-    spacing: 3px;
-    padding: 3px 10px;
+    spacing: $spacing;
+    padding: 1px 3px;
     &.vertical {
-        spacing: 3px;
-        padding: 10px 3px;
+        spacing: $spacing;
+        padding: 3px 1px;
     }
     #appMenuIcon {
         padding: 1px;
@@ -408,6 +398,7 @@
 // cinnamon 3.8 will support an improved window-list-thumbnail preview which now has it's own selector
 .window-list-preview {
     @extend %bg-grad-to-right;
+
     border-radius: $roundness;
     border: 1px solid $exterior_border;
     padding: 10px 15px;
@@ -417,14 +408,14 @@
 // the sound player applet
 .sound-player {
     StButton {
-        width: 18px;
-        height: 18px;
-        padding: 5px;
+        min-width: 2em;
+        min-height: 2em;
+        padding: $spacing_plus2;
         color: $button_fg_color;
         &:small {
-            width: 16px;
-            height: 16px;
-            padding: 1px;
+            min-width: 1.5em;
+            min-height: 1.5em;
+            padding: $spacing;
             StIcon {
                 icon-size: 1em;
             }
@@ -451,13 +442,15 @@
     background: rgba(0,0,0,0.2);
 }
 .sound-player-overlay {
+    @extend %bg-grad-to-bottom;
+
     width: 300px;
     padding: 12px 16px;
     spacing: 0.5em;
-    @extend %bg-grad-to-bottom;
     color: $dark_fg_color;
     StButton {
         @extend %shared-button;
+
         border-radius: $roundness;
         padding: 8px;
         &:hover {
@@ -493,14 +486,14 @@
 }
 // workspace switcher applet graph view
 .workspace-graph {
-    padding: 2px;
-    spacing: 2px;
     .workspace {
-        border: 1px solid $interior_border;
         @extend %bg-grad-to-bottom;
+
+        border: 1px solid $interior_border;
         &:active {
-            border: 1px solid $interior_border;
             @extend %selected-bg-grad-to-bottom;
+
+            border: 1px solid $interior_border;
             .windows {
                 -active-window-background: rgba(255, 255, 255, 0.8);
                 -active-window-border: rgba(0, 0, 0, 0.9);
@@ -519,10 +512,10 @@
 // most panel launcher themeing is orientation specific
 .panel-launchers {
     padding: 1px 4px;
-    spacing: 4px;
+    spacing: $spacing;
     &.vertical {
         padding: 4px 1px;
-        spacing: 4px;
+        spacing: $spacing;
         .launcher .icon-box {
             padding-top: 0;
         }
@@ -535,7 +528,7 @@
     max-height: 100px;
 }
 .systray {
-    spacing: 3px;
+    spacing: 4px;
 }
 .flashspot {
     background-color: $selected_bg_color;
