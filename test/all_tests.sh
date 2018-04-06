@@ -35,7 +35,7 @@ run_theme_testsuite() {
 	export retries=0
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
 		if [[ ${retries} -gt 0 ]] ; then
-			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
+			echo "[33m======== RE-TRYING ${retries} of ${MAX_RETRIES}...[30m[m"
 		else
 			echo
 			echo "==============================================================="
