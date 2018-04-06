@@ -75,11 +75,11 @@ _TEST_THEMES=(
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
 
 if [[ ${TESTSUITE_LODPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
 fi
 if [[ ${TESTSUITE_HIDPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
 fi
 
