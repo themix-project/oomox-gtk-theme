@@ -121,7 +121,7 @@ make_and_compare_screenshot() {
 		echo
 	else
 		echo
-		echo "[X] FAIL"
+		echo "[31m[X] FAIL[30m[m"
 		echo
 		cat ${compare_output}
 		echo
