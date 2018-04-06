@@ -5,9 +5,11 @@
 #
 
 set -ueo pipefail
-export TEST_DIR=$(readlink -e $(dirname "${0}"))
-export TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
-cd ${TEST_DIR}
+TEST_DIR=$(readlink -e "$(dirname "${0}")")
+export TEST_DIR
+TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
+export TEST_RESULT_DIR
+cd "${TEST_DIR}"
 
 #export GENERATE_ASSETS=1
 
@@ -25,8 +27,12 @@ trap ctrl_c INT
 
 _kill_procs() {
 	set +e
-	chmod 777 ${TEST_RESULT_DIR}/*
-	cat ${TEST_RESULT_DIR}/links.txt
+	chmod 777 "${TEST_RESULT_DIR}"/*
+	links=$(cat "${TEST_RESULT_DIR}"/links.txt)
+	if [[ ! -z "${links}" ]] ; then
+		echo "[33mCaptured failures:[30m[m"
+		echo "${links}"
+	fi
 }
 trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
 
@@ -34,16 +40,16 @@ trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
 run_theme_testsuite() {
 	export retries=0
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
+		echo
 		if [[ ${retries} -gt 0 ]] ; then
 			echo "[33m======== RE-TRYING ${retries} of ${MAX_RETRIES}...[30m[m"
 		else
-			echo
 			echo "==============================================================="
 			echo "       Going to test '${THEME_NAME}'...                        "
 			echo "==============================================================="
 		fi
 		./test.sh && break || true
-		export retries=$[$retries+1]
+		export retries=$((retries+1))
 	done
 	if [[ ${retries} -le ${MAX_RETRIES} ]] ; then
 		echo "[32m==============================================================="
@@ -57,9 +63,9 @@ run_theme_testsuite() {
 
 
 if [[ ! -d ${TEST_RESULT_DIR} ]] ; then
-	mkdir -p ${TEST_RESULT_DIR}
+	mkdir -p "${TEST_RESULT_DIR}"
 fi
-echo > ${TEST_RESULT_DIR}/links.txt
+echo > "${TEST_RESULT_DIR}"/links.txt
 
 _TEST_THEMES=(
 	'clearlooks'
