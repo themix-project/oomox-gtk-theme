@@ -37,6 +37,7 @@ run_theme_testsuite() {
 		if [[ ${retries} -gt 0 ]] ; then
 			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
 		else
+			echo
 			echo "==============================================================="
 			echo "       Going to test '${THEME_NAME}'...                        "
 			echo "==============================================================="
