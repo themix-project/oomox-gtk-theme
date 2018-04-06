@@ -38,7 +38,7 @@ run_theme_testsuite() {
 			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
 		else
 			echo "==============================================================="
-			echo "       Going to test '${THEME_NAME}'                           "
+			echo "       Going to test '${THEME_NAME}'...                        "
 			echo "==============================================================="
 		fi
 		./test.sh && break || true
