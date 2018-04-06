@@ -46,8 +46,8 @@ run_theme_testsuite() {
 	done
 	if [[ ${retries} -le ${MAX_RETRIES} ]] ; then
 		echo "[32m==============================================================="
-		echo "      Testsuite for '${THEME_NAME}' executed successfully!     "
-		echo "===============================================================[30m[m"
+		echo "[32m      Testsuite for '${THEME_NAME}' executed successfully!     "
+		echo "[32m===============================================================[30m[m"
 		return 0
 	else
 		return 1
