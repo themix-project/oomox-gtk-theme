@@ -12,6 +12,8 @@
     icon-size: 1.14em;
 }
 // applet submenus
+// the margin here causes the 'bounce' on opening the sub menu
+// does StScrollBar need to be here? No as long as it isnt themed differently to staging
 .popup-sub-menu {
     @extend %bg-grad-to-bottom;
 
@@ -19,24 +21,6 @@
     border-radius: $roundness;
     padding: 8px;
     margin: 8px 0;
-    StScrollBar {
-        padding: 2px;
-        min-width: 0.8em;
-        min-height: 0.8em;
-        StBin {
-            &#trough {
-                background-color: $scrollbar_bg_color;
-                border-radius: $roundness;
-            }
-            &#vhandle {
-                background-color: $scrollbar_slider_color;
-                border-radius: $roundness;
-                &:hover {
-                    background-color: $scrollbar_slider_hover_color;
-                }
-            }
-        }
-    }
 }
 .popup-menu-content {
     padding: 0;
