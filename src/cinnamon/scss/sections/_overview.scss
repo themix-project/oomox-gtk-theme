@@ -83,6 +83,7 @@
     @extend %bg-grad-to-bottom;
 
     padding: 4px 6px;
+    height: 1.5em;
     border: 1px solid $exterior_border;
     border-radius: $roundness;
     selected-color: $selected_fg_color;
