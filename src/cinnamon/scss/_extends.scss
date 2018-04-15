@@ -146,17 +146,18 @@
 // used in selectors
 // .slider, .sound-player .slider, .popup-slider-menu-item
 %slider-shared {
-    height: 1em;
+    height: 1.2em;
     min-width: 15em;
-    color: $dark_fg_color;
-    -slider-height: 0.7em;
+    color: $button_bg_color;
+    -slider-height: 2px;
     -slider-background-color: $scrollbar_bg_color;
     -slider-border-color: $interior_border;
     -slider-active-background-color: $scrollbar_slider_hover_color;
     -slider-active-border-color: $selected_border;
     -slider-border-width: 1px;
-    -slider-border-radius: 0.3em;
-    -slider-handle-radius: 0.7em;
+    -slider-border-radius: $roundness;
+    -slider-handle-radius: 8px;
+    -slider-handle-border-color: $button_border;
 }
 
 // used in selectors
