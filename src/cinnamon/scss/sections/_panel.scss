@@ -277,13 +277,12 @@
         color: $error_color;
     }
 }
-// possibily deprecated - referenced in keyboard applet only
+// keyboard layout applet
 .panel-status-button {
-    -natural-hpadding: $spacing;
-    -minimum-hpadding: $spacing;
+    -natural-hpadding: 4px;
+    -minimum-hpadding: 4px;
     font-weight: bold;
     color: $dark_fg_color;
-    height: 2em;
     &:hover {
         color: $selected_bg_color;
     }
@@ -295,10 +294,12 @@
 }
 .user-icon {
     padding: 4px;
+    border: none;
 }
 .user-label {
     color: $dark_fg_color;
     font-weight: bold;
+    font-size: 1em;
 }
 // the window list applet. Some third party applets inherit some of this theming.
 .window-list-box {
@@ -379,6 +380,7 @@
     }
     .slider {
         @extend %slider-shared;
+        height: 4px;
     }
     StBoxLayout {
         spacing: 0.5em;
