@@ -51,15 +51,15 @@ $suffix: if($variant == "dark", "-dark", "");
 @include exports("checkradio") {
     radio {
         @include toggle("radio");
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 10px + $spacing * 2;
+        min-height: 10px + $spacing * 2;
         margin-right: $spacing;
     }
 
     check {
         @include toggle("checkbox");
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 10px + $spacing * 2;
+        min-height: 10px + $spacing * 2;
         margin-right: $spacing;
     }
 
