@@ -48,7 +48,7 @@ $button_border_width: 1px;
     %button {
         min-height: 14px + $spacing * 2;
         min-width: 14px + $spacing * 2;
-        padding: $spacing ($spacing + 2px);
+        padding: $spacing ($spacing * 2 - 1px);
         border-width: $button_border_width;
         border-style: solid;
         border-radius: $roundness;
@@ -664,8 +664,8 @@ $button_border_width: 1px;
         button.combo {
             // otherwise the arrow placement is not symmetric
             min-width: 0;
-            padding-left: $spacing + 2px;
-            padding-right: $spacing + 2px;
+            padding-left: $spacing * 2 - 1px;
+            padding-right: $spacing * 2 - 1px;
         }
 
         arrow {
@@ -676,7 +676,7 @@ $button_border_width: 1px;
 
         box button, box entry {
             @extend %linked_button;
-            padding: $spacing ($spacing + 2px);
+            padding: $spacing ($spacing * 2 - 1px);
         }
 
         .linked:not(.vertical) > & > box > button.combo {
@@ -703,7 +703,7 @@ $button_border_width: 1px;
         .linked.vertical > &:only-child > box > button.combo { @extend %linked_vertical_button:only-child; }
 
         menu menuitem {
-            padding: $spacing ($spacing + 2px);
+            padding: $spacing ($spacing * 2 - 1px);
 
             cellview {
                 min-height: 14px + $spacing * 2;
