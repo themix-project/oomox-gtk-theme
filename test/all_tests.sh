@@ -5,9 +5,11 @@
 #
 
 set -ueo pipefail
-export TEST_DIR=$(readlink -e $(dirname "${0}"))
-export TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
-cd ${TEST_DIR}
+TEST_DIR=$(readlink -e "$(dirname "${0}")")
+export TEST_DIR
+TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
+export TEST_RESULT_DIR
+cd "${TEST_DIR}"
 
 #export GENERATE_ASSETS=1
 
@@ -25,8 +27,12 @@ trap ctrl_c INT
 
 _kill_procs() {
 	set +e
-	chmod 777 ${TEST_RESULT_DIR}/*
-	cat ${TEST_RESULT_DIR}/links.txt
+	chmod 777 "${TEST_RESULT_DIR}"/*
+	links=$(cat "${TEST_RESULT_DIR}"/links.txt)
+	if [[ ! -z "${links}" ]] ; then
+		echo "[33mCaptured failures:[30m[m"
+		echo "${links}"
+	fi
 }
 trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
 
@@ -34,16 +40,21 @@ trap _kill_procs EXIT SIGHUP SIGINT SIGTERM
 run_theme_testsuite() {
 	export retries=0
 	while [[ ${retries} -le ${MAX_RETRIES} ]] ; do
+		echo
 		if [[ ${retries} -gt 0 ]] ; then
-			echo "======== RE-TRYING ${retries} of ${MAX_RETRIES}..."
+			echo "[33m======== RE-TRYING ${retries} of ${MAX_RETRIES}...[30m[m"
+		else
+			echo "==============================================================="
+			echo "       Going to test '${THEME_NAME}'...                        "
+			echo "==============================================================="
 		fi
 		./test.sh && break || true
-		export retries=$[$retries+1]
+		export retries=$((retries+1))
 	done
 	if [[ ${retries} -le ${MAX_RETRIES} ]] ; then
-		echo "==============================================================="
-		echo "      Testsuite for '${THEME_NAME}' executed successfully!     "
-		echo "==============================================================="
+		echo "[32m==============================================================="
+		echo "[32m      Testsuite for '${THEME_NAME}' executed successfully!     "
+		echo "[32m===============================================================[30m[m"
 		return 0
 	else
 		return 1
@@ -52,9 +63,9 @@ run_theme_testsuite() {
 
 
 if [[ ! -d ${TEST_RESULT_DIR} ]] ; then
-	mkdir -p ${TEST_RESULT_DIR}
+	mkdir -p "${TEST_RESULT_DIR}"
 fi
-echo > ${TEST_RESULT_DIR}/links.txt
+echo > "${TEST_RESULT_DIR}"/links.txt
 
 _TEST_THEMES=(
 	'clearlooks'
@@ -64,11 +75,11 @@ _TEST_THEMES=(
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
 
 if [[ ${TESTSUITE_LODPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
 fi
 if [[ ${TESTSUITE_HIDPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --delimiter ' ' --colsep '%' \
+	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
 fi
 
