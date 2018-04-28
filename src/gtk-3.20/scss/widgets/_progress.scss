@@ -12,12 +12,12 @@
         // sizing
         &.horizontal {
             trough,
-            progress { min-height: 6px; }
+            progress { min-height: 3px + $spacing; }
         }
 
         &.vertical {
             trough,
-            progress { min-width: 6px; }
+            progress { min-width: 3px + $spacing; }
         }
 
         trough {
@@ -123,8 +123,8 @@
         $ease-out-quad: cubic-bezier(.25, .46, .45, .94);
         $button_transition: all 200ms $ease-out-quad;
 
-        min-height: 10px;
-        min-width: 10px;
+        min-height: 7px + $spacing;
+        min-width: 7px + $spacing;
         padding: $spacing;
 
         &.horizontal {
@@ -141,23 +141,23 @@
 
         // The slider is inside the trough, negative margin to make it bigger
         slider {
-            min-height: 15px;
-            min-width: 15px;
-            margin: -7px;
+            min-height: 9px + $spacing * 2;
+            min-width: 9px + $spacing * 2;
+            margin: -4px - $spacing;
         }
 
         // Click-and-hold the slider to activate
         &.fine-tune {
             // Make the trough grow in fine-tune mode
-            slider { margin: -7px; }
+            slider { margin: -4px - $spacing; }
 
             highlight { background-color: shade($selected_bg_color, 1.1); }
 
             fill,
             highlight,
             trough {
-                border-radius: 5px;
-                -gtk-outline-radius: 7px;
+                border-radius: 2px + $spacing;
+                -gtk-outline-radius: 4px + $spacing;
             }
         }
 
@@ -311,7 +311,7 @@
             highlight, fill { margin: 0; }
 
             &.horizontal {
-                padding: 0 0 6px;
+                padding: 0 0 3px + $spacing;
 
                 trough {
                     border-top-left-radius: 0;
@@ -328,7 +328,7 @@
 
             &.vertical {
                 &:dir(ltr) {
-                    padding: 0 0 0 6px;
+                    padding: 0 0 0 3px + $spacing;
 
                     trough {
                         border-bottom-right-radius: 0;
@@ -344,7 +344,7 @@
                 }
 
                 &:dir(rtl) {
-                    padding: 0 6px 0 0;
+                    padding: 0 3px + $spacing 0 0;
 
                     trough {
                         border-bottom-left-radius: 0;
