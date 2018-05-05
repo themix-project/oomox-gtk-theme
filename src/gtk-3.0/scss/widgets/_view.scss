@@ -226,5 +226,10 @@
 
     /* avoid double borders when a viewport is packed into a GtkScrolledWindow */
     GtkScrolledWindow GtkViewport.frame { border: 0; }
+
+    GtkViewport {
+        background-color: mix($base_color, $bg_color, .28);
+        color: mix($text_color, $fg_color, .28);
+    }
 }
 
