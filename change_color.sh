@@ -199,7 +199,7 @@ DEST_PATH="$DEST_PATH_ROOT/${OUTPUT_THEME_NAME/\//-}"
 test "$SRC_PATH" = "$DEST_PATH" && echo "can't do that" && exit 1
 
 
-rm -r "$DEST_PATH" || true
+rm -fr "$DEST_PATH"
 mkdir -p "$DEST_PATH"
 echo -e "\nBuilding theme at $DEST_PATH\n"
 cp -r "$SRC_PATH/src/index.theme" "$DEST_PATH"
@@ -284,7 +284,7 @@ if [[ ${MAKE_GTK3} = 1 ]]; then
 	make ${MAKE_OPTS}
 fi
 
-rm -r ./Makefile gtk-3.*/scss || true
+rm -fr ./Makefile gtk-3.*/scss
 
 for FILEPATH in "${SVG_PREVIEWS[@]}"; do
 	rsvg-convert --format=png -o $(sed -e 's/svg$/png/' <<< "${FILEPATH}") "${FILEPATH}"
