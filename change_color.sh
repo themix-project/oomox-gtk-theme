@@ -281,7 +281,7 @@ if [[ ${UNITY_DEFAULT_LAUNCHER_STYLE} == "true" ]] ; then
 fi
 
 if [[ ${MAKE_GTK3} = 1 ]]; then
-	make ${MAKE_OPTS}
+	env MAKEFLAGS= make ${MAKE_OPTS}
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
