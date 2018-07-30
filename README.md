@@ -2,13 +2,13 @@ oomox-gtk-theme
 =====
 
 Oomox-gtk-theme is a fork of Numix-gtk-theme.
-It is used in oomox app: https://github.com/actionless/oomox
+It is used in oomox app: https://github.com/themix-project/oomox
 
 ### Theme examples
 
-![Screenshot Light](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
-![Screenshot Medium](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-lavender_hidpi-gtk3-page1.png "Screenshot Medium")
-![Screenshot Dark](https://raw.githubusercontent.com/actionless/oomox-gtk-theme/master/screenshots/theme-monovedek_lcars_hidpi-gtk3-page1.png "Screenshot Dark")
+![Screenshot Light](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme/master/screenshots/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
+![Screenshot Medium](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme/master/screenshots/theme-lavender_hidpi-gtk3-page1.png "Screenshot Medium")
+![Screenshot Dark](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme/master/screenshots/theme-monovedek_lcars_hidpi-gtk3-page1.png "Screenshot Dark")
 
 
 #### Prerequisites
@@ -41,14 +41,14 @@ And install `sassc>=3.4`: https://askubuntu.com/questions/849057/how-to-install-
 
 ##### bash:
 ```bash
-git clone https://github.com/actionless/oomox-gtk-theme.git
+git clone https://github.com/themix-project/oomox-gtk-theme.git
 cd oomox-gtk-theme
 ./change_color.sh -o my-test-theme <(echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nMENU_BG=0e0021\nMENU_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n")
 ```
 
 ##### fish:
 ```fish
-git clone https://github.com/actionless/oomox-gtk-theme.git
+git clone https://github.com/themix-project/oomox-gtk-theme.git
 cd oomox-gtk-theme
 ./change_color.sh -o my-test-theme (echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nMENU_BG=0e0021\nMENU_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n" | psub)
 ```
