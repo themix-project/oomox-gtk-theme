@@ -226,7 +226,7 @@
 
     GtkViewport {
         background-color: mix($base_color, $bg_color, .28);
-        color: mix($text_color, $fg_color, .28);
+        color: mix($text_color, $fg_color, .18);
         border: 1px solid border_normal(mix($base_color, $bg_color, .78));
     }
 
