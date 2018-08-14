@@ -3,6 +3,12 @@
 *******************/
 
 @include exports("grid") {
+
+    // selected icon in unfocused window:
+    widget:active {
+        background-color: mix($selected_bg_color, $base_color, .5);
+    }
+
     list {
         color: $text_color;
         background-color: $base_color;
