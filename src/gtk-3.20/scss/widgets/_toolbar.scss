@@ -118,7 +118,7 @@
 
         border-radius: $roundness $roundness 0 0;
         color: $titlebar_fg_focused;
-        padding: 0 $spacing * 2;
+        padding: 0 6px;
         min-height: 42px;
 
         &:backdrop {
