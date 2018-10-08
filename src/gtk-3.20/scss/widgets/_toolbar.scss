@@ -150,6 +150,8 @@
 
         button {
             @include button($header_button_bg_color, $header_button_fg_color);
+
+            padding: $spacing ($spacing + 5px);
         }
 
         button.titlebutton + separator.titlebutton {
