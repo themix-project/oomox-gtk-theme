@@ -17,6 +17,11 @@
         color: mix($fg, $bg, .5);
     }
 
+    .background {
+        background-color: $bg;
+        border-color: mix($bg, $fg, .3);
+    }
+
     .title {
         font-weight: bold;
         padding: 0 ($spacing * 2);
@@ -154,6 +159,13 @@
             @include button($header_button_bg_color, $header_button_fg_color);
 
             padding: $spacing if($spacing > 8px, $spacing, 8px);
+
+            &.flat {
+                color: $titlebar_fg_focused;
+            }
+            &:backdrop {
+                color: $titlebar_fg_unfocused;
+            }
         }
 
         button.titlebutton + separator.titlebutton {
