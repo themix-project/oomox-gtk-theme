@@ -40,10 +40,10 @@
         padding: $spacing;
 
         &.text-button { padding: $spacing; }
+    }
 
-        &.image-button {
-            padding: $spacing $spacing + 4px;
-        }
+    box button.image-button {
+        padding: $spacing $spacing + 4px;
     }
 
     separator {
