@@ -163,6 +163,7 @@
             &.flat {
                 color: $titlebar_fg_focused;
             }
+
             &:backdrop {
                 color: $titlebar_fg_unfocused;
             }
