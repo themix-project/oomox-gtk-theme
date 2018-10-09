@@ -164,6 +164,10 @@
                 color: $titlebar_fg_focused;
             }
 
+            &.image-button {
+                padding: $spacing;
+            }
+
             &:backdrop {
                 color: $titlebar_fg_unfocused;
             }
