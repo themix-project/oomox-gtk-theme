@@ -154,10 +154,6 @@
             padding: $spacing if($spacing > 8px, $spacing, 8px);
         }
 
-        box button {
-            padding: $spacing;
-        }
-
         button.titlebutton + separator.titlebutton {
             margin-left: 0;
             margin-right: $spacing;
@@ -165,6 +161,7 @@
 
         button.titlebutton {
             border: 0;
+            padding: $spacing;
             background-image: none;
             background-color: transparent;
             color: $titlebar_fg_focused;
