@@ -154,6 +154,15 @@
             }
         }
 
+        .solid-csd & {
+            &:backdrop, & {
+                &:dir(rtl), &:dir(ltr) { // specificity bump
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+
         .tiled &,
         .maximized & { &:backdrop, & { border-radius: 0; } } // squared corners when the window is maximized or tiled
 
@@ -248,10 +257,23 @@
         > separator { background-color: shade($titlebar_bg_focused, .88); }  // $borders_color
     }
 
-    .background:not(.tiled):not(.maximized) .titlebar {
+    .background .titlebar {
         &:backdrop, & {
             border-top-left-radius: $roundness;
             border-top-right-radius: $roundness;
+        }
+    }
+
+    .background.tiled .titlebar,
+    .background.tiled-top .titlebar,
+    .background.tiled-right .titlebar,
+    .background.tiled-bottom .titlebar,
+    .background.tiled-left .titlebar,
+    .background.maximized .titlebar,
+    .background.solid-csd .titlebar {
+        &:backdrop, & {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
         }
     }
 
