@@ -312,7 +312,6 @@ $menu_borders_color: mix(
         @extend %undecorated_button;
 
         padding: ($spacing + 2px);
-        outline-color: transparent;
         transition: none;
 
         &:hover {
