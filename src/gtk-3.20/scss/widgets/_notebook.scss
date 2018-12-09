@@ -173,23 +173,26 @@
                         }
                         // tab overlap
                         + tab {
-                            @if $_pos==top or $_pos==bottom { margin-left: -1px; }
-                            @else { margin-top: -1px; }
+                            @if $_pos == top or $_pos == bottom {
+                                margin-left: -1px;
+                            } @else {
+                                margin-top: -1px;
+                            }
                         }
 
                         // tab border radius
                         &:first-child {
                             @if $roundness <= $max_tab_bar_roundness {
-                                @if $_pos==top {
+                                @if $_pos == top {
                                     border-radius: $roundness 0 0;
                                     -gtk-outline-radius: $roundness 0 0;
-                                } @else if $_pos==bottom {
+                                } @else if $_pos == bottom {
                                     border-radius: 0 0 0 $roundness;
                                     -gtk-outline-radius: 0 0 0 $roundness;
-                                } @else if $_pos==left {
+                                } @else if $_pos == left {
                                     border-radius: $roundness 0 0;
                                     -gtk-outline-radius: $roundness 0 0;
-                                } @else if $_pos==right {
+                                } @else if $_pos == right {
                                     border-radius: 0 $roundness 0 0;
                                     -gtk-outline-radius: 0 $roundness 0 0;
                                 }
@@ -200,16 +203,16 @@
 
                         &:last-child {
                             @if $roundness <= $max_tab_bar_roundness {
-                                @if $_pos==top {
+                                @if $_pos == top {
                                     border-radius: 0 $roundness 0 0;
                                     -gtk-outline-radius: 0 $roundness 0 0;
-                                } @else if $_pos==bottom {
+                                } @else if $_pos == bottom {
                                     border-radius: 0 0 $roundness;
                                     -gtk-outline-radius: 0 0 $roundness;
-                                } @else if $_pos==left {
+                                } @else if $_pos == left {
                                     border-radius: 0 0 0 $roundness;
                                     -gtk-outline-radius: 0 0 0 $roundness;
-                                } @else if $_pos==right {
+                                } @else if $_pos == right {
                                     border-radius: 0 0 $roundness;
                                     -gtk-outline-radius: 0 0 $roundness;
                                 }
@@ -229,19 +232,19 @@
 
                             @if $roundness <= $max_single_tab_roundness {
                                 -gtk-outline-radius: $roundness;
-                                @if $_pos==top {
+                                @if $_pos == top {
                                     border-radius: $roundness $roundness 0 0;
-                                } @else if $_pos==bottom {
+                                } @else if $_pos == bottom {
                                     border-radius: 0 0 $roundness $roundness;
-                                } @else if $_pos==left {
+                                } @else if $_pos == left {
                                     border-radius: $roundness 0 0 $roundness;
-                                } @else if $_pos==right {
+                                } @else if $_pos == right {
                                     border-radius: 0 $roundness $roundness 0;
                                 }
                             }
-                            @if $_pos==top or $_pos==bottom {
+                            @if $_pos == top or $_pos == bottom {
                                 padding-#{$_pos}: $spacing - $compensate_tab_marker_padding;
-                            } @else if $_pos==left or $_pos==right {
+                            } @else if $_pos == left or $_pos == right {
                                 padding-#{$_pos}: $vertical_tab_spacing - $compensate_tab_marker_padding;
                             }
                         }

@@ -45,8 +45,8 @@ $caret_aspect_ratio: %CARET_SIZE%;
 
 /*$button_border_strength: if(lightness($bg) > 50, 0, .1);*/
 /*$button_shadow_strength: if(lightness($bg) > 50, 0, .1);*/
-$button_border_strength: .1;
-$button_border: alpha($button_fg_color, .06 + $button_border_strength);
+$button_border_strength: .16;
+$button_border: alpha($button_fg_color, $button_border_strength);
 $entry_border: $borders_color;
 
 $scrollbar_bg_color: if($variant == 'light', darken($bg_color, 5%), mix($base_color, $bg_color, .4));
