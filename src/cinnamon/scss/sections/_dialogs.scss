@@ -147,7 +147,7 @@
         background-color: $scrollbar_slider_hover_color;
     }
 }
-.info-osd, .workspace-osd {
+.info-osd, .workspace-osd, .overview-empty-placeholder {
     @extend %osd-shared;
 
     font-size: 1.5em;
@@ -170,7 +170,7 @@
     font-weight: bold;
 }
 .about-uuid {
-    font-size: .8em;
+    font-size: 0.8em;
 }
 .about-icon {
     padding-right: 20px;
