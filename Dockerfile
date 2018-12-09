@@ -6,7 +6,7 @@ ENTRYPOINT /bin/bash
 
 # App dependensies:
 RUN echo "Update arch deps - 3" && \
-    echo -e 'Server = http://mirrors.evowise.com/archlinux/$repo/os/$arch\nServer = http://mirror.koddos.net/archlinux/$repo/os/$arch\nServer = https://mirror.i3d.net/pub/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
+    echo -e 'Server = http://archlinux.cu.be/$repo/os/$arch\nServer = http://mirror.metalgamer.eu/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
     pacman -Syu --noconfirm && \
     pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines gtk3 make
 
