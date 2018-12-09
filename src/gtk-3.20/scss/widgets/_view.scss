@@ -337,14 +337,14 @@
     frame.border-ridge > border {
         @if lightness($bg_color) < 33% {
             //dark bg
-            border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .2);
+            border: 1px solid alpha($borders_color, (lightness($bg_color)) / 100% + .2);
         } @else {
             @if lightness($bg_color) < 67% {
                 //mid bg
-                border: 1px solid alpha(shade($borders_color, .75), (lightness($bg_color))/100%);
+                border: 1px solid alpha(shade($borders_color, .75), (lightness($bg_color)) / 100%);
             } @else {
                 //light bg
-                border: 1px solid alpha($borders_color, (lightness($bg_color))/100% + .3);
+                border: 1px solid alpha($borders_color, (lightness($bg_color)) / 100% + .3);
             }
         }
     }
