@@ -95,12 +95,12 @@
                 opacity: $_placesidebar_icons_opacity; // dim the device icons
 
                 &:dir(ltr) {
-                    padding-right: $spacing*2 + 2;
+                    padding-right: $spacing * 2 + 2;
                     padding-left: $spacing;
                 }
 
                 &:dir(rtl) {
-                    padding-left: $spacing*2 + 2;
+                    padding-left: $spacing * 2 + 2;
                     padding-right: $spacing;
                 }
             }

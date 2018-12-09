@@ -2,7 +2,7 @@
  ! Buttons
 **********/
 
-$button_outline_radius: $roundness * (1 + ($button_outline_offset/1px + 2) / 10);
+$button_outline_radius: $roundness * (1 + ($button_outline_offset / 1px + 2) / 10);
 $button_border_width: 1px;
 
 @include exports("button_extends") {
@@ -286,7 +286,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $border_focus_color;
             border-right-style: none;
-            box-shadow: inset -$button_border_width 0 0 $border_focus_color;
+            box-shadow: inset - $button_border_width 0 0 $border_focus_color;
         }
     }
 
@@ -298,7 +298,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $selected_border_focus_color;
             border-right-style: none;
-            box-shadow: inset -$button_border_width 0 0 $selected_border_focus_color;
+            box-shadow: inset - $button_border_width 0 0 $selected_border_focus_color;
         }
     }
 
@@ -310,7 +310,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $border_focus_color;
             border-bottom-style: none;
-            box-shadow: inset 0 0 -$button_border_width $border_focus_color;
+            box-shadow: inset 0 0 - $button_border_width $border_focus_color;
         }
     }
 
@@ -322,7 +322,7 @@ $button_border_width: 1px;
         &:hover {
             border-color: $selected_border_focus_color;
             border-bottom-style: none;
-            box-shadow: inset 0 0 -$button_border_width $selected_border_focus_color;
+            box-shadow: inset 0 0 - $button_border_width $selected_border_focus_color;
         }
     }
 
@@ -581,7 +581,7 @@ $button_border_width: 1px;
                     &:hover,
                     &:focus:hover {
                         border-color: $border_focus_color;
-                        box-shadow: inset -$button_border_width 0 0 $border_focus_color;
+                        box-shadow: inset - $button_border_width 0 0 $border_focus_color;
                     }
                 }
 
