@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - gem install scss-lint
+  - gem install scss_lint
   - cp -r ./src/gtk-3.20/ ./gtk320lint
   - sed -ie 's/%[A-Z0-9_]\+%/123456/g' ./gtk320lint/scss/_global.scss
   - scss-lint ./gtk320lint/
