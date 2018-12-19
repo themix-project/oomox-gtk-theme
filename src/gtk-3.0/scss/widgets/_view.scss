@@ -224,13 +224,13 @@
         &.flat { border: 0; }
     }
 
-    GtkViewport {
+    GtkScrolledWindow GtkViewport {
         background-color: mix($base_color, $bg_color, .28);
         color: mix($text_color, $fg_color, .18);
         border: 1px solid border_normal(mix($base_color, $bg_color, .78));
+
+        /* avoid double borders when a viewport is packed into a GtkScrolledWindow */
+        &.frame { border: 0; }
     }
 
-    /* avoid double borders when a viewport is packed into a GtkScrolledWindow */
-    GtkScrolledWindow GtkViewport.frame { border: 0; }
 }
-
