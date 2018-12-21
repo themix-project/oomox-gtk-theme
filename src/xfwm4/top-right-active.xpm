@@ -4,7 +4,7 @@ static char * top_right_active_xpm[] = {
 " 	c None",
 ".	c #%WM_BORDER_FOCUS%",
 "+	c #%WM_BORDER_FOCUS%",
-"@	c #%MENU_BG%",
+"@	c #%HDR_BG%",
 ". ",
 "+.",
 "@.",

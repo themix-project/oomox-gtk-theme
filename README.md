@@ -43,14 +43,14 @@ And install `sassc>=3.4`: https://askubuntu.com/questions/849057/how-to-install-
 ```bash
 git clone https://github.com/themix-project/oomox-gtk-theme.git
 cd oomox-gtk-theme
-./change_color.sh -o my-test-theme <(echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nMENU_BG=0e0021\nMENU_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n")
+./change_color.sh -o my-test-theme <(echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nHDR_BG=0e0021\nHDR_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n")
 ```
 
 ##### fish:
 ```fish
 git clone https://github.com/themix-project/oomox-gtk-theme.git
 cd oomox-gtk-theme
-./change_color.sh -o my-test-theme (echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nMENU_BG=0e0021\nMENU_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n" | psub)
+./change_color.sh -o my-test-theme (echo -e "BG=888a85\nBTN_BG=85509b\nBTN_FG=0e0021\nFG=0e0021\nGRADIENT=0.0\nHDR_BTN_BG=85509b\nHDR_BTN_FG=0e0021\nHDR_BG=0e0021\nHDR_FG=888a85\nROUNDNESS=4\nSEL_BG=dc5e86\nSEL_FG=000000\nSPACING=3\nTXT_BG=c0bbbb\nTXT_FG=000000\nWM_BORDER_FOCUS=9edc60\nWM_BORDER_UNFOCUS=0e0021\n" | psub)
 ```
 
 

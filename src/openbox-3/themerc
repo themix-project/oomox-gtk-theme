@@ -9,60 +9,60 @@
 menu.border.color: #%FG%
 
 menu.title.bg: Solid Flat
-menu.title.bg.color: #%MENU_BG%
+menu.title.bg.color: #%HDR_BG%
 menu.title.bg.shadow: 0
-menu.title.text.color: #%MENU_FG%
+menu.title.text.color: #%HDR_FG%
 menu.title.text.justify: Center
 
 menu.items.bg: Solid Flat
-menu.items.bg.color: #%MENU_BG%
-menu.items.text.color: #%MENU_FG%
-menu.items.disabled.text.color: #%INACTIVE_MENU_FG%
+menu.items.bg.color: #%HDR_BG%
+menu.items.text.color: #%HDR_FG%
+menu.items.disabled.text.color: #%INACTIVE_HDR_FG%
 
 menu.items.active.bg: Solid Flat
 menu.items.active.bg.color: #%SEL_BG%
-menu.items.active.text.color: #%MENU_FG%
+menu.items.active.text.color: #%HDR_FG%
 
-menu.separator.color: #%INACTIVE_MENU_FG%
+menu.separator.color: #%INACTIVE_HDR_FG%
 menu.separator.width: 1
 menu.separator.padding.width: 2
 menu.separator.padding.height: 4
 
 # Window focused
-window.active.title.separator.color: #%MENU_BG%
+window.active.title.separator.color: #%HDR_BG%
 
 # Active window
 window.active.border.color: #%WM_BORDER_FOCUS%
 
 
 window.active.title.bg: flat solid
-window.active.title.bg.color: #%MENU_BG%
-window.active.title.separator.color: #%MENU_BG%
+window.active.title.bg.color: #%HDR_BG%
+window.active.title.separator.color: #%HDR_BG%
 window.active.text.justify: center
 
 window.active.label.bg: parentrelative
-window.active.label.text.color: #%MENU_FG%
+window.active.label.text.color: #%HDR_FG%
 
 window.active.handle.bg: flat solid
-window.active.handle.bg.color: #%MENU_BG%
+window.active.handle.bg.color: #%HDR_BG%
 
 window.active.grip.bg: flat solid
-window.active.grip.bg.color: #%MENU_BG%
+window.active.grip.bg.color: #%HDR_BG%
 
 window.active.button.unpressed.bg: flat solid
-window.active.button.unpressed.bg.color: #%MENU_BG%
-window.active.button.unpressed.image.color: #%MENU_FG%
+window.active.button.unpressed.bg.color: #%HDR_BG%
+window.active.button.unpressed.image.color: #%HDR_FG%
 
 window.active.button.pressed.bg: flat solid
 window.active.button.pressed.bg.color: #%SEL_BG%
 window.active.button.pressed.image.color: #%SEL_FG%
 
 window.active.button.disabled.bg: flat solid
-window.active.button.disabled.bg.color: #%MENU_BG%
-window.active.button.disabled.image.color: #%INACTIVE_MENU_FG%
+window.active.button.disabled.bg.color: #%HDR_BG%
+window.active.button.disabled.image.color: #%INACTIVE_HDR_FG%
 
 window.active.button.hover.bg: flat solid
-window.active.button.hover.bg.color: #%MENU_BG%
+window.active.button.hover.bg.color: #%HDR_BG%
 window.active.button.hover.image.color: #%SEL_BG%
 
 #window.active.button.toggled.bg: #%SEL_BG%
@@ -72,33 +72,33 @@ window.active.button.hover.image.color: #%SEL_BG%
 window.inactive.border.color: #%WM_BORDER_UNFOCUS%
 
 window.inactive.title.bg: flat solid
-window.inactive.title.bg.color: #%MENU_BG%
-window.inactive.title.separator.color: #%MENU_BG%
+window.inactive.title.bg.color: #%HDR_BG%
+window.inactive.title.separator.color: #%HDR_BG%
 window.inactive.text.justify: center
 
 window.inactive.label.bg: parentrelative
-window.inactive.label.text.color: #%INACTIVE_MENU_FG%
+window.inactive.label.text.color: #%INACTIVE_HDR_FG%
 
 window.inactive.handle.bg: flat solid
-window.inactive.handle.bg.color: #%MENU_BG%
+window.inactive.handle.bg.color: #%HDR_BG%
 
 window.inactive.grip.bg: flat solid
-window.inactive.grip.bg.color: #%MENU_BG%
+window.inactive.grip.bg.color: #%HDR_BG%
 
 window.inactive.button.unpressed.bg: flat solid
-window.inactive.button.unpressed.bg.color: #%MENU_BG%
-window.inactive.button.unpressed.image.color: #%INACTIVE_MENU_FG%
+window.inactive.button.unpressed.bg.color: #%HDR_BG%
+window.inactive.button.unpressed.image.color: #%INACTIVE_HDR_FG%
 
 window.inactive.button.pressed.bg: flat solid
 window.inactive.button.pressed.bg.color: #%SEL_BG%
 window.inactive.button.pressed.image.color: #%SEL_FG%
 
 window.inactive.button.disabled.bg: flat solid
-window.inactive.button.disabled.bg.color: #%INACTIVE_MENU_FG%
-window.inactive.button.disabled.image.color: #%MENU_BG%
+window.inactive.button.disabled.bg.color: #%INACTIVE_HDR_FG%
+window.inactive.button.disabled.image.color: #%HDR_BG%
 
 window.inactive.button.hover.bg: flat solid
-window.inactive.button.hover.bg.color: #%MENU_BG%
+window.inactive.button.hover.bg.color: #%HDR_BG%
 window.inactive.button.hover.image.color: #%SEL_BG%
 
 
@@ -107,14 +107,14 @@ osd.border.width: 1
 osd.border.color: #%SEL_BG%
 
 osd.bg: flat solid
-osd.bg.color: #%MENU_BG%
+osd.bg.color: #%HDR_BG%
 osd.label.bg: flat solid
-osd.label.bg.color: #%MENU_BG%
-osd.label.text.color: #%MENU_FG%
+osd.label.bg.color: #%HDR_BG%
+osd.label.text.color: #%HDR_FG%
 
 # OSD
 osd.bg: Solid Flat
-osd.bg.color: #%MENU_BG%
+osd.bg.color: #%HDR_BG%
 osd.bg.shadow: 0
 
 osd.border.width: 2

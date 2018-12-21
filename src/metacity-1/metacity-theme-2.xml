@@ -9,13 +9,13 @@
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar_focused" value="#%MENU_BG%" />
+<constant name="C_titlebar_focused" value="#%HDR_BG%" />
 <constant name="C_titlebar_unfocused" value="#%BG%" />
 <constant name="C_border_focused" value="#%WM_BORDER_FOCUS%" />
 <constant name="C_border_unfocused" value="#%WM_BORDER_UNFOCUS%" />
-<constant name="C_title_focused" value="#%MENU_FG%" />
+<constant name="C_title_focused" value="#%HDR_FG%" />
 <constant name="C_title_unfocused" value="blend/#%FG%/#%BG%/0.4" />
-<constant name="C_icons_focused" value="#%MENU_FG%" />
+<constant name="C_icons_focused" value="#%HDR_FG%" />
 <constant name="C_icons_focused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_focused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
 <constant name="C_icons_unfocused" value="blend/#%FG%/#%BG%/0.4" />
