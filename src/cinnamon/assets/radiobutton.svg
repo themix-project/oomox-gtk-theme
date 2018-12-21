@@ -23,7 +23,7 @@
        inkscape:collect="always"
        id="linearGradient4692">
       <stop
-         style="stop-color:#%MENU_BG%;stop-opacity:1"
+         style="stop-color:#%HDR_BG%;stop-opacity:1"
          offset="0"
          id="stop4694" />
       <stop
@@ -82,7 +82,7 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <circle
-       style="fill:url(#linearGradient4698);fill-opacity:1;stroke:#%MENU_FG%;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient4698);fill-opacity:1;stroke:#%HDR_FG%;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4690"
        cx="8"
        cy="1044.3622"
