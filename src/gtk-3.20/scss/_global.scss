@@ -23,8 +23,8 @@ $black: shade($fg_color, .4);
 $white: lighten($bg_color, .55);
 
 // dark colors
-$dark_bg_color: #%MENU_BG%;
-$dark_fg_color: #%MENU_FG%;
+$dark_bg_color: #%HDR_BG%;
+$dark_fg_color: #%HDR_FG%;
 
 // shadows
 /*$dark_shadow: #000;*/

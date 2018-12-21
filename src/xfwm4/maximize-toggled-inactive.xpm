@@ -2,9 +2,9 @@
 static char * maximize_toggled_prelight_xpm[] = {
 "24 26 4 1",
 " 	c None",
-".	c #%MENU_BG%",
-"+	c #%INACTIVE_MENU_FG%",
-"@	c #%MENU_BG%",
+".	c #%HDR_BG%",
+"+	c #%INACTIVE_HDR_FG%",
+"@	c #%HDR_BG%",
 "@@@@@@@@@@@@@@@@@@@@@@@@",
 "........................",
 "........................",
