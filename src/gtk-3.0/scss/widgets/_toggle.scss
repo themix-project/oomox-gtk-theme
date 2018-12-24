@@ -49,6 +49,9 @@ $suffix: if($variant == "dark", "-dark", "");
 }
 
 @include exports("checkradio") {
+    $checkradio_border: mix($bg_color, $fg_color, .3);
+    $disabled_checkradio_border: mix($bg_color, $fg_color, .15);
+
     * {
         -GtkCheckButton-indicator-size: 16;
         -GtkCheckMenuItem-indicator-size: 16;
@@ -57,6 +60,34 @@ $suffix: if($variant == "dark", "-dark", "");
     .radio { @include toggle("radio"); }
 
     .check { @include toggle("checkbox"); }
+
+    check, radio {
+        box-shadow: -1px 0   $checkradio_border inset,
+                     1px 0   $checkradio_border inset,
+                     0  -1px $checkradio_border inset,
+                     0   1px $checkradio_border inset;
+        border-radius: if($roundness > 7px + $spacing, 7px + $spacing, $roundness) / 2;
+        background-color: $base_color;
+
+        &:disabled {
+            box-shadow: -1px 0   $disabled_checkradio_border inset,
+                         1px 0   $disabled_checkradio_border inset,
+                         0  -1px $disabled_checkradio_border inset,
+                         0   1px $disabled_checkradio_border inset;
+            background-color: rgba($base_color, 0.25);
+            //background-color: transparent;
+        }
+
+        menuitem &, modelbutton & {
+            box-shadow: none;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+
+    radio {
+        border-radius: 999px;
+    }
 
     //selection-mode
     @each $s,$as in ('', '-unchecked'),
