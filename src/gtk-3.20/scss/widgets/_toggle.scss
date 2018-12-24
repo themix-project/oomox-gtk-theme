@@ -2,25 +2,23 @@
  ! Check and Radio items
 ************************/
 
-$suffix: if($variant == "dark", "-dark", "");
-
 @mixin toggle($type) {
     background-image: none;
 
-    -gtk-icon-source: url("../assets/#{$type}-unchecked#{$suffix}.svg");
+    //-gtk-icon-source: url("../assets/#{$type}-unchecked.svg");
 
-    &:disabled { -gtk-icon-source: url("../assets/#{$type}-unchecked-insensitive#{$suffix}.svg"); }
+    &:disabled { -gtk-icon-source: url("../assets/#{$type}-unchecked-insensitive.svg"); }
 
     &:checked, &:active {
-        -gtk-icon-source: url("../assets/#{$type}-checked#{$suffix}.svg");
+        -gtk-icon-source: url("../assets/#{$type}-checked.svg");
 
-        &:disabled { -gtk-icon-source: url("../assets/#{$type}-checked-insensitive#{$suffix}.svg"); }
+        &:disabled { -gtk-icon-source: url("../assets/#{$type}-checked-insensitive.svg"); }
     }
 
     &:indeterminate {
-        -gtk-icon-source: url("../assets/#{$type}-mixed#{$suffix}.svg");
+        -gtk-icon-source: url("../assets/#{$type}-mixed.svg");
 
-        &:disabled { -gtk-icon-source: url("../assets/#{$type}-mixed-insensitive#{$suffix}.svg"); }
+        &:disabled { -gtk-icon-source: url("../assets/#{$type}-mixed-insensitive.svg"); }
     }
 
     menuitem &, modelbutton & {
@@ -49,6 +47,9 @@ $suffix: if($variant == "dark", "-dark", "");
 }
 
 @include exports("checkradio") {
+    $checkradio_border: mix($bg_color, $fg_color, .3);
+    $disabled_checkradio_border: mix($bg_color, $fg_color, .15);
+
     radio {
         @include toggle("radio");
         min-width: 10px + $spacing * 2;
@@ -61,6 +62,34 @@ $suffix: if($variant == "dark", "-dark", "");
         min-width: 10px + $spacing * 2;
         min-height: 10px + $spacing * 2;
         margin-right: $spacing;
+    }
+
+    check, radio {
+        box-shadow: -1px 0   $checkradio_border inset,
+                     1px 0   $checkradio_border inset,
+                     0  -1px $checkradio_border inset,
+                     0   1px $checkradio_border inset;
+        border-radius: if($roundness > 7px + $spacing, 7px + $spacing, $roundness) / 2;
+        background-color: $base_color;
+
+        &:disabled {
+            box-shadow: -1px 0   $disabled_checkradio_border inset,
+                         1px 0   $disabled_checkradio_border inset,
+                         0  -1px $disabled_checkradio_border inset,
+                         0   1px $disabled_checkradio_border inset;
+            background-color: rgba($base_color, 0.25);
+            //background-color: transparent;
+        }
+
+        menuitem &, modelbutton & {
+            box-shadow: none;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+
+    radio {
+        border-radius: 999px;
     }
 
     radio:dir(rtl), check:dir(rtl) {
@@ -79,7 +108,7 @@ $suffix: if($variant == "dark", "-dark", "");
                   (":backdrop:checked", "-checked") {
         .view.content-view.check#{$s}:not(list) {
             -gtk-icon-shadow: none;
-            -gtk-icon-source: url("../assets/grid-selection#{$as}#{$suffix}.svg");
+            -gtk-icon-source: url("../assets/grid-selection#{$as}.svg");
             background-color: transparent;
         }
     }
