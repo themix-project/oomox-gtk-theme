@@ -30,7 +30,7 @@
 
         .frame, frame { border-width: 0; }
 
-        list { background-color: transparent; }
+        //list { background-color: transparent; }
 
         paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; } }
     }
