@@ -81,10 +81,12 @@
             //background-color: transparent;
         }
 
+        menuitem &:disabled, modelbutton &:disabled,
         menuitem &, modelbutton & {
             box-shadow: none;
             border-radius: 0;
             background-color: transparent;
+            border: none;
         }
     }
 
