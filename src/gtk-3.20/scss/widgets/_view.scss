@@ -17,9 +17,9 @@
 
         &:selected {
             &:focus, & {
-                @extend %selected_items;
+                //@extend %selected_items;
 
-                border-radius: $roundness;
+                //border-radius: $roundness;
             }
         }
     }
