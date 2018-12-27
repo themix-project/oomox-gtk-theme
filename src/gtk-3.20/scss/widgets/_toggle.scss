@@ -88,6 +88,11 @@
             background-color: transparent;
             border: none;
         }
+
+        textview &:focus, .view &:focus, view &:focus, treeview &:focus {
+            background-color: $base_color;
+        }
+
     }
 
     radio {
