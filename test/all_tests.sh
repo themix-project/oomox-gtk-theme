@@ -14,7 +14,7 @@ cd "${TEST_DIR}"
 #export GENERATE_ASSETS=1
 
 MAX_RETRIES=${MAX_RETRIES:-2}
-if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
+if [[ -n ${GENERATE_ASSETS:-} ]] ; then
 	MAX_RETRIES=0
 fi
 
@@ -29,7 +29,7 @@ _kill_procs() {
 	set +e
 	chmod 777 "${TEST_RESULT_DIR}"/*
 	links=$(cat "${TEST_RESULT_DIR}"/links.txt)
-	if [[ ! -z "${links}" ]] ; then
+	if [[ -n "${links}" ]] ; then
 		echo "[33mCaptured failures:[30m[m"
 		echo "${links}"
 	fi
@@ -48,7 +48,9 @@ run_theme_testsuite() {
 			echo "       Going to test '${THEME_NAME}'...                        "
 			echo "==============================================================="
 		fi
-		./test.sh && break || true
+		if ./test.sh ; then
+			break
+		fi
 		export retries=$((retries+1))
 	done
 	if [[ ${retries} -le ${MAX_RETRIES} ]] ; then
@@ -75,19 +77,19 @@ _TEST_THEMES=(
 TEST_THEMES=${TEST_THEMES-${_TEST_THEMES[@]}}
 
 if [[ ${TESTSUITE_LODPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
+	echo "${TEST_THEMES[@]}" | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} 2>&1
 fi
 if [[ ${TESTSUITE_HIDPI:-1} = 1 ]] ; then
-	echo ${TEST_THEMES[@]} | parallel --will-cite --delimiter ' ' --colsep '%' \
+	echo "${TEST_THEMES[@]}" | parallel --will-cite --delimiter ' ' --colsep '%' \
 		bash /opt/oomox-gtk-theme/change_color.sh /opt/oomox-gtk-theme/test/colors/{} -o oomox-{}_hidpi --hidpi True 2>&1
 fi
 
-if [[ ! -z ${GENERATE_ASSETS:-} ]] ; then
+if [[ -n ${GENERATE_ASSETS:-} ]] ; then
 	set +e
 fi
 
-for theme in ${TEST_THEMES[@]} ; do
+for theme in "${TEST_THEMES[@]}" ; do
 
 
 	if [[ ${TESTSUITE_LODPI:-1} = 1 ]] ; then
