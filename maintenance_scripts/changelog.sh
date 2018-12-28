@@ -7,7 +7,7 @@ IFS=$'\n\t'
 
 for tag in $(git tag | grep -v ^gtk | sort -V) ; do
 	echo -e '\n'
-	git tag -n --format '%(taggerdate)' $tag
+	git tag -n --format '%(taggerdate)' "$tag"
 	echo '-------------------------------------------------'
-	git tag -n9 $tag
+	git tag -n999 "$tag"
 done
