@@ -1,9 +1,12 @@
-#!/bin/bash
-cd $(readlink -e $(dirname "${0}"))/..
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+cd "$(readlink -e "$(dirname "${0}")")"/..
 exec docker \
 	container run \
 	--detach --tty \
-	--volume $(readlink -e ./):/opt/oomox-gtk-theme \
-	--volume $(readlink -e ./test_results/):/opt/oomox-gtk-theme/test_results \
-	$@ \
+	--volume "$(readlink -e ./)":/opt/oomox-gtk-theme \
+	--volume "$(readlink -e ./test_results/)":/opt/oomox-gtk-theme/test_results \
+	"$@" \
 	oomox-gtk-theme:latest
