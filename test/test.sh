@@ -7,7 +7,7 @@
 set -ueo pipefail
 
 DEFAULT_SLEEP=${DEFAULT_SLEEP:-2}
-SCREENSHOTS_DIR=${TEST_DIR}/../screenshots/
+SCREENSHOTS_DIR=$(readlink -e "${TEST_DIR}"/../screenshots/)
 mkdir -p "${TEST_RESULT_DIR}" || true
 cd "${TEST_DIR}"
 
