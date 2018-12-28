@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-#set -x
+set -euo pipefail
 
-script_dir=$(readlink -f $(dirname "${0}"))
+script_dir="$(readlink -f "$(dirname "${0}")")"
 
 is_dark() {
-	hexinput=$(echo $1 | tr '[:lower:]' '[:upper:]')
+	hexinput=$(echo "${1}" | tr '[:lower:]' '[:upper:]')
 	half_darker=$("${script_dir}/darker.sh" "${hexinput}" 88)
 	if [[ "${half_darker}" = "000000" ]] ; then
 		return 0;
@@ -13,4 +13,4 @@ is_dark() {
 	fi
 }
 
-is_dark $@
+is_dark "$@"
