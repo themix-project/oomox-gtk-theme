@@ -13,4 +13,5 @@ install:
   - docker image build ./ -t oomox-gtk-theme
 
 script:
+  - git clone https://github.com/actionless/oomox-gtk-theme-test-screenshots.git screenshots
   - docker run --entrypoint ./test/all_tests.sh oomox-gtk-theme:latest
