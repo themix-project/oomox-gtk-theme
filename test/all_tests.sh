@@ -90,7 +90,8 @@ if [[ -n ${GENERATE_ASSETS:-} ]] ; then
 	set +e
 fi
 
-for theme in "${TEST_THEMES[@]}" ; do
+# shellcheck disable=SC2068
+for theme in ${TEST_THEMES[@]} ; do
 
 
 	if [[ ${TESTSUITE_LODPI:-1} = 1 ]] ; then
