@@ -12,5 +12,8 @@ before_install:
 install:
   - docker image build ./ -t oomox-gtk-theme
 
+before_script:
+  - docker run --entrypoint ./test/shellcheck.sh oomox-gtk-theme:latest
+
 script:
   - docker run --entrypoint ./test/all_tests.sh oomox-gtk-theme:latest
