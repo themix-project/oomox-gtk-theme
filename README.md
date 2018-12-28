@@ -6,9 +6,9 @@ It is used in oomox app: https://github.com/themix-project/oomox
 
 ### Theme examples
 
-![Screenshot Light](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/screenshots/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
-![Screenshot Medium](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/screenshots/theme-lavender_hidpi-gtk3-page1.png "Screenshot Medium")
-![Screenshot Dark](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/screenshots/theme-monovedek_lcars_hidpi-gtk3-page1.png "Screenshot Dark")
+![Screenshot Light](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/theme-clearlooks_hidpi-gtk3-page1.png "Screenshot Light")
+![Screenshot Medium](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/theme-lavender_hidpi-gtk3-page1.png "Screenshot Medium")
+![Screenshot Dark](https://raw.githubusercontent.com/themix-project/oomox-gtk-theme-test-screenshots/master/theme-monovedek_lcars_hidpi-gtk3-page1.png "Screenshot Dark")
 
 
 #### Prerequisites
