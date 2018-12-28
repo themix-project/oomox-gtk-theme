@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1090
+
 set -ue
-SRC_PATH=$(readlink -f $(dirname $0))
+SRC_PATH=$(readlink -f "$(dirname "$0")")
 
 darker () {
-	"${SRC_PATH}/scripts/darker.sh" $@
+	"${SRC_PATH}/scripts/darker.sh" "$@"
 }
 mix () {
-	"${SRC_PATH}/scripts/mix.sh" $@
+	"${SRC_PATH}/scripts/mix.sh" "$@"
 }
 
 
@@ -37,7 +39,7 @@ print_usage() {
 }
 
 
-while [[ $# > 0 ]]
+while [[ $# -gt 0 ]]
 do
 	case ${1} in
 		-p|--path-list)
@@ -90,7 +92,7 @@ PATHLIST=(
 	'./src/qt5ct_palette.conf'
 	'./src/cinnamon'
 )
-if [ ! -z "${CUSTOM_PATHLIST:-}" ] ; then
+if [ -n "${CUSTOM_PATHLIST:-}" ] ; then
 	IFS=', ' read -r -a PATHLIST <<< "${CUSTOM_PATHLIST:-}"
 fi
 SVG_PREVIEWS=(
@@ -110,12 +112,12 @@ for FILEPATH in "${PATHLIST[@]}"; do
 done
 MAKE_OPTS="${MAKE_OPTS-all}"
 
-OPTION_GTK2_HIDPI=$(echo ${OPTION_GTK2_HIDPI-False} | tr '[:upper:]' '[:lower:]')
+OPTION_GTK2_HIDPI=$(echo "${OPTION_GTK2_HIDPI-False}" | tr '[:upper:]' '[:lower:]')
 
 
 if [[ ${THEME} == */* ]] || [[ ${THEME} == *.* ]] ; then
 	source "$THEME"
-	THEME=$(basename ${THEME})
+	THEME=$(basename "${THEME}")
 else
 	if [[ -f "$SRC_PATH/../colors/$THEME" ]] ; then
 		source "$SRC_PATH/../colors/$THEME"
@@ -144,15 +146,15 @@ WM_BORDER_FOCUS=${WM_BORDER_FOCUS-$SEL_BG}
 WM_BORDER_UNFOCUS=${WM_BORDER_UNFOCUS-$HDR_BG}
 
 GTK3_GENERATE_DARK=$(echo ${GTK3_GENERATE_DARK-True} | tr '[:upper:]' '[:lower:]')
-UNITY_DEFAULT_LAUNCHER_STYLE=$(echo ${UNITY_DEFAULT_LAUNCHER_STYLE-False} | tr '[:upper:]' '[:lower:]')
+UNITY_DEFAULT_LAUNCHER_STYLE=$(echo "${UNITY_DEFAULT_LAUNCHER_STYLE-False}" | tr '[:upper:]' '[:lower:]')
 
 SPACING=${SPACING-3}
 GRADIENT=${GRADIENT-0}
 ROUNDNESS=${ROUNDNESS-2}
 CINNAMON_OPACITY=${CINNAMON_OPACITY-1}
-ROUNDNESS_GTK2_HIDPI=$(( ${ROUNDNESS} * 2 ))
+ROUNDNESS_GTK2_HIDPI=$(( ROUNDNESS * 2 ))
 
-if [ $(echo "$GRADIENT < 2" | bc) ]; then
+if [ "$(echo "$GRADIENT < 2" | bc)" ]; then
 	GTK2_GRAD=$(echo "scale=2; $GRADIENT/2" | bc)
 else
     GTK2_GRAD=1
@@ -214,7 +216,7 @@ done
 
 cd "$DEST_PATH"
 for FILEPATH in "${PATHLIST[@]}"; do
-	find $(echo "${FILEPATH}" | sed -e 's/src\///g' ) -type f -exec sed -i'' \
+	find "$(echo "${FILEPATH}" | sed -e 's/src\///g' )" -type f -exec sed -i'' \
 		-e 's/%BG%/'"$BG"'/g' \
 		-e 's/%FG%/'"$FG"'/g' \
 		-e 's/%SEL_BG%/'"$SEL_BG"'/g' \
@@ -277,7 +279,7 @@ if [[ ${EXPORT_QT5CT} = 1 ]] ; then
 		config_home="${HOME}/.config"
 	fi
 	qt5ct_colors_dir="${config_home}/qt5ct/colors/"
-	test -d ${qt5ct_colors_dir} || mkdir -p ${qt5ct_colors_dir}
+	test -d "${qt5ct_colors_dir}" || mkdir -p "${qt5ct_colors_dir}"
 	mv ./qt5ct_palette.conf "${qt5ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
 fi
 if [[ ${UNITY_DEFAULT_LAUNCHER_STYLE} == "true" ]] ; then
@@ -285,13 +287,13 @@ if [[ ${UNITY_DEFAULT_LAUNCHER_STYLE} == "true" ]] ; then
 fi
 
 if [[ ${MAKE_GTK3} = 1 ]]; then
-	env MAKEFLAGS= make ${MAKE_OPTS}
+	env MAKEFLAGS= make "${MAKE_OPTS}"
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
 
 for FILEPATH in "${SVG_PREVIEWS[@]}"; do
-	rsvg-convert --format=png -o $(sed -e 's/svg$/png/' <<< "${FILEPATH}") "${FILEPATH}"
+	rsvg-convert --format=png -o "$(sed -e 's/svg$/png/' <<< "${FILEPATH}")" "${FILEPATH}"
 	rm "${FILEPATH}"
 done
 
