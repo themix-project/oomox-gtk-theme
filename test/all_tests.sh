@@ -7,7 +7,8 @@
 set -ueo pipefail
 TEST_DIR=$(readlink -e "$(dirname "${0}")")
 export TEST_DIR
-TEST_RESULT_DIR=${TEST_DIR}/../test_results/$(date +%Y-%m-%d_%H-%M-%S)
+SCRIPT_DIR=$(readlink -e "${TEST_DIR}"/..)
+TEST_RESULT_DIR=${SCRIPT_DIR}/test_results/$(date +%Y-%m-%d_%H-%M-%S)
 export TEST_RESULT_DIR
 cd "${TEST_DIR}"
 
