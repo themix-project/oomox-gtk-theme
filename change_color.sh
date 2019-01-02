@@ -287,7 +287,8 @@ if [[ ${UNITY_DEFAULT_LAUNCHER_STYLE} == "true" ]] ; then
 fi
 
 if [[ ${MAKE_GTK3} = 1 ]]; then
-	env MAKEFLAGS= make "${MAKE_OPTS}"
+	# shellcheck disable=SC2086
+	env MAKEFLAGS= make ${MAKE_OPTS}
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
