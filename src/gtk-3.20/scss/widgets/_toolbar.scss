@@ -176,7 +176,7 @@
             $sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 1px));
             padding: $spacing;
 
-            &.text-button{
+            &.text-button {
                 padding: $spacing if($sidepadding > 5px, $sidepadding, 5px);
             }
 
