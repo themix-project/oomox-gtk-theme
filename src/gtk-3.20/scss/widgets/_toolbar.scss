@@ -42,11 +42,11 @@
 
     .linked > button { @include linked_button($bg, $fg); }
 
-    combobox, button {
-        padding: $spacing;
+    //combobox, button {
+        //padding: $spacing;
 
-        &.text-button { padding: $spacing; }
-    }
+        //&.text-button { padding: $spacing; }
+    //}
 
     box button.image-button {
         padding: $spacing $spacing + 4px;
@@ -173,7 +173,12 @@
         button {
             @include button($header_button_bg_color, $header_button_fg_color);
 
-            padding: $spacing if($spacing > 8px, $spacing, 8px);
+            $sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 1px));
+            padding: $spacing;
+
+            &.text-button{
+                padding: $spacing if($sidepadding > 5px, $sidepadding, 5px);
+            }
 
             &.flat {
                 color: $menubar_fg_color;
@@ -183,9 +188,9 @@
                 color: $header_button_fg_color;
             }
 
-            &.image-button {
-                padding: $spacing;
-            }
+            //&.image-button {
+                //padding: $spacing;
+            //}
 
             &:backdrop {
                 color: $titlebar_fg_unfocused;
