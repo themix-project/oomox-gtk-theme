@@ -35,7 +35,9 @@ TEST_EXIT_CODE=0
 
 mkdir -p ~/.config/gtk-3.0 || true
 mkdir -p ~/.config/openbox || true
+mkdir -p ~/.config/fontconfig || true
 
+cp ./fonts.conf ~/.config/fontconfig/fonts.conf
 #shellcheck disable=SC2016
 sed \
 	-e 's/\${THEME_NAME}/'"${THEME_NAME}"'/g' \
