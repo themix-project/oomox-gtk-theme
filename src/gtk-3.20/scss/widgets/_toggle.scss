@@ -133,11 +133,13 @@
         border: 0;
         outline: none;
         transition: background-color .3s linear;
-        min-width: 88px;
-        min-height: 24px;
+        //min-width: 88px;
+        min-width: 66px + $spacing * 4;
+        min-height: 18px + $spacing * 2;
         background-color: $switch_bg_color;
         color: $switch_fg_color;
         box-shadow: inset 1px -1px 0 alpha($dark_shadow, .06), inset -1px 1px 0 alpha($dark_shadow, .06);
+        font-size: 90%;
 
         slider {
             background-color: $switch_slider_bg_color;
