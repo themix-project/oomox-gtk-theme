@@ -5,7 +5,7 @@ VOLUME /opt/oomox-gtk-theme/test_results
 ENTRYPOINT /bin/bash
 
 # App dependensies:
-RUN echo "Update arch deps 2018-12-19" && \
+RUN echo "Update arch deps 2019-03-02" && \
     echo -e 'Server = http://archlinux.cu.be/$repo/os/$arch\nServer = http://mirror.metalgamer.eu/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
     pacman -Syu --noconfirm && \
     pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk-engine-murrine gtk-engines gtk3 make && \
