@@ -29,7 +29,11 @@
             .menuitem { *, &.check:active, &.radio:active { color: $white; } }
         }
 
-        &.menubar { *, &.menuitem { padding: $spacing - 3px; } }
+        &.menubar {
+            *, &.menuitem {
+                padding: if($spacing > 3px, $spacing, 3px) - 3px;
+            }
+        }
 
         &.option-button {
             padding: $spacing;

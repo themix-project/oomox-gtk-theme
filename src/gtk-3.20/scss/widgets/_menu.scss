@@ -94,7 +94,7 @@ $menu_borders_color: mix(
         separator,
         .csd & separator {
             background-color: $menu_borders_color;
-            margin: ($spacing - 2px) 0;
+            margin: (if($spacing > 2px, $spacing, 2px) - 2px) 0;
         }
 
         // Firefox workaround
@@ -238,7 +238,7 @@ $menu_borders_color: mix(
 
 @include exports("popover") {
     popover.background {
-        padding: $spacing - 3px;
+        padding: if($spacing > 3px, $spacing, 3px) - 3px;
         border-radius: $roundness;
         background-clip: border-box;
         background-color: $menu_bg_color;

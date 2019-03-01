@@ -243,9 +243,9 @@
                                 }
                             }
                             @if $_pos == top or $_pos == bottom {
-                                padding-#{$_pos}: $spacing - $compensate_tab_marker_padding;
+                                padding-#{$_pos}: if($spacing > $compensate_tab_marker_padding, $spacing, $compensate_tab_marker_padding) - $compensate_tab_marker_padding;
                             } @else if $_pos == left or $_pos == right {
-                                padding-#{$_pos}: $vertical_tab_spacing - $compensate_tab_marker_padding;
+                                padding-#{$_pos}: if($vertical_tab_spacing > $compensate_tab_marker_padding, $vertical_tab_spacing, $compensate_tab_marker_padding) - $compensate_tab_marker_padding;
                             }
                         }
 

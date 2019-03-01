@@ -92,7 +92,7 @@
 
 @include exports("toolbar_extends") {
     %toolbar {
-        padding: $spacing - 1px;
+        padding: if($spacing > 1px, $spacing, 1px) - 1px;
         border-style: none;
 
         // toolbar separators
