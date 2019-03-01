@@ -55,7 +55,7 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>Roboto</name>
+      <name>Sans</name>
       <size>${FONT_SIZE}</size>
       <!-- font size in points -->
       <weight>Bold</weight>
