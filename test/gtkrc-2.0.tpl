@@ -1,6 +1,6 @@
 gtk-theme-name="oomox-${THEME_NAME}"
 gtk-icon-theme-name="gnome-noble"
-gtk-font-name="Sans ${FONT_SIZE}"
+gtk-font-name="Roboto ${FONT_SIZE}"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
