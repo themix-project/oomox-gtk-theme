@@ -68,7 +68,7 @@
                 button {
                     min-height: 16px;
                     min-width: 16px;
-                    padding: ($spacing - 1px) (($spacing * 2) - 2px);
+                    padding: (if($spacing > 1px, $spacing, 1px) - 1px) ((if($spacing > 1px, $spacing, 1px) * 2) - 2px);
                 }
 
                 button:first-child {
@@ -131,8 +131,8 @@
             + separator + box .primary-toolbar {
                 @include linear-gradient(shade($bg_color, .98)); // Searchbar color (_actionbar.scss)
 
-                padding-top: $spacing - 3px;
-                padding-bottom: $spacing - 3px;
+                padding-top: if($spacing > 3px, $spacing, 3px) - 3px;
+                padding-bottom: if($spacing > 3px, $spacing, 3px) - 3px;
                 border-bottom: 1px solid $borders_color;
 
                 button:nth-child(2) {

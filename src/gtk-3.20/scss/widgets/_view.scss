@@ -75,7 +75,7 @@
 
     %column_header_button {
         @extend %button;
-        padding: ($spacing - 2px) ($spacing + 1px);
+        padding: (if($spacing > 2px, $spacing, 2px) - 2px) ($spacing + 1px);
         border-radius: 0;
         text-shadow: none;
         border-top-color: transparent;

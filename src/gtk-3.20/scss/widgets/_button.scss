@@ -499,7 +499,7 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
         button {
             color: $button_fg_color;
             //padding: $spacing;
-            padding: $spacing ($spacing * 2 - 1px);
+            padding: $spacing (if($spacing > 1px, $spacing, 1px)* 2 - 1px);
             //padding: $spacing ($spacing * 2);
 
             &:active, &:checked, &:hover {
@@ -619,8 +619,8 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
         &.vertical {
             button, entry {
                 min-width: 0;
-                padding-left: $spacing - 2px;
-                padding-right: $spacing - 2px;
+                padding-left: if($spacing > 2px, $spacing, 2px) - 2px;
+                padding-right: if($spacing > 2px, $spacing, 2px) - 2px;
             }
 
             entry {
@@ -721,7 +721,7 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
         .linked.vertical > &:only-child > box > button.combo { @extend %linked_vertical_button:only-child; }
 
         menu menuitem {
-            padding: $spacing ($spacing * 2 - 1px);
+            padding: $spacing (if($spacing > 1px, $spacing, 1px)* 2 - 1px);
 
             cellview {
                 min-height: 14px + $spacing * 2;

@@ -129,7 +129,7 @@
 @include exports("switch") {
     switch {
         border-radius: $roundness;
-        padding: $spacing - 1px;
+        padding: if($spacing > 1px, $spacing, 1px) - 1px;
         border: 0;
         outline: none;
         transition: background-color .3s linear;
