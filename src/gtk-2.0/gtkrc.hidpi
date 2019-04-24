@@ -285,7 +285,7 @@ style "murrine-scale" = "murrine-thin" {
 
 style "murrine-progressbar" = "murrine-thin" {
 	bg[NORMAL] = @bg_color
-	bg[ACTIVE] = mix(0.08, @bg_color, @base_color)
+	bg[ACTIVE] = shade(1.08, @bg_color)
 
 	fg[PRELIGHT] = @selected_fg_color
 
