@@ -22,7 +22,7 @@
 
         trough {
             border: 1px solid mix($bg_color, $fg_color, .17);
-            background-color: shade($bg_color, 1.08);
+            background-color: mix($base_color, $bg_color, .08);
             background-image: none;
             border-radius: $roundness;
         }
@@ -68,7 +68,7 @@
         &:backdrop { transition: 200ms ease-out; }
 
         trough {
-            background-color: shade($bg_color, 1.08);
+            background-color: mix($base_color, $bg_color, .08);
 
             border: 1px solid mix($bg_color, $fg_color, .17);
             border-radius: $roundness;

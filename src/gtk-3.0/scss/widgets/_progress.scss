@@ -20,7 +20,7 @@
 
         &.trough {
             border: 1px solid alpha(border_normal($bg_color), .5);
-            background-color: shade($bg_color, 1.08);
+            background-color: mix($base_color, $bg_color, 0.08);
             background-image: none;
         }
     }
@@ -70,7 +70,7 @@
 
     .level-bar {
         &.trough {
-            @include linear-gradient(shade($bg_color, 1.08), to top);
+            @include linear-gradient(mix($base_color, $bg_color, 0.08), to top);
 
             border: 1px solid alpha(border_normal($bg_color), .5);
             border-radius: $roundness;
@@ -120,7 +120,7 @@
 
 
         &.slider {
-            @include linear-gradient(shade($bg_color, 1.08));
+            @include linear-gradient(mix($base_color, $bg_color, 0.08));
             @include border($bg_color);
 
             border-radius: 8px;
@@ -145,7 +145,7 @@
 
 
         &.trough {
-            @include linear-gradient(shade($bg_color, 1.08));
+            @include linear-gradient(mix($base_color, $bg_color, 0.08));
 
             margin: 7px 0;
             border: 1px solid alpha(border_normal($bg_color), .5);
