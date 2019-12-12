@@ -294,6 +294,7 @@ fi
 rm -fr ./Makefile gtk-3.*/scss
 
 for FILEPATH in "${SVG_PREVIEWS[@]}"; do
+	# shellcheck disable=SC2001
 	rsvg-convert --format=png -o "$(sed -e 's/svg$/png/' <<< "${FILEPATH}")" "${FILEPATH}"
 	rm "${FILEPATH}"
 done
