@@ -195,6 +195,15 @@
             &:backdrop {
                 color: $titlebar_fg_unfocused;
             }
+
+            stack box.narrow {
+                /* have no clue why it's ignored by gtk and forced to 5px and 7px */
+                padding: 0;
+            }
+
+            &:not(:checked):not(:hover) stack box {
+                color: $menubar_fg_color;
+            }
         }
 
         button.titlebutton + separator.titlebutton {
