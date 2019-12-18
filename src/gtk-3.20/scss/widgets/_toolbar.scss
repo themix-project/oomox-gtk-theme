@@ -80,9 +80,11 @@
 
     toolbutton,
     toolbutton:backdrop {
-        & > button.flat {
+        > button.flat {
             @extend %linked_button;
+
             &:dir(ltr) { @extend %linked_middle; }
+
             &:dir(rtl) { @extend %linked_middle-rtl; }
         }
 
