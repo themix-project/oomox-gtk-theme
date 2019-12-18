@@ -48,7 +48,7 @@
     }
 
     button.nautilus-circular-button.image-button {
-        @extend button.circular;
+        @extend button, .circular;
     }
 
     $disk_space_unknown: alpha($fg_color, .5);
