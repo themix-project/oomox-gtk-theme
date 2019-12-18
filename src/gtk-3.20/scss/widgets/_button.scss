@@ -71,10 +71,10 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
     }
 
     %linked_middle-rtl {
-            border-radius: 0;
-            -gtk-outline-radius: 0;
-            //border-right-style: none;
-            //border-left-style: solid;
+        border-radius: 0;
+        -gtk-outline-radius: 0;
+        //border-right-style: none;
+        //border-left-style: solid;
     }
 
     %linked_middle {
@@ -103,37 +103,37 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
     }
 
     %linked_button-first-child {
-            border-width: $button_border_width;
-            //border-left-style: solid;
-            //border-right-style: none;
-            //top-left top-right bottom-right bottom-left
-            border-radius: $roundness 0 0 $roundness;
-            -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
+        border-width: $button_border_width;
+        //border-left-style: solid;
+        //border-right-style: none;
+        //top-left top-right bottom-right bottom-left
+        border-radius: $roundness 0 0 $roundness;
+        -gtk-outline-radius: $button_outline_radius 0 0 $button_outline_radius;
 
-            &:dir(rtl) {
-                //border-left-style: none;
-                //border-right-style: solid;
-            }
+        &:dir(rtl) {
+            //border-left-style: none;
+            //border-right-style: solid;
+        }
     }
 
     %linked_button-last-child {
-            border-width: $button_border_width;
-            //border-left-style: none;
-            //border-right-style: solid;
-            border-radius: 0 $roundness $roundness 0;
-            -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
+        border-width: $button_border_width;
+        //border-left-style: none;
+        //border-right-style: solid;
+        border-radius: 0 $roundness $roundness 0;
+        -gtk-outline-radius: 0 $button_outline_radius $button_outline_radius 0;
 
-            &:dir(rtl) {
-                //border-left-style: solid;
-                //border-right-style: none;
-            }
+        &:dir(rtl) {
+            //border-left-style: solid;
+            //border-right-style: none;
+        }
     }
 
     %linked_button-only-child {
-            border-width: $button_border_width;
-            border-style: solid;
-            border-radius: $roundness;
-            -gtk-outline-radius: $button_outline_radius;
+        border-width: $button_border_width;
+        border-style: solid;
+        border-radius: $roundness;
+        -gtk-outline-radius: $button_outline_radius;
     }
 
     %linked_button {
@@ -158,38 +158,38 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
     }
 
     %linked_vertical_button-first-child {
-            border-width: $button_border_width;
-            //border-top-style: solid;
-            //border-bottom-style: none;
-            //top-left top-right bottom-right bottom-left
-            border-radius: $roundness $roundness 0 0;
-            -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
+        border-width: $button_border_width;
+        //border-top-style: solid;
+        //border-bottom-style: none;
+        //top-left top-right bottom-right bottom-left
+        border-radius: $roundness $roundness 0 0;
+        -gtk-outline-radius: $button_outline_radius $button_outline_radius 0 0;
 
-            //&:dir(rtl) {
-                //border-top-style: none;
-                //border-bottom-style: solid;
-            //}
+        //&:dir(rtl) {
+            //border-top-style: none;
+            //border-bottom-style: solid;
+        //}
     }
 
     %linked_vertical_button-last-child {
-            border-width: $button_border_width;
-            //border-top-style: none;
-            //border-bottom-style: solid;
-            //top-left top-right bottom-right bottom-left
-            border-radius: 0 0 $roundness $roundness;
-            -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
+        border-width: $button_border_width;
+        //border-top-style: none;
+        //border-bottom-style: solid;
+        //top-left top-right bottom-right bottom-left
+        border-radius: 0 0 $roundness $roundness;
+        -gtk-outline-radius: 0 0 $button_outline_radius $button_outline_radius;
 
-            //&:dir(rtl) {
-                //border-top-style: solid;
-                //border-bottom-style: none;
-            //}
+        //&:dir(rtl) {
+            //border-top-style: solid;
+            //border-bottom-style: none;
+        //}
     }
 
     %linked_vertical_button-only-child {
-            border-width: $button_border_width;
-            //border-style: solid;
-            border-radius: $roundness;
-            -gtk-outline-radius: $button_outline_radius;
+        border-width: $button_border_width;
+        //border-style: solid;
+        border-radius: $roundness;
+        -gtk-outline-radius: $button_outline_radius;
     }
 
     %linked_vertical_button {
