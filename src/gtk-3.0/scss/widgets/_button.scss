@@ -29,14 +29,7 @@
         }
     }
 
-    %linked_button {
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 0;
-        border-right-style: none;
-        border-left-style: none;
-
-        &:first-child {
+    %linked_button-first-child {
             border-width: 1px;
             border-radius: $roundness;
             border-left-style: solid;
@@ -48,9 +41,9 @@
                 border-left-style: none;
                 border-right-style: solid;
             }
-        }
+    }
 
-        &:last-child {
+    %linked_button-last-child {
             border-width: 1px;
             border-radius: $roundness;
             border-left-style: none;
@@ -62,12 +55,31 @@
                 border-left-style: solid;
                 border-right-style: none;
             }
-        }
+    }
 
-        &:only-child, &:first-child:only-child {
+    %linked_button-only-child {
             border-width: 1px;
             border-style: solid;
             border-radius: $roundness;
+    }
+
+    %linked_button {
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 0;
+        border-right-style: none;
+        border-left-style: none;
+
+        &:first-child {
+            @extend %linked_button-first-child;
+        }
+
+        &:last-child {
+            @extend %linked_button-last-child;
+        }
+
+        &:only-child, &:first-child:only-child {
+            @extend %linked_button-only-child;
         }
     }
 }
@@ -163,7 +175,7 @@
 
                 box-shadow: 0 1px 2px -1px alpha($dark_shadow, .38 + $shadow_strength);
             }
-            
+
         }
 
         &:checked, &:active {
@@ -373,14 +385,14 @@
             // work, special case needed. See
             // https://bugzilla.gnome.org/show_bug.cgi?id=733979
             &:dir(ltr) { @extend %linked_middle; } // specificity bump
-            &:dir(rtl) { @extend %linked_middle:dir(rtl); }
+            &:dir(rtl) { @extend %linked_middle, :dir(rtl); }
         }
 
-        &:first-child > .button { @extend %linked_button:first-child; }
+        &:first-child > .button { @extend %linked_button-first-child; }
 
-        &:last-child > .button { @extend %linked_button:last-child; }
+        &:last-child > .button { @extend %linked_button-last-child; }
 
-        &:only-child > .button { @extend %linked_button:only-child; }
+        &:only-child > .button { @extend %linked_button-only-child; }
 
         menu menuitem {
             padding: $spacing ($spacing + 2px);

@@ -82,7 +82,7 @@
             .button {
                 @include button($selected_bg_color, $selected_fg_color);
 
-                &.suggested-action { @extend .suggested-action.button; }
+                &.suggested-action { @extend .suggested-action, .button; }
             }
 
             .selection-menu.button {

@@ -63,7 +63,7 @@
     }
 
     GtkIconView {
-        &.content-view.check { @extend .content-view.check; }
+        &.content-view.check { @extend .content-view, .check; }
 
         &.view.cell {
             &:selected, &:selected:focus {

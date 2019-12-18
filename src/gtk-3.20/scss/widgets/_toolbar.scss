@@ -80,13 +80,17 @@
 
     toolbutton,
     toolbutton:backdrop {
-        > button.flat { @extend %linked_middle; }
+        & > button.flat {
+            @extend %linked_button;
+            &:dir(ltr) { @extend %linked_middle; }
+            &:dir(rtl) { @extend %linked_middle-rtl; }
+        }
 
-        &:first-child > button.flat { @extend %linked_button:first-child; }
+        &:first-child > button.flat { @extend %linked_button-first-child; }
 
-        &:last-child > button.flat { @extend %linked_button:last-child; }
+        &:last-child > button.flat { @extend %linked_button-last-child; }
 
-        &:only-child > button.flat { @extend %linked_button:only-child; }
+        &:only-child > button.flat { @extend %linked_button-only-child; }
     }
 }
 
