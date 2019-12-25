@@ -140,6 +140,10 @@
         padding: 0 6px;
         min-height: 42px;
 
+        separator {
+            background-image: image(mix($titlebar_fg_focused, $titlebar_bg_focused, .9));
+        }
+
         &:backdrop {
             @include linear-gradient($titlebar_bg_unfocused);
 

@@ -463,6 +463,10 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
         &:disabled { color: alpha($bg, .85); }
     }
 
+    separator {
+        background-image: image(mix($fg, $bg, .9));
+    }
+
 }
 
 @include exports("button") {
