@@ -27,14 +27,8 @@
             border-style: solid;
             border-color: border_normal($toolbar_bg_color);
 
-            button {
-                @include button($bg_color, $fg_color);
-            }
-
-            .linked > button { @include linked_button($bg_color, $fg_color); }
-
             separator, separator:disabled {
-                color: shade($bg_color, ($contrast + .1));
+                color: mix($bg_color, $fg_color, .88);
                 border-color: currentColor;
                 -GtkWidget-window-dragging: true;
             }
@@ -90,6 +84,7 @@
                 statusbar {
                     border: 0;
                 }
+
             }
         } // END Status Bar
 
