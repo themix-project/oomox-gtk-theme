@@ -93,7 +93,7 @@ $menu_borders_color: mix(
         // A little hack to get some extra space above/below menuitem separators
         separator,
         .csd & separator {
-            background-color: $menu_borders_color;
+            background-image: image($menu_borders_color);
             margin: (if($spacing > 2px, $spacing, 2px) - 2px) 0;
         }
 
