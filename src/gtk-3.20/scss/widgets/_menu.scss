@@ -312,7 +312,7 @@ $menu_borders_color: mix(
         @extend %undecorated_button;
 
         padding: $spacing;
-        padding-left: $spacing + $roundness;
+        padding-left: max($spacing, $roundness);
         transition: none;
 
         &:hover {
