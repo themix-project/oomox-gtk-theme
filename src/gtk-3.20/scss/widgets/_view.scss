@@ -366,6 +366,10 @@
         border: 1px solid border_normal(mix($base_color, $bg_color, .78));
     }
 
+    viewport separator {
+        background-image: image(mix($text_color, $base_color, .9));
+    }
+
 }
 
 
