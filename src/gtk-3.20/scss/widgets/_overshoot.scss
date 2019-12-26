@@ -92,10 +92,6 @@
 scrolledwindow {
     viewport.frame { // avoid double borders when viewport inside scrolled window
         border-style: none;
-
-        separator {
-            background-image: image(mix($text_color, $base_color, .9));
-        }
     }
 
     // This is used by GtkScrolledWindow, when content is touch-dragged past boundaries.
