@@ -84,7 +84,7 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
         //border-right-style: solid;
 
         &:dir(rtl) {
-            @exntend %linked_middle-rtl;
+            @extend %linked_middle-rtl;
         }
     }
 
