@@ -311,10 +311,12 @@ $menu_borders_color: mix(
     menuitem.button.flat {
         @extend %undecorated_button;
 
-        padding: ($spacing + 2px);
+        padding: $spacing;
+        padding-left: $spacing + $roundness;
         transition: none;
 
         &:hover {
+            border-radius: $roundness;
             background-color: $selected_bg_color;
             color: $selected_fg_color;
         }
