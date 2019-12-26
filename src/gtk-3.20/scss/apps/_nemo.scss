@@ -65,17 +65,17 @@
                     padding: (if($spacing > 1px, $spacing, 1px) - 1px) ((if($spacing > 1px, $spacing, 1px) * 2) - 2px);
                 }
 
-                button:first-child {
-                    margin-left: 20px;
-                }
+                //button:first-child {
+                //    margin-left: 0;
+                //}
 
                 button:first-child + button {
-                    margin-right: 15px;
+                    margin-right: 72px;
                 }
 
-                button:first-child + button + separator + button {
-                    margin-left: 15px;
-                }
+                //button:first-child + button + separator + button {
+                //    margin-left: 15px;
+                //}
 
                 > box > scale {
                     margin-right: 12px;
