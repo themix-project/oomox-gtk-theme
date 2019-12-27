@@ -247,8 +247,7 @@ $menu_borders_color: mix(
         box-shadow: 0 3px 6px alpha($black, .16);
 
         .csd &, & {
-            /*@include border($menu_bg_color);*/
-            @include border(alpha($menu_fg_color, .5));
+            @include border_tng($menu_fg_color, $menu_bg_color, .5);
             border-width: 1px;
             border-style: solid;
         }
@@ -269,10 +268,10 @@ $menu_borders_color: mix(
             }
 
             &, &:backdrop {
-                background-color: shade($menu_bg_color, ($contrast + .5));
+                background-color: mix($menu_bg_color, $menu_fg_color,($contrast + .5));
                 background-image: none;
                 color: $menu_fg_color;
-                border-color: border_normal($menu_bg_color);
+                border-color: border_normal_tng($menu_fg_color, $menu_bg_color);
             }
         }
 
@@ -291,7 +290,7 @@ $menu_borders_color: mix(
         }
 
         .frame {
-            border-color: border_normal($menu_bg_color);
+            border-color: border_normal_tng($menu_fg_color, $menu_bg_color);
             border-radius: $roundness;
         }
 
