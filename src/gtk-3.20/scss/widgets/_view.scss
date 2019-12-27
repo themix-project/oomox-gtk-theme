@@ -222,7 +222,7 @@
 
             &:disabled {
                 @include linear-gradient($bg_color);
-                border-color: border_insensitive($bg_color);
+                border-color: border_insensitive_tng($fg_color, $bg_color);
             }
 
             &:backdrop {
