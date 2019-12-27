@@ -32,20 +32,32 @@ $modules: () !default;
     @return unquote("mix(#{$color1},#{$color2}," + $amount + ")");
 }
 
+@function border_focus($color) {
+    @return mix($selected_bg_color, $color, .3);
+}
+
 @function border_normal($color) {
     @return shade($color, $contrast);
 }
 
-@function border_focus($color) {
-    @return if($variant == 'light', mix($selected_bg_color, $color, .3), darken($selected_bg_color, 20%));
+@function border_normal_tng($fg, $bg, $base_ratio) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, .1, 0), .3)));
 }
 
 @function border_active($color) {
     @return shade($color, ($contrast - .1));
 }
 
+@function border_active_tng($fg, $bg, $base_ratio) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, -.2, -.1), -.3)));
+}
+
 @function border_insensitive($color) {
     @return shade($color, ($contrast + .05));
+}
+
+@function border_insensitive_tng($fg, $bg, $base_ratio) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, .2, .1), .35)));
 }
 
 @mixin linear-gradient($color, $direction: to bottom) {
@@ -91,6 +103,28 @@ $modules: () !default;
     &:disabled { border-color: border_insensitive($color); }
 
     &:active:disabled, &:checked:disabled { border-color: border_normal($color); }
+}
+
+@mixin border_tng($fg, $bg, $base_ratio) {
+    $color: mix($fg, $bg, $base_ratio);
+    border-color: border_normal_tng($fg, $bg, $base_ratio);
+
+    &:focus, &:hover { border-color: border_focus($color); }
+
+    &:active, &:active:hover,
+    &:active:focus, &:active:hover:focus,
+    &:checked, &:checked:hover,
+    &:checked:focus, &:checked:hover:focus {
+        border-color: border_active_tng($fg, $bg, $base_ratio);
+    }
+
+    &:disabled {
+        border-color: border_insensitive_tng($fg, $bg, $base_ratio);
+    }
+
+    &:active:disabled, &:checked:disabled {
+        border-color: border_normal_tng($fg, $bg, $base_ratio);
+    }
 }
 
 @function _text_shadow_color($tc: $fg_color, $bg: $bg_color) {

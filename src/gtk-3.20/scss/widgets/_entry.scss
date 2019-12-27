@@ -152,7 +152,7 @@
 @mixin entry($bg, $fg, $border: $borders_color) {
     @extend %entry;
     @include linear-gradient($bg, to top);
-    @include border(mix($bg, $fg, .2));
+    @include border_tng($fg, $bg, .7);
 
     //padding: ($spacing + 2px) $spacing;
     $sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 1px));
