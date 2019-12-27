@@ -40,24 +40,24 @@ $modules: () !default;
     @return shade($color, $contrast);
 }
 
-@function border_normal_tng($fg, $bg, $base_ratio) {
-    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, .1, 0), .3)));
+@function border_normal_tng($fg, $bg, $base_ratio: .7) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, 0, if(lightness($bg) > 33%, .1, .3))));
 }
 
 @function border_active($color) {
     @return shade($color, ($contrast - .1));
 }
 
-@function border_active_tng($fg, $bg, $base_ratio) {
-    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, -.2, -.1), -.3)));
+@function border_active_tng($fg, $bg, $base_ratio: .7) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, -.1, if(lightness($bg) > 33%, -.2, -.3))));
 }
 
 @function border_insensitive($color) {
     @return shade($color, ($contrast + .05));
 }
 
-@function border_insensitive_tng($fg, $bg, $base_ratio) {
-    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, if(lightness($bg) < 33%, .2, .1), .35)));
+@function border_insensitive_tng($fg, $bg, $base_ratio: .7) {
+    @return mix($fg, $bg, $contrast * ($base_ratio + if(lightness($bg) > 66%, .1, if(lightness($bg) > 33%, .2, .35))));
 }
 
 @mixin linear-gradient($color, $direction: to bottom) {
@@ -105,11 +105,12 @@ $modules: () !default;
     &:active:disabled, &:checked:disabled { border-color: border_normal($color); }
 }
 
-@mixin border_tng($fg, $bg, $base_ratio) {
-    $color: mix($fg, $bg, $base_ratio);
+@mixin border_tng($fg, $bg, $base_ratio: .7) {
     border-color: border_normal_tng($fg, $bg, $base_ratio);
 
-    &:focus, &:hover { border-color: border_focus($color); }
+    &:focus, &:hover {
+        border-color: border_focus(mix($fg, $bg, $base_ratio));
+    }
 
     &:active, &:active:hover,
     &:active:focus, &:active:hover:focus,
