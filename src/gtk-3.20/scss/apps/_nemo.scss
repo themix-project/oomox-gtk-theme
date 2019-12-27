@@ -153,7 +153,6 @@
 
                     @extend %button;
                     @include linear-gradient($button_bg);
-                    @include border(rgba(0, 0, 0, .12 + $border_strength));
 
                     color: $fg;
                     box-shadow: 0 1px 2px -1px alpha($dark_shadow, .12 + $shadow_strength);

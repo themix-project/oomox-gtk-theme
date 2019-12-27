@@ -7,7 +7,7 @@
 
 @mixin toolbar($bg, $fg) {
     @include linear-gradient($bg);
-    @include border($bg);
+    @include border_tng($fg, $bg, .8);
 
     color: $fg;
 
