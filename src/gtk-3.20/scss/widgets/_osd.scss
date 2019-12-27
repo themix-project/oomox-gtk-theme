@@ -107,7 +107,7 @@
         scale {
             slider {
                 @include linear-gradient(shade($osd_bg, 1.08));
-                @include border($osd_bg);
+                @include border_tng($osd_fg, $osd_bg);
 
                 &:disabled { @include linear-gradient(shade($osd_bg, .9)); }
             }
@@ -211,7 +211,7 @@
             // OSD horizontal
             &:not(.vertical) {
                 @include linear-gradient($osd_base, to top);
-                @include border($osd_base);
+                @include border_tng($osd_text_color, $osd_base);
 
                 padding: 0;
 
