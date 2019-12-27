@@ -268,7 +268,7 @@ $menu_borders_color: mix(
             }
 
             &, &:backdrop {
-                background-color: mix($menu_bg_color, $menu_fg_color,($contrast + .5));
+                background-color: mix($menu_bg_color, $menu_fg_color, ($contrast + .5));
                 background-image: none;
                 color: $menu_fg_color;
                 border-color: border_normal_tng($menu_fg_color, $menu_bg_color);
