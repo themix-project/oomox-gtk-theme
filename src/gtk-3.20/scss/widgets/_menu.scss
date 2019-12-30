@@ -296,7 +296,13 @@ $menu_borders_color: mix(
 
         entry { @include entry($base_color, $text_color);  }
 
-        button { @include button($header_button_bg_color, $header_button_fg_color);  }
+        button {
+            @include button($header_button_bg_color, $header_button_fg_color);
+
+            &.flat:not(:hover) {
+                color: $menubar_fg_color;
+            }
+        }
 
         .linked > button { @include linked_button($header_button_bg_color, $header_button_fg_color); }
 
