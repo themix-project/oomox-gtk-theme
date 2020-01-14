@@ -88,9 +88,7 @@ css_cinnamon: $(DIST_DIR_CINNAMON)/cinnamon.css
 
 clean: clean_gtk3 clean_gtk320
 
-all:
-	$(MAKE) clean
-	$(MAKE) gresource_gtk3 gresource_gtk320 css_cinnamon
+all: gtk3 gtk320 css_cinnamon
 
 .PHONY: all
 .PHONY: clean
