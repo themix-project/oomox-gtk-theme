@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -ueo pipefail
 
-
-scss_lint_pattern="$HOME/.gem/ruby/*/bin/scss-lint"
-scss_lint_candidates=( "$scss_lint_pattern" )
-SCSS_LINT="${scss_lint_candidates[0]}"
+SCSS_LINT=$(command -v scss-lint)
+if [ -z "${SCSS_LINT}" ] ; then
+	scss_lint_pattern="$HOME/.gem/ruby/*/bin/scss-lint"
+	scss_lint_candidates=( "$scss_lint_pattern" )
+	SCSS_LINT="${scss_lint_candidates[0]}"
+fi
 
 
 if [[ -d ./gtk320lint ]] ; then
