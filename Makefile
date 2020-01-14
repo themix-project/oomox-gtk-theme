@@ -31,10 +31,10 @@ endif
 
 css_gtk3: $(DIST_DIR)/gtk.css $(DIST_DIR)/gtk-dark.css
 
-$(RES_DIR)/gtk.gresource.xml:
-	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" $@
+$(RES_DIR)/gtk.gresource: css_gtk3
+	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" $@.xml
 
-gresource_gtk3: css_gtk3 $(RES_DIR)/gtk.gresource.xml
+gresource_gtk3: $(RES_DIR)/gtk.gresource
 
 gtk3:
 	$(MAKE) clean
@@ -57,10 +57,10 @@ endif
 
 css_gtk320: $(DIST_DIR320)/gtk-dark.css $(DIST_DIR320)/gtk.css
 
-$(RES_DIR320)/gtk.gresource.xml:
-	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" $@
+$(RES_DIR320)/gtk.gresource: css_gtk320
+	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" $@.xml
 
-gresource_gtk320: css_gtk320 $(RES_DIR320)/gtk.gresource.xml
+gresource_gtk320: $(RES_DIR320)/gtk.gresource
 
 gtk320:
 	$(MAKE) clean
