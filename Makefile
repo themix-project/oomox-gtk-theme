@@ -17,22 +17,22 @@ DIST_DIR_CINNAMON=$(RES_DIR_CINNAMON)
 # GTK3 ########################################################################
 
 $(DIST_DIR):
-	mkdir -p $@
+	mkdir -p "$@"
 
 $(DIST_DIR)/gtk.css: $(DIST_DIR)
-	$(SASS) $(SASSFLAGS) "$(SCSS_DIR)" "$(SCSS_DIR)/gtk.scss" $@
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR)" "$(SCSS_DIR)/gtk.scss" "$@"
 
 $(DIST_DIR)/gtk-dark.css: $(DIST_DIR)/gtk.css
 ifneq ("$(wildcard $(SCSS_DIR)/gtk-dark.scss)","")
-	$(SASS) $(SASSFLAGS) "$(SCSS_DIR)" "$(SCSS_DIR)/gtk-dark.scss" $@
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR)" "$(SCSS_DIR)/gtk-dark.scss" "$@"
 else
-	cp "$(DIST_DIR)/gtk.css" $@
+	cp "$(DIST_DIR)/gtk.css" "$@"
 endif
 
 css_gtk3: $(DIST_DIR)/gtk.css $(DIST_DIR)/gtk-dark.css
 
 $(RES_DIR)/gtk.gresource: css_gtk3
-	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" $@.xml
+	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" "$@.xml"
 
 gresource_gtk3: $(RES_DIR)/gtk.gresource
 
@@ -47,22 +47,22 @@ gtk3:
 # GTK3.20+ ####################################################################
 
 $(DIST_DIR320):
-	mkdir -p $@
+	mkdir -p "$@"
 
 $(DIST_DIR320)/gtk.css: $(DIST_DIR320)
-	$(SASS) $(SASSFLAGS) "$(SCSS_DIR320)" "$(SCSS_DIR320)/gtk.scss" $@
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR320)" "$(SCSS_DIR320)/gtk.scss" "$@"
 
 $(DIST_DIR320)/gtk-dark.css: $(DIST_DIR320)/gtk.css
 ifneq ("$(wildcard $(SCSS_DIR320)/gtk-dark.scss)","")
-	$(SASS) $(SASSFLAGS) "$(SCSS_DIR320)" "$(SCSS_DIR320)/gtk-dark.scss" $@
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR320)" "$(SCSS_DIR320)/gtk-dark.scss" "$@"
 else
-	cp "$(DIST_DIR320)/gtk.css" $@
+	cp "$(DIST_DIR320)/gtk.css" "$@"
 endif
 
 css_gtk320: $(DIST_DIR320)/gtk-dark.css $(DIST_DIR320)/gtk.css
 
 $(RES_DIR320)/gtk.gresource: css_gtk320
-	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" $@.xml
+	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" "$@.xml"
 
 gresource_gtk320: $(RES_DIR320)/gtk.gresource
 
@@ -77,10 +77,10 @@ gtk320:
 # Cinnamon ####################################################################
 
 $(DIST_DIR_CINNAMON):
-	mkdir -p $@
+	mkdir -p "$@"
 
 $(DIST_DIR_CINNAMON)/cinnamon.css: $(DIST_DIR_CINNAMON)
-	$(SASS) $(SASSFLAGS) "$(SCSS_DIR_CINNAMON)" "$(SCSS_DIR_CINNAMON)/cinnamon.scss" $@
+	$(SASS) $(SASSFLAGS) "$(SCSS_DIR_CINNAMON)" "$(SCSS_DIR_CINNAMON)/cinnamon.scss" "$@"
 
 css_cinnamon: $(DIST_DIR_CINNAMON)/cinnamon.css
 
