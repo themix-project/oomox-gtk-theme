@@ -288,7 +288,7 @@ fi
 
 if [[ ${MAKE_GTK3} = 1 ]]; then
 	# shellcheck disable=SC2086
-	env MAKEFLAGS= make ${MAKE_OPTS}
+	env MAKEFLAGS= make --jobs="$(nproc)" ${MAKE_OPTS}
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
