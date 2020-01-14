@@ -67,12 +67,12 @@ css: css_gtk3 css_gtk320
 $(RES_DIR)/gtk.gresource.xml:
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR)" $@
 
-gresource_gtk3: | css_gtk3 $(RES_DIR)/gtk.gresource.xml
+gresource_gtk3: css_gtk3 $(RES_DIR)/gtk.gresource.xml
 
 $(RES_DIR320)/gtk.gresource.xml:
 	$(GLIB_COMPILE_RESOURCES) --sourcedir="$(RES_DIR320)" $@
 
-gresource_gtk320: | css_gtk320 $(RES_DIR320)/gtk.gresource.xml
+gresource_gtk320: css_gtk320 $(RES_DIR320)/gtk.gresource.xml
 
 gresource: gresource_gtk3 gresource_gtk320
 
