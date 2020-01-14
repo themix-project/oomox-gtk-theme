@@ -36,8 +36,12 @@ $(RES_DIR)/gtk.gresource: css_gtk3
 
 gresource_gtk3: $(RES_DIR)/gtk.gresource
 
+clean_gtk3:
+	rm -rf "$(DIST_DIR)"
+	rm -f "$(RES_DIR)/gtk.gresource"
+
 gtk3:
-	$(MAKE) clean
+	$(MAKE) clean_gtk3
 	$(MAKE) gresource_gtk3
 
 # GTK3.20+ ####################################################################
@@ -62,8 +66,12 @@ $(RES_DIR320)/gtk.gresource: css_gtk320
 
 gresource_gtk320: $(RES_DIR320)/gtk.gresource
 
+clean_gtk320:
+	rm -rf "$(DIST_DIR320)"
+	rm -f "$(RES_DIR320)/gtk.gresource"
+
 gtk320:
-	$(MAKE) clean
+	$(MAKE) clean_gtk320
 	$(MAKE) gresource_gtk320
 
 # Cinnamon ####################################################################
@@ -78,17 +86,11 @@ css_cinnamon: $(DIST_DIR_CINNAMON)/cinnamon.css
 
 # Common ######################################################################
 
-clean:
-	rm -rf "$(DIST_DIR)"
-	rm -f "$(RES_DIR)/gtk.gresource"
-	rm -rf "$(DIST_DIR320)"
-	rm -f "$(RES_DIR320)/gtk.gresource"
-
-all_gtk: gresource_gtk3 gresource_gtk320
+clean: clean_gtk3 clean_gtk320
 
 all:
 	$(MAKE) clean
-	$(MAKE) all_gtk css_cinnamon
+	$(MAKE) gresource_gtk3 gresource_gtk320 css_cinnamon
 
 .PHONY: all
 .PHONY: clean
