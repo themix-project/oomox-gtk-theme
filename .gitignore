@@ -15,3 +15,5 @@ pkg/
 test_results/
 
 scss-link
+
+__pycache__/
