@@ -1,0 +1,33 @@
+DESTDIR = ./distrib
+PREFIX = /usr
+APPDIR = /opt/oomox
+
+DEST_APPDIR = $(DESTDIR)$(APPDIR)
+DEST_PLUGIN_DIR = $(DESTDIR)$(APPDIR)/plugins
+DEST_PREFIX = $(DESTDIR)$(PREFIX)
+
+.PHONY: install
+install:
+	$(eval PLUGIN_NAME := "theme_oomox")
+	$(eval CLI_NAME := "oomox-cli")
+	$(eval PACKAGING_TMP_DIR := $(shell mktemp -d))
+
+	cp -prf \
+		packaging/ \
+			$(PACKAGING_TMP_DIR)/
+	sed -i -e 's|/opt/oomox/|$(APPDIR)/|g' $(PACKAGING_TMP_DIR)/packaging/bin/*
+	chmod a+x "$(PACKAGING_TMP_DIR)/packaging/bin/"*
+	install -d $(DEST_PREFIX)/bin/
+	install -Dp -m 755 "$(PACKAGING_TMP_DIR)/packaging/bin/$(CLI_NAME)" "$(DEST_PREFIX)/bin/"
+
+	mkdir -p $(DEST_PLUGIN_DIR)/$(PLUGIN_NAME)
+	cp -prf \
+		./change_color.sh \
+		./gtk_preview_css \
+		./Makefile \
+		./oomox_plugin.py \
+		./scripts/ \
+		./src/ \
+			$(DEST_PLUGIN_DIR)/$(PLUGIN_NAME)/
+
+all: install
