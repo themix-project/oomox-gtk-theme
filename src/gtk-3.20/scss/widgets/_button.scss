@@ -454,6 +454,8 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
                 color: alpha($selected_fg_color, .85);
             }
         }
+
+        &:backdrop { color: mix($button_fg_color, $backdrop_fg_color, .8); }
     }
 
     &.separator, .separator {
