@@ -149,6 +149,7 @@
 
             color: $titlebar_fg_unfocused;
             text-shadow: none;
+            border-color: mix($backdrop_borders_color, $bg_color, .5);
         }
 
         &.default-decoration { // Default titlebar (old metacity)
