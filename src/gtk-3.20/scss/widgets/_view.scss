@@ -369,6 +369,12 @@
         background-image: image(mix($text_color, $base_color, .9));
     }
 
+    //fix weird GTK issue, where for elements `viewport > menu > separator`
+    //style `viewport separator` have higher priority than `menu separator`:
+    viewport menu separator {
+        background-image: image($menu_borders_color);
+    }
+
 }
 
 
