@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: switch base docker image
+      run: sed -i -e 's|FROM archlinux/base|FROM actionless/pikaur|' Dockerfile
+
+    - name: build docker image
+      run: docker image build ./ -t oomox-gtk-theme
+
+    - name: run shellcheck in docker
+      run: docker run --entrypoint ./test/shellcheck.sh oomox-gtk-theme:latest
+
+    - name: run tests in docker
+      run: docker run --entrypoint ./test/all_tests.sh oomox-gtk-theme:latest
