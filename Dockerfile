@@ -14,8 +14,7 @@ RUN echo "Update arch deps 2019-03-02" && \
 # Test dependencies:
 RUN pacman -Syu --noconfirm && \
     pacman -S --needed --noconfirm git base-devel && \
-    useradd -m user && \
-    echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    (useradd -m user && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers || true) && \
     sudo -u user bash -c "\
         git clone https://aur.archlinux.org/awf-git /home/user/awf && \
         cd /home/user/awf && \
