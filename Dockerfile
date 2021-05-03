@@ -19,7 +19,7 @@ RUN pacman -Syu --noconfirm && \
         git clone https://aur.archlinux.org/awf-git /home/user/awf && \
         cd /home/user/awf && \
         makepkg --install --syncdeps --noconfirm" && \
-    pacman -S --needed --noconfirm ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-extra adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick shellcheck && \
+    pacman -S --needed --noconfirm gtk3-demos ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-extra adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick shellcheck && \
     rm -fr /var/cache/pacman/pkg/ /var/lib/pacman/sync/
 
 # Debug dependencies:
