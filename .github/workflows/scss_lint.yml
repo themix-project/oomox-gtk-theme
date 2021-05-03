@@ -1,4 +1,4 @@
-name: Code Style
+name: SCSS Lint
 
 on:
   push:
