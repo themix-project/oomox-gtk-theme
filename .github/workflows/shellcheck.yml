@@ -1,0 +1,18 @@
+name: Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: run shellcheck in docker
+      run: |
+        docker run --volume $(pwd):/mnt actionless/pikaur /mnt/test/shellcheck.sh
