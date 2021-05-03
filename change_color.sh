@@ -90,6 +90,7 @@ PATHLIST=(
 	'Makefile'
 	'./src/index.theme'
 	'./src/qt5ct_palette.conf'
+	'./src/qt6ct_palette.conf'
 	'./src/cinnamon'
 )
 if [ -n "${CUSTOM_PATHLIST:-}" ] ; then
@@ -108,6 +109,8 @@ for FILEPATH in "${PATHLIST[@]}"; do
 		MAKE_GTK3=1
 	elif [[ ${FILEPATH} == *qt5ct* ]] ;then
 		EXPORT_QT5CT=1
+	elif [[ ${FILEPATH} == *qt6ct* ]] ;then
+		EXPORT_QT6CT=1
 	fi
 done
 MAKE_OPTS="${MAKE_OPTS-all}"
@@ -157,16 +160,16 @@ ROUNDNESS_GTK2_HIDPI=$(( ROUNDNESS * 2 ))
 if [ "$(echo "$GRADIENT < 2" | bc)" ]; then
 	GTK2_GRAD=$(echo "scale=2; $GRADIENT/2" | bc)
 else
-    GTK2_GRAD=1
+	GTK2_GRAD=1
 fi
 GTK2_GRAD_1=$(echo "1+$GTK2_GRAD" | bc)
 GTK2_GRAD_2=$(echo "1-$GTK2_GRAD" | bc)
 if expr "$GTK2_GRAD_1" : '-\?[0-9]\+$' >/dev/null; then
-  GTK2_GRAD_TOP="$GTK2_GRAD_1".0
-  GTK2_GRAD_BOTTOM="$GTK2_GRAD_2".0
+	GTK2_GRAD_TOP="$GTK2_GRAD_1".0
+	GTK2_GRAD_BOTTOM="$GTK2_GRAD_2".0
 else
-  GTK2_GRAD_TOP=$GTK2_GRAD_1
-  GTK2_GRAD_BOTTOM=$GTK2_GRAD_2
+	GTK2_GRAD_TOP=$GTK2_GRAD_1
+	GTK2_GRAD_BOTTOM=$GTK2_GRAD_2
 fi
 
 OUTLINE_WIDTH=${OUTLINE_WIDTH-1}
@@ -273,15 +276,6 @@ fi
 if [[ ${OPTION_GTK2_HIDPI} == "true" ]] ; then
 	mv ./gtk-2.0/gtkrc.hidpi ./gtk-2.0/gtkrc
 fi
-if [[ ${EXPORT_QT5CT} = 1 ]] ; then
-	config_home=${XDG_CONFIG_HOME:-}
-	if [[ -z "${config_home}" ]] ; then
-		config_home="${HOME}/.config"
-	fi
-	qt5ct_colors_dir="${config_home}/qt5ct/colors/"
-	test -d "${qt5ct_colors_dir}" || mkdir -p "${qt5ct_colors_dir}"
-	mv ./qt5ct_palette.conf "${qt5ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
-fi
 if [[ ${UNITY_DEFAULT_LAUNCHER_STYLE} == "true" ]] ; then
 	rm ./unity/launcher*.svg
 fi
@@ -289,6 +283,21 @@ fi
 if [[ ${MAKE_GTK3} = 1 ]]; then
 	# shellcheck disable=SC2086
 	env MAKEFLAGS= make --jobs="$(nproc)" ${MAKE_OPTS}
+fi
+
+config_home=${XDG_CONFIG_HOME:-}
+if [[ -z "${config_home}" ]] ; then
+	config_home="${HOME}/.config"
+fi
+if [[ ${EXPORT_QT5CT} = 1 ]] ; then
+	qt5ct_colors_dir="${config_home}/qt5ct/colors/"
+	test -d "${qt5ct_colors_dir}" || mkdir -p "${qt5ct_colors_dir}"
+	mv ./qt5ct_palette.conf "${qt5ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
+fi
+if [[ ${EXPORT_QT6CT} = 1 ]] ; then
+	qt6ct_colors_dir="${config_home}/qt6ct/colors/"
+	test -d "${qt6ct_colors_dir}" || mkdir -p "${qt6ct_colors_dir}"
+	mv ./qt6ct_palette.conf "${qt6ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
