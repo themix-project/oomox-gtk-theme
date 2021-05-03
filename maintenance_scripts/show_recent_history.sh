@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
-IFS=$'\n\t'
-
 
 filter="cat"
 if [[ "${1:-}" = '-c' ]] ; then
-	filter="grep -v -i -e style -e github -e docker -e chore -e test -e revert -e screensh -e merge"
+	filter="grep -v -i -E -e (typing|typehint|coverage|github|docker) -e actionless.*(chore|test|style|doc|Revert|Merge|readme|refactor).*:"
 	shift
 fi
 
