@@ -19,8 +19,5 @@ jobs:
     - name: build docker image
       run: docker image build ./ -t oomox-gtk-theme
 
-    - name: run shellcheck in docker
-      run: docker run --entrypoint ./test/shellcheck.sh oomox-gtk-theme:latest
-
     - name: run tests in docker
       run: docker run --entrypoint ./test/all_tests.sh oomox-gtk-theme:latest
