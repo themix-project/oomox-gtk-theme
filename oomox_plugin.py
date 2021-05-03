@@ -86,7 +86,7 @@ class Plugin(OomoxThemePlugin):
     name = 'oomox'
     display_name = 'Oomox (Numix-Based)'
     description = (
-        'GTK+2, GTK+3, Qt5ct\n'
+        'GTK+2, GTK+3, Qt5ct, Qt6ct\n'
         'Cinnamon, Metacity, Openbox, Unity, Xfwm'
     )
     export_dialog = OomoxThemeExportDialog
