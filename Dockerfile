@@ -1,4 +1,4 @@
-FROM archlinux/base
+FROM archlinux:base-devel
 
 WORKDIR /opt/oomox-gtk-theme
 VOLUME /opt/oomox-gtk-theme/test_results
