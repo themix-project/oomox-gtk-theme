@@ -9,7 +9,7 @@ from oomox_gui.i18n import _
 
 OPTION_GTK3_CURRENT_VERSION_ONLY = 'OPTION_GTK3_CURRENT_VERSION_ONLY'
 OPTION_EXPORT_CINNAMON_THEME = 'OPTION_EXPORT_CINNAMON_THEME'
-OPTION_DEFAULT_PATH = 'default_path'
+OPTION_DEFAULT_PATH = 'default_path'  # @TODO: move it to CommonGtkThemeExportDialog
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 GTK_THEME_DIR = PLUGIN_DIR
@@ -20,7 +20,9 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
     config_name = 'gtk_theme_oomox'
 
     def do_export(self):
-        export_path = self.option_widgets[OPTION_DEFAULT_PATH].get_text()
+        export_path = os.path.expanduser(
+            self.option_widgets[OPTION_DEFAULT_PATH].get_text()
+        )
         new_destination_dir, theme_name = export_path.rsplit('/', 1)
 
         self.command = [
