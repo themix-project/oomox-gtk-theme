@@ -40,7 +40,10 @@
         }
     }
 
-    .linked > button { @include linked_button($bg, $fg); }
+    viewswitcher button,
+    .linked > button {
+        @include linked_button($bg, $fg);
+    }
 
     //combobox, button {
         //padding: $spacing;
@@ -214,6 +217,13 @@
 
             &:not(:checked):not(:hover) stack box {
                 color: $menubar_fg_color;
+            }
+
+        }
+
+        viewswitcher {
+            button:not(:checked):not(:hover) stack box {
+                color: $button_fg_color;
             }
         }
 
