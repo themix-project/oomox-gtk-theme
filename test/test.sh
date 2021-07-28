@@ -97,22 +97,9 @@ make_and_compare_screenshot() {
 	test_result_base_name=$(date +%H-%M-%S)_${screenshot_base_name}
 	scrot "${TEST_RESULT_DIR}/${test_result_base_name}.test.png"
 
-	precompare_result=0
-	precompare_output=$(mktemp)
-	compare -verbose -metric PAE \
-		"${SCREENSHOTS_DIR}/${screenshot_base_name}.png" \
-		"${TEST_RESULT_DIR}/${test_result_base_name}.test.png" \
-		"${TEST_RESULT_DIR}/${test_result_base_name}.diff.png" \
-		1>"${precompare_output}" 2>&1 \
-		|| precompare_result=$?
-	if [[ "${precompare_result}" -ne 0 ]] ; then
-		cat "${precompare_output}"
-	fi
-	rm "${precompare_output}"
-
 	compare_result=0
 	compare_output=$(mktemp)
-	compare -verbose -metric AE -fuzz 10 \
+	compare -verbose -metric AE -fuzz 15 \
 		"${SCREENSHOTS_DIR}/${screenshot_base_name}.png" \
 		"${TEST_RESULT_DIR}/${test_result_base_name}.test.png" \
 		"${TEST_RESULT_DIR}/${test_result_base_name}.diff.png" \
