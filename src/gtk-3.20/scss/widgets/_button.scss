@@ -308,6 +308,7 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
 
     .linked:not(.vertical) > &:not(:last-child):not(:only-child),
     .linked:not(.vertical) > :not(:last-child):not(:only-child) &,
+    viewswitcher:not(.vertical) >  &:not(:last-child):not(:only-child),
     stackswitcher:not(.vertical) >  &:not(:last-child):not(:only-child) {
         border-right-style: none;
 
@@ -320,6 +321,7 @@ $button_sidepadding: $spacing + ($roundness / 14px * if($spacing > 0, $spacing, 
 
     .linked:not(.vertical) > &:not(:last-child):not(:only-child):checked,
     .linked:not(.vertical) > :not(:last-child):not(:only-child) &:checked,
+    viewswitcher:not(.vertical) >  &:not(:last-child):not(:only-child),
     stackswitcher:not(.vertical) > &:not(:last-child):not(:only-child):checked {
         border-right-style: none;
 
