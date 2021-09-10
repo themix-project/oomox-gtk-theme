@@ -86,11 +86,19 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
 class Plugin(OomoxThemePlugin):
 
     name = 'oomox'
-    display_name = 'Oomox (Numix-Based)'
+    display_name = 'Oomox'
     description = (
         'GTK+2, GTK+3, Qt5ct, Qt6ct\n'
         'Cinnamon, Metacity, Openbox, Unity, Xfwm'
     )
+    about_text = 'The default theme, originally based on Numix GTK theme.'
+    about_links = [
+        {
+            'name': 'Homepage',
+            'url': 'https://github.com/themix-project/oomox-gtk-theme/',
+        },
+    ]
+
     export_dialog = OomoxThemeExportDialog
     gtk_preview_dir = os.path.join(PLUGIN_DIR, "gtk_preview_css/")
 
