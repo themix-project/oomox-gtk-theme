@@ -8,6 +8,7 @@
 @define-color theme_bg_color #{"" + $bg_color};
 @define-color theme_fg_color #{"" + $fg_color};
 @define-color theme_base_color #{"" + $base_color};
+@define-color text_view_bg  #{"" + $base_color}; /*workaround for new vte versions */
 @define-color theme_text_color #{"" + $text_color};
 @define-color theme_selected_bg_color #{"" + $selected_bg_color};
 @define-color theme_selected_fg_color #{"" + $selected_fg_color};
