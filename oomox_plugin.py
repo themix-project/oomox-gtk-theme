@@ -4,7 +4,7 @@ from gi.repository import Gtk
 
 from oomox_gui.export_common import OPTION_GTK2_HIDPI, CommonGtkThemeExportDialog
 from oomox_gui.plugin_api import OomoxThemePlugin
-from oomox_gui.i18n import _
+from oomox_gui.i18n import translate
 
 
 OPTION_GTK3_CURRENT_VERSION_ONLY = 'OPTION_GTK3_CURRENT_VERSION_ONLY'
@@ -61,16 +61,18 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
             add_options={
                 OPTION_GTK3_CURRENT_VERSION_ONLY: {
                     'default': False,
-                    'display_name': _("Generate theme only for the current _GTK+3 version\n"
-                                      "instead of both 3.18 and 3.20+"),
+                    'display_name': translate(
+                        "Generate theme only for the current _GTK+3 version\n"
+                        "instead of both 3.18 and 3.20+"
+                    ),
                 },
                 OPTION_EXPORT_CINNAMON_THEME: {
                     'default': False,
-                    'display_name': _("Generate theme for _Cinnamon"),
+                    'display_name': translate("Generate theme for _Cinnamon"),
                 },
                 OPTION_DEFAULT_PATH: {
                     'default': default_themes_path,
-                    'display_name': _("Export _path: "),
+                    'display_name': translate("Export _path: "),
                 },
             },
             **kwargs
@@ -132,13 +134,13 @@ class Plugin(OomoxThemePlugin):
             'key': 'CARET1_FG',
             'type': 'color',
             'fallback_key': 'TXT_FG',
-            'display_name': _('Textbox Caret'),
+            'display_name': translate('Textbox Caret'),
         },
         {
             'key': 'CARET2_FG',
             'type': 'color',
             'fallback_key': 'TXT_FG',
-            'display_name': _('BiDi Textbox Caret'),
+            'display_name': translate('BiDi Textbox Caret'),
         },
     ]
 
@@ -147,11 +149,11 @@ class Plugin(OomoxThemePlugin):
             'key': 'CARET_SIZE',
             'type': 'float',
             'fallback_value': 0.04,  # GTK's default
-            'display_name': _('Textbox Caret Aspect Ratio'),
+            'display_name': translate('Textbox Caret Aspect Ratio'),
         },
         {
             'type': 'separator',
-            'display_name': _('GTK3 Theme Options'),
+            'display_name': translate('GTK3 Theme Options'),
             'value_filter': {
                 'THEME_STYLE': 'oomox',
             },
@@ -160,37 +162,37 @@ class Plugin(OomoxThemePlugin):
             'key': 'SPACING',
             'type': 'int',
             'fallback_value': 3,
-            'display_name': _('Spacing'),
+            'display_name': translate('Spacing'),
         },
         {
             'key': 'OUTLINE_WIDTH',
             'type': 'int',
             'fallback_value': 1,
-            'display_name': _('Focused Outline Width'),
+            'display_name': translate('Focused Outline Width'),
         },
         {
             'key': 'BTN_OUTLINE_WIDTH',
             'type': 'int',
             'fallback_value': 1,
-            'display_name': _('Focused Button Outline Width'),
+            'display_name': translate('Focused Button Outline Width'),
         },
         {
             'key': 'BTN_OUTLINE_OFFSET',
             'type': 'int',
             'fallback_value': -3,
             'min_value': -20,
-            'display_name': _('Focused Button Outline Offset'),
+            'display_name': translate('Focused Button Outline Offset'),
         },
         {
             'key': 'GTK3_GENERATE_DARK',
             'type': 'bool',
             'fallback_value': True,
-            'display_name': _('Add Dark Variant'),
+            'display_name': translate('Add Dark Variant'),
         },
 
         {
             'type': 'separator',
-            'display_name': _('Desktop Environments'),
+            'display_name': translate('Desktop Environments'),
             'value_filter': {
                 'THEME_STYLE': 'oomox',
             },
@@ -200,13 +202,13 @@ class Plugin(OomoxThemePlugin):
             'type': 'float',
             'fallback_value': 1.0,
             'max_value': 1.0,
-            'display_name': _('Cinnamon: Opacity'),
+            'display_name': translate('Cinnamon: Opacity'),
         },
         {
             'key': 'UNITY_DEFAULT_LAUNCHER_STYLE',
             'type': 'bool',
             'fallback_value': False,
-            'display_name': _('Unity: Use Default Launcher Style'),
+            'display_name': translate('Unity: Use Default Launcher Style'),
         },
     ]
 
