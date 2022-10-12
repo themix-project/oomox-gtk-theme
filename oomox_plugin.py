@@ -93,10 +93,10 @@ class Plugin(OomoxThemePlugin):
         'GTK+2, GTK+3, Qt5ct, Qt6ct\n'
         'Cinnamon, Metacity, Openbox, Unity, Xfwm'
     )
-    about_text = 'The default theme, originally based on Numix GTK theme.'
+    about_text = translate('The default theme, originally based on Numix GTK theme.')
     about_links = [
         {
-            'name': 'Homepage',
+            'name': translate('Homepage'),
             'url': 'https://github.com/themix-project/oomox-gtk-theme/',
         },
     ]
