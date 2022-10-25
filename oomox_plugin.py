@@ -2,14 +2,10 @@ import os
 
 from gi.repository import Gtk
 
-from oomox_gui.export_common import OPTION_GTK2_HIDPI, CommonGtkThemeExportDialog
+from oomox_gui.export_common import CommonGtkThemeExportDialog
 from oomox_gui.plugin_api import OomoxThemePlugin
 from oomox_gui.i18n import translate
 
-
-OPTION_GTK3_CURRENT_VERSION_ONLY = 'OPTION_GTK3_CURRENT_VERSION_ONLY'
-OPTION_EXPORT_CINNAMON_THEME = 'OPTION_EXPORT_CINNAMON_THEME'
-OPTION_DEFAULT_PATH = 'default_path'  # @TODO: move it to CommonGtkThemeExportDialog
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 GTK_THEME_DIR = PLUGIN_DIR
@@ -21,27 +17,27 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
 
     def do_export(self):
         export_path = os.path.expanduser(
-            self.option_widgets[OPTION_DEFAULT_PATH].get_text()
+            self.option_widgets[self.OPTIONS.DEFAULT_PATH].get_text()
         )
         new_destination_dir, theme_name = export_path.rsplit('/', 1)
 
         self.command = [
             "bash",
             os.path.join(GTK_THEME_DIR, "change_color.sh"),
-            "--hidpi", str(self.export_config[OPTION_GTK2_HIDPI]),
+            "--hidpi", str(self.export_config[self.OPTIONS.GTK2_HIDPI]),
             "--target-dir", new_destination_dir,
             "--output", theme_name,
             self.temp_theme_path,
         ]
         make_opts = []
-        if self.export_config[OPTION_GTK3_CURRENT_VERSION_ONLY]:
+        if self.export_config[self.OPTIONS.GTK3_CURRENT_VERSION_ONLY]:
             if Gtk.get_minor_version() >= 20:
                 make_opts += ["gtk320"]
             else:
                 make_opts += ["gtk3"]
         else:
             make_opts += ["gtk3", "gtk320"]
-        if self.export_config[OPTION_EXPORT_CINNAMON_THEME]:
+        if self.export_config[self.OPTIONS.EXPORT_CINNAMON_THEME]:
             make_opts += ["css_cinnamon"]
         if make_opts:
             self.command += [
@@ -49,39 +45,27 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
             ]
         super().do_export()
 
-        self.export_config[OPTION_DEFAULT_PATH] = new_destination_dir
-        self.export_config.save()
-
     def __init__(self, transient_for, colorscheme, theme_name, **kwargs):
-        default_themes_path = os.path.join(os.environ['HOME'], '.themes')
+        self.OPTIONS.GTK3_CURRENT_VERSION_ONLY = 'self.OPTIONS.GTK3_CURRENT_VERSION_ONLY'
+        self.OPTIONS.EXPORT_CINNAMON_THEME = 'self.OPTIONS.EXPORT_CINNAMON_THEME'
         super().__init__(
             transient_for=transient_for,
             colorscheme=colorscheme,
             theme_name=theme_name,
             add_options={
-                OPTION_GTK3_CURRENT_VERSION_ONLY: {
+                self.OPTIONS.GTK3_CURRENT_VERSION_ONLY: {
                     'default': False,
                     'display_name': translate(
                         "Generate theme only for the current _GTK+3 version\n"
                         "instead of both 3.18 and 3.20+"
                     ),
                 },
-                OPTION_EXPORT_CINNAMON_THEME: {
+                self.OPTIONS.EXPORT_CINNAMON_THEME: {
                     'default': False,
                     'display_name': translate("Generate theme for _Cinnamon"),
                 },
-                OPTION_DEFAULT_PATH: {
-                    'default': default_themes_path,
-                    'display_name': translate("Export _path: "),
-                },
             },
             **kwargs
-        )
-        self.option_widgets[OPTION_DEFAULT_PATH].set_text(
-            os.path.join(
-                self.export_config[OPTION_DEFAULT_PATH],
-                self.theme_name,
-            )
         )
 
 
