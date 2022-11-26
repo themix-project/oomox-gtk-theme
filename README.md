@@ -1,7 +1,7 @@
 oomox-gtk-theme
 =====
 
-[![Code Style](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/code_style.yml/badge.svg)](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/code_style.yml) [![Tests](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/tests.yml/badge.svg)](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/tests.yml)
+[![SCSS Lint](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/scss_lint.yml/badge.svg)](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/scss_lint.yml) [![Shellcheck](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/shellcheck.yml) [![Tests](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/tests.yml/badge.svg)](https://github.com/themix-project/oomox-gtk-theme/actions/workflows/tests.yml)
 
 Oomox-gtk-theme is a fork of Numix-gtk-theme.
 It is used in oomox app: https://github.com/themix-project/oomox
