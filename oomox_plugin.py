@@ -2,16 +2,27 @@ import os
 
 from gi.repository import Gtk
 
-from oomox_gui.export_common import CommonGtkThemeExportDialog
 from oomox_gui.plugin_api import OomoxThemePlugin
 from oomox_gui.i18n import translate
+from oomox_gui.export_common import CommonGtkThemeExportDialog
+
+try:
+    from oomox_gui.export_common import CommonGtkThemeExportDialogOptions
+except ImportError:
+    CommonGtkThemeExportDialogOptions = CommonGtkThemeExportDialog.OPTIONS.__class__
 
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 GTK_THEME_DIR = PLUGIN_DIR
 
 
+class OomoxThemeExportDialogOptions(CommonGtkThemeExportDialogOptions):
+    GTK3_CURRENT_VERSION_ONLY = 'self.OPTIONS.GTK3_CURRENT_VERSION_ONLY'
+    EXPORT_CINNAMON_THEME = 'self.OPTIONS.EXPORT_CINNAMON_THEME'
+
+
 class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
+    OPTIONS = OomoxThemeExportDialogOptions()
     timeout = 100
     config_name = 'gtk_theme_oomox'
 
@@ -46,8 +57,6 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
         super().do_export()
 
     def __init__(self, transient_for, colorscheme, theme_name, **kwargs):
-        self.OPTIONS.GTK3_CURRENT_VERSION_ONLY = 'self.OPTIONS.GTK3_CURRENT_VERSION_ONLY'
-        self.OPTIONS.EXPORT_CINNAMON_THEME = 'self.OPTIONS.EXPORT_CINNAMON_THEME'
         super().__init__(
             transient_for=transient_for,
             colorscheme=colorscheme,
