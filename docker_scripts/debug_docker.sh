@@ -12,7 +12,8 @@ if xhost | grep -q enabled ; then
 	test "${answer}" != 'y' && exit 1
 	xhost +
 	_exit() {
-			xhost -
+		# shellcheck disable=SC2317
+		xhost -
 	}
 	trap _exit EXIT SIGHUP SIGINT SIGTERM INT
 fi
