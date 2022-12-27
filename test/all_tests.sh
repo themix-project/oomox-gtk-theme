@@ -21,11 +21,13 @@ fi
 
 
 function ctrl_c() {
+	# shellcheck disable=SC2317
 	exit 3
 }
 trap ctrl_c INT
 
 
+# shellcheck disable=SC2317
 _kill_procs() {
 	set +e
 	chmod 777 "${TEST_RESULT_DIR}"/*

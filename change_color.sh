@@ -66,7 +66,6 @@ do
 			if [[ "${1}" == -* ]] || [[ ${THEME-} ]]; then
 				echo "unknown option ${1}"
 				print_usage
-				exit 2
 			fi
 			THEME="${1}"
 		;;
@@ -148,7 +147,7 @@ HDR_BTN_FG=${HDR_BTN_FG-$BTN_FG}
 WM_BORDER_FOCUS=${WM_BORDER_FOCUS-$SEL_BG}
 WM_BORDER_UNFOCUS=${WM_BORDER_UNFOCUS-$HDR_BG}
 
-GTK3_GENERATE_DARK=$(echo ${GTK3_GENERATE_DARK-True} | tr '[:upper:]' '[:lower:]')
+GTK3_GENERATE_DARK=$(echo "${GTK3_GENERATE_DARK-True}" | tr '[:upper:]' '[:lower:]')
 UNITY_DEFAULT_LAUNCHER_STYLE=$(echo "${UNITY_DEFAULT_LAUNCHER_STYLE-False}" | tr '[:upper:]' '[:lower:]')
 
 SPACING=${SPACING-3}
@@ -176,13 +175,13 @@ OUTLINE_WIDTH=${OUTLINE_WIDTH-1}
 BTN_OUTLINE_WIDTH=${BTN_OUTLINE_WIDTH-1}
 BTN_OUTLINE_OFFSET=${BTN_OUTLINE_OFFSET--3}
 
-INACTIVE_FG=$(mix ${FG} ${BG} 0.75)
-INACTIVE_HDR_FG=$(mix ${HDR_FG} ${HDR_BG} 0.75)
-INACTIVE_TXT_FG=$(mix ${TXT_FG} ${TXT_BG} 0.75)
+INACTIVE_FG=$(mix "$FG" "$BG" 0.75)
+INACTIVE_HDR_FG=$(mix "$HDR_FG" "$HDR_BG" 0.75)
+INACTIVE_TXT_FG=$(mix "$TXT_FG" "$TXT_BG" 0.75)
 
-light_folder_base_fallback="$(darker ${SEL_BG} -10)"
-medium_base_fallback="$(darker ${SEL_BG} 37)"
-dark_stroke_fallback="$(darker ${SEL_BG} 50)"
+light_folder_base_fallback="$(darker "$SEL_BG" -10)"
+medium_base_fallback="$(darker "$SEL_BG" 37)"
+dark_stroke_fallback="$(darker "$SEL_BG" 50)"
 
 ICONS_LIGHT_FOLDER="${ICONS_LIGHT_FOLDER-$light_folder_base_fallback}"
 ICONS_LIGHT="${ICONS_LIGHT-$SEL_BG}"
