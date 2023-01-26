@@ -28,7 +28,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
 
     def do_export(self):
         export_path = os.path.expanduser(
-            self.option_widgets[self.OPTIONS.DEFAULT_PATH].get_text()
+            self.option_widgets[self.OPTIONS.DEFAULT_PATH].get_text(),
         )
         new_destination_dir, theme_name = export_path.rsplit("/", 1)
 
@@ -66,7 +66,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
                     "default": False,
                     "display_name": translate(
                         "Generate theme only for the current _GTK+3 version\n"
-                        "instead of both 3.18 and 3.20+"
+                        "instead of both 3.18 and 3.20+",
                     ),
                 },
                 self.OPTIONS.EXPORT_CINNAMON_THEME: {
@@ -74,7 +74,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
                     "display_name": translate("Generate theme for _Cinnamon"),
                 },
             },
-            **kwargs
+            **kwargs,
         )
 
 
