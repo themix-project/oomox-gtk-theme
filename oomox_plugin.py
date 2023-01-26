@@ -205,5 +205,5 @@ class Plugin(OomoxThemePlugin):
         },
     ]
 
-    def preview_before_load_callback(self, preview_object, colorscheme):
+    def preview_before_load_callback(self, preview_object, colorscheme):  # noqa: ARG002
         preview_object.WM_BORDER_WIDTH = 2
