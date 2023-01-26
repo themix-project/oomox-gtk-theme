@@ -2,9 +2,9 @@ import os
 
 from gi.repository import Gtk
 
-from oomox_gui.plugin_api import OomoxThemePlugin
-from oomox_gui.i18n import translate
 from oomox_gui.export_common import CommonGtkThemeExportDialog
+from oomox_gui.i18n import translate
+from oomox_gui.plugin_api import OomoxThemePlugin
 
 try:
     from oomox_gui.export_common import CommonGtkThemeExportDialogOptions
