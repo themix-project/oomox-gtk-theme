@@ -1,19 +1,21 @@
 import os
+from typing import TYPE_CHECKING
 
 from gi.repository import Gtk
 
-from oomox_gui.export_common import CommonGtkThemeExportDialog
+from oomox_gui.export_common import CommonGtkThemeExportDialog, CommonGtkThemeExportDialogOptions
 from oomox_gui.i18n import translate
 from oomox_gui.plugin_api import OomoxThemePlugin
 
-try:
-    from oomox_gui.export_common import CommonGtkThemeExportDialogOptions
-except ImportError:
-    CommonGtkThemeExportDialogOptions = CommonGtkThemeExportDialog.OPTIONS.__class__
+if TYPE_CHECKING:
+    from typing import Any, Final
+
+    from oomox_gui.preview import ThemePreview
+    from oomox_gui.theme_file import ThemeT
 
 
-PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
-GTK_THEME_DIR = PLUGIN_DIR
+PLUGIN_DIR: "Final" = os.path.dirname(os.path.realpath(__file__))
+GTK_THEME_DIR: "Final" = PLUGIN_DIR
 
 
 class OomoxThemeExportDialogOptions(CommonGtkThemeExportDialogOptions):
@@ -26,7 +28,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
     timeout = 100
     config_name = "gtk_theme_oomox"
 
-    def do_export(self):
+    def do_export(self) -> None:
         export_path = os.path.expanduser(
             self.option_widgets[self.OPTIONS.DEFAULT_PATH].get_text(),
         )
@@ -56,7 +58,13 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
             ]
         super().do_export()
 
-    def __init__(self, transient_for, colorscheme, theme_name, **kwargs):
+    def __init__(
+            self,
+            transient_for: Gtk.Window,
+            colorscheme: "ThemeT",
+            theme_name: str,
+            **kwargs: "Any",
+    ) -> None:
         super().__init__(
             transient_for=transient_for,
             colorscheme=colorscheme,
@@ -205,5 +213,7 @@ class Plugin(OomoxThemePlugin):
         },
     ]
 
-    def preview_before_load_callback(self, preview_object, colorscheme):  # noqa: ARG002
+    def preview_before_load_callback(
+            self, preview_object: "ThemePreview", colorscheme: "ThemeT",  # noqa: ARG002
+    ) -> None:
         preview_object.WM_BORDER_WIDTH = 2
