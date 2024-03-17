@@ -3,6 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 cd "$(readlink -e "$(dirname "${0}")")"/..
+mkdir -p ./test_results/
 exec docker \
 	container run \
 	--detach --tty \
