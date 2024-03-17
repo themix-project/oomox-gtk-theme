@@ -90,6 +90,13 @@ get_window_id() {
 	xdotool search --pid "$1" 2>/dev/null | tail -n 1
 }
 
+curl_upload_file() {
+	FILEPATH="$1"
+	curl \
+		-F'file=@'"$FILEPATH" \
+		https://0x0.st
+}
+
 make_and_compare_screenshot() {
 	test_variant=${1}
 	sleep "${DEFAULT_SLEEP}"
@@ -130,16 +137,13 @@ make_and_compare_screenshot() {
 		#shellcheck disable=SC2031
 		if [[ -z ${GENERATE_ASSETS:-} ]] ; then
 			echo "${THEME_NAME} ${test_variant}:" >> "${TEST_RESULT_DIR}/links.txt"
-			if curl --upload-file "${TEST_RESULT_DIR}/${test_result_base_name}.test.png" \
-					"https://transfer.sh/${test_result_base_name}.test.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
+			if curl_upload_file "${TEST_RESULT_DIR}/${test_result_base_name}.test.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
 				echo >> "${TEST_RESULT_DIR}/links.txt"
 			fi
-			if curl --upload-file "${SCREENSHOTS_DIR}/${screenshot_base_name}.png" \
-					"https://transfer.sh/${test_result_base_name}.orig.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
+			if curl_upload_file "${SCREENSHOTS_DIR}/${screenshot_base_name}.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
 				echo >> "${TEST_RESULT_DIR}/links.txt"
 			fi
-			if curl --upload-file "${TEST_RESULT_DIR}/${test_result_base_name}.diff.png" \
-					"https://transfer.sh/${test_result_base_name}.diff.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
+			if curl_upload_file "${TEST_RESULT_DIR}/${test_result_base_name}.diff.png" >> "${TEST_RESULT_DIR}/links.txt" ; then
 				echo >> "${TEST_RESULT_DIR}/links.txt"
 			fi
 			exit 1
