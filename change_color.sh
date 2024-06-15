@@ -207,7 +207,7 @@ DEST_PATH="$DEST_PATH_ROOT/${OUTPUT_THEME_NAME/\//-}"
 test "$SRC_PATH" = "$DEST_PATH" && echo "can't do that" && exit 1
 
 
-rm -fr "$DEST_PATH"
+rm -fr "${DEST_PATH}/{assets,cinnamon,gtk-2.0,gtk-3.0,gtk-3.20,index.theme,metacity-1,openbox-3,unity,xfwm4}"
 mkdir -p "$DEST_PATH"
 echo -e "\nBuilding theme at $DEST_PATH\n"
 cp -r "$SRC_PATH/src/index.theme" "$DEST_PATH"
