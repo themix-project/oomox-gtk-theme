@@ -303,8 +303,16 @@ rm -fr ./Makefile gtk-3.*/scss
 
 for FILEPATH in "${SVG_PREVIEWS[@]}"; do
 	# shellcheck disable=SC2001
-	rsvg-convert --format=png -o "$(sed -e 's/svg$/png/' <<< "${FILEPATH}")" "${FILEPATH}"
-	rm "${FILEPATH}"
+	if [[ -f "$FILEPATH" ]] ; then
+		rsvg-convert --format=png -o "$(sed -e 's/svg$/png/' <<< "${FILEPATH}")" "${FILEPATH}"
+		rm "${FILEPATH}"
+	fi
 done
+
+if [[ ${MAKE_OPTS} = "gtk320" ]]; then
+	rm -fr ./gtk-3.0/
+elif [[ ${MAKE_OPTS} = "gtk3" ]]; then
+	rm -fr ./gtk-3.20/
+fi
 
 exit 0
