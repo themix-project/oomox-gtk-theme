@@ -91,8 +91,10 @@ class Plugin(OomoxThemePlugin):
     name = "oomox"
     display_name = "Oomox"
     description = (
-        "GTK+2, GTK+3, Qt5ct, Qt6ct\n"
-        "Cinnamon, Metacity, Openbox, Unity, Xfwm"
+        "GTK+2, GTK+3, Cinnamon, Metacity,\n"
+        "Openbox, Unity, Xfwm\n"
+        "(GTK+4, Qt5ct, Qt6ct and others have been moved"
+        "to Base16 Export Plugin)"
     )
     about_text = translate("The default theme, originally based on Numix GTK theme.")
     about_links = [

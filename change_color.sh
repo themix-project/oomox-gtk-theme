@@ -88,8 +88,6 @@ PATHLIST=(
 	'./src/unity'
 	'Makefile'
 	'./src/index.theme'
-	'./src/qt5ct_palette.conf'
-	'./src/qt6ct_palette.conf'
 	'./src/cinnamon'
 )
 if [ -n "${CUSTOM_PATHLIST:-}" ] ; then
@@ -102,14 +100,9 @@ SVG_PREVIEWS=(
 )
 
 MAKE_GTK3=0
-EXPORT_QT5CT=0
 for FILEPATH in "${PATHLIST[@]}"; do
 	if [[ ${FILEPATH} == *Makefile* ]] ;then
 		MAKE_GTK3=1
-	elif [[ ${FILEPATH} == *qt5ct* ]] ;then
-		EXPORT_QT5CT=1
-	elif [[ ${FILEPATH} == *qt6ct* ]] ;then
-		EXPORT_QT6CT=1
 	fi
 done
 MAKE_OPTS="${MAKE_OPTS-all}"
@@ -287,16 +280,6 @@ fi
 config_home=${XDG_CONFIG_HOME:-}
 if [[ -z "${config_home}" ]] ; then
 	config_home="${HOME}/.config"
-fi
-if [[ ${EXPORT_QT5CT} = 1 ]] ; then
-	qt5ct_colors_dir="${config_home}/qt5ct/colors/"
-	test -d "${qt5ct_colors_dir}" || mkdir -p "${qt5ct_colors_dir}"
-	mv ./qt5ct_palette.conf "${qt5ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
-fi
-if [[ ${EXPORT_QT6CT} = 1 ]] ; then
-	qt6ct_colors_dir="${config_home}/qt6ct/colors/"
-	test -d "${qt6ct_colors_dir}" || mkdir -p "${qt6ct_colors_dir}"
-	mv ./qt6ct_palette.conf "${qt6ct_colors_dir}/${OUTPUT_THEME_NAME}.conf"
 fi
 
 rm -fr ./Makefile gtk-3.*/scss
