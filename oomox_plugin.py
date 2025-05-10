@@ -44,7 +44,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
         ]
         make_opts = []
         if self.export_config[self.OPTIONS.GTK3_CURRENT_VERSION_ONLY]:
-            if Gtk.get_minor_version() >= 20:  # noqa: PLR2004
+            if Gtk.get_minor_version() >= 20:  # pylint: disable=no-value-for-parameter  # noqa: PLR2004
                 make_opts += ["gtk320"]
             else:
                 make_opts += ["gtk3"]
