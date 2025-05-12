@@ -90,22 +90,23 @@ get_window_id() {
 	xdotool search --pid "$1" 2>/dev/null | tail -n 1
 }
 
-curl_upload_file_keepsh() {
-	FILEPATH="$1"
-	curl \
-		--upload-file "$FILEPATH" \
-		https://free.keep.sh
-}
-
-#curl_upload_file_0x0() {
+#curl_upload_file_keepsh() {
 #    FILEPATH="$1"
 #    curl \
-#        -F'file=@'"$FILEPATH" \
-#        https://0x0.st
+#        --upload-file "$FILEPATH" \
+#        https://free.keep.sh
 #}
 
+curl_upload_file_0x0() {
+	FILEPATH="$1"
+	curl \
+		-F'file=@'"$FILEPATH" \
+		https://0x0.st
+}
+
 curl_upload_file() {
-	curl_upload_file_keepsh "$1"
+	#curl_upload_file_keepsh "$1"
+	curl_upload_file_0x0 "$1"
 }
 
 make_and_compare_screenshot() {
