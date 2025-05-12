@@ -15,8 +15,8 @@ jobs:
       with:
         submodules: recursive
 
-    - name: switch base docker image
-      run: sed -i -e 's|FROM archlinux:base-devel|FROM actionless/pikaur|' Dockerfile
+    #- name: switch base docker image
+    #  run: sed -i -e 's|FROM archlinux:base-devel|FROM actionless/pikaur|' Dockerfile
 
     - name: build docker image
       run: docker image build ./ -t oomox-gtk-theme
