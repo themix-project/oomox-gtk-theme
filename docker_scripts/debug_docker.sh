@@ -11,6 +11,7 @@ if xhost | grep -q enabled ; then
 	read -r answer
 	test "${answer}" != 'y' && exit 1
 	xhost +
+	# shellcheck disable=SC2329
 	_exit() {
 		# shellcheck disable=SC2317
 		xhost -

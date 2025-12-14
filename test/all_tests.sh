@@ -20,6 +20,7 @@ if [[ -n ${GENERATE_ASSETS:-} ]] ; then
 fi
 
 
+# shellcheck disable=SC2329
 function ctrl_c() {
 	# shellcheck disable=SC2317
 	exit 3
@@ -27,7 +28,7 @@ function ctrl_c() {
 trap ctrl_c INT
 
 
-# shellcheck disable=SC2317
+# shellcheck disable=SC2317,SC2329
 _kill_procs() {
 	set +e
 	chmod 777 "${TEST_RESULT_DIR}"/*
