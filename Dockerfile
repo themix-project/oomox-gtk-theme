@@ -6,7 +6,7 @@ ENTRYPOINT /bin/bash
 
 # App dependensies:
 RUN echo "Update arch deps 2025-12-14" && \
-    echo -e 'Server = http://archlinux.cu.be/$repo/os/$arch\nServer = http://mirror.metalgamer.eu/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
+    echo -e 'Server = https://mirrors.purring.online/arch/$repo/os/$arch\nServer = https://arch.unixpeople.org/$repo/os/$arch' > /etc/pacman.d/mirrorlist && \
     pacman -Syu --noconfirm && \
     pacman -S --needed --noconfirm bash grep sed bc glib2 gdk-pixbuf2 sassc gtk3 make && \
     rm -fr /var/cache/pacman/pkg/ /var/lib/pacman/sync/
