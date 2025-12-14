@@ -19,7 +19,7 @@ RUN pacman -Syu --noconfirm && \
         git clone https://aur.archlinux.org/pikaur /home/user/pikaur && \
         cd /home/user/pikaur && \
         makepkg --install --syncdeps --noconfirm" && \
-    pikaur -S --needed --noconfirm gtk3-demos ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-extra adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick shellcheck awf-git gtk-engine-murrine gtk-engines && \
+    sudo -u user pikaur -S --needed --noconfirm gtk3-demos ttf-roboto scrot xorg-server-xvfb libfaketime xdotool parallel gnome-themes-extra adwaita-icon-theme openbox xorg-xrdb xorg-xsetroot imagemagick shellcheck awf-git gtk-engine-murrine gtk-engines && \
     rm -fr /var/cache/pacman/pkg/ /var/lib/pacman/sync/
 
 # Debug dependencies:
