@@ -44,7 +44,7 @@ class OomoxThemeExportDialog(CommonGtkThemeExportDialog):
         ]
         make_opts = []
         if self.export_config[self.OPTIONS.GTK3_CURRENT_VERSION_ONLY]:
-            if Gtk.get_minor_version() >= 20:  # pylint: disable=no-value-for-parameter  # noqa: PLR2004
+            if Gtk.get_minor_version() >= 20:  # ruff: ignore[magic-value-comparison]
                 make_opts += ["gtk320"]
             else:
                 make_opts += ["gtk3"]
@@ -216,6 +216,6 @@ class Plugin(OomoxThemePlugin):
     ]
 
     def preview_before_load_callback(
-            self, preview_object: "ThemePreview", colorscheme: "ThemeT",  # noqa: ARG002
+            self, preview_object: "ThemePreview", colorscheme: "ThemeT",  # ruff: ignore[unused-method-argument]
     ) -> None:
         preview_object.WM_BORDER_WIDTH = 2
